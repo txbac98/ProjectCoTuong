@@ -1,0 +1,9 @@
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.exe
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.pdb
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.csprojResolveAssemblyReference.cache
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.Cache
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Github\CoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.pdb

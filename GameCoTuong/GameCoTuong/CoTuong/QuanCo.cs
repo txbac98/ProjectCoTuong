@@ -18,7 +18,7 @@ namespace GameCoTuong
 
 
         /* Các phương thức chung */
-       
+        public virtual void TinhOCoTheDi(OCO[,] viTri) { } //Phuong thuc ao
 
         protected Point TinhNuoc(int dx, int dy)  //Tinh nuoc, ham chung
         {
@@ -31,9 +31,7 @@ namespace GameCoTuong
         public void DiChuyen(Point oMoi)
         {
             toaDo.X = oMoi.X;
-            toaDo.Y = oMoi.Y;
-
-            
+            toaDo.Y = oMoi.Y; 
         }
 
         public void AddList(Point oTemp, OCO oCo) // Thêm 1 điểm đích vào danh sách 'list0'
@@ -49,7 +47,7 @@ namespace GameCoTuong
             listO.Clear();
         }
 
-        public bool XetToaDo(int X, int Y)
+        public virtual bool XetToaDo(int X, int Y)
         {
             //Xet co nam trong ban co hay k
 

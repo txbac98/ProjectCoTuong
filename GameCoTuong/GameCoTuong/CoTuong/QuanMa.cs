@@ -9,7 +9,7 @@ namespace GameCoTuong
 {
     public class QuanMa : QuanCo
     {
-        public void TinhOCoTheDi(OCO[,] viTri)
+        public override void TinhOCoTheDi(OCO[,] viTri)
         {
             Point oTemp = new Point(-1, -1);
             OCO oCo = new OCO();

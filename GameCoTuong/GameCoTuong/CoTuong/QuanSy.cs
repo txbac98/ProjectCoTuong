@@ -13,41 +13,45 @@ namespace GameCoTuong.CoTuong
         {
             Point oTemp = new Point(-1, -1);
             OCO oCo = new OCO();
-
-            if (viTri[toaDo.X + 1, toaDo.Y + 1].giaTri != mau) 
-            // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
+            if (XetToaDo(toaDo.X + 1, toaDo.Y + 1))
+                //Kiem tra có tồn tại không
             {
-                if (XetToaDo(toaDo.X + 1, toaDo.Y + 1))
+                if (viTri[toaDo.X + 1, toaDo.Y + 1].giaTri != mau)
+                // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
                 {
+
                     oTemp = TinhNuoc(1, 1);
                     oCo = viTri[toaDo.X + 1, toaDo.Y + 1];
                     AddList(oTemp, oCo);
+
                 }
             }
-            if (viTri[toaDo.X + 1, toaDo.Y - 1].giaTri != mau)
-            // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
+            if (XetToaDo(toaDo.X + 1, toaDo.Y - 1))
             {
-                if (XetToaDo(toaDo.X + 1, toaDo.Y - 1))
+                if (viTri[toaDo.X + 1, toaDo.Y - 1].giaTri != mau)
+                // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
                 {
+
                     oTemp = TinhNuoc(1, -1);
                     oCo = viTri[toaDo.X + 1, toaDo.Y - 1];
                     AddList(oTemp, oCo);
                 }
             }
-            if (viTri[toaDo.X - 1, toaDo.Y + 1].giaTri != mau)
-            // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
+            if (XetToaDo(toaDo.X - 1, toaDo.Y + 1))
             {
-                if (XetToaDo(toaDo.X - 1, toaDo.Y + 1))
+                if (viTri[toaDo.X - 1, toaDo.Y + 1].giaTri != mau)
+                // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
                 {
+
                     oTemp = TinhNuoc(-1, +1);
                     oCo = viTri[toaDo.X - 1, toaDo.Y + 1];
                     AddList(oTemp, oCo);
                 }
             }
-            if (viTri[toaDo.X - 1, toaDo.Y - 1].giaTri != mau)
-            // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
+            if (XetToaDo(toaDo.X - 1, toaDo.Y - 1))
             {
-                if (XetToaDo(toaDo.X - 1, toaDo.Y - 1))
+                if (viTri[toaDo.X - 1, toaDo.Y - 1].giaTri != mau)
+                // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
                 {
                     oTemp = TinhNuoc(-1, -1);
                     oCo = viTri[toaDo.X - 1, toaDo.Y - 1];

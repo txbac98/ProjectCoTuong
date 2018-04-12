@@ -16,3 +16,6 @@ D:\Học tập\Lập trình trực quan\GameCoTuong\ProjectCoTuong\GameCoTuong\G
 D:\Học tập\Lập trình trực quan\GameCoTuong\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.Cache
 D:\Học tập\Lập trình trực quan\GameCoTuong\ProjectCoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.exe
 D:\Học tập\Lập trình trực quan\GameCoTuong\ProjectCoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.pdb
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.pdb

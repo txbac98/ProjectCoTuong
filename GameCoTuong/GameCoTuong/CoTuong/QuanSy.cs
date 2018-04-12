@@ -12,7 +12,6 @@ namespace GameCoTuong.CoTuong
         public override void TinhOCoTheDi(OCO[,] viTri)
         {
             Point oTemp = new Point(-1, -1);
-            OCO oCo = new OCO();
             if (XetToaDo(toaDo.X + 1, toaDo.Y + 1))
                 //Kiem tra có tồn tại không
             {
@@ -21,8 +20,7 @@ namespace GameCoTuong.CoTuong
                 {
 
                     oTemp = TinhNuoc(1, 1);
-                    oCo = viTri[toaDo.X + 1, toaDo.Y + 1];
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
 
                 }
             }
@@ -33,8 +31,7 @@ namespace GameCoTuong.CoTuong
                 {
 
                     oTemp = TinhNuoc(1, -1);
-                    oCo = viTri[toaDo.X + 1, toaDo.Y - 1];
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
             if (XetToaDo(toaDo.X - 1, toaDo.Y + 1))
@@ -44,8 +41,7 @@ namespace GameCoTuong.CoTuong
                 {
 
                     oTemp = TinhNuoc(-1, +1);
-                    oCo = viTri[toaDo.X - 1, toaDo.Y + 1];
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
             if (XetToaDo(toaDo.X - 1, toaDo.Y - 1))
@@ -54,13 +50,22 @@ namespace GameCoTuong.CoTuong
                 // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
                 {
                     oTemp = TinhNuoc(-1, -1);
-                    oCo = viTri[toaDo.X - 1, toaDo.Y - 1];
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
         }
         public override bool XetToaDo(int X, int Y)
         {
+            //Chung
+            if (X < 0 || X > 8)
+            {
+                return false;
+            }
+            if (Y < 0 || Y > 9)
+            {
+                return false;
+            }
+
             if (mau == 2)
             {
                 if (toaDo.X >= 3 && toaDo.X <= 5 && toaDo.Y >= 7 && toaDo.Y <= 9) // Sy mau do nam trong o

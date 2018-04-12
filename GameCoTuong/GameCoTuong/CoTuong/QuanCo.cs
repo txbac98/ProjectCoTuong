@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameCoTuong
+namespace GameCoTuong.CoTuong
 {
 
 
@@ -34,12 +34,9 @@ namespace GameCoTuong
             toaDo.Y = oMoi.Y; 
         }
 
-        public void AddList(Point oTemp, OCO oCo) // Thêm 1 điểm đích vào danh sách 'list0'
+        public void AddList(Point oTemp) // Thêm 1 điểm đích vào danh sách 'list0'
         {
-            if (oCo.giaTri != mau) //khac mau: => o trong hoac doi phuong
-            {
                 listO.Add(oTemp);
-            }
         }
 
         public void ClearListO()

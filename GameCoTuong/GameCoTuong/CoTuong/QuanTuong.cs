@@ -12,13 +12,12 @@ namespace GameCoTuong.CoTuong
         public override void TinhOCoTheDi(OCO[,] viTri)
         {
             Point oTemp = new Point(-1, -1);
-            OCO oCo = new OCO();
             if (XetToaDo(toaDo.X + 1, toaDo.Y))  //+1 0
             {
                 if (viTri[toaDo.X + 1, toaDo.Y].giaTri == 0)  //Khong bi chan
                 {
                     oTemp = TinhNuoc(1, 0);
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
             if (XetToaDo(toaDo.X - 1, toaDo.Y))  //+1 0
@@ -26,7 +25,7 @@ namespace GameCoTuong.CoTuong
                 if (viTri[toaDo.X - 1, toaDo.Y].giaTri == 0)  //Khong bi chan
                 {
                     oTemp = TinhNuoc(-1, 0);
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
             if (XetToaDo(toaDo.X, toaDo.Y + 1))  //+1 0
@@ -34,7 +33,7 @@ namespace GameCoTuong.CoTuong
                 if (viTri[toaDo.X, toaDo.Y +1].giaTri == 0)  //Khong bi chan
                 {
                     oTemp = TinhNuoc(0, 1);
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
             if (XetToaDo(toaDo.X, toaDo.Y - 1))  //+1 0
@@ -42,7 +41,7 @@ namespace GameCoTuong.CoTuong
                 if (viTri[toaDo.X, toaDo.Y -1].giaTri == 0)  //Khong bi chan
                 {
                     oTemp = TinhNuoc(0, -1);
-                    AddList(oTemp, oCo);
+                    AddList(oTemp);
                 }
             }
         }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameCoTuong
+namespace GameCoTuong.CoTuong
 {
         //Dung chung ben QuanCo
     public struct VITRI

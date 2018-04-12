@@ -8,7 +8,7 @@ namespace GameCoTuong
 {
 
 
-    public class QuanCo: BanCo
+    public class QuanCo
     {
         /* Bien*/
         public Point toaDo;
@@ -28,16 +28,14 @@ namespace GameCoTuong
             return temp;
         }
 
-        public void DiChuyen(Point oMoi)
+        public void DiChuyen(Point oMoi, OCO[,] viTri)
         {
-            viTri[toaDo.X, toaDo.Y].giaTri = 0; //o cu trong => 0
-            viTri[oMoi.X, oMoi.Y].giaTri = mau; //o moi co con moi
+            
         }
 
-        public void AddList(Point oTemp, List<Point> a) // Thêm 1 điểm đích vào danh sách 'list0'
+        public void AddList(Point oTemp, OCO oCo) // Thêm 1 điểm đích vào danh sách 'list0'
         {
-            if (XetToaDo(oTemp.X,oTemp.Y))
-            if (viTri[oTemp.X, oTemp.Y].giaTri != mau) //khac mau: => o trong hoac doi phuong
+            if (oCo.giaTri != mau) //khac mau: => o trong hoac doi phuong
             {
                 listO.Add(oTemp);
             }

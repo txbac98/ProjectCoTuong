@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace GameCoTuong
     }
     public struct OCO //o co
     {
-        public VITRI viTri;
+        public VITRI ToaDo;
         public int giaTri; //0 : k co co; 1: xanh, 2: do
     };
 
@@ -29,7 +30,12 @@ namespace GameCoTuong
             //Dat vi tri, gia tri cua o
         }
 
-       
+     public void CapNhat(Point toaDoTruoc, Point toaDoSau)  //Goi ham luc di chuyen
+        {
+
+            viTri[toaDoSau.X, toaDoSau.Y].giaTri = viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri;
+            viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri = 0;
+        }
 
         
     }

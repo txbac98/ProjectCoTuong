@@ -31,12 +31,13 @@ namespace GameCoTuong.CoTuong
         public void DiChuyen(Point oMoi)
         {
             toaDo.X = oMoi.X;
-            toaDo.Y = oMoi.Y; 
+            toaDo.Y = oMoi.Y;
+            listO.Clear(); //clear list O
         }
 
         public void AddList(Point oTemp) // Thêm 1 điểm đích vào danh sách 'list0'
         {
-                listO.Add(oTemp);
+             listO.Add(oTemp);
         }
 
         public void ClearListO()

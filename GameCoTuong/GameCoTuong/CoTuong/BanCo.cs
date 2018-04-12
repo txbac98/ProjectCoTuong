@@ -32,7 +32,6 @@ namespace GameCoTuong.CoTuong
 
         public void CapNhat(Point toaDoTruoc, Point toaDoSau)  //Goi ham luc di chuyen
         {
-
             viTri[toaDoSau.X, toaDoSau.Y].giaTri = viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri;
             viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri = 0;
         }

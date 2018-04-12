@@ -28,8 +28,11 @@ namespace GameCoTuong
             return temp;
         }
 
-        public void DiChuyen(Point oMoi, OCO[,] viTri)
+        public void DiChuyen(Point oMoi)
         {
+            toaDo.X = oMoi.X;
+            toaDo.Y = oMoi.Y;
+
             
         }
 

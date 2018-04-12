@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameCoTuong
 {
-    //Dung chung ben QuanCo
+        //Dung chung ben QuanCo
     public struct VITRI
     {
         float x, y;
@@ -30,7 +30,7 @@ namespace GameCoTuong
             //Dat vi tri, gia tri cua o
         }
 
-     public void CapNhat(Point toaDoTruoc, Point toaDoSau)  //Goi ham luc di chuyen
+        public void CapNhat(Point toaDoTruoc, Point toaDoSau)  //Goi ham luc di chuyen
         {
 
             viTri[toaDoSau.X, toaDoSau.Y].giaTri = viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri;

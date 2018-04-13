@@ -30,7 +30,7 @@ namespace GameCoTuong.CoTuong
             }
             if (XetToaDo(toaDo.X, toaDo.Y + 1))  //+1 0
             {
-                if (viTri[toaDo.X, toaDo.Y +1].giaTri == 0)  //Khong bi chan
+                if (viTri[toaDo.X, toaDo.Y + 1].giaTri == 0)  //Khong bi chan
                 {
                     oTemp = TinhNuoc(0, 1);
                     AddList(oTemp);
@@ -38,13 +38,14 @@ namespace GameCoTuong.CoTuong
             }
             if (XetToaDo(toaDo.X, toaDo.Y - 1))  //+1 0
             {
-                if (viTri[toaDo.X, toaDo.Y -1].giaTri == 0)  //Khong bi chan
+                if (viTri[toaDo.X, toaDo.Y - 1].giaTri == 0)  //Khong bi chan
                 {
                     oTemp = TinhNuoc(0, -1);
                     AddList(oTemp);
                 }
             }
         }
+
         public override bool XetToaDo(int X, int Y)
         {
             if (mau == 2)

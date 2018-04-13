@@ -54,6 +54,7 @@ namespace GameCoTuong.CoTuong
                 }
             }
         }
+
         public override bool XetToaDo(int X, int Y)
         {
             //Chung

@@ -44,7 +44,7 @@ namespace GameCoTuong.CoTuong
 
         public void AddList(Point oTemp) // Thêm 1 điểm đích vào danh sách 'list0'
         {
-             listO.Add(oTemp);
+            listO.Add(oTemp);
         }
 
         public void ClearListO()
@@ -56,7 +56,7 @@ namespace GameCoTuong.CoTuong
         {
             //Xet co nam trong ban co hay k
 
-            if (X<0 || X > 8)
+            if (X < 0 || X > 8)
             {
                 return false;
             }

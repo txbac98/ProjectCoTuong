@@ -76,6 +76,7 @@ namespace GameCoTuong.CoTuong
             }
 
         }
+
         bool QuaXong()
         {
             if (mau == 1) //xanh

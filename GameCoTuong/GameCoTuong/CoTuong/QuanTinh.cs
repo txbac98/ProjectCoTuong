@@ -13,7 +13,6 @@ namespace GameCoTuong.CoTuong
         {
             Point oTemp = new Point(-1, -1);
 
-
             //Xet o chan (1,1)
             if (XetToaDo(1, 1))
             {
@@ -28,12 +27,12 @@ namespace GameCoTuong.CoTuong
             }
             if (XetToaDo(-1, -1))
             {
-                if (XetToaDo(toaDo.X-2,toaDo.Y-2)) //-2 -2
+                if (XetToaDo(toaDo.X - 2, toaDo.Y - 2)) //-2 -2
                 {
 
-                        oTemp = TinhNuoc(-2, -2);
+                    oTemp = TinhNuoc(-2, -2);
 
-                        AddList(oTemp);
+                    AddList(oTemp);
                 }
             }
             if (XetToaDo(-1, 1))

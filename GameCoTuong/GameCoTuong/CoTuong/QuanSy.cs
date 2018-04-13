@@ -13,7 +13,7 @@ namespace GameCoTuong.CoTuong
         {
             Point oTemp = new Point(-1, -1);
             if (XetToaDo(toaDo.X + 1, toaDo.Y + 1))
-                //Kiem tra có tồn tại không
+            //Kiem tra có tồn tại không
             {
                 if (viTri[toaDo.X + 1, toaDo.Y + 1].giaTri != mau)
                 // Kiểm tra xem có khác màu không, nếu khác màu là ô trống hoặc đối phương
@@ -71,7 +71,7 @@ namespace GameCoTuong.CoTuong
                 if (toaDo.X >= 3 && toaDo.X <= 5 && toaDo.Y >= 7 && toaDo.Y <= 9) // Sy mau do nam trong o
                     return true;
             }
-            else if(mau == 1)
+            else if (mau == 1)
             {
                 if ((toaDo.X >= 3 && toaDo.X <= 5 && toaDo.Y >= 0 && toaDo.Y <= 2)) // Sy mau xanh nam trong o
                     return true;

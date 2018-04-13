@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameCoTuong.CoTuong
 {
-    class QuanTot:QuanCo
+    class QuanTot : QuanCo
     {
         public override void TinhOCoTheDi(OCO[,] viTri)
         {
@@ -18,7 +18,7 @@ namespace GameCoTuong.CoTuong
             {
                 if (XetToaDo(toaDo.X, toaDo.Y + 1)) //0,1
                 {
-                    if (viTri[toaDo.X , toaDo.Y + 1].giaTri != mau)
+                    if (viTri[toaDo.X, toaDo.Y + 1].giaTri != mau)
                     {
                         oTemp = TinhNuoc(0, 1);
                         AddList(oTemp);
@@ -42,9 +42,9 @@ namespace GameCoTuong.CoTuong
                             AddList(oTemp);
                         }
                     }
-                }    
+                }
             }
-            else if (mau==2) //Do
+            else if (mau == 2) //Do
             {
                 if (XetToaDo(toaDo.X, toaDo.Y - 1)) //0,-1
                 {
@@ -74,21 +74,19 @@ namespace GameCoTuong.CoTuong
                     }
                 }
             }
-            
+
         }
         bool QuaXong()
         {
-            if (mau==1) //xanh
+            if (mau == 1) //xanh
             {
                 if (toaDo.Y > 4) return true;
             }
-            else if (mau==2) //Do
+            else if (mau == 2) //Do
             {
                 if (toaDo.Y < 5) return true;
             }
             return false;
         }
-        
     }
-    
 }

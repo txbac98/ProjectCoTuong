@@ -19,3 +19,6 @@ D:\Học tập\Lập trình trực quan\GameCoTuong\ProjectCoTuong\GameCoTuong\G
 D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.exe.config
 D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.exe
 D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.pdb
+D:\Documents\Học tập\GitHub\ProjectCoTuong\GameCoTuong\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Documents\Học tập\GitHub\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Documents\Học tập\GitHub\ProjectCoTuong\GameCoTuong\GameCoTuong\obj\Debug\GameCoTuong.pdb

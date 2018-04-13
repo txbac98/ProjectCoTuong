@@ -6,18 +6,25 @@ using System.Threading.Tasks;
 
 namespace GameCoTuong.CoTuong
 {
-
-
     public class QuanCo
     {
-        /* Bien*/
+        #region properties
+
         public Point toaDo;
         public int mau; //xanh 1, do 2;
-        public List<Point> listO = new List<Point>();
+        public List<Point> listO;
 
+        #endregion
 
+        #region methods
 
-        /* Các phương thức chung */
+        /* Cac phuong thuc chung */
+
+        public QuanCo()
+        {
+            listO = new List<Point>();
+        } // Moi khi khoi tao 1 doi tuong QuanCo dung lenh: QuanCo qc = new QuanCo();
+
         public virtual void TinhOCoTheDi(OCO[,] viTri) { } //Phuong thuc ao
 
         protected Point TinhNuoc(int dx, int dy)  //Tinh nuoc, ham chung
@@ -57,9 +64,9 @@ namespace GameCoTuong.CoTuong
             {
                 return false;
             }
-
             return true;
         }
 
+        #endregion
     }
 }

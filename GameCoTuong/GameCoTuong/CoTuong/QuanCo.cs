@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameCoTuong.ProgramConfig;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;

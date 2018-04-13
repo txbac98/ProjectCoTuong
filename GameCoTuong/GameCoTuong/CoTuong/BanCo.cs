@@ -21,6 +21,11 @@ namespace GameCoTuong.CoTuong
 
     public class BanCo
     {
+        #region properties
+        public static int distanceBetweenLines = 61;
+        #endregion
+
+        #region methods
         public OCO[,] viTri = new OCO[9, 10]; //tao mang o co
 
         public void KhoiTao(float x0, float y0, float khoangCach) //toa do goc 0, khoang cach cac o
@@ -33,5 +38,6 @@ namespace GameCoTuong.CoTuong
             viTri[toaDoSau.X, toaDoSau.Y].giaTri = viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri;
             viTri[toaDoTruoc.X, toaDoTruoc.Y].giaTri = 0;
         }
+        #endregion
     }
 }

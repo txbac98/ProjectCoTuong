@@ -9,21 +9,18 @@ namespace GameCoTuong.CoTuong
     public class QuanCo
     {
         #region properties
-
         public Point toaDo;
         public int mau; //xanh 1, do 2;
         public List<Point> listO;
-
         #endregion
 
         #region methods
-
         /* Cac phuong thuc chung */
 
-        public QuanCo()
+        public QuanCo() // default constructor - moi khi khoi tao 1 the hien cua lop QuanCo dung lenh: QuanCo qc = new QuanCo();
         {
             listO = new List<Point>();
-        } // Moi khi khoi tao 1 doi tuong QuanCo dung lenh: QuanCo qc = new QuanCo();
+        }
 
         public virtual void TinhOCoTheDi(OCO[,] viTri) { } //Phuong thuc ao
 
@@ -66,7 +63,6 @@ namespace GameCoTuong.CoTuong
             }
             return true;
         }
-
         #endregion
     }
 }

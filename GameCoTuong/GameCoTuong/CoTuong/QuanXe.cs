@@ -11,28 +11,25 @@ namespace GameCoTuong.CoTuong
     {
         public override void TinhOCoTheDi(OCO[,] viTri)
         {
-            //Point oTemp = new Point(-1, -1);
-            //if (mau == 1)
-            //{
-            //    for (int _x = 0; _x < 9; _x++)
-            //    {
-            //        if (_x != x)
-            //        {
-            //            oTemp.X = _x;
-            //            oTemp.Y = y;
-            //            AddList(oTemp, listO);
-            //        }
-            //    }
-            //    for (int _y = 0; _y < 10; _y++)
-            //    {
-            //        if (_y != y)
-            //        {
-            //            oTemp.X = x;
-            //            oTemp.Y = _y;
-            //            AddList(oTemp, listO);
-            //        }
-            //    }
-            //}
+            Point oTemp = new Point(-1, -1);
+            for (int i = 0; i < 9; i++)
+            {
+                if (i != toaDo.X)
+                {
+                    oTemp.X = i;
+                    oTemp.Y = toaDo.Y;
+                    AddList(oTemp);
+                }
+                for (int j = 0; j < 10; j++)
+                {
+                    if (j != toaDo.Y)
+                    {
+                        oTemp.X = toaDo.X;
+                        oTemp.Y = j;
+                        AddList(oTemp);
+                    }
+                }
+            }
         }
     }
 }

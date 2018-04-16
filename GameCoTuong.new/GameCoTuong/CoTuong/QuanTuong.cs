@@ -24,60 +24,72 @@ namespace GameCoTuong.CoTuong
 
         public override void TinhNuocDi()
         {
-            // do something
-        }
+            QuanCo quanCoMucTieu;
+            Point toaDoMucTieu;
 
+            toaDoMucTieu = new Point(toaDo.X + 1, toaDo.Y);
+            if (NamTrongCung(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    danhSachDiemDich.Add(toaDoMucTieu);
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                }
+            }
+
+            toaDoMucTieu = new Point(toaDo.X - 1, toaDo.Y);
+            if (NamTrongCung(toaDoMucTieu))
+            {
+
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    danhSachDiemDich.Add(toaDoMucTieu);
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                }
+            }
+
+            toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
+            if (NamTrongCung(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    danhSachDiemDich.Add(toaDoMucTieu);
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                }
+            }
+
+            toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
+            if (NamTrongCung(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    danhSachDiemDich.Add(toaDoMucTieu);
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                }
+            }
+
+        }
         #endregion
-
-        public override void TinhOCoTheDi(OCO[,] viTri)
+        public bool NamTrongCung(Point point)
         {
-            Point oTemp = new Point(-1, -1);
-            if (XetToaDo(toaDo.X + 1, toaDo.Y))  //+1 0
-            {
-                if (viTri[toaDo.X + 1, toaDo.Y].giaTri == 0)  //Khong bi chan
-                {
-                    oTemp = TinhNuoc(1, 0);
-                    AddList(oTemp);
-                }
-            }
-            if (XetToaDo(toaDo.X - 1, toaDo.Y))  //+1 0
-            {
-                if (viTri[toaDo.X - 1, toaDo.Y].giaTri == 0)  //Khong bi chan
-                {
-                    oTemp = TinhNuoc(-1, 0);
-                    AddList(oTemp);
-                }
-            }
-            if (XetToaDo(toaDo.X, toaDo.Y + 1))  //+1 0
-            {
-                if (viTri[toaDo.X, toaDo.Y + 1].giaTri == 0)  //Khong bi chan
-                {
-                    oTemp = TinhNuoc(0, 1);
-                    AddList(oTemp);
-                }
-            }
-            if (XetToaDo(toaDo.X, toaDo.Y - 1))  //+1 0
-            {
-                if (viTri[toaDo.X, toaDo.Y - 1].giaTri == 0)  //Khong bi chan
-                {
-                    oTemp = TinhNuoc(0, -1);
-                    AddList(oTemp);
-                }
-            }
-        }
-
-        public override bool XetToaDo(int X, int Y)
-        {
-            if (mau == 2)
-            {
-                if (toaDo.X >= 3 && toaDo.X <= 5 && toaDo.Y >= 7 && toaDo.Y <= 9) // Sy mau do nam trong o
+            if (this.mau == 1)
+                if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
                     return true;
-            }
-            else if (mau == 1)
-            {
-                if ((toaDo.X >= 3 && toaDo.X <= 5 && toaDo.Y >= 0 && toaDo.Y <= 2)) // Sy mau xanh nam trong o
+            if (this.mau == 2)
+                if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
                     return true;
-            }
             return false;
         }
     }

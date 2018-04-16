@@ -24,78 +24,93 @@ namespace GameCoTuong.CoTuong
 
         public override void TinhNuocDi()
         {
-            // do something
+            QuanCo quanCoMucTieu;
+            Point toaDoMucTieu = new Point(-1, -1);
+
+            if (mau == 1)
+                toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
+            else if (mau == 2)
+                toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
+
+            if (KiemTraToaDo(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    danhSachDiemDich.Add(toaDoMucTieu);
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                }
+            }
+            if (QuaSong())
+            {
+
+                if (mau == 1)
+                {
+                    if (KiemTraToaDo(toaDoMucTieu))
+                    {
+                        toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                                danhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                    }
+                }
+                if (mau == 2)
+                {
+                    if (KiemTraToaDo(toaDoMucTieu))
+                    {
+                        toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                                danhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                    }
+                }
+                if (KiemTraToaDo(toaDoMucTieu))
+                {
+                    toaDoMucTieu = new Point(toaDo.X - 1, toaDo.Y);
+                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                    else
+                    {
+                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                        if (quanCoMucTieu.Mau != this.Mau)
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                }
+                if (KiemTraToaDo(toaDoMucTieu))
+                {
+                    toaDoMucTieu = new Point(toaDo.X + 1, toaDo.Y);
+                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                    else
+                    {
+                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                        if (quanCoMucTieu.Mau != this.Mau)
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                }
+            }
         }
 
         #endregion
-
-        public override void TinhOCoTheDi(OCO[,] viTri)
+        bool KiemTraToaDo(Point point)
         {
-            Point oTemp = new Point(-1, -1);
-            if (mau == 1) //Xanh
-            {
-                if (XetToaDo(toaDo.X, toaDo.Y + 1)) //0,1
-                {
-                    if (viTri[toaDo.X, toaDo.Y + 1].giaTri != mau)
-                    {
-                        oTemp = TinhNuoc(0, 1);
-                        AddList(oTemp);
-                    }
-                }
-                if (QuaXong())
-                {
-                    if (XetToaDo(toaDo.X + 1, toaDo.Y))
-                    {
-                        if (viTri[toaDo.X + 1, toaDo.Y].giaTri != mau)
-                        {
-                            oTemp = TinhNuoc(1, 0);
-                            AddList(oTemp);
-                        }
-                    }
-                    if (XetToaDo(toaDo.X - 1, toaDo.Y))
-                    {
-                        if (viTri[toaDo.X - 1, toaDo.Y].giaTri != mau)
-                        {
-                            oTemp = TinhNuoc(-1, 0);
-                            AddList(oTemp);
-                        }
-                    }
-                }
-            }
-            else if (mau == 2) //Do
-            {
-                if (XetToaDo(toaDo.X, toaDo.Y - 1)) //0,-1
-                {
-                    if (viTri[toaDo.X, toaDo.Y - 1].giaTri != mau)
-                    {
-                        oTemp = TinhNuoc(0, -1);
-                        AddList(oTemp);
-                    }
-                }
-                if (QuaXong())
-                {
-                    if (XetToaDo(toaDo.X + 1, toaDo.Y))
-                    {
-                        if (viTri[toaDo.X + 1, toaDo.Y].giaTri != mau)
-                        {
-                            oTemp = TinhNuoc(1, 0);
-                            AddList(oTemp);
-                        }
-                    }
-                    if (XetToaDo(toaDo.X - 1, toaDo.Y))
-                    {
-                        if (viTri[toaDo.X - 1, toaDo.Y].giaTri != mau)
-                        {
-                            oTemp = TinhNuoc(-1, 0);
-                            AddList(oTemp);
-                        }
-                    }
-                }
-            }
-
-        }
-
-        bool QuaXong()
+            if (point.X < 0 || point.X > 8 || point.Y < 0 || point.Y > 9)
+                return false;
+            return true;
+        }       
+        bool QuaSong()
         {
             if (mau == 1) //xanh
             {

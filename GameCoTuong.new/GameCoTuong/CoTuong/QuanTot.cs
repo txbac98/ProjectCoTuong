@@ -63,9 +63,9 @@ namespace GameCoTuong.CoTuong
                 }
                 if (mau == 2)
                 {
+                    toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
                     if (KiemTraToaDo(toaDoMucTieu))
-                    {
-                        toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
+                    {                   
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                             danhSachDiemDich.Add(toaDoMucTieu);
                         else
@@ -76,9 +76,9 @@ namespace GameCoTuong.CoTuong
                         }
                     }
                 }
+                toaDoMucTieu = new Point(toaDo.X - 1, toaDo.Y);
                 if (KiemTraToaDo(toaDoMucTieu))
                 {
-                    toaDoMucTieu = new Point(toaDo.X - 1, toaDo.Y);
                     if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         danhSachDiemDich.Add(toaDoMucTieu);
                     else
@@ -88,9 +88,9 @@ namespace GameCoTuong.CoTuong
                             danhSachDiemDich.Add(toaDoMucTieu);
                     }
                 }
+                toaDoMucTieu = new Point(toaDo.X + 1, toaDo.Y);
                 if (KiemTraToaDo(toaDoMucTieu))
-                {
-                    toaDoMucTieu = new Point(toaDo.X + 1, toaDo.Y);
+                {            
                     if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         danhSachDiemDich.Add(toaDoMucTieu);
                     else

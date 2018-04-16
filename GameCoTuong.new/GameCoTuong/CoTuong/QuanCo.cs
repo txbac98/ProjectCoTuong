@@ -11,6 +11,7 @@ namespace GameCoTuong.CoTuong
     public class QuanCo
     {
         #region properties
+
         protected Point toaDo;
         public Point ToaDo
         {
@@ -23,11 +24,13 @@ namespace GameCoTuong.CoTuong
 
         protected List<Point> danhSachDiemDich;
         public List<Point> DanhSachDiemDich { get { return danhSachDiemDich; } }
+
         #endregion
 
         #region methods
-        /* Cac phuong thuc chung */
-        #region Code by Viet Anh - Constructors
+
+        #region Code by Viet Anh
+
         public QuanCo() { }
 
         public QuanCo(int X, int Y)
@@ -43,6 +46,37 @@ namespace GameCoTuong.CoTuong
             }
             toaDo = toaDoBanDau;
         }
+
+        public bool Equals(QuanCo quanCoSoSanh)
+        {
+            return (this.ToaDo == quanCoSoSanh.ToaDo) && (this.Mau == quanCoSoSanh.Mau);
+        }
+
+        public void Move(Point destination)
+        {
+            BanCo.alive.Remove(BanCo.GetQuanCo(destination));
+            toaDo = destination;
+            danhSachDiemDich.Clear();
+        }
+
+        public bool NamTrongBanCo(int X, int Y)
+        {
+            if (X < 0 || X > 8)
+            {
+                return false;
+            }
+            if (Y < 0 || Y > 9)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool NamTrongBanCo(Point diem)
+        {
+            return NamTrongBanCo(diem.X, diem.Y);
+        }
+
         #endregion
 
         public virtual void TinhOCoTheDi(OCO[,] viTri) { } //Phuong thuc ao
@@ -62,20 +96,6 @@ namespace GameCoTuong.CoTuong
             toaDo = diemDich;
             danhSachDiemDich.Clear(); // xóa danh sách các đích đến cũ sau mỗi nước đi
         }
-
-        #region Code by Viet Anh
-        public bool Equals(QuanCo quanCoSoSanh)
-        {
-            return (this.ToaDo == quanCoSoSanh.ToaDo) && (this.Mau == quanCoSoSanh.Mau);
-        }
-
-        public void Move(Point destination)
-        {
-            BanCo.alive.Remove(BanCo.GetQuanCo(destination));
-            toaDo = destination;
-            danhSachDiemDich.Clear();
-        }
-        #endregion
 
         public void AddList(Point oTemp) // Thêm 1 điểm đích vào danh sách 'list0'
         {
@@ -100,24 +120,6 @@ namespace GameCoTuong.CoTuong
                 return false;
             }
             return true;
-        }
-
-        public bool NamTrongBanCo(int X, int Y)
-        {
-            if (X < 0 || X > 8)
-            {
-                return false;
-            }
-            if (Y < 0 || Y > 9)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public bool NamTrongBanCo(Point diem)
-        {
-            return NamTrongBanCo(diem.X, diem.Y);
         }
         #endregion
     }

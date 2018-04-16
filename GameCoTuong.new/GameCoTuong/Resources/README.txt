@@ -1,1 +1,1 @@
-﻿Bỏ tất cả hình vào thư mục Resources này hết nha.
+﻿MÔ TẢ CHI TIẾT VỀ PROJECT NÀY

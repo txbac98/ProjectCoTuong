@@ -10,8 +10,8 @@ namespace GameCoTuong.CoTuong
 {
     class QuanTinh : QuanCo
     {
-        #region Code by Viet Anh
         public QuanTinh() { }
+
         public QuanTinh(Point toaDoBanDau)
         {
             toaDo = toaDoBanDau;
@@ -22,82 +22,122 @@ namespace GameCoTuong.CoTuong
 
         public override void TinhNuocDi()
         {
-            // do something
+
+            Point diemCan;
+            Point toaDoMucTieu;
+            QuanCo quanCoMucTieu;
+
+            // Xét điểm cản (toaDo.X - 1, toaDo.Y - 1)
+            diemCan = new Point(toaDo.X - 1, toaDo.Y - 1);
+            if (NamTrongNuaBanCo(diemCan, Mau) && !BanCo.CoQuanCoTaiDay(diemCan))
+            {
+                toaDoMucTieu = new Point(toaDo.X - 2, toaDo.Y - 2);
+                if (NamTrongNuaBanCo(toaDoMucTieu, Mau))
+                {
+                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    {
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                    else
+                    {
+                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                        if (quanCoMucTieu.Mau != this.Mau)
+                        {
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                    }
+                }
+            }
+
+            // Xét điểm cản (toaDo.X - 1, toaDo.Y + 1)
+            diemCan = new Point(toaDo.X - 1, toaDo.Y + 1);
+            if (NamTrongNuaBanCo(diemCan, Mau) && !BanCo.CoQuanCoTaiDay(diemCan))
+            {
+                toaDoMucTieu = new Point(toaDo.X - 2, toaDo.Y + 2);
+                if (NamTrongNuaBanCo(toaDoMucTieu, Mau))
+                {
+                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    {
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                    else
+                    {
+                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                        if (quanCoMucTieu.Mau != this.Mau)
+                        {
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                    }
+                }
+            }
+
+            // Xét điểm cản (toaDo.X + 1, toaDo.Y - 1)
+            diemCan = new Point(toaDo.X + 1, toaDo.Y - 1);
+            if (NamTrongNuaBanCo(diemCan, Mau) && !BanCo.CoQuanCoTaiDay(diemCan))
+            {
+                toaDoMucTieu = new Point(toaDo.X + 2, toaDo.Y - 2);
+                if (NamTrongNuaBanCo(toaDoMucTieu, Mau))
+                {
+                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    {
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                    else
+                    {
+                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                        if (quanCoMucTieu.Mau != this.Mau)
+                        {
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                    }
+                }
+            }
+
+            // Xét điểm cản (toaDo.X + 1, toaDo.Y + 1)
+            diemCan = new Point(toaDo.X + 1, toaDo.Y + 1);
+            if (NamTrongNuaBanCo(diemCan, Mau) && !BanCo.CoQuanCoTaiDay(diemCan))
+            {
+                toaDoMucTieu = new Point(toaDo.X + 2, toaDo.Y + 2);
+                if (NamTrongNuaBanCo(toaDoMucTieu, Mau))
+                {
+                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    {
+                        danhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                    else
+                    {
+                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                        if (quanCoMucTieu.Mau != this.Mau)
+                        {
+                            danhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                    }
+                }
+            }
         }
-        #endregion
 
-        public override void TinhOCoTheDi(OCO[,] viTri)
+        private bool NamTrongNuaBanCo(Point diem, int mauQuanCo)
         {
-            Point oTemp = new Point(-1, -1);
-
-            //Xet o chan (1,1)
-            if (XetToaDo(1, 1))
-            {
-                if (XetToaDo(toaDo.X + 2, toaDo.Y + 2)) //2 2
-                {
-                    if (viTri[toaDo.X + 2, toaDo.Y + 2].giaTri != mau)
-                    {
-                        oTemp = TinhNuoc(2, 2);
-                        AddList(oTemp);
-                    }
-                }
-            }
-            if (XetToaDo(-1, -1))
-            {
-                if (XetToaDo(toaDo.X - 2, toaDo.Y - 2)) //-2 -2
-                {
-
-                    oTemp = TinhNuoc(-2, -2);
-
-                    AddList(oTemp);
-                }
-            }
-            if (XetToaDo(-1, 1))
-            {
-                if (XetToaDo(toaDo.X - 2, toaDo.Y + 2)) //-2 2
-                {
-                    if (viTri[toaDo.X - 2, toaDo.Y + 2].giaTri != mau)
-                    {
-                        oTemp = TinhNuoc(-2, +2);
-
-                        AddList(oTemp);
-                    }
-                }
-            }
-            if (XetToaDo(1, -1))
-            {
-                if (XetToaDo(toaDo.X + 2, toaDo.Y - 2)) //2 -2
-                {
-                    if (viTri[toaDo.X + 2, toaDo.Y - 2].giaTri != mau)
-                    {
-                        oTemp = TinhNuoc(2, -2);
-
-                        AddList(oTemp);
-                    }
-                }
-            }
-        }
-
-        public override bool XetToaDo(int X, int Y)
-        {
-            //Chung
-            if (X < 0 || X > 8)
+            if (diem.X < 0 || diem.X > 8)
             {
                 return false;
             }
-            if (Y < 0 || Y > 9)
+
+            if (mauQuanCo == 1)
             {
-                return false;
+                if (diem.Y < 0 || diem.Y > 4)
+                {
+                    return false;
+                }
+            }
+            else if (mauQuanCo == 2)
+            {
+                if (diem.Y < 5 || diem.Y > 9)
+                {
+                    return false;
+                }
             }
 
-            if (mau == 2) //Do
-            {
-                if (toaDo.Y < 5) return false; // Qua song
-            }
-            else if (mau == 1) //Xanh
-            {
-                if (toaDo.Y > 4) return false;  //Qua xong
-            }
             return true;
         }
     }

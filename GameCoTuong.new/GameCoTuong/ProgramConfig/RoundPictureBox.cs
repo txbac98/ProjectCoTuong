@@ -73,10 +73,6 @@ namespace GameCoTuong.ProgramConfig
                 quanCo = new QuanTot(toaDoBanDau);
                 tenQuanCo += "Tot";
             }
-            Height = ThongSo.DuongKinhQuanCo;
-            Width = ThongSo.DuongKinhQuanCo;
-            SizeMode = PictureBoxSizeMode.StretchImage;
-            Location = ThongSo.ToaDoBanCoCuaQuanCo(toaDoBanDau);
             if (quanCo.Mau == 1)
             {
                 BackColor = Color.DarkBlue;
@@ -87,6 +83,10 @@ namespace GameCoTuong.ProgramConfig
                 BackColor = Color.DarkRed;
                 tenQuanCo += "Do";
             }
+            Height = ThongSo.DuongKinhQuanCo;
+            Width = ThongSo.DuongKinhQuanCo;
+            SizeMode = PictureBoxSizeMode.StretchImage;
+            Location = ThongSo.ToaDoBanCoCuaQuanCo(toaDoBanDau);
         }
 
         public bool Equals(RoundPictureBox quanCoSoSanh)

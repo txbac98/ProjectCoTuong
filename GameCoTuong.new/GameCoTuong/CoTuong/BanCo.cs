@@ -43,6 +43,7 @@ namespace GameCoTuong.CoTuong
         {
             return alive.Find(element => element.ToaDo == toaDo);
         }
+
         #endregion
 
         public OCO[,] viTri = new OCO[9, 10]; //tao mang o co

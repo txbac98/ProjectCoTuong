@@ -240,11 +240,11 @@ namespace GameCoTuong.ProgramConfig
         public static int MauQuanCo(Point toaDoBanDau) // xác định màu quân cờ dựa vào TDDV ban đầu của nó
         {
             if (toaDoBanDau == ToaDoTuongXanh || 
-                toaDoBanDau == toaDoXeXanh1 || toaDoBanDau == toaDoXeXanh2 ||
-                toaDoBanDau == toaDoMaXanh1 || toaDoBanDau == toaDoMaXanh2 ||
-                toaDoBanDau == toaDoTinhXanh1 || toaDoBanDau == toaDoTinhXanh2 ||
-                toaDoBanDau == toaDoSiXanh1 || toaDoBanDau == toaDoSiXanh2 ||
-                toaDoBanDau == toaDoPhaoXanh1 || toaDoBanDau == toaDoPhaoXanh2 ||
+                toaDoBanDau == ToaDoXeXanh1 || toaDoBanDau == ToaDoXeXanh2 ||
+                toaDoBanDau == ToaDoMaXanh1 || toaDoBanDau == ToaDoMaXanh2 ||
+                toaDoBanDau == ToaDoTinhXanh1 || toaDoBanDau == ToaDoTinhXanh2 ||
+                toaDoBanDau == ToaDoSiXanh1 || toaDoBanDau == ToaDoSiXanh2 ||
+                toaDoBanDau == ToaDoPhaoXanh1 || toaDoBanDau == ToaDoPhaoXanh2 ||
                 toaDoBanDau == ToaDoTotXanh1 ||
                 toaDoBanDau == ToaDoTotXanh2 ||
                 toaDoBanDau == ToaDoTotXanh3 ||

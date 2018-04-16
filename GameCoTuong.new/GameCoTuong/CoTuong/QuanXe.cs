@@ -11,6 +11,7 @@ namespace GameCoTuong.CoTuong
     class QuanXe : QuanCo
     {
         public QuanXe() { }
+
         public QuanXe(Point toaDoBanDau)
         {
             toaDo = toaDoBanDau;

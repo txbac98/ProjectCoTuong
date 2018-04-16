@@ -11,7 +11,9 @@ namespace GameCoTuong.CoTuong
     class QuanTuong : QuanCo
     {
         #region Code by Viet Anh
+
         public QuanTuong() { }
+
         public QuanTuong(Point toaDoBanDau)
         {
             toaDo = toaDoBanDau;
@@ -24,6 +26,7 @@ namespace GameCoTuong.CoTuong
         {
             // do something
         }
+
         #endregion
 
         public override void TinhOCoTheDi(OCO[,] viTri)

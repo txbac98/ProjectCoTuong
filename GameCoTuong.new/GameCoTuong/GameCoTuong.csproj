@@ -77,7 +77,6 @@
     <None Include="Resources\PhaoDo.png" />
     <None Include="Resources\PhaoXanh.png" />
     <Content Include="Resources\README.txt" />
-    <Content Include="Resources\ChessMan.txt" />
     <None Include="Resources\XeXanh.png" />
     <None Include="Resources\SiXanh.png" />
     <None Include="Resources\SiDo.png" />

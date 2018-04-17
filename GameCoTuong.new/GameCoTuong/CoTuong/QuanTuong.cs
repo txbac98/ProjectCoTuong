@@ -10,8 +10,6 @@ namespace GameCoTuong.CoTuong
 {
     class QuanTuong : QuanCo
     {
-        #region Code by Viet Anh
-
         public QuanTuong() { }
 
         public QuanTuong(Point toaDoBanDau)
@@ -24,8 +22,8 @@ namespace GameCoTuong.CoTuong
 
         public override void TinhNuocDi()
         {
-            QuanCo quanCoMucTieu;
             Point toaDoMucTieu;
+            QuanCo quanCoMucTieu;
 
             toaDoMucTieu = new Point(toaDo.X + 1, toaDo.Y);
             if (NamTrongCung(toaDoMucTieu))
@@ -81,13 +79,13 @@ namespace GameCoTuong.CoTuong
             }
 
         }
-        #endregion
-        public bool NamTrongCung(Point point)
+
+        private bool NamTrongCung(Point point)
         {
-            if (this.mau == 1)
+            if (this.Mau == 1)
                 if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
                     return true;
-            if (this.mau == 2)
+            if (this.Mau == 2)
                 if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
                     return true;
             return false;

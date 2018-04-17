@@ -25,7 +25,7 @@ namespace GameCoTuong.CoTuong
             Point toaDoMucTieu;
             QuanCo quanCoMucTieu;
 
-            /* Đi qua phía Đông */
+            /* Xét nhánh các điểm đích BÊN TRÁI quân xe */
             for (int x = toaDo.X - 1; x >= 0; x--)
             {
                 toaDoMucTieu = new Point(x, toaDo.Y);
@@ -40,7 +40,7 @@ namespace GameCoTuong.CoTuong
                 }
             }
 
-            /* Đi sang phía Tây */
+            /* Xét nhánh các điểm đích BÊN PHẢI quân xe */
             for (int x = toaDo.X + 1; x < 9; x++)
             {
                 toaDoMucTieu = new Point(x, toaDo.Y);
@@ -55,7 +55,7 @@ namespace GameCoTuong.CoTuong
                 }
             }
 
-            /* Đi lên phía Bắc */
+            /* Xét nhánh các điểm đích BÊN TRÊN quân xe */
             for (int y = toaDo.Y - 1; y >= 0; y--)
             {
                 toaDoMucTieu = new Point(toaDo.X, y);
@@ -70,7 +70,7 @@ namespace GameCoTuong.CoTuong
                 }
             }
 
-            /* Đi xuống phía Nam */
+            /* Xét nhánh các điểm đích BÊN DƯỚI quân xe */
             for (int y = toaDo.Y + 1; y < 10; y++)
             {
                 toaDoMucTieu = new Point(toaDo.X, y);

@@ -29,8 +29,6 @@ namespace GameCoTuong.CoTuong
 
         #region methods
 
-        #region Code by Viet Anh
-
         public QuanCo() { }
 
         public QuanCo(int X, int Y)
@@ -52,6 +50,8 @@ namespace GameCoTuong.CoTuong
             return (this.ToaDo == quanCoSoSanh.ToaDo) && (this.Mau == quanCoSoSanh.Mau);
         }
 
+        public virtual void TinhNuocDi() { }
+
         public void Move(Point destination)
         {
             BanCo.alive.Remove(BanCo.GetQuanCo(destination));
@@ -61,14 +61,8 @@ namespace GameCoTuong.CoTuong
 
         public bool NamTrongBanCo(int X, int Y)
         {
-            if (X < 0 || X > 8)
-            {
+            if (X < 0 || X > 8 || Y < 0 || Y > 9)
                 return false;
-            }
-            if (Y < 0 || Y > 9)
-            {
-                return false;
-            }
             return true;
         }
 
@@ -77,50 +71,6 @@ namespace GameCoTuong.CoTuong
             return NamTrongBanCo(diem.X, diem.Y);
         }
 
-        #endregion
-
-        public virtual void TinhOCoTheDi(OCO[,] viTri) { } //Phuong thuc ao
-
-        public virtual void TinhNuocDi() { }
-
-        protected Point TinhNuoc(int dx, int dy)  //Tinh nuoc, ham chung
-        {
-            Point temp = new Point(-1, -1);
-            temp.X = toaDo.X + dx;
-            temp.Y = toaDo.Y + dy;
-            return temp;
-        }
-
-        public void DiChuyen(Point diemDich)
-        {
-            toaDo = diemDich;
-            danhSachDiemDich.Clear(); // xóa danh sách các đích đến cũ sau mỗi nước đi
-        }
-
-        public void AddList(Point oTemp) // Thêm 1 điểm đích vào danh sách 'list0'
-        {
-            danhSachDiemDich.Add(oTemp);
-        }
-
-        public void ClearListO()
-        {
-            danhSachDiemDich.Clear();
-        }
-
-        public virtual bool XetToaDo(int X, int Y)
-        {
-            //Xet co nam trong ban co hay k
-
-            if (X < 0 || X > 8)
-            {
-                return false;
-            }
-            if (Y < 0 || Y > 9)
-            {
-                return false;
-            }
-            return true;
-        }
         #endregion
     }
 }

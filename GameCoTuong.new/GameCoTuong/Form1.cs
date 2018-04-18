@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace GameCoTuong
 {
     public partial class Form1 : Form
@@ -21,8 +20,8 @@ namespace GameCoTuong
         List<RoundPictureBox> danhSachQuanCo = new List<RoundPictureBox>(); // List chứa tất cả các quân cờ còn sống
         RoundPictureBox quanCoBiLoai = null; // quân cờ vừa bị loại ở nước đi trước đó, nếu di chuyển thành công thì quanCoBiLoai không cần dùng đến => gán lại về null
         Point toaDoDuocChon = ThongSo.ToaDoNULL; // Tọa độ của quân cờ đang được chọn (được click vào), khi không có quân cờ nào đang được chọn thì bằng (-1, -1)
-        int soLuotDi = 0; // Số lượt đã đi từ đầu ván cờ
         int pheDuocDanh = 2; // Phe hiện tại đang được đánh (1 - Xanh, 2 - Đỏ). Phe Đỏ được đánh đầu tiên
+        int soLuotDi = 0; // Số lượt đã đi từ đầu ván cờ
 
         #endregion
 
@@ -226,18 +225,29 @@ namespace GameCoTuong
             }
         }
 
+        private void SetToDefault()
+        {
+            quanCoBiLoai = null;
+            toaDoDuocChon = ThongSo.ToaDoNULL;
+
+            pheDuocDanh = 2;
+            label2.Text = "Phe Đỏ được đi đầu tiên";
+            label2.ForeColor = Color.DarkRed;
+
+            soLuotDi = 0;
+            label3.Text = soLuotDi.ToString();
+            button1.Enabled = false;
+        }
+
         /* Xóa các RoundPictureBox quân cờ khỏi bàn cờ và danh sách quân cờ */
         private void XoaBanCo()
         {
-            //Point toaDoDuocChon = ThongSo.ToaDoNULL;
-            //soLuotDi = 0;
-            //pheDuocDanh = 2;
-            //foreach (Control item in ptbBanCo.Controls)
-            //    ptbBanCo.Controls.Remove(item);
-            //BanCo.tuongXanh = null;
-            //BanCo.tuongDo = null;
-            //BanCo.alive.Clear();
-            //danhSachQuanCo.Clear();
+            SetToDefault();
+            ptbBanCo.Controls.Clear();
+            BanCo.tuongXanh = null;
+            BanCo.tuongDo = null;
+            BanCo.alive.Clear();
+            danhSachQuanCo.Clear();
         }
 
         /* Hai hàm tiếp theo là 2 hàm không quan trọng lắm */
@@ -377,15 +387,18 @@ namespace GameCoTuong
             {
                 pheDuocDanh = 2;
                 label2.ForeColor = Color.DarkRed;
-                label2.Text = "Phe đỏ đánh!";
+                label2.Text = "Lượt đi của phe Đỏ";
             }
             else
             {
                 pheDuocDanh = 1;
                 label2.ForeColor = Color.DarkBlue;
-                label2.Text = "Phe xanh đánh!";
+                label2.Text = "Lượt đi của phe Xanh";
             }
             RefreshBanCo();
+
+            if (soLuotDi != 0 && !button1.Enabled)
+                button1.Enabled = true;
         }
 
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
@@ -455,14 +468,13 @@ namespace GameCoTuong
         //}
 
         /* Event của nút 'Restart game'- nhưng chưa làm được chức năng này */
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    XoaBanCo();
-        //    TaoDiemBanCo();
-        //    TaoQuanCo();
-        //    XepBanCo();
-        //    LamMoiBanCo();
-        //    label2.Text = "Phe đỏ đánh!";
-        //}
+        private void button1_Click(object sender, EventArgs e)
+        {
+            XoaBanCo();
+            TaoDiemBanCo();
+            TaoQuanCo();
+            XepBanCo();
+            RefreshBanCo();
+        }
     }
 }

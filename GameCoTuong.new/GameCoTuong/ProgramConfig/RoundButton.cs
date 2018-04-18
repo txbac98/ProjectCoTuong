@@ -10,7 +10,7 @@ namespace GameCoTuong.ProgramConfig
 {
     public class RoundButton : Button
     {
-        #region properties
+        #region attributes
 
         #endregion
 

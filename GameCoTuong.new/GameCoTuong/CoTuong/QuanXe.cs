@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameCoTuong.CoTuong
 {
-    class QuanXe : QuanCo
+    public class QuanXe : QuanCo
     {
         public QuanXe() { }
 

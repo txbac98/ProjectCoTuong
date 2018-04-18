@@ -8,16 +8,20 @@ using GameCoTuong.ProgramConfig;
 
 namespace GameCoTuong.CoTuong
 {
-    class QuanTuong : QuanCo
+    public class QuanTuong : QuanCo
     {
         public QuanTuong() { }
 
         public QuanTuong(Point toaDoBanDau)
         {
             toaDo = toaDoBanDau;
-            danhSachDiemDich = new List<Point>();
             mau = ThongSo.MauQuanCo(toaDoBanDau);
+            danhSachDiemDich = new List<Point>();
             BanCo.alive.Add(this);
+            if (Mau == 1)
+                BanCo.tuongXanh = this;
+            else if (Mau == 2)
+                BanCo.tuongDo = this;
         }
 
         public override void TinhNuocDi()

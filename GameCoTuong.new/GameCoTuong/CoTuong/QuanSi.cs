@@ -8,7 +8,7 @@ using GameCoTuong.ProgramConfig;
 
 namespace GameCoTuong.CoTuong
 {
-    class QuanSi : QuanCo
+    public class QuanSi : QuanCo
     {
         public QuanSi() { }
 
@@ -25,7 +25,7 @@ namespace GameCoTuong.CoTuong
             Point toaDoMucTieu;
             QuanCo quanCoMucTieu;
 
-            if (mau == 1)
+            if (Mau == 1)
             {
                 if (toaDo == new Point(3, 0) || toaDo == new Point(5, 0) || toaDo == new Point(3, 2) || toaDo == new Point(5, 2))
                 {
@@ -102,7 +102,7 @@ namespace GameCoTuong.CoTuong
                     }
                 }
             }
-            else if (mau == 2)
+            else if (Mau == 2)
             {
                 if (toaDo == new Point(3, 9) || toaDo == new Point(5, 9) || toaDo == new Point(3, 7) || toaDo == new Point(5, 7))
                 {

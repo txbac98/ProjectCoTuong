@@ -12,14 +12,12 @@ namespace GameCoTuong.ProgramConfig
 {
     class RoundPictureBox : PictureBox
     {
-        #region properties
+        #region attributes
         public QuanCo quanCo;
         public QuanCo QuanCo { get { return quanCo; } }
 
         private string tenQuanCo;
         public string TenQuanCo { get { return tenQuanCo; } }
-        
-        public static RoundPictureBox quanCoNULL = new RoundPictureBox(ThongSo.ToaDoNULL);
         #endregion
 
         #region methods
@@ -73,16 +71,18 @@ namespace GameCoTuong.ProgramConfig
                 quanCo = new QuanTot(toaDoBanDau);
                 tenQuanCo += "Tot";
             }
+
             if (quanCo.Mau == 1)
             {
                 BackColor = Color.DarkBlue;
-                tenQuanCo += "Xanh";
+                tenQuanCo += " Xanh";
             }
             else if (quanCo.Mau == 2)
             {
                 BackColor = Color.DarkRed;
-                tenQuanCo += "Do";
+                tenQuanCo += " Do";
             }
+
             Height = ThongSo.DuongKinhQuanCo;
             Width = ThongSo.DuongKinhQuanCo;
             SizeMode = PictureBoxSizeMode.StretchImage;
@@ -94,10 +94,10 @@ namespace GameCoTuong.ProgramConfig
             return (this.quanCo.Equals(quanCoSoSanh.quanCo)) && (this.TenQuanCo == quanCoSoSanh.TenQuanCo);
         }
 
-        public void DiChuyen(Point destination)
+        public void DenViTri(Point location)
         {
-            quanCo.Move(destination);
-            Location = ThongSo.ToaDoBanCoCuaQuanCo(destination);
+            quanCo.MoveTo(location);
+            Location = ThongSo.ToaDoBanCoCuaQuanCo(location);
         }
 
         protected override void OnResize(EventArgs e)

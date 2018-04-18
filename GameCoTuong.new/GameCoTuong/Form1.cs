@@ -15,11 +15,14 @@ namespace GameCoTuong
 {
     public partial class Form1 : Form
     {
-        #region global properties in 'Form1'
+        #region global variables in 'Form1'
 
-        RoundButton[,] diemBanCo = new RoundButton[9, 10]; // Mảng 2 chiều chứa tất cả các điểm bàn cờ
+        RoundButton[,] diemBanCo = new RoundButton[9, 10]; // Mảng 2 chiều chứa 90 điểm bàn cờ
         List<RoundPictureBox> danhSachQuanCo = new List<RoundPictureBox>(); // List chứa tất cả các quân cờ còn sống
+        RoundPictureBox quanCoBiLoai = null; // quân cờ vừa bị loại ở nước đi trước đó, nếu di chuyển thành công thì quanCoBiLoai không cần dùng đến => gán lại về null
         Point toaDoDuocChon = ThongSo.ToaDoNULL; // Tọa độ của quân cờ đang được chọn (được click vào), khi không có quân cờ nào đang được chọn thì bằng (-1, -1)
+        int soLuotDi = 0; // Số lượt đã đi từ đầu ván cờ
+        int pheDuocDanh = 2; // Phe hiện tại đang được đánh (1 - Xanh, 2 - Đỏ). Phe Đỏ được đánh đầu tiên
 
         #endregion
 
@@ -31,6 +34,7 @@ namespace GameCoTuong
             TaoDiemBanCo();
             TaoQuanCo();
             XepBanCo();
+            RefreshBanCo();
         }
 
         /* Tạo 90 RoundButton điểm bàn cờ nhưng chưa hiển thị.
@@ -201,7 +205,7 @@ namespace GameCoTuong
             danhSachQuanCo.Add(totDo5);
 
             foreach (RoundPictureBox element in danhSachQuanCo) // Gắn cho mỗi RoundPictureBox quân cờ 1 sự kiện click
-                element.Click += RoundPictureBox_Click;
+                element.Click += QuanCo_Click;
         }
 
         /* Đưa các RoundPictureBox quân cờ từ danh sách quân cờ vào bàn cờ */
@@ -212,53 +216,51 @@ namespace GameCoTuong
         }
 
         /* Làm cho các RoundPictureBox quân cờ trên bàn cờ có thể click dễ dàng được sau mỗi nước đi */
-        private void LamMoiBanCo()
+        private void RefreshBanCo()
         {
             foreach (RoundPictureBox element in danhSachQuanCo)
-                element.Enabled = true;
+            {
+                if (element.quanCo.Mau == pheDuocDanh)
+                    element.Enabled = true;
+                else element.Enabled = false;
+            }
         }
 
         /* Xóa các RoundPictureBox quân cờ khỏi bàn cờ và danh sách quân cờ */
         private void XoaBanCo()
         {
-            foreach (Control item in ptbBanCo.Controls)
-                ptbBanCo.Controls.Remove(item);
-            danhSachQuanCo.Clear();
+            //Point toaDoDuocChon = ThongSo.ToaDoNULL;
+            //soLuotDi = 0;
+            //pheDuocDanh = 2;
+            //foreach (Control item in ptbBanCo.Controls)
+            //    ptbBanCo.Controls.Remove(item);
+            //BanCo.tuongXanh = null;
+            //BanCo.tuongDo = null;
+            //BanCo.alive.Clear();
+            //danhSachQuanCo.Clear();
         }
 
         /* Hai hàm tiếp theo là 2 hàm không quan trọng lắm */
         /* Đổi màu nền (BackColor) của RoundPictureBox quân cờ được click vào tùy vào màu quân cờ */
-        private void Highlight(RoundPictureBox highlighted)
-        {
-            if (highlighted.quanCo.Mau == 1)
-                highlighted.BackColor = Color.LightBlue;
-            else if (highlighted.quanCo.Mau == 2)
-                highlighted.BackColor = Color.LightPink;
-        }
+        private void Highlight(RoundPictureBox highlighted) { }
 
         /* Trả lại BackColor nguyên thủy cho tất cả RoundPictureBox quân cờ */
-        private void Dehighlight()
-        {
-            foreach (RoundPictureBox element in danhSachQuanCo)
-            {
-                if (element.quanCo.Mau == 1)
-                    element.BackColor = Color.DarkBlue;
-                else if (element.quanCo.Mau == 2)
-                    element.BackColor = Color.DarkRed;
-            }
-        }
+        private void Dehighlight() { }
 
         /* Tính toán và hiển thị tất cả điểm đích của quân cờ được chọn */
         private void HienThiDiemDich(RoundPictureBox quanCoDuocChon) // Vẽ các điểm đích của quân cờ đang được chọn
         {
-            if (quanCoDuocChon.quanCo.DanhSachDiemDich.Count != 0)
-                quanCoDuocChon.quanCo.DanhSachDiemDich.Clear();
+            if (quanCoDuocChon.quanCo.danhSachDiemDich.Count != 0)
+                quanCoDuocChon.quanCo.danhSachDiemDich.Clear();
             quanCoDuocChon.quanCo.TinhNuocDi();
-            foreach (Point element in quanCoDuocChon.quanCo.DanhSachDiemDich)
+            foreach (Point element in quanCoDuocChon.quanCo.danhSachDiemDich)
             {
+                QuanCo target = BanCo.alive.Find(element1 => element1.Mau != quanCoDuocChon.quanCo.Mau && element1.ToaDo == element);
+                if (target != null)
+                    diemBanCo[element.X, element.Y].BackColor = Color.Red;
                 diemBanCo[element.X, element.Y].Visible = true;
                 diemBanCo[element.X, element.Y].BringToFront();
-                diemBanCo[element.X, element.Y].Click += RoundButton_Click;
+                diemBanCo[element.X, element.Y].Click += DiemBanCo_Click;
             }
         }
 
@@ -266,11 +268,128 @@ namespace GameCoTuong
         private void AnDiemDich()
         {
             foreach (RoundButton element in diemBanCo)
+            {
                 element.Visible = false;
+                element.BackColor = Color.Yellow;
+            }
+        }
+
+        /* Loại bỏ quân cờ tại điểm đích */
+        private void LoaiBoQuanCo(Point toaDo)
+        {
+            quanCoBiLoai = danhSachQuanCo.Find(element => element.quanCo.Mau != pheDuocDanh && element.quanCo.ToaDo == toaDo);
+            if (quanCoBiLoai != null)
+            {
+                ptbBanCo.Controls.Remove(quanCoBiLoai);
+                danhSachQuanCo.Remove(quanCoBiLoai);
+                BanCo.alive.Remove(quanCoBiLoai.quanCo);
+            }
+        }
+
+        /* Trả lại quân cờ vừa bị loại khỏi bàn cờ */
+        private void TraLaiQuanCo()
+        {
+            if (quanCoBiLoai != null)
+            {
+                BanCo.alive.Add(quanCoBiLoai.quanCo);
+                danhSachQuanCo.Add(quanCoBiLoai);
+                ptbBanCo.Controls.Add(quanCoBiLoai);
+                quanCoBiLoai = null;
+            }
+        }
+
+        /* Di chuyển 'pieceToMove' với destination là tọa độ đích đến */
+        private void DiChuyen(RoundPictureBox pieceToMove, Point destination)
+        {
+            LoaiBoQuanCo(destination);
+            pieceToMove.DenViTri(destination);
+        }
+
+        /* Hoàn tác lại nước đi trước đó của 'pieceToTakeBack' với previousLocation là tọa độ trước khi di chuyển của pieceToTakeBack */
+        private void QuayLai(RoundPictureBox pieceToTakeBack, Point previousLocation)
+        {
+            pieceToTakeBack.DenViTri(previousLocation);
+            TraLaiQuanCo();
+            toaDoDuocChon = ThongSo.ToaDoNULL;
+            RefreshBanCo();
+        }
+
+        /* Kiểm tra xem 2 tướng có đối mặt nhau không */
+        private bool HaiTuongDoiMatNhau()
+        {
+            if (BanCo.tuongXanh.ToaDo.X == BanCo.tuongDo.ToaDo.X) // nếu 2 tướng cùng hoành độ (thẳng hàng) ...
+            {
+                int X = BanCo.tuongXanh.ToaDo.X;
+                Point diemGiuaHaiTuong;
+                for (int Y = BanCo.tuongXanh.ToaDo.Y + 1; Y < BanCo.tuongDo.ToaDo.Y; Y++) // ... thì xét xem giữa 2 tướng có quân cờ nào không
+                {
+                    diemGiuaHaiTuong = new Point(X, Y);
+                    if (BanCo.CoQuanCoTaiDay(diemGiuaHaiTuong))
+                        return false; // nếu có 1 quân cờ ở giữa 2 tướng thì 2 tướng không đối mặt nhau
+                }
+                return true; // nếu không có quân cờ nào ở giữa 2 tướng thì 2 tướng đối mặt nhau
+            }
+            return false; // nếu 2 tướng không cùng hoành độ thì 2 tướng không đối mặt nhau
+        }
+
+        /* Kiểm tra 1 phe ('pheChieuTuong') có đang chiếu tướng phe còn lại hay không */
+        private bool ChieuTuong(int pheChieuTuong)
+        {
+            foreach (QuanCo element in BanCo.alive)
+            {
+                if (element.Mau == pheChieuTuong)
+                {
+                    if (element.danhSachDiemDich.Count != 0)
+                        element.danhSachDiemDich.Clear();
+                    element.TinhNuocDi();
+                    QuanCo target;
+                    foreach (Point element1 in element.danhSachDiemDich)
+                    {
+                        target = BanCo.alive.Find(element2 => element2.Mau != pheChieuTuong && element2.ToaDo == element1);
+                        if (target != null)
+                        {
+                            if (target == BanCo.tuongXanh || target == BanCo.tuongDo)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        /* Tìm phe đối phương */
+        private int PheDoiPhuong()
+        {
+            if (pheDuocDanh == 1) return 2;
+            return 1;
+        }
+
+        /* Đổi phe sau mỗi nước đi */
+        private void DoiPhe()
+        {
+            quanCoBiLoai = null;
+            toaDoDuocChon = ThongSo.ToaDoNULL;
+            soLuotDi++;
+            label3.Text = soLuotDi.ToString();
+            if (pheDuocDanh == 1)
+            {
+                pheDuocDanh = 2;
+                label2.ForeColor = Color.DarkRed;
+                label2.Text = "Phe đỏ đánh!";
+            }
+            else
+            {
+                pheDuocDanh = 1;
+                label2.ForeColor = Color.DarkBlue;
+                label2.Text = "Phe xanh đánh!";
+            }
+            RefreshBanCo();
         }
 
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
-        private void RoundPictureBox_Click(object sender, EventArgs e)
+        private void QuanCo_Click(object sender, EventArgs e)
         {
             RoundPictureBox selected = sender as RoundPictureBox;
             Highlight(selected);
@@ -285,29 +404,12 @@ namespace GameCoTuong
         {
             Dehighlight();
             AnDiemDich();
+            RefreshBanCo();
             toaDoDuocChon = ThongSo.ToaDoNULL;
-            foreach (RoundPictureBox element in danhSachQuanCo)
-                element.Enabled = true;
-        }
-
-        /* Loại bỏ quân cờ tại điểm đích */
-        private void LoaiBoQuanCo(Point toaDo)
-        {
-            RoundPictureBox removed = danhSachQuanCo.Find(element => element.quanCo.ToaDo == toaDo);
-            if (removed != null)
-            {
-                ptbBanCo.Controls.Remove(removed);
-                /* Hiển thị những quân cờ đã bị loại ở panel bên cạnh bàn cờ - nhưng chưa làm được chức năng này */
-                //if (removed.quanCo.Mau == 1)
-                //    panel2.Controls.Add(removed);
-                //else if (removed.quanCo.Mau == 2)
-                //    panel1.Controls.Add(removed);
-                danhSachQuanCo.Remove(removed);
-            }
         }
 
         /* Những gì xảy ra khi click vào một RoundButton điểm bàn cờ để đi đến */
-        private void RoundButton_Click(object sender, EventArgs e)
+        private void DiemBanCo_Click(object sender, EventArgs e)
         {
             if (toaDoDuocChon == ThongSo.ToaDoNULL)  // THE LEGENDARY GATEKEEPER from evil bugs
                 return; // Dòng code chống lỗi lặp lại event (chưa rõ nguyên nhân của lỗi này)
@@ -317,11 +419,40 @@ namespace GameCoTuong
             RoundButton clickedRoundButton = sender as RoundButton;
             Point destination = ThongSo.ToaDoDonViCuaDiem(clickedRoundButton.Location); // Lấy tọa độ của RoundButton điểm bàn cờ (điểm đích)
             RoundPictureBox selected = danhSachQuanCo.Find(element => element.quanCo.ToaDo == toaDoDuocChon); // Tìm ra RoundPictureBox quân cờ trong danh sách quân cờ
-            LoaiBoQuanCo(destination); // Loại bỏ quân cờ trước khi di chuyển
-            selected.DiChuyen(destination); // Di chuyển quân cờ đến điểm đích
-            LamMoiBanCo();
-            toaDoDuocChon = ThongSo.ToaDoNULL; // bỏ chọn quân cờ => trả thuộc tính này này về (-1, -1)
+
+            DiChuyen(selected, destination); // Di chuyển quân cờ đến điểm đích
+
+            if (HaiTuongDoiMatNhau()) // nước đi không hợp lệ nếu sau nước đi 2 tướng đối mặt nhau => hoàn tác nước đi
+            {
+                MessageBox.Show("NƯỚC ĐI KHÔNG HỢP LỆ!\nTướng phe bạn sẽ đối mặt với tướng đối phương sau nước đi này. Hãy chọn một nước đi khác.");
+                QuayLai(selected, toaDoDuocChon);
+                return;
+            }
+
+            if (ChieuTuong(PheDoiPhuong())) // nước đi không hợp lệ nếu sau nước đi tướng phe di chuyển bị đối phương chiếu => hoàn tác nước đi
+            {
+                MessageBox.Show("NƯỚC ĐI KHÔNG ỔN TÍ NÀO!\nTướng phe bạn sẽ gặp nguy sau nước đi này. Hãy chọn một nước đi khác.");
+                QuayLai(selected, toaDoDuocChon);
+                return;
+            }
+
+            if (ChieuTuong(pheDuocDanh)) // nếu sau nước đi phe di chuyển chiếu tướng phe đối phương => thông báo cho người chơi
+            {
+                if (PheDoiPhuong() == 1)
+                    MessageBox.Show("Phe Đỏ CHIẾU TƯỚNG! Phe Xanh hãy đối phó.");
+                else
+                    MessageBox.Show("Phe Xanh CHIẾU TƯỚNG! Phe Đỏ hãy đối phó.");
+            }
+            DoiPhe();
         }
+
+        //private void roundPictureBox1_Click(object sender, EventArgs e)
+        //{
+        //    if (soLuotDi != 0)
+        //    {
+
+        //    }
+        //}
 
         /* Event của nút 'Restart game'- nhưng chưa làm được chức năng này */
         //private void button1_Click(object sender, EventArgs e)
@@ -330,6 +461,8 @@ namespace GameCoTuong
         //    TaoDiemBanCo();
         //    TaoQuanCo();
         //    XepBanCo();
+        //    LamMoiBanCo();
+        //    label2.Text = "Phe đỏ đánh!";
         //}
     }
 }

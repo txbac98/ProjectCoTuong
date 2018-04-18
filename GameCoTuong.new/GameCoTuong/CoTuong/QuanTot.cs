@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameCoTuong.CoTuong
 {
-    class QuanTot : QuanCo
+    public class QuanTot : QuanCo
     {
         public QuanTot() { }
 
@@ -25,9 +25,9 @@ namespace GameCoTuong.CoTuong
             Point toaDoMucTieu = new Point(-1, -1);
             QuanCo quanCoMucTieu;
 
-            if (mau == 1)
+            if (Mau == 1)
                 toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
-            else if (mau == 2)
+            else if (Mau == 2)
                 toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
 
             if (NamTrongBanCo(toaDoMucTieu))
@@ -43,7 +43,7 @@ namespace GameCoTuong.CoTuong
             }
             if (QuaSong())
             {
-                if (mau == 1)
+                if (Mau == 1)
                 {
                     if (NamTrongBanCo(toaDoMucTieu))
                     {
@@ -58,7 +58,7 @@ namespace GameCoTuong.CoTuong
                         }
                     }
                 }
-                if (mau == 2)
+                if (Mau == 2)
                 {
                     toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
                     if (NamTrongBanCo(toaDoMucTieu))
@@ -102,11 +102,11 @@ namespace GameCoTuong.CoTuong
 
         private bool QuaSong()
         {
-            if (mau == 1) //xanh
+            if (Mau == 1) //xanh
             {
                 if (toaDo.Y > 4) return true;
             }
-            else if (mau == 2) //Do
+            else if (Mau == 2) //Do
             {
                 if (toaDo.Y < 5) return true;
             }

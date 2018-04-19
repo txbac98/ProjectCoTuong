@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GameCoTuong.ProgramConfig
 {
-    class RoundPictureBox : PictureBox
+    public class RoundPictureBox : PictureBox
     {
         #region attributes
         public QuanCo quanCo;

@@ -12,11 +12,12 @@ namespace GameCoTuong.CoTuong
     public class BanCo
     {
         #region attributes
-
+        /* Thuộc tính dùng cho đối tượng QuanCo */
         public static List<QuanCo> alive = new List<QuanCo>();
         public static QuanTuong tuongXanh;
         public static QuanTuong tuongDo;
 
+        /* Thuộc tính dùng cho đối tượng RoundPictureBox */
         public static RoundButton[,] diemBanCo = new RoundButton[9, 10]; // Mảng 2 chiều chứa 90 điểm bàn cờ
         public static List<RoundPictureBox> danhSachQuanCo = new List<RoundPictureBox>(); // List chứa tất cả các quân cờ còn sống
         public static RoundPictureBox quanCoBiLoai = null; // quân cờ vừa bị loại ở nước đi trước đó, nếu di chuyển thành công thì quanCoBiLoai không cần dùng đến => gán lại về null
@@ -26,6 +27,7 @@ namespace GameCoTuong.CoTuong
         #endregion
 
         #region methods
+        /* Phương thức dùng cho đối tượng QuanCo */
         public static bool CoQuanCoTaiDay(Point toaDo) // kiểm tra xem có quân cờ nào tại điểm cho trước hay không
         {
             return alive.Find(element => element.ToaDo == toaDo) != null;
@@ -35,6 +37,8 @@ namespace GameCoTuong.CoTuong
         {
             return alive.Find(element => element.ToaDo == toaDo);
         }
+
+        /* Phương thức dùng cho đối tượng RoundPictureBox */
         /* Tạo 90 RoundButton điểm bàn cờ nhưng chưa hiển thị.
          Khi click vào 1 RoundPictureBox quân cờ thì những điểm bàn cờ ở những tọa độ trong danh sách điểm đích của quân đó sẽ hiện ra */
         public static void TaoDiemBanCo(PictureBox ptbBanCo)
@@ -292,9 +296,9 @@ namespace GameCoTuong.CoTuong
 
         public static bool HaiTuongDoiMatNhau()
         {
-            if (BanCo.tuongXanh.ToaDo.X == BanCo.tuongDo.ToaDo.X) // nếu 2 tướng cùng hoành độ (thẳng hàng) ...
+            if (tuongXanh.ToaDo.X == BanCo.tuongDo.ToaDo.X) // nếu 2 tướng cùng hoành độ (thẳng hàng) ...
             {
-                int X = BanCo.tuongXanh.ToaDo.X;
+                int X = tuongXanh.ToaDo.X;
                 Point diemGiuaHaiTuong;
                 for (int Y = BanCo.tuongXanh.ToaDo.Y + 1; Y < BanCo.tuongDo.ToaDo.Y; Y++) // ... thì xét xem giữa 2 tướng có quân cờ nào không
                 {

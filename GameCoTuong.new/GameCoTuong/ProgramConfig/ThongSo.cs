@@ -38,7 +38,7 @@ namespace GameCoTuong.ProgramConfig
 
         #region Kích thước quân cờ, điểm bàn cờ và bàn cờ
         /* Quân cờ (hình tròn) */
-        private static int duongKinhQuanCo = 60; // đường kính của 1 quân cờ
+        private static int duongKinhQuanCo = 56; // đường kính của 1 quân cờ
         public static int DuongKinhQuanCo { get { return duongKinhQuanCo; } }
 
         /* Điểm bàn cờ (hình tròn) */

@@ -30,7 +30,8 @@ namespace GameCoTuong
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
         private void QuanCo_Click(object sender, EventArgs e)
         {
-            RoundPictureBox selected = sender as RoundPictureBox;           
+            RoundPictureBox selected = sender as RoundPictureBox;
+            BanCo.Highlight(selected);
             BanCo.HienThiDiemDich(selected,DiemBanCo_Click);
             BanCo.toaDoDuocChon = selected.quanCo.ToaDo; // Lấy tọa độ của quân cờ được chọn
             foreach (RoundPictureBox element in BanCo.danhSachQuanCo) // Khi 1 quân cờ được chọn thì không thể click chọn 1 quân cờ khác ngay lập tức mà phải bỏ chọn nó trước
@@ -40,7 +41,7 @@ namespace GameCoTuong
         /* Khi đang chọn 1 quân cờ (tức là đã click vào 1 quân cờ trước đó), click vào một điểm bất kì trên bàn cờ sẽ bỏ chọn quân cờ đó */
         private void ptbBanCo_Click(object sender, EventArgs e)
         {
-           
+            BanCo.Dehighlight();
             BanCo.AnDiemDich();
             BanCo.RefreshBanCo();
             BanCo.toaDoDuocChon = ThongSo.ToaDoNULL;
@@ -52,6 +53,7 @@ namespace GameCoTuong
             if (BanCo.toaDoDuocChon == ThongSo.ToaDoNULL)  // THE LEGENDARY GATEKEEPER from evil bugs
                 return; // Dòng code chống lỗi lặp lại event (chưa rõ nguyên nhân của lỗi này)
 
+            BanCo.Dehighlight();
             BanCo.AnDiemDich(); // thì đồng thời sẽ bỏ chọn quân cờ luôn
             RoundButton clickedRoundButton = sender as RoundButton;
             Point destination = ThongSo.ToaDoDonViCuaDiem(clickedRoundButton.Location); // Lấy tọa độ của RoundButton điểm bàn cờ (điểm đích)

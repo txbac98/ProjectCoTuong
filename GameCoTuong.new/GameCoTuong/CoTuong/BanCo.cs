@@ -381,6 +381,25 @@ namespace GameCoTuong.CoTuong
             }
             return false;
         }
+
+        public static void Highlight(RoundPictureBox selected)
+        {
+            selected.Location = new Point(selected.Location.X - 3, selected.Location.Y - 3);
+            selected.ThayDoiDuongKinh(ThongSo.DuongKinhQuanCo + 6);
+        }
+
+        public static void Dehighlight()
+        {
+            foreach (RoundPictureBox element in danhSachQuanCo)
+            {
+                if (element.Width != ThongSo.DuongKinhQuanCo)
+                {
+                    element.Location = new Point(element.Location.X + 3, element.Location.Y + 3);
+                    element.ThayDoiDuongKinh(ThongSo.DuongKinhQuanCo);
+                }
+            }
+        }
+
         #endregion
 
        

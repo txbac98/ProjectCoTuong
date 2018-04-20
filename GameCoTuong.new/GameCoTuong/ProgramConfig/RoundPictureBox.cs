@@ -100,6 +100,12 @@ namespace GameCoTuong.ProgramConfig
             Location = ThongSo.ToaDoBanCoCuaQuanCo(location);
         }
 
+        public void ThayDoiDuongKinh(int value)
+        {
+            this.Width = value;
+            this.Height = value;
+        }
+
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);

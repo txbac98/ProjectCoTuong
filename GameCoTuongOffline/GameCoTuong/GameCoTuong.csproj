@@ -62,6 +62,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramConfig\PheDo.cs" />
+    <Compile Include="ProgramConfig\PheXanh.cs" />
     <Compile Include="ProgramConfig\ThongSo.cs" />
     <Compile Include="ProgramConfig\RoundButton.cs">
       <SubType>Component</SubType>

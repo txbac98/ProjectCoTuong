@@ -1,0 +1,8 @@
+D:\C#\ChatLan\Client\bin\Debug\Client.exe.config
+D:\C#\ChatLan\Client\bin\Debug\Client.exe
+D:\C#\ChatLan\Client\bin\Debug\Client.pdb
+D:\C#\ChatLan\Client\obj\Debug\Client.Client.resources
+D:\C#\ChatLan\Client\obj\Debug\Client.Properties.Resources.resources
+D:\C#\ChatLan\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+D:\C#\ChatLan\Client\obj\Debug\Client.exe
+D:\C#\ChatLan\Client\obj\Debug\Client.pdb

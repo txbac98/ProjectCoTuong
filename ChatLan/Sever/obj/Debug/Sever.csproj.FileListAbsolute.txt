@@ -7,3 +7,13 @@ D:\C#\ChatLan\Sever\obj\Debug\Sever.Properties.Resources.resources
 D:\C#\ChatLan\Sever\obj\Debug\Sever.csproj.GenerateResource.Cache
 D:\C#\ChatLan\Sever\obj\Debug\Sever.exe
 D:\C#\ChatLan\Sever\obj\Debug\Sever.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.exe.config
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.csprojResolveAssemblyReference.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.Sever.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.Properties.Resources.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.csproj.GenerateResource.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.csproj.CoreCompileInputs.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.pdb

@@ -16,7 +16,7 @@ namespace GameCoTuong.CoTuong
         {
             toaDo = toaDoBanDau;
             danhSachDiemDich = new List<Point>();
-            mau = ThongSo.MauQuanCo(toaDoBanDau);
+            mau = PheDo.MauQuanCo(toaDoBanDau);
             BanCo.alive.Add(this);
         }
         

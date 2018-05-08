@@ -111,3 +111,13 @@ D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\P
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.Cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csprojResolveAssemblyReference.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.pdb

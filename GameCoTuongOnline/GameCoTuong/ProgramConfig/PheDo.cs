@@ -128,5 +128,24 @@ namespace GameCoTuong.ProgramConfig
         private static Point toaDoTotDo5 = new Point(8, 6);
         public static Point ToaDoTotDo5 { get { return toaDoTotDo5; } }
         #endregion
+
+        #region   Màu quân cờ
+        public static int MauQuanCo(Point toaDoBanDau) // xác định màu quân cờ dựa vào TDDV ban đầu của nó
+        {
+            if (toaDoBanDau == ToaDoTuongXanh ||
+                toaDoBanDau == ToaDoXeXanh1 || toaDoBanDau == ToaDoXeXanh2 ||
+                toaDoBanDau == ToaDoMaXanh1 || toaDoBanDau == ToaDoMaXanh2 ||
+                toaDoBanDau == ToaDoTinhXanh1 || toaDoBanDau == ToaDoTinhXanh2 ||
+                toaDoBanDau == ToaDoSiXanh1 || toaDoBanDau == ToaDoSiXanh2 ||
+                toaDoBanDau == ToaDoPhaoXanh1 || toaDoBanDau == ToaDoPhaoXanh2 ||
+                toaDoBanDau == ToaDoTotXanh1 ||
+                toaDoBanDau == ToaDoTotXanh2 ||
+                toaDoBanDau == ToaDoTotXanh3 ||
+                toaDoBanDau == ToaDoTotXanh4 ||
+                toaDoBanDau == ToaDoTotXanh5)
+                return 1;
+            return 2;
+        }
+        #endregion
     }
 }

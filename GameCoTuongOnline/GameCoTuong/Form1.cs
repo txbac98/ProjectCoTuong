@@ -44,13 +44,13 @@ namespace GameCoTuong
             BanCo.Dehighlight();
             BanCo.AnDiemDich();
             BanCo.RefreshBanCo();
-            BanCo.toaDoDuocChon = ThongSo.ToaDoNULL;
+            BanCo.toaDoDuocChon = PheDo.ToaDoNULL;
         }
 
         /* Những gì xảy ra khi click vào một RoundButton điểm bàn cờ để đi đến */
         private void DiemBanCo_Click(object sender, EventArgs e)
         {
-            if (BanCo.toaDoDuocChon == ThongSo.ToaDoNULL)  // THE LEGENDARY GATEKEEPER from evil bugs
+            if (BanCo.toaDoDuocChon == PheDo.ToaDoNULL)  // THE LEGENDARY GATEKEEPER from evil bugs
                 return; // Dòng code chống lỗi lặp lại event (chưa rõ nguyên nhân của lỗi này)
 
             BanCo.Dehighlight(); // chọn nước đi

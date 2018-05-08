@@ -31,37 +31,37 @@ namespace GameCoTuong.ProgramConfig
         public RoundPictureBox(Point toaDoBanDau)
         {
             tenQuanCo = "";
-            if (toaDoBanDau == ThongSo.ToaDoNULL)
+            if (toaDoBanDau == PheDo.ToaDoNULL)
             {
                 quanCo = new QuanCo(toaDoBanDau);
                 tenQuanCo += "NULL";
             }
-            else if (toaDoBanDau == ThongSo.ToaDoTuongXanh || toaDoBanDau == ThongSo.ToaDoTuongDo)
+            else if (toaDoBanDau == PheDo.ToaDoTuongXanh || toaDoBanDau == PheDo.ToaDoTuongDo)
             {
                 quanCo = new QuanTuong(toaDoBanDau);
                 tenQuanCo += "Tuong";
             }
-            else if (toaDoBanDau == ThongSo.ToaDoXeXanh1 || toaDoBanDau == ThongSo.ToaDoXeXanh2 || toaDoBanDau == ThongSo.ToaDoXeDo1 || toaDoBanDau == ThongSo.ToaDoXeDo2)
+            else if (toaDoBanDau == PheDo.ToaDoXeXanh1 || toaDoBanDau == PheDo.ToaDoXeXanh2 || toaDoBanDau == PheDo.ToaDoXeDo1 || toaDoBanDau == PheDo.ToaDoXeDo2)
             {
                 quanCo = new QuanXe(toaDoBanDau);
                 tenQuanCo += "Xe";
             }
-            else if (toaDoBanDau == ThongSo.ToaDoMaXanh1 || toaDoBanDau == ThongSo.ToaDoMaXanh2 || toaDoBanDau == ThongSo.ToaDoMaDo1 || toaDoBanDau == ThongSo.ToaDoMaDo2)
+            else if (toaDoBanDau == PheDo.ToaDoMaXanh1 || toaDoBanDau == PheDo.ToaDoMaXanh2 || toaDoBanDau == PheDo.ToaDoMaDo1 || toaDoBanDau == PheDo.ToaDoMaDo2)
             {
                 quanCo = new QuanMa(toaDoBanDau);
                 tenQuanCo += "Ma";
             }
-            else if (toaDoBanDau == ThongSo.ToaDoTinhXanh1 || toaDoBanDau == ThongSo.ToaDoTinhXanh2 || toaDoBanDau == ThongSo.ToaDoTinhDo1 || toaDoBanDau == ThongSo.ToaDoTinhDo2)
+            else if (toaDoBanDau == PheDo.ToaDoTinhXanh1 || toaDoBanDau == PheDo.ToaDoTinhXanh2 || toaDoBanDau == PheDo.ToaDoTinhDo1 || toaDoBanDau == PheDo.ToaDoTinhDo2)
             {
                 quanCo = new QuanTinh(toaDoBanDau);
                 tenQuanCo += "Tinh";
             }
-            else if (toaDoBanDau == ThongSo.ToaDoSiXanh1 || toaDoBanDau == ThongSo.ToaDoSiXanh2 || toaDoBanDau == ThongSo.ToaDoSiDo1 || toaDoBanDau == ThongSo.ToaDoSiDo2)
+            else if (toaDoBanDau == PheDo.ToaDoSiXanh1 || toaDoBanDau == PheDo.ToaDoSiXanh2 || toaDoBanDau == PheDo.ToaDoSiDo1 || toaDoBanDau == PheDo.ToaDoSiDo2)
             {
                 quanCo = new QuanSi(toaDoBanDau);
                 tenQuanCo += "Si";
             }
-            else if (toaDoBanDau == ThongSo.ToaDoPhaoXanh1 || toaDoBanDau == ThongSo.ToaDoPhaoXanh2 || toaDoBanDau == ThongSo.ToaDoPhaoDo1 || toaDoBanDau == ThongSo.ToaDoPhaoDo2)
+            else if (toaDoBanDau == PheDo.ToaDoPhaoXanh1 || toaDoBanDau == PheDo.ToaDoPhaoXanh2 || toaDoBanDau == PheDo.ToaDoPhaoDo1 || toaDoBanDau == PheDo.ToaDoPhaoDo2)
             {
                 quanCo = new QuanPhao(toaDoBanDau);
                 tenQuanCo += "Phao";

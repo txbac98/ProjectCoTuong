@@ -111,3 +111,4 @@ D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOffline\GameCo
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOffline\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOffline\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOffline\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.Cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOffline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache

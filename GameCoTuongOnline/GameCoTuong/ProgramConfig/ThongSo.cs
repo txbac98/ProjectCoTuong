@@ -17,43 +17,31 @@ namespace GameCoTuong.ProgramConfig
         - Gốc tọa độ trên bàn cờ của điểm bàn cờ và quân cờ KHÔNG trùng nhau, do đó TDBC của chúng cũng khác nhau. Nhưng chúng lại dùng chung TDDV.
         */
 
-        #region Gốc tọa độ bàn cờ
-        private static int gocDiemBanCoX = 44; // hoành độ gốc của điểm bàn cờ trên bàn cờ (góc trên bên trái)
-        public static int GocDiemBanCoX { get { return gocDiemBanCoX; } }
+        #region Gốc tọa độ bàn cờ & khoảng cách
+        public static int GocDiemBanCoX { get { return 44; } } // hoành độ gốc của điểm bàn cờ trên bàn cờ (góc trên bên trái)
 
-        private static int gocDiemBanCoY = 42; // tung độ gốc của điểm bàn cờ trên bàn cờ (góc trên bên trái)
-        public static int GocDiemBanCoY { get { return gocDiemBanCoY; } }
+        public static int GocDiemBanCoY { get { return 42; } } // tung độ gốc của điểm bàn cờ trên bàn cờ (góc trên bên trái)
 
-        private static int gocQuanCoX = 31; // hoành độ gốc của quân cờ trên bàn cờ (góc trên bên trái)
-        public static int GocQuanCoX { get { return gocQuanCoX; } }
+        public static int GocQuanCoX { get { return 31; } } // hoành độ gốc của quân cờ trên bàn cờ (góc trên bên trái)
 
-        private static int gocQuanCoY = 30; // tung độ gốc của quân cờ trên bàn cờ (góc trên bên trái)
-        public static int GocQuanCoY { get { return gocQuanCoY; } }
-        #endregion
+        public static int GocQuanCoY { get { return 30; } } // tung độ gốc của quân cờ trên bàn cờ (góc trên bên trái)
 
-        #region Khoảng cách
-        private static int khoangCach = 61; // khoảng cách giữa các điểm bàn cờ & quân cờ
-        public static int KhoangCach { get { return khoangCach; } }
+        public static int KhoangCach { get { return 61; } } // khoảng cách giữa các điểm bàn cờ & quân cờ
         #endregion
 
         #region Kích thước quân cờ, điểm bàn cờ và bàn cờ
         /* Quân cờ (hình tròn) */
-        private static int duongKinhQuanCo = 56; // đường kính của 1 quân cờ
-        public static int DuongKinhQuanCo { get { return duongKinhQuanCo; } }
+        public static int DuongKinhQuanCo { get { return 56; } } // đường kính của 1 quân cờ
 
         /* Điểm bàn cờ (hình tròn) */
-        private static int duongKinhDiem = 30; // đường kính của 1 điểm bàn cờ
-        public static int DuongKinhDiem { get { return duongKinhDiem; } }
+        public static int DuongKinhDiem { get { return 30; } } // đường kính của 1 điểm bàn cờ
 
         /* Bàn cờ */
-        private static Point toaDoBanCo = new Point(0, 0); // tọa độ của bàn cờ trong WinForm
-        public static Point ToaDoBanCo { get { return toaDoBanCo; } }
+        public static Point ToaDoBanCo { get { return new Point(0, 0); } } // tọa độ của bàn cờ trong WinForm
 
-        private static int chieuRongBanCo = 607; // chiều rộng của bàn cờ
-        public static int ChieuRongBanCo { get { return chieuRongBanCo; } }
+        public static int ChieuRongBanCo { get { return 607; } } // chiều rộng của bàn cờ
 
-        private static int chieuCaoBanCo = 662; // chiều cao của bàn cờ
-        public static int ChieuCaoBanCo { get { return chieuCaoBanCo; } }
+        public static int ChieuCaoBanCo { get { return 662; } } // chiều cao của bàn cờ
         #endregion
 
         #region Hàm tính toán

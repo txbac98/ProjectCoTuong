@@ -37,7 +37,7 @@ namespace GameCoTuong.CoTuong
 
         public QuanCo(Point toaDoBanDau)
         {
-            if (toaDoBanDau == PheDo.ToaDoNULL)
+            if (toaDoBanDau == ThongSoPheDo.ToaDoNULL)
                 mau = 0;
             toaDo = toaDoBanDau;
         }

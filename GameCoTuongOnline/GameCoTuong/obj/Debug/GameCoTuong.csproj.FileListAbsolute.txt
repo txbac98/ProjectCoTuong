@@ -121,3 +121,4 @@ D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoT
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe.config
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache

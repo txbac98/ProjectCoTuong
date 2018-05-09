@@ -31,37 +31,37 @@ namespace GameCoTuong.ProgramConfig
         public RoundPictureBox(Point toaDoBanDau)
         {
             tenQuanCo = "";
-            if (toaDoBanDau == PheDo.ToaDoNULL)
+            if (toaDoBanDau == ThongSoPheDo.ToaDoNULL)
             {
                 quanCo = new QuanCo(toaDoBanDau);
                 tenQuanCo += "NULL";
             }
-            else if (toaDoBanDau == PheDo.ToaDoTuongXanh || toaDoBanDau == PheDo.ToaDoTuongDo)
+            else if (toaDoBanDau == ThongSoPheDo.ToaDoTuongXanh || toaDoBanDau == ThongSoPheDo.ToaDoTuongDo)
             {
                 quanCo = new QuanTuong(toaDoBanDau);
                 tenQuanCo += "Tuong";
             }
-            else if (toaDoBanDau == PheDo.ToaDoXeXanh1 || toaDoBanDau == PheDo.ToaDoXeXanh2 || toaDoBanDau == PheDo.ToaDoXeDo1 || toaDoBanDau == PheDo.ToaDoXeDo2)
+            else if (toaDoBanDau == ThongSoPheDo.ToaDoXeXanh1 || toaDoBanDau == ThongSoPheDo.ToaDoXeXanh2 || toaDoBanDau == ThongSoPheDo.ToaDoXeDo1 || toaDoBanDau == ThongSoPheDo.ToaDoXeDo2)
             {
                 quanCo = new QuanXe(toaDoBanDau);
                 tenQuanCo += "Xe";
             }
-            else if (toaDoBanDau == PheDo.ToaDoMaXanh1 || toaDoBanDau == PheDo.ToaDoMaXanh2 || toaDoBanDau == PheDo.ToaDoMaDo1 || toaDoBanDau == PheDo.ToaDoMaDo2)
+            else if (toaDoBanDau == ThongSoPheDo.ToaDoMaXanh1 || toaDoBanDau == ThongSoPheDo.ToaDoMaXanh2 || toaDoBanDau == ThongSoPheDo.ToaDoMaDo1 || toaDoBanDau == ThongSoPheDo.ToaDoMaDo2)
             {
                 quanCo = new QuanMa(toaDoBanDau);
                 tenQuanCo += "Ma";
             }
-            else if (toaDoBanDau == PheDo.ToaDoTinhXanh1 || toaDoBanDau == PheDo.ToaDoTinhXanh2 || toaDoBanDau == PheDo.ToaDoTinhDo1 || toaDoBanDau == PheDo.ToaDoTinhDo2)
+            else if (toaDoBanDau == ThongSoPheDo.ToaDoTinhXanh1 || toaDoBanDau == ThongSoPheDo.ToaDoTinhXanh2 || toaDoBanDau == ThongSoPheDo.ToaDoTinhDo1 || toaDoBanDau == ThongSoPheDo.ToaDoTinhDo2)
             {
                 quanCo = new QuanTinh(toaDoBanDau);
                 tenQuanCo += "Tinh";
             }
-            else if (toaDoBanDau == PheDo.ToaDoSiXanh1 || toaDoBanDau == PheDo.ToaDoSiXanh2 || toaDoBanDau == PheDo.ToaDoSiDo1 || toaDoBanDau == PheDo.ToaDoSiDo2)
+            else if (toaDoBanDau == ThongSoPheDo.ToaDoSiXanh1 || toaDoBanDau == ThongSoPheDo.ToaDoSiXanh2 || toaDoBanDau == ThongSoPheDo.ToaDoSiDo1 || toaDoBanDau == ThongSoPheDo.ToaDoSiDo2)
             {
                 quanCo = new QuanSi(toaDoBanDau);
                 tenQuanCo += "Si";
             }
-            else if (toaDoBanDau == PheDo.ToaDoPhaoXanh1 || toaDoBanDau == PheDo.ToaDoPhaoXanh2 || toaDoBanDau == PheDo.ToaDoPhaoDo1 || toaDoBanDau == PheDo.ToaDoPhaoDo2)
+            else if (toaDoBanDau == ThongSoPheDo.ToaDoPhaoXanh1 || toaDoBanDau == ThongSoPheDo.ToaDoPhaoXanh2 || toaDoBanDau == ThongSoPheDo.ToaDoPhaoDo1 || toaDoBanDau == ThongSoPheDo.ToaDoPhaoDo2)
             {
                 quanCo = new QuanPhao(toaDoBanDau);
                 tenQuanCo += "Phao";

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,48 +8,25 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Sever
+namespace KetNoi
 {
-    public partial class Sever : Form
+    public static class KetNoi
     {
-        public Sever()
-        {
-            InitializeComponent();
-
-            //CheckForIllegalCrossThreadCalls = false;
-
-            //Connect();
-        }
-
         IPEndPoint IP;
         Socket sever;
-        List<Socket> clientList;
+        Socket client;
 
-        private void Sever_Load(object sender, EventArgs e)
+        void InitializeSever()
         {
-            CheckForIllegalCrossThreadCalls = false;
-            Connect();
-        }
 
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            foreach (Socket item in clientList)
-            {
-                Send(item);       
-            }
-            txbMessage.Clear();
-        }
-        void Connect()
-        {
-            clientList = new List<Socket>();
             //Dia chi IP
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);//IP = "127.0.0.1"; PORT = 100;
-            sever = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
-           
-            sever.Bind(iep);                      
-            //sever.Listen(2);
+            IP = new IPEndPoint(IPAddress.Any, 9999);
+            sever = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
+
+            //Nap sever
+            sever.Bind(IP);
+
 
             //Lang nghe
             Thread listen = new Thread(() =>
@@ -63,8 +37,6 @@ namespace Sever
                     {
                         sever.Listen(100);  //lang nghe
                         Socket client = sever.Accept(); //Lay client
-
-                        clientList.Add(client);
 
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
@@ -77,12 +49,33 @@ namespace Sever
                     IP = new IPEndPoint(IPAddress.Any, 9999);
                     sever = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
                 }
-                
+
             });
 
             listen.IsBackground = true;
             listen.Start();
-            
+
+        }
+        void ConnectSever(string ipSever)
+        {
+            //Dia chi IP
+            IP = new IPEndPoint(IPAddress.Parse(ipSever), 9999);
+            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
+
+            try
+            {
+                client.Connect(IP); //Ket noi
+            }
+            catch
+            {
+                //MessageBox.Show("Khong the ket noi sever", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Lang nghe
+            Thread listen = new Thread(Receive);
+            listen.IsBackground = true;
+            listen.Start();
         }
 
         void Close()
@@ -90,12 +83,6 @@ namespace Sever
             sever.Close();
         }
 
-        
-        void Send(Socket client)  //Gui Tin
-        {
-            if (txbMessage.Text != string.Empty) //khac rong
-                client.Send(Serialize(txbMessage.Text));
-        }
 
         void Receive(object obj)  //Nhan tin
         {
@@ -109,23 +96,13 @@ namespace Sever
 
                     string message = (string)Deserialize(data);
 
-                    AddMessage(message);
                 }
             }
             catch
             {
-                clientList.Remove(client);
                 client.Close();
             }
-
-
-        }
-
-        void AddMessage(string s)  //Them tin nhan vao listView
-        {
-            lsvMessage.Items.Add(new ListViewItem() { Text = s });
-            txbMessage.Clear();
-        }
+        }  
 
         byte[] Serialize(object obj) //Phan manh
         {
@@ -144,6 +121,7 @@ namespace Sever
             BinaryFormatter formatter = new BinaryFormatter();
 
             return formatter.Deserialize(stream); //chuyen ma
-        }      
+        }
+
     }
 }

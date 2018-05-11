@@ -6,3 +6,12 @@ D:\C#\ChatLan\Client\obj\Debug\Client.Properties.Resources.resources
 D:\C#\ChatLan\Client\obj\Debug\Client.csproj.GenerateResource.Cache
 D:\C#\ChatLan\Client\obj\Debug\Client.exe
 D:\C#\ChatLan\Client\obj\Debug\Client.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\bin\Debug\Client.exe.config
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\obj\Debug\Client.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\obj\Debug\Client.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\bin\Debug\Client.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\bin\Debug\Client.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\obj\Debug\Client.Client.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\obj\Debug\Client.Properties.Resources.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Client\obj\Debug\Client.csproj.GenerateResource.Cache

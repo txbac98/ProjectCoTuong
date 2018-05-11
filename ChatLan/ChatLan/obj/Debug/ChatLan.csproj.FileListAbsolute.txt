@@ -1,1 +1,2 @@
 D:\C#\ChatLan\ChatLan\bin\Debug\ChatLan.exe.config
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\ChatLan\bin\Debug\ChatLan.exe.config

@@ -21,9 +21,7 @@ namespace Client
         {
             InitializeComponent();
 
-            CheckForIllegalCrossThreadCalls = false;
-
-            Connect();
+            
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -122,6 +120,9 @@ namespace Client
 
         private void Client_Load(object sender, EventArgs e)
         {
+            CheckForIllegalCrossThreadCalls = false;
+
+            Connect();
 
         }
     }

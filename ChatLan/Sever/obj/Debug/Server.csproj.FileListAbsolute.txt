@@ -1,0 +1,8 @@
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.csproj.GenerateResource.Cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.exe.config
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.exe
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.pdb
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.Server.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.Properties.Resources.resources

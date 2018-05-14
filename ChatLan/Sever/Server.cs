@@ -13,91 +13,87 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sever
+namespace Server
 {
-    public partial class Sever : Form
+    public partial class Server : Form
     {
-        public Sever()
-        {
-            InitializeComponent();
-
-            //CheckForIllegalCrossThreadCalls = false;
-
-            //Connect();
-        }
-
-        IPEndPoint IP;
-        Socket sever;
+        private string IP = "127.0.0.1";
+        private string name = "Server";
+        Socket server;
         List<Socket> clientList;
 
-        private void Sever_Load(object sender, EventArgs e)
+        public Server()
+        {
+            InitializeComponent();
+        }  
+        private void Server_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
             Connect();
         }
-
+        private void Sever_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            server.Close();
+        }      
         private void btnSend_Click(object sender, EventArgs e)
         {
             foreach (Socket item in clientList)
             {
                 Send(item);       
             }
+            SendMessage(txbMessage.Text);
+        }
+        private void SendMessage(string s)
+        {
+            lsvMessage.Items.Add(new ListViewItem() { Text = name + ": " + txbMessage.Text });
             txbMessage.Clear();
         }
-        void Connect()
+        private void AddMessage(string s)  //Them tin nhan vao listView
+        {
+            lsvMessage.Items.Add(new ListViewItem() { Text = s });
+            txbMessage.Clear();
+        } 
+        private void Connect()
         {
             clientList = new List<Socket>();
             //Dia chi IP
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);//IP = "127.0.0.1"; PORT = 100;
-            sever = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), 9999);//IP = "127.0.0.1"; PORT = 100;
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
            
-            sever.Bind(iep);                      
-            //sever.Listen(2);
-
+            server.Bind(iep);                      
             //Lang nghe
             Thread listen = new Thread(() =>
             {
                 try
                 {
-                    while (true)    //lang nghe nhieu client
+                    bool count = true;
+                    while (count)    //Lắng nghe client
                     {
-                        sever.Listen(100);  //lang nghe
-                        Socket client = sever.Accept(); //Lay client
-
+                        server.Listen(1);  //Lắng nghe
+                        Socket client = server.Accept(); //Lấy client
                         clientList.Add(client);
-
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
                         receive.Start(client);
+                        count = false;
                     }
                 }
                 catch
                 {
                     //khoi tao
-                    IP = new IPEndPoint(IPAddress.Any, 9999);
-                    sever = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
-                }
-                
+                    iep = new IPEndPoint(IPAddress.Any, 9999);
+                    server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
+                }                
             });
-
             listen.IsBackground = true;
-            listen.Start();
-            
-        }
-
-        void Close()
-        {
-            sever.Close();
-        }
-
-        
-        void Send(Socket client)  //Gui Tin
+            listen.Start();            
+        }       
+        private void Send(Socket client)  //Gui Tin
         {
             if (txbMessage.Text != string.Empty) //khac rong
-                client.Send(Serialize(txbMessage.Text));
+                client.Send(Serialize(name + ": " + txbMessage.Text));
         }
-
-        void Receive(object obj)  //Nhan tin
+        private void Receive(object obj)  //Nhan tin
         {
             Socket client = obj as Socket;
             try
@@ -108,7 +104,6 @@ namespace Sever
                     client.Receive(data);
 
                     string message = (string)Deserialize(data);
-
                     AddMessage(message);
                 }
             }
@@ -117,33 +112,20 @@ namespace Sever
                 clientList.Remove(client);
                 client.Close();
             }
-
-
-        }
-
-        void AddMessage(string s)  //Them tin nhan vao listView
-        {
-            lsvMessage.Items.Add(new ListViewItem() { Text = s });
-            txbMessage.Clear();
-        }
-
-        byte[] Serialize(object obj) //Phan manh
+        }     
+        private byte[] Serialize(object obj) //Phan manh
         {
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
 
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
-
             return stream.ToArray();  //chuyen thanh mang 01..
-        }
-
-
-        object Deserialize(byte[] data) //Gom manh
+        }   
+        private object Deserialize(byte[] data) //Gom manh
         {
             MemoryStream stream = new MemoryStream(data); //lay ma
             BinaryFormatter formatter = new BinaryFormatter();
-
             return formatter.Deserialize(stream); //chuyen ma
-        }      
+        }
     }
 }

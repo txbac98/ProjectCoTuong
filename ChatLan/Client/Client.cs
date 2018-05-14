@@ -17,23 +17,29 @@ namespace Client
 {
     public partial class Client : Form
     {
-        public Client()
-        {
-            InitializeComponent();
-
-            
-        }
-
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            Send();
-            AddMessage(txbMessage.Text);
-        }
-
+        string name = "Client";
         IPEndPoint IP;
         Socket client;
 
-        void Connect()
+        public Client()
+        {
+            InitializeComponent();        
+        }
+        private void Client_Load(object sender, EventArgs e)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            Connect();
+        }
+        private void Client_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            client.Close();
+        }
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            Send();
+            AddMessage(name +": "+txbMessage.Text);
+        }
+        private void Connect()
         {
             //Dia chi IP
             IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
@@ -54,19 +60,18 @@ namespace Client
             listen.IsBackground = true;
             listen.Start();
         }
-
-        void Close()
+        private void Send()  //Gui Tin
         {
-            client.Close();
-        }
-
-        void Send()  //Gui Tin
-        {
+            string temp = name +": "+txbMessage.Text;
             if (txbMessage.Text !=string.Empty) //khac rong
-            client.Send(Serialize(txbMessage.Text));
+            client.Send(Serialize(temp));
         }
-
-        void Receive()  //Nhan tin
+        private void AddMessage(string s)  //Them tin nhan vao listView
+        {
+            lsvMessage.Items.Add(new ListViewItem() { Text = s });
+            txbMessage.Clear();
+        }   
+        private void Receive()  //Nhận gói tin từ server
         {
             try
             {
@@ -74,9 +79,7 @@ namespace Client
                 {
                     byte[] data = new byte[1024 * 5000];
                     client.Receive(data);
-
                     string message = (string)Deserialize(data);
-
                     AddMessage(message);
                 }
             }
@@ -84,46 +87,20 @@ namespace Client
             {
                 Close();
             }
-
-
-        }
-
-        void AddMessage(string s)  //Them tin nhan vao listView
-        {
-            lsvMessage.Items.Add(new ListViewItem() { Text = s });
-            txbMessage.Clear();
-        }
-        
-        byte[] Serialize(object obj) //Phan manh
+        }   
+        private byte[] Serialize(object obj) //Phân mảnh gói tin
         {
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
-
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
-
             return stream.ToArray();  //chuyen thanh mang 01..
-        }
- 
-        
-        object Deserialize(byte[] data) //Gom manh
+        }    
+        private object Deserialize(byte[] data) //Gom mảnh
         {
             MemoryStream stream = new MemoryStream(data); //lay ma
             BinaryFormatter formatter = new BinaryFormatter();
-
             return formatter.Deserialize(stream); //chuyen ma
         }
-
-        private void Client_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Client_Load(object sender, EventArgs e)
-        {
-            CheckForIllegalCrossThreadCalls = false;
-
-            Connect();
-
-        }
+ 
     }
 }

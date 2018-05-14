@@ -1,6 +1,6 @@
-﻿namespace Sever
+﻿namespace Server
 {
-    partial class Sever
+    partial class Server
     {
         /// <summary>
         /// Required designer variable.
@@ -69,7 +69,8 @@
             this.Controls.Add(this.lsvMessage);
             this.Name = "Sever";
             this.Text = "Sever";
-            this.Load += new System.EventHandler(this.Sever_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Sever_FormClosed);
+            this.Load += new System.EventHandler(this.Server_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

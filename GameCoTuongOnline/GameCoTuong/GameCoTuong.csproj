@@ -61,6 +61,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KhoiDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhoiDong.Designer.cs">
+      <DependentUpon>KhoiDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProgramConfig\ThongSoPheDo.cs" />
     <Compile Include="ProgramConfig\ThongSoPheXanh.cs" />
@@ -94,6 +100,9 @@
     <Content Include="Resources\TuongXanh.png" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoiDong.resx">
+      <DependentUpon>KhoiDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

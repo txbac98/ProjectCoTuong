@@ -8,3 +8,6 @@ D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\S
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.Properties.Resources.resources
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.csprojResolveAssemblyReference.cache
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\Github\ProjectCoTuong\ChatLan\Sever\bin\Debug\Sever.exe.config
+D:\Github\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.exe
+D:\Github\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.pdb

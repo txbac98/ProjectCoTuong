@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameCoTuong.ChatLan;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,8 @@ namespace GameCoTuong
             InitializeComponent();
         }
 
-        public static string PlayerName
-        { get => playerName; set => playerName = value; }
+        //public static string PlayerName
+        //{ get => playerName; set => playerName = value; }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,7 +40,7 @@ namespace GameCoTuong
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton3.Checked == true)
+            if (rbtTaoVanMoi.Checked == true)
             {
                 label2.Enabled = false;
                 textBox2.Enabled = false;
@@ -48,10 +49,18 @@ namespace GameCoTuong
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton4.Checked == true)
+            if (rbtKetNoi.Checked == true)
             {
                 label2.Enabled = true;
                 textBox2.Enabled = true;
+            }
+        }
+
+        private void btnBatDau_Click(object sender, EventArgs e)
+        {
+            if (rbtTaoVanMoi.Checked)
+            {
+                Server.Init();
             }
         }
     }

@@ -54,14 +54,15 @@ namespace Server
             if (txbMessage.Text != string.Empty) //khac rong
                 client.Send(Serialize(name + ": " + txbMessage.Text));
         }
-        private void Connect()
+
+        //Neu no la server
+        public static void Init()
         {
-            clientList = new List<Socket>();
             //Dia chi IP
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), 9999);//IP = "127.0.0.1"; PORT = 100;
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
-           
-            server.Bind(iep);                      
+
+            server.Bind(iep);
             //Lang nghe
             Thread listen = new Thread(() =>
             {
@@ -71,8 +72,7 @@ namespace Server
                     while (count)    //Lắng nghe client
                     {
                         server.Listen(1);  //Lắng nghe
-                        Socket client = server.Accept(); //Lấy client
-                        clientList.Add(client);
+                        client = server.Accept(); //Lấy client
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
                         receive.Start(client);
@@ -84,11 +84,34 @@ namespace Server
                     //khoi tao
                     iep = new IPEndPoint(IPAddress.Any, 9999);
                     server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
-                }                
+                }
             });
             listen.IsBackground = true;
-            listen.Start();            
-        }       
+            listen.Start();
+        }
+
+        //Neu no la client
+        public static void Connect()
+        {
+            //Dia chi IP
+            IPserver = new IPEndPoint(IPAddress.Parse(IP), 9999);
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
+
+            try
+            {
+                server.Connect(IPserver); //Ket noi
+            }
+            catch
+            {
+                MessageBox.Show("Không thể kết nối server", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                server.Close();
+            }
+
+            //Lang nghe
+            Thread listen = new Thread(Receive);
+            listen.IsBackground = true;
+            listen.Start();
+        }
         private void Receive(object obj)  //Nhan tin
         {
             Socket client = obj as Socket;

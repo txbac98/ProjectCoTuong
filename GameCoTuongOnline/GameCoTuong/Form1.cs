@@ -6,26 +6,39 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameCoTuong
 {
+   
     public partial class Form1 : Form
     {
         #region global variables in 'Form1'
     
         #endregion
         private void Form1_Load(object sender, EventArgs e) { }
+        
 
         public Form1()
-        {
+        {   
             InitializeComponent();
             BanCo.TaoDiemBanCo(ptbBanCo);
             BanCo.TaoQuanCo(QuanCo_Click);
             BanCo.XepBanCo(ptbBanCo);
             BanCo.RefreshBanCo();
+
+
+            CheckForIllegalCrossThreadCalls = false;
+            ChatLan.Server.ListView = listView1;
+            ChatLan.Server.TextBox = textBox1;
+            ChatLan.Server.Connect();
+
+            //ChatLan.Client.ListView = listView1;
+            //ChatLan.Client.TextBox = textBox1;
+            //ChatLan.Client.Connect();
         }
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
         private void QuanCo_Click(object sender, EventArgs e)
@@ -104,6 +117,22 @@ namespace GameCoTuong
                 BanCo.XepBanCo(ptbBanCo);
                 BanCo.RefreshBanCo();
             }
+        }
+
+        private void btnGui_Click(object sender, EventArgs e)
+        {
+            
+            foreach (Socket item in ChatLan.Server.ClientList)
+            {
+                ChatLan.Server.Send(item);
+            }
+
+            ChatLan.Server.AddMessage(ChatLan.Server.TextBox.Text);
+
+             
+            //ChatLan.Client.Send();
+           // ChatLan.Client.AddMessage(ChatLan.Client.TextBox.Text);
+            
         }
     }
 }

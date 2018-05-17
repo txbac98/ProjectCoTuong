@@ -13,37 +13,36 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Client
+namespace GameCoTuong.ChatLan
 {
-    public partial class Client : Form
+    public class Client
     {
-        string name = "Client";
-        IPEndPoint IP;
-        Socket client;
+        public static string name = "Client";
 
-        public Client()
+        private static IPEndPoint IP;
+        private static Socket client;
+        private static ListView listView;
+        private static TextBox textBox;
+
+        public static ListView ListView { get => listView; set => listView = value; }
+        public static TextBox TextBox { get => textBox; set => textBox = value; }
+
+        public static void AddMessage(string s)  //Them tin nhan vao listView
         {
-            InitializeComponent();        
+            ListView.Items.Add(new ListViewItem() { Text = s });
+            TextBox.Clear();
         }
-        private void Client_Load(object sender, EventArgs e)
+        public static void Send()  //Gui Tin
         {
-            CheckForIllegalCrossThreadCalls = false;
-            Connect();
-        }
-        private void Client_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            client.Close();
-        }
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            Send();
-            AddMessage(name +": "+txbMessage.Text);
-        }
-        private void Connect()
+            string temp = name + ": " + TextBox.Text;
+            if (TextBox.Text != string.Empty) //khac rong
+                client.Send(Serialize(temp));
+        }     
+        public static void Connect()
         {
             //Dia chi IP
             IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
-            client = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.IP);  //Luon dung
+            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
 
             try
             {
@@ -52,7 +51,7 @@ namespace Client
             catch
             {
                 MessageBox.Show("Khong the ket noi sever", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                client.Close();
             }
 
             //Lang nghe
@@ -60,18 +59,7 @@ namespace Client
             listen.IsBackground = true;
             listen.Start();
         }
-        private void Send()  //Gui Tin
-        {
-            string temp = name +": "+txbMessage.Text;
-            if (txbMessage.Text !=string.Empty) //khac rong
-            client.Send(Serialize(temp));
-        }
-        private void AddMessage(string s)  //Them tin nhan vao listView
-        {
-            lsvMessage.Items.Add(new ListViewItem() { Text = s });
-            txbMessage.Clear();
-        }   
-        private void Receive()  //Nhận gói tin từ server
+        public static void Receive()  //Nhận gói tin từ server
         {
             try
             {
@@ -85,23 +73,22 @@ namespace Client
             }
             catch
             {
-                Close();
+                client.Close();
             }
-        }   
-        private byte[] Serialize(object obj) //Phân mảnh gói tin
+        }
+        public static byte[] Serialize(object obj) //Gom mảnh - đóng gói
         {
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
             return stream.ToArray();  //chuyen thanh mang 01..
-        }    
-        private object Deserialize(byte[] data) //Gom mảnh
+        }
+       public static object Deserialize(byte[] data) //Phân mảnh
         {
             MemoryStream stream = new MemoryStream(data); //lay ma
             BinaryFormatter formatter = new BinaryFormatter();
             return formatter.Deserialize(stream); //chuyen ma
         }
 
- 
     }
 }

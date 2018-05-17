@@ -6,3 +6,5 @@ D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\bin\Debug\S
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Sever.pdb
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.Server.resources
 D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.Properties.Resources.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.csprojResolveAssemblyReference.cache
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\ChatLan\Sever\obj\Debug\Server.csproj.CoreCompileInputs.cache

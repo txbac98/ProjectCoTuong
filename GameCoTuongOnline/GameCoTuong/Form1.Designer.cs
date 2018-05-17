@@ -35,9 +35,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnGui = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // background
@@ -124,12 +129,50 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "0";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnGui);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.listView1);
+            this.panel2.Location = new System.Drawing.Point(661, 426);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(253, 268);
+            this.panel2.TabIndex = 4;
+            // 
+            // btnGui
+            // 
+            this.btnGui.BackColor = System.Drawing.SystemColors.Window;
+            this.btnGui.Location = new System.Drawing.Point(195, 239);
+            this.btnGui.Name = "btnGui";
+            this.btnGui.Size = new System.Drawing.Size(55, 23);
+            this.btnGui.TabIndex = 2;
+            this.btnGui.Text = "Gửi";
+            this.btnGui.UseVisualStyleBackColor = false;
+            this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 239);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(250, 230);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(926, 726);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.background);
@@ -141,6 +184,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -153,6 +198,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnGui;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

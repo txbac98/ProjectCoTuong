@@ -12,10 +12,14 @@ namespace GameCoTuong
 {
     public partial class KhoiDong : Form
     {
+        private static string playerName;
         public KhoiDong()
         {
             InitializeComponent();
         }
+
+        public static string PlayerName
+        { get => playerName; set => playerName = value; }
 
         private void button1_Click(object sender, EventArgs e)
         {

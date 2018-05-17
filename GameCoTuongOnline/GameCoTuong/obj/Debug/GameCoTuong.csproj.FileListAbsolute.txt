@@ -123,3 +123,4 @@ D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoT
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csprojAssemblyReference.cache
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
+D:\Học tập\Lập trình trực quan\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources

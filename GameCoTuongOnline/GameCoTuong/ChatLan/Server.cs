@@ -13,55 +13,41 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Server
+namespace GameCoTuong.ChatLan
 {
-    public partial class Server : Form
+    public class Server
     {
-        private string IP = "127.0.0.1";
-        private string name = "Server";
-        Socket server;
-        List<Socket> clientList;
+        public static string name="Server";
+        private static string IP = "127.0.0.1";
+        private static Socket server;
+        private static List<Socket> clientList;
+        private static ListView listView;
+        private static TextBox textBox;
 
-        public Server()
+        public static List<Socket> ClientList { get => clientList; set => clientList = value; }
+        public static ListView ListView { get => listView; set => listView = value; }
+        public static TextBox TextBox { get => textBox; set => textBox = value; }
+
+        public static void AddMessage(string s)  //Thêm tin vừa gửi vào listView
         {
-            InitializeComponent();
-        }  
-        private void Server_Load(object sender, EventArgs e)
-        {
-            CheckForIllegalCrossThreadCalls = false;
-            Connect();
+            ListView.Items.Add(new ListViewItem() { Text = s });
+            TextBox.Clear();
         }
-        private void Sever_FormClosed(object sender, FormClosedEventArgs e)
+        public static void Send(Socket client)  //Gửi gói tin
         {
-            server.Close();
-        }      
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            foreach (Socket item in clientList)
-            {
-                Send(item);       
-            }
-            AddMessage(name +": " +txbMessage.Text);
+            string temp = name + ": " + TextBox.Text;
+            if (TextBox.Text != string.Empty) //khac rong
+                client.Send(Serialize(temp));
         }
-       
-        private void AddMessage(string s)  //Thêm tin vừa nhận vào listView
+
+        public static void Connect()
         {
-            lsvMessage.Items.Add(new ListViewItem() { Text = s });
-            txbMessage.Clear();
-        }
-        private void Send(Socket client)  //Gui Tin
-        {
-            if (txbMessage.Text != string.Empty) //khac rong
-                client.Send(Serialize(name + ": " + txbMessage.Text));
-        }
-        private void Connect()
-        {
-            clientList = new List<Socket>();
+            ClientList = new List<Socket>();
             //Dia chi IP
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), 9999);//IP = "127.0.0.1"; PORT = 100;
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
-           
-            server.Bind(iep);                      
+
+            server.Bind(iep);
             //Lang nghe
             Thread listen = new Thread(() =>
             {
@@ -72,7 +58,7 @@ namespace Server
                     {
                         server.Listen(1);  //Lắng nghe
                         Socket client = server.Accept(); //Lấy client
-                        clientList.Add(client);
+                        ClientList.Add(client);
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
                         receive.Start(client);
@@ -84,12 +70,12 @@ namespace Server
                     //khoi tao
                     iep = new IPEndPoint(IPAddress.Any, 9999);
                     server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
-                }                
+                }
             });
             listen.IsBackground = true;
-            listen.Start();            
-        }       
-        private void Receive(object obj)  //Nhan tin
+            listen.Start();
+        }
+        private static void Receive(object obj)  //Nhan tin
         {
             Socket client = obj as Socket;
             try
@@ -105,19 +91,19 @@ namespace Server
             }
             catch
             {
-                clientList.Remove(client);
+                ClientList.Remove(client);
                 client.Close();
             }
-        }     
-        private byte[] Serialize(object obj) //Phan manh
+        }
+        private static byte[] Serialize(object obj) //Gom mảnh -  đóng gói
         {
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
 
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
             return stream.ToArray();  //chuyen thanh mang 01..
-        }   
-        private object Deserialize(byte[] data) //Gom manh
+        }
+        private static object Deserialize(byte[] data) //Phân mảnh
         {
             MemoryStream stream = new MemoryStream(data); //lay ma
             BinaryFormatter formatter = new BinaryFormatter();

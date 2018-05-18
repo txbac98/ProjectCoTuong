@@ -15,32 +15,34 @@ using System.Windows.Forms;
 
 namespace GameCoTuong.ChatLan
 {
-
-    public static class Server
+    public class Server
     {
-        
-
-        public static string name="Server";
-
-
-        private static IPEndPoint IPserver;
+        public static string name = "Server";
+        private static string IP = "127.0.0.1";
         private static Socket server;
-        private static Socket client;
+        private static List<Socket> clientList;
         private static ListView listView;
         private static TextBox textBox;
 
-        
+        public static List<Socket> ClientList { get => clientList; set => clientList = value; }
+        public static ListView ListView { get => listView; set => listView = value; }
+        public static TextBox TextBox { get => textBox; set => textBox = value; }
 
         public static void AddMessage(string s)  //Thêm tin vừa gửi vào listView
         {
-            listView.Items.Add(new ListViewItem() { Text = s });
-            textBox.Clear();
+            ListView.Items.Add(new ListViewItem() { Text = s });
+            TextBox.Clear();
         }
-        
-
-        //Neu no la server
-        public static void Init(string IP)
+        public static void Send(Socket client)  //Gửi gói tin
         {
+            string temp = name + ": " + TextBox.Text;
+            if (TextBox.Text != string.Empty) //khac rong
+                client.Send(Serialize(temp));
+        }
+
+        public static void Connect()
+        {
+            ClientList = new List<Socket>();
             //Dia chi IP
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), 9999);//IP = "127.0.0.1"; PORT = 100;
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
@@ -55,7 +57,8 @@ namespace GameCoTuong.ChatLan
                     while (count)    //Lắng nghe client
                     {
                         server.Listen(1);  //Lắng nghe
-                        client = server.Accept(); //Lấy client
+                        Socket client = server.Accept(); //Lấy client
+                        ClientList.Add(client);
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
                         receive.Start(client);
@@ -72,39 +75,6 @@ namespace GameCoTuong.ChatLan
             listen.IsBackground = true;
             listen.Start();
         }
-
-        //Neu no la client
-        public static void Connect(string IP)
-        {
-            //Dia chi IP
-            IPserver = new IPEndPoint(IPAddress.Parse(IP), 9999);
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
-
-            try
-            {
-                server.Connect(IPserver); //Ket noi
-            }
-            catch
-            {
-                MessageBox.Show("Không thể kết nối server", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                server.Close();
-            }
-
-            //Lang nghe
-            Thread listen = new Thread(Receive);
-            listen.IsBackground = true;
-            listen.Start();
-        }
-
-
-
-        public static void Send(Socket client)  //Gửi gói tin
-        {
-            string temp = textBox.Text;
-            if (textBox.Text != string.Empty) //khac rong
-                client.Send(Serialize(temp));
-        }
-
         private static void Receive(object obj)  //Nhan tin
         {
             Socket client = obj as Socket;
@@ -121,6 +91,7 @@ namespace GameCoTuong.ChatLan
             }
             catch
             {
+                ClientList.Remove(client);
                 client.Close();
             }
         }

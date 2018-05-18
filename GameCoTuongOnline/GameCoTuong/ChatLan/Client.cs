@@ -24,20 +24,20 @@ namespace GameCoTuong.ChatLan
         private static ListView listView;
         private static TextBox textBox;
 
-        //public static ListView ListView { get => listView; set => listView = value; }
-        //public static TextBox TextBox { get => textBox; set => textBox = value; }
+        public static ListView ListView { get => listView; set => listView = value; }
+        public static TextBox TextBox { get => textBox; set => textBox = value; }
 
         public static void AddMessage(string s)  //Them tin nhan vao listView
         {
-            listView.Items.Add(new ListViewItem() { Text = s });
-            textBox.Clear();
+            ListView.Items.Add(new ListViewItem() { Text = s });
+            TextBox.Clear();
         }
         public static void Send()  //Gui Tin
         {
-            string temp = name + ": " + textBox.Text;
-            if (textBox.Text != string.Empty) //khac rong
+            string temp = name + ": " + TextBox.Text;
+            if (TextBox.Text != string.Empty) //khac rong
                 client.Send(Serialize(temp));
-        }     
+        }
         public static void Connect()
         {
             //Dia chi IP
@@ -83,7 +83,7 @@ namespace GameCoTuong.ChatLan
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
             return stream.ToArray();  //chuyen thanh mang 01..
         }
-       public static object Deserialize(byte[] data) //Phân mảnh
+        public static object Deserialize(byte[] data) //Phân mảnh
         {
             MemoryStream stream = new MemoryStream(data); //lay ma
             BinaryFormatter formatter = new BinaryFormatter();

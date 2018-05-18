@@ -58,10 +58,7 @@ namespace GameCoTuong
 
         private void btnBatDau_Click(object sender, EventArgs e)
         {
-            if (rbtTaoVanMoi.Checked)
-            {
-                Server.Init();
-            }
+            
         }
     }
 }

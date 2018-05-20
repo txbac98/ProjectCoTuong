@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace GameCoTuong
 {
-   
+
     public partial class Form1 : Form
     {
         public Form1()
-        {   
+        {
             InitializeComponent();
         }
 
@@ -42,9 +42,9 @@ namespace GameCoTuong
         {
             RoundPictureBox selected = sender as RoundPictureBox;
             BanCo.Highlight(selected, ptbBanCo);
-            BanCo.HienThiDiemDich(selected,DiemBanCo_Click);
+            BanCo.HienThiDiemDich(selected, DiemBanCo_Click);
             BanCo.toaDoDuocChon = selected.quanCo.ToaDo; // Lấy tọa độ của quân cờ được chọn
-            foreach (RoundPictureBox element in BanCo.danhSachQuanCo) // Khi 1 quân cờ được chọn thì không thể click chọn 1 quân cờ khác ngay lập tức mà phải bỏ chọn nó trước
+            foreach (RoundPictureBox element in BanCo.alive_RoundPictureBox) // Khi 1 quân cờ được chọn thì không thể click chọn 1 quân cờ khác ngay lập tức mà phải bỏ chọn nó trước
                 element.Enabled = false;
         }
 
@@ -67,10 +67,10 @@ namespace GameCoTuong
             BanCo.AnDiemDich(); // thì đồng thời sẽ bỏ chọn quân cờ luôn
             RoundButton clickedRoundButton = sender as RoundButton;
             Point destination = ThongSo.ToaDoDonViCuaDiem(clickedRoundButton.Location); // Lấy tọa độ của RoundButton điểm bàn cờ (điểm đích)
-            RoundPictureBox selected = BanCo.danhSachQuanCo.Find(element => element.quanCo.ToaDo == BanCo.toaDoDuocChon); // Tìm ra RoundPictureBox quân cờ trong danh sách quân cờ
+            RoundPictureBox selected = BanCo.alive_RoundPictureBox.Find(element => element.quanCo.ToaDo == BanCo.toaDoDuocChon); // Tìm ra RoundPictureBox quân cờ trong danh sách quân cờ
 
             //Hàm di chuyển cũ tách thành LoaiBoQuanCo + DiChuyen
-            BanCo.LoaiBoQuanCo(destination,ptbBanCo);
+            BanCo.LoaiBoQuanCo(destination, ptbBanCo);
             BanCo.DiChuyen(selected, destination); // Di chuyển quân cờ đến điểm đích
 
             if (BanCo.HaiTuongDoiMatNhau()) // nước đi không hợp lệ nếu sau nước đi 2 tướng đối mặt nhau => hoàn tác nước đi
@@ -97,7 +97,7 @@ namespace GameCoTuong
                     MessageBox.Show("Phe Đỏ hãy đối phó với nước đi này từ phe Xanh.", "Chiếu tướng!");
             }
             BanCo.ShowTheMove(BanCo.toaDoDuocChon, destination, ptbBanCo);
-            BanCo.DoiPhe(label3,label2,button1);
+            BanCo.DoiPhe(label3, label2, button1);
         }
 
         // Event cho button New game

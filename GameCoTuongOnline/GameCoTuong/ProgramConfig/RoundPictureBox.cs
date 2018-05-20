@@ -14,7 +14,6 @@ namespace GameCoTuong.ProgramConfig
     {
         #region attributes
         public QuanCo quanCo;
-        public QuanCo QuanCo { get { return quanCo; } }
 
         private string tenQuanCo;
         public string TenQuanCo { get { return tenQuanCo; } }
@@ -122,7 +121,6 @@ namespace GameCoTuong.ProgramConfig
                 BackColor = Color.DarkRed;
                 tenQuanCo += " Do";
             }
-
             Height = ThongSo.DuongKinhQuanCo;
             Width = ThongSo.DuongKinhQuanCo;
             SizeMode = PictureBoxSizeMode.StretchImage;

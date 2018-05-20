@@ -20,7 +20,7 @@ namespace GameCoTuong.CoTuong
                 mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
             else if (BanCo.mauPheTa == 1)
                 mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
-            BanCo.alive.Add(this);
+            BanCo.alive_QuanCo.Add(this);
         }
         
         public override void TinhNuocDi()

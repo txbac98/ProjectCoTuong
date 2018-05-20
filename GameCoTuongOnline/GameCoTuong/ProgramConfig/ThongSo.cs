@@ -44,6 +44,9 @@ namespace GameCoTuong.ProgramConfig
         public static int ChieuCaoBanCo { get { return 662; } } // chiều cao của bàn cờ
         #endregion
 
+        /* Tọa độ NULL - Tọa độ không thuộc bàn cờ */
+        public static Point ToaDoNULL { get { return new Point(-1, -1); } }
+
         #region Hàm tính toán
         public static Point ToaDoBanCoCuaDiem(int x, int y) // hàm chuyển tọa độ đơn vị (TDDV) của điểm bàn cờ sang tọa độ bàn cờ (TDBC)
         {
@@ -103,6 +106,25 @@ namespace GameCoTuong.ProgramConfig
         public static Point ToaDoQuanCoSangDiem(Point toaDoQuanCo)
         {
             return ToaDoQuanCoSangDiem(toaDoQuanCo.X, toaDoQuanCo.Y);
+        }
+
+        public static Point[] NuocDiCuaDoiThu(string input)
+        {
+            Point[] nuocDi = new Point[2];
+            Point diemDi = new Point();
+            Point diemDen = new Point();
+            diemDi.X = 8 - int.Parse(input[0].ToString());
+            diemDi.Y = 9 - int.Parse(input[1].ToString());
+            diemDen.X = 8 - int.Parse(input[2].ToString());
+            diemDen.Y = 9 - int.Parse(input[3].ToString());
+            nuocDi[0] = diemDi;
+            nuocDi[1] = diemDen;
+            return nuocDi;
+        }
+
+        public static string NuocDiCuaTa(Point[] nuocDi)
+        {
+            return nuocDi[0].X.ToString() + nuocDi[0].Y.ToString() + nuocDi[1].X.ToString() + nuocDi[1].Y.ToString();
         }
 
         #endregion

@@ -89,6 +89,5 @@ namespace GameCoTuong.ChatLan
             BinaryFormatter formatter = new BinaryFormatter();
             return formatter.Deserialize(stream); //chuyen ma
         }
-
     }
 }

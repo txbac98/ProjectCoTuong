@@ -16,20 +16,16 @@ namespace GameCoTuong
    
     public partial class Form1 : Form
     {
-        #region global variables in 'Form1'
-    
-        #endregion
-        private void Form1_Load(object sender, EventArgs e) { }
-        
-
         public Form1()
         {   
             InitializeComponent();
-            BanCo.TaoDiemBanCo(ptbBanCo);
-            BanCo.TaoQuanCo(QuanCo_Click);
-            BanCo.XepBanCo(ptbBanCo);
-            BanCo.RefreshBanCo();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            BanCo.TaoDiemBanCo(ptbBanCo);
+            BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
+            BanCo.RefreshBanCo();
 
             CheckForIllegalCrossThreadCalls = false;
             ChatLan.Server.ListView = listView1;
@@ -40,6 +36,7 @@ namespace GameCoTuong
             //ChatLan.Client.TextBox = textBox1;
             //ChatLan.Client.Connect();
         }
+
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
         private void QuanCo_Click(object sender, EventArgs e)
         {
@@ -57,13 +54,13 @@ namespace GameCoTuong
             BanCo.Dehighlight();
             BanCo.AnDiemDich();
             BanCo.RefreshBanCo();
-            BanCo.toaDoDuocChon = ThongSoPheDo.ToaDoNULL;
+            BanCo.toaDoDuocChon = ThongSo.ToaDoNULL;
         }
 
         /* Những gì xảy ra khi click vào một RoundButton điểm bàn cờ để đi đến */
         private void DiemBanCo_Click(object sender, EventArgs e)
         {
-            if (BanCo.toaDoDuocChon == ThongSoPheDo.ToaDoNULL)  // THE LEGENDARY GATEKEEPER from evil bugs
+            if (BanCo.toaDoDuocChon == ThongSo.ToaDoNULL)  // THE LEGENDARY GATEKEEPER from evil bugs
                 return; // Dòng code chống lỗi lặp lại event (chưa rõ nguyên nhân của lỗi này)
 
             BanCo.Dehighlight(); // chọn nước đi
@@ -103,7 +100,7 @@ namespace GameCoTuong
             BanCo.DoiPhe(label3,label2,button1);
         }
 
-        // event new game
+        // Event cho button New game
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn muốn bỏ ván đấu này và bắt đầu một ván mới?", "Ván mới", MessageBoxButtons.YesNo);
@@ -113,26 +110,31 @@ namespace GameCoTuong
                 BanCo.SetToDefault(label2, label3, button1);
                 BanCo.XoaBanCo(ptbBanCo);
                 BanCo.TaoDiemBanCo(ptbBanCo);
-                BanCo.TaoQuanCo(QuanCo_Click);
-                BanCo.XepBanCo(ptbBanCo);
+                BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
                 BanCo.RefreshBanCo();
             }
         }
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-            
             foreach (Socket item in ChatLan.Server.ClientList)
             {
                 ChatLan.Server.Send(item);
             }
-
             ChatLan.Server.AddMessage(ChatLan.Server.TextBox.Text);
 
-             
+
             //ChatLan.Client.Send();
-           // ChatLan.Client.AddMessage(ChatLan.Client.TextBox.Text);
-            
+            //ChatLan.Client.AddMessage(ChatLan.Client.TextBox.Text);
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBox1.Focused && e.KeyCode == Keys.Enter)
+            {
+                btnGui_Click(sender, e);
+            }
         }
     }
 }

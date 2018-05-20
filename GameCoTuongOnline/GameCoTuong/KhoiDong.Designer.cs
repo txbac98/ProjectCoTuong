@@ -37,17 +37,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtTenNguoiChoi = new System.Windows.Forms.TextBox();
-            this.rbtKetNoi = new System.Windows.Forms.RadioButton();
-            this.rbtTaoVanMoi = new System.Windows.Forms.RadioButton();
-            this.btnBatDau = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(12, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 31);
             this.button1.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 111);
+            this.button2.Location = new System.Drawing.Point(12, 113);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 31);
             this.button2.TabIndex = 1;
@@ -67,19 +67,21 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(122, 12);
+            this.panel1.Location = new System.Drawing.Point(122, 14);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 84);
+            this.panel1.Size = new System.Drawing.Size(311, 84);
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(29, 48);
+            this.radioButton2.Location = new System.Drawing.Point(29, 49);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(146, 19);
             this.radioButton2.TabIndex = 1;
@@ -90,7 +92,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 15);
+            this.radioButton1.Location = new System.Drawing.Point(29, 17);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(91, 19);
             this.radioButton1.TabIndex = 0;
@@ -100,16 +102,18 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.txtTenNguoiChoi);
-            this.panel2.Controls.Add(this.rbtKetNoi);
-            this.panel2.Controls.Add(this.rbtTaoVanMoi);
-            this.panel2.Location = new System.Drawing.Point(122, 111);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.radioButton4);
+            this.panel2.Controls.Add(this.radioButton3);
+            this.panel2.Location = new System.Drawing.Point(122, 113);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 151);
+            this.panel2.Size = new System.Drawing.Size(311, 151);
             this.panel2.TabIndex = 3;
             this.panel2.Visible = false;
             // 
@@ -140,53 +144,54 @@
             this.textBox2.Size = new System.Drawing.Size(115, 23);
             this.textBox2.TabIndex = 3;
             // 
-            // txtTenNguoiChoi
+            // textBox1
             // 
-            this.txtTenNguoiChoi.Location = new System.Drawing.Point(111, 17);
-            this.txtTenNguoiChoi.Name = "txtTenNguoiChoi";
-            this.txtTenNguoiChoi.Size = new System.Drawing.Size(100, 23);
-            this.txtTenNguoiChoi.TabIndex = 2;
+            this.textBox1.Location = new System.Drawing.Point(111, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 2;
             // 
-            // rbtKetNoi
+            // radioButton4
             // 
-            this.rbtKetNoi.AutoSize = true;
-            this.rbtKetNoi.Location = new System.Drawing.Point(29, 81);
-            this.rbtKetNoi.Name = "rbtKetNoi";
-            this.rbtKetNoi.Size = new System.Drawing.Size(179, 19);
-            this.rbtKetNoi.TabIndex = 1;
-            this.rbtKetNoi.Text = "Kết nối vào một ván cờ đã có";
-            this.rbtKetNoi.UseVisualStyleBackColor = true;
-            this.rbtKetNoi.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(29, 80);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(275, 19);
+            this.radioButton4.TabIndex = 1;
+            this.radioButton4.Text = "Kết nối vào một ván cờ tạo bởi người chơi khác";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
-            // rbtTaoVanMoi
+            // radioButton3
             // 
-            this.rbtTaoVanMoi.AutoSize = true;
-            this.rbtTaoVanMoi.Checked = true;
-            this.rbtTaoVanMoi.Location = new System.Drawing.Point(29, 49);
-            this.rbtTaoVanMoi.Name = "rbtTaoVanMoi";
-            this.rbtTaoVanMoi.Size = new System.Drawing.Size(91, 19);
-            this.rbtTaoVanMoi.TabIndex = 0;
-            this.rbtTaoVanMoi.TabStop = true;
-            this.rbtTaoVanMoi.Text = "Tạo ván mới";
-            this.rbtTaoVanMoi.UseVisualStyleBackColor = true;
-            this.rbtTaoVanMoi.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(29, 50);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(91, 19);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Tạo ván mới";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // btnBatDau
+            // button3
             // 
-            this.btnBatDau.Location = new System.Drawing.Point(269, 277);
-            this.btnBatDau.Name = "btnBatDau";
-            this.btnBatDau.Size = new System.Drawing.Size(86, 27);
-            this.btnBatDau.TabIndex = 4;
-            this.btnBatDau.Text = "Bắt đầu";
-            this.btnBatDau.UseVisualStyleBackColor = true;
-            this.btnBatDau.Click += new System.EventHandler(this.btnBatDau_Click);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(347, 276);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 27);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Bắt đầu";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // KhoiDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 314);
-            this.Controls.Add(this.btnBatDau);
+            this.ClientSize = new System.Drawing.Size(447, 314);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
@@ -213,9 +218,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtTenNguoiChoi;
-        private System.Windows.Forms.RadioButton rbtKetNoi;
-        private System.Windows.Forms.RadioButton rbtTaoVanMoi;
-        private System.Windows.Forms.Button btnBatDau;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Button button3;
     }
 }

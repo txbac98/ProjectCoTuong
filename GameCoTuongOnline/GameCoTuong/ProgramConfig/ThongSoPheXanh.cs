@@ -110,8 +110,8 @@ namespace GameCoTuong.ProgramConfig
                 toaDoBanDau == ToaDoTotXanh3 ||
                 toaDoBanDau == ToaDoTotXanh4 ||
                 toaDoBanDau == ToaDoTotXanh5)
-                return 2;
-            return 1;
+                return 1;
+            return 2;
         }
         #endregion
     }

@@ -10,8 +10,6 @@ namespace GameCoTuong.ProgramConfig
     public static class ThongSoPheDo
     {
         #region Tọa độ đơn vị ban đầu của tất cả quân cờ
-        /* Tọa độ NULL - Tọa độ không thuộc bàn cờ */
-        public static Point ToaDoNULL { get { return new Point(-1, -1); } }
 
         /* PHE XANH */
 
@@ -113,6 +111,7 @@ namespace GameCoTuong.ProgramConfig
                 return 1;
             return 2;
         }
+
         #endregion
     }
 }

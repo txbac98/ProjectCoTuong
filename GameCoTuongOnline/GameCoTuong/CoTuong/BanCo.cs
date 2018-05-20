@@ -11,8 +11,9 @@ namespace GameCoTuong.CoTuong
 {
     public class BanCo                                                                         
     {
-        #region attributes
-        public static int mauPheTa; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
+        #region
+        public static int mauPheTa = 2; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
+        //public static NuocDi nuocDiTruocDo;
 
         /* Thuộc tính dùng cho đối tượng QuanCo */
         public static List<QuanCo> alive = new List<QuanCo>();
@@ -23,7 +24,7 @@ namespace GameCoTuong.CoTuong
         public static RoundButton[,] diemBanCo = new RoundButton[9, 10]; // Mảng 2 chiều chứa 90 điểm bàn cờ
         public static List<RoundPictureBox> danhSachQuanCo = new List<RoundPictureBox>(); // List chứa tất cả các quân cờ còn sống
         public static RoundPictureBox quanCoBiLoai = null; // quân cờ vừa bị loại ở nước đi trước đó, nếu di chuyển thành công thì quanCoBiLoai không cần dùng đến => gán lại về null
-        public static Point toaDoDuocChon = ThongSoPheDo.ToaDoNULL; // Tọa độ của quân cờ đang được chọn (được click vào), khi không có quân cờ nào đang được chọn thì bằng (-1, -1)
+        public static Point toaDoDuocChon = ThongSo.ToaDoNULL; // Tọa độ của quân cờ đang được chọn (được click vào), khi không có quân cờ nào đang được chọn thì bằng (-1, -1)
         public static int pheDuocDanh = 2; // Phe hiện tại đang được đánh (1 - Xanh, 2 - Đỏ). Phe Đỏ được đánh đầu tiên
         public static int soLuotDi = 0; // Số lượt đã đi từ đầu ván cờ
         public static PictureBox yellowSquareTarget = new PictureBox()
@@ -50,6 +51,7 @@ namespace GameCoTuong.CoTuong
             Image = GameCoTuong.Properties.Resources.grey_square_target_dest,
             Location = new Point(863, 698)
         };
+
         #endregion
 
         #region methods
@@ -88,158 +90,303 @@ namespace GameCoTuong.CoTuong
         }
 
         /* Tạo 32 RoundPictureBox quân cờ và đưa chúng vào danh sách các quân cờ để quản lý */
-        public static void TaoQuanCo(EventHandler QuanCo_Click)
+        public static void TaoQuanCo(EventHandler QuanCo_Click, PictureBox ptbBanCo)
         {
-            /* Tướng xanh */
-            RoundPictureBox tuongXanh = new RoundPictureBox(ThongSoPheDo.ToaDoTuongXanh);
-            tuongXanh.Image = GameCoTuong.Properties.Resources.TuongXanh;
-            danhSachQuanCo.Add(tuongXanh);
+            if (mauPheTa == 2)
+            {
+                /* Tướng xanh */
+                RoundPictureBox tuongXanh = new RoundPictureBox(ThongSoPheDo.ToaDoTuongXanh);
+                tuongXanh.Image = GameCoTuong.Properties.Resources.TuongXanh;
+                danhSachQuanCo.Add(tuongXanh);
 
-            /* Xe xanh */
-            RoundPictureBox xeXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoXeXanh1);
-            xeXanh1.Image = GameCoTuong.Properties.Resources.XeXanh;
-            danhSachQuanCo.Add(xeXanh1);
+                /* Xe xanh */
+                RoundPictureBox xeXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoXeXanh1);
+                xeXanh1.Image = GameCoTuong.Properties.Resources.XeXanh;
+                danhSachQuanCo.Add(xeXanh1);
 
-            RoundPictureBox xeXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoXeXanh2);
-            xeXanh2.Image = GameCoTuong.Properties.Resources.XeXanh;
-            danhSachQuanCo.Add(xeXanh2);
+                RoundPictureBox xeXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoXeXanh2);
+                xeXanh2.Image = GameCoTuong.Properties.Resources.XeXanh;
+                danhSachQuanCo.Add(xeXanh2);
 
-            /* Mã xanh */
-            RoundPictureBox maXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoMaXanh1);
-            maXanh1.Image = GameCoTuong.Properties.Resources.MaXanh;
-            danhSachQuanCo.Add(maXanh1);
+                /* Mã xanh */
+                RoundPictureBox maXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoMaXanh1);
+                maXanh1.Image = GameCoTuong.Properties.Resources.MaXanh;
+                danhSachQuanCo.Add(maXanh1);
 
-            RoundPictureBox maXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoMaXanh2);
-            maXanh2.Image = GameCoTuong.Properties.Resources.MaXanh;
-            danhSachQuanCo.Add(maXanh2);
+                RoundPictureBox maXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoMaXanh2);
+                maXanh2.Image = GameCoTuong.Properties.Resources.MaXanh;
+                danhSachQuanCo.Add(maXanh2);
 
-            /* Tịnh xanh */
-            RoundPictureBox tinhXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhXanh1);
-            tinhXanh1.Image = GameCoTuong.Properties.Resources.TinhXanh;
-            danhSachQuanCo.Add(tinhXanh1);
+                /* Tịnh xanh */
+                RoundPictureBox tinhXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhXanh1);
+                tinhXanh1.Image = GameCoTuong.Properties.Resources.TinhXanh;
+                danhSachQuanCo.Add(tinhXanh1);
 
-            RoundPictureBox tinhXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhXanh2);
-            tinhXanh2.Image = GameCoTuong.Properties.Resources.TinhXanh;
-            danhSachQuanCo.Add(tinhXanh2);
+                RoundPictureBox tinhXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhXanh2);
+                tinhXanh2.Image = GameCoTuong.Properties.Resources.TinhXanh;
+                danhSachQuanCo.Add(tinhXanh2);
 
-            /* Sĩ xanh */
-            RoundPictureBox siXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoSiXanh1);
-            siXanh1.Image = GameCoTuong.Properties.Resources.SiXanh;
-            danhSachQuanCo.Add(siXanh1);
+                /* Sĩ xanh */
+                RoundPictureBox siXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoSiXanh1);
+                siXanh1.Image = GameCoTuong.Properties.Resources.SiXanh;
+                danhSachQuanCo.Add(siXanh1);
 
-            RoundPictureBox siXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoSiXanh2);
-            siXanh2.Image = GameCoTuong.Properties.Resources.SiXanh;
-            danhSachQuanCo.Add(siXanh2);
+                RoundPictureBox siXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoSiXanh2);
+                siXanh2.Image = GameCoTuong.Properties.Resources.SiXanh;
+                danhSachQuanCo.Add(siXanh2);
 
-            /* Pháo xanh */
-            RoundPictureBox phaoXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoXanh1);
-            phaoXanh1.Image = GameCoTuong.Properties.Resources.PhaoXanh;
-            danhSachQuanCo.Add(phaoXanh1);
+                /* Pháo xanh */
+                RoundPictureBox phaoXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoXanh1);
+                phaoXanh1.Image = GameCoTuong.Properties.Resources.PhaoXanh;
+                danhSachQuanCo.Add(phaoXanh1);
 
-            RoundPictureBox phaoXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoXanh2);
-            phaoXanh2.Image = GameCoTuong.Properties.Resources.PhaoXanh;
-            danhSachQuanCo.Add(phaoXanh2);
+                RoundPictureBox phaoXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoXanh2);
+                phaoXanh2.Image = GameCoTuong.Properties.Resources.PhaoXanh;
+                danhSachQuanCo.Add(phaoXanh2);
 
-            /* Tốt xanh */
-            RoundPictureBox totXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh1);
-            totXanh1.Image = GameCoTuong.Properties.Resources.TotXanh;
-            danhSachQuanCo.Add(totXanh1);
+                /* Tốt xanh */
+                RoundPictureBox totXanh1 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh1);
+                totXanh1.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh1);
 
-            RoundPictureBox totXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh2);
-            totXanh2.Image = GameCoTuong.Properties.Resources.TotXanh;
-            danhSachQuanCo.Add(totXanh2);
+                RoundPictureBox totXanh2 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh2);
+                totXanh2.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh2);
 
-            RoundPictureBox totXanh3 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh3);
-            totXanh3.Image = GameCoTuong.Properties.Resources.TotXanh;
-            danhSachQuanCo.Add(totXanh3);
+                RoundPictureBox totXanh3 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh3);
+                totXanh3.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh3);
 
-            RoundPictureBox totXanh4 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh4);
-            totXanh4.Image = GameCoTuong.Properties.Resources.TotXanh;
-            danhSachQuanCo.Add(totXanh4);
+                RoundPictureBox totXanh4 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh4);
+                totXanh4.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh4);
 
-            RoundPictureBox totXanh5 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh5);
-            totXanh5.Image = GameCoTuong.Properties.Resources.TotXanh;
-            danhSachQuanCo.Add(totXanh5);
+                RoundPictureBox totXanh5 = new RoundPictureBox(ThongSoPheDo.ToaDoTotXanh5);
+                totXanh5.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh5);
 
-            /* Tướng đỏ */
-            RoundPictureBox tuongDo = new RoundPictureBox(ThongSoPheDo.ToaDoTuongDo);
-            tuongDo.Image = GameCoTuong.Properties.Resources.TuongDo;
-            danhSachQuanCo.Add(tuongDo);
+                /* Tướng đỏ */
+                RoundPictureBox tuongDo = new RoundPictureBox(ThongSoPheDo.ToaDoTuongDo);
+                tuongDo.Image = GameCoTuong.Properties.Resources.TuongDo;
+                danhSachQuanCo.Add(tuongDo);
 
-            /* Xe đỏ */
-            RoundPictureBox xeDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoXeDo1);
-            xeDo1.Image = GameCoTuong.Properties.Resources.XeDo;
-            danhSachQuanCo.Add(xeDo1);
+                /* Xe đỏ */
+                RoundPictureBox xeDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoXeDo1);
+                xeDo1.Image = GameCoTuong.Properties.Resources.XeDo;
+                danhSachQuanCo.Add(xeDo1);
 
-            RoundPictureBox xeDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoXeDo2);
-            xeDo2.Image = GameCoTuong.Properties.Resources.XeDo;
-            danhSachQuanCo.Add(xeDo2);
+                RoundPictureBox xeDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoXeDo2);
+                xeDo2.Image = GameCoTuong.Properties.Resources.XeDo;
+                danhSachQuanCo.Add(xeDo2);
 
-            /* Mã đỏ */
-            RoundPictureBox maDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoMaDo1);
-            maDo1.Image = GameCoTuong.Properties.Resources.MaDo;
-            danhSachQuanCo.Add(maDo1);
+                /* Mã đỏ */
+                RoundPictureBox maDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoMaDo1);
+                maDo1.Image = GameCoTuong.Properties.Resources.MaDo;
+                danhSachQuanCo.Add(maDo1);
 
-            RoundPictureBox maDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoMaDo2);
-            maDo2.Image = GameCoTuong.Properties.Resources.MaDo;
-            danhSachQuanCo.Add(maDo2);
+                RoundPictureBox maDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoMaDo2);
+                maDo2.Image = GameCoTuong.Properties.Resources.MaDo;
+                danhSachQuanCo.Add(maDo2);
 
-            /* Tịnh đỏ */
-            RoundPictureBox tinhDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhDo1);
-            tinhDo1.Image = GameCoTuong.Properties.Resources.TinhDo;
-            danhSachQuanCo.Add(tinhDo1);
+                /* Tịnh đỏ */
+                RoundPictureBox tinhDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhDo1);
+                tinhDo1.Image = GameCoTuong.Properties.Resources.TinhDo;
+                danhSachQuanCo.Add(tinhDo1);
 
-            RoundPictureBox tinhDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhDo2);
-            tinhDo2.Image = GameCoTuong.Properties.Resources.TinhDo;
-            danhSachQuanCo.Add(tinhDo2);
+                RoundPictureBox tinhDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoTinhDo2);
+                tinhDo2.Image = GameCoTuong.Properties.Resources.TinhDo;
+                danhSachQuanCo.Add(tinhDo2);
 
-            /* Sĩ đỏ */
-            RoundPictureBox siDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoSiDo1);
-            siDo1.Image = GameCoTuong.Properties.Resources.SiDo;
-            danhSachQuanCo.Add(siDo1);
+                /* Sĩ đỏ */
+                RoundPictureBox siDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoSiDo1);
+                siDo1.Image = GameCoTuong.Properties.Resources.SiDo;
+                danhSachQuanCo.Add(siDo1);
 
-            RoundPictureBox siDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoSiDo2);
-            siDo2.Image = GameCoTuong.Properties.Resources.SiDo;
-            danhSachQuanCo.Add(siDo2);
+                RoundPictureBox siDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoSiDo2);
+                siDo2.Image = GameCoTuong.Properties.Resources.SiDo;
+                danhSachQuanCo.Add(siDo2);
 
-            /* Pháo đỏ */
-            RoundPictureBox phaoDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoDo1);
-            phaoDo1.Image = GameCoTuong.Properties.Resources.PhaoDo;
-            danhSachQuanCo.Add(phaoDo1);
+                /* Pháo đỏ */
+                RoundPictureBox phaoDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoDo1);
+                phaoDo1.Image = GameCoTuong.Properties.Resources.PhaoDo;
+                danhSachQuanCo.Add(phaoDo1);
 
-            RoundPictureBox phaoDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoDo2);
-            phaoDo2.Image = GameCoTuong.Properties.Resources.PhaoDo;
-            danhSachQuanCo.Add(phaoDo2);
+                RoundPictureBox phaoDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoPhaoDo2);
+                phaoDo2.Image = GameCoTuong.Properties.Resources.PhaoDo;
+                danhSachQuanCo.Add(phaoDo2);
 
-            /* Tốt đỏ */
-            RoundPictureBox totDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo1);
-            totDo1.Image = GameCoTuong.Properties.Resources.TotDo;
-            danhSachQuanCo.Add(totDo1);
+                /* Tốt đỏ */
+                RoundPictureBox totDo1 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo1);
+                totDo1.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo1);
 
-            RoundPictureBox totDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo2);
-            totDo2.Image = GameCoTuong.Properties.Resources.TotDo;
-            danhSachQuanCo.Add(totDo2);
+                RoundPictureBox totDo2 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo2);
+                totDo2.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo2);
 
-            RoundPictureBox totDo3 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo3);
-            totDo3.Image = GameCoTuong.Properties.Resources.TotDo;
-            danhSachQuanCo.Add(totDo3);
+                RoundPictureBox totDo3 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo3);
+                totDo3.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo3);
 
-            RoundPictureBox totDo4 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo4);
-            totDo4.Image = GameCoTuong.Properties.Resources.TotDo;
-            danhSachQuanCo.Add(totDo4);
+                RoundPictureBox totDo4 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo4);
+                totDo4.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo4);
 
-            RoundPictureBox totDo5 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo5);
-            totDo5.Image = GameCoTuong.Properties.Resources.TotDo;
-            danhSachQuanCo.Add(totDo5);
+                RoundPictureBox totDo5 = new RoundPictureBox(ThongSoPheDo.ToaDoTotDo5);
+                totDo5.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo5);
+            }
+            else if (mauPheTa == 1)
+            {
+                /* Tướng xanh */
+                RoundPictureBox tuongXanh = new RoundPictureBox(ThongSoPheXanh.ToaDoTuongXanh);
+                tuongXanh.Image = GameCoTuong.Properties.Resources.TuongXanh;
+                danhSachQuanCo.Add(tuongXanh);
 
-            foreach (RoundPictureBox element in danhSachQuanCo) // Gắn cho mỗi RoundPictureBox quân cờ 1 sự kiện click
+                /* Xe xanh */
+                RoundPictureBox xeXanh1 = new RoundPictureBox(ThongSoPheXanh.ToaDoXeXanh1);
+                xeXanh1.Image = GameCoTuong.Properties.Resources.XeXanh;
+                danhSachQuanCo.Add(xeXanh1);
+
+                RoundPictureBox xeXanh2 = new RoundPictureBox(ThongSoPheXanh.ToaDoXeXanh2);
+                xeXanh2.Image = GameCoTuong.Properties.Resources.XeXanh;
+                danhSachQuanCo.Add(xeXanh2);
+
+                /* Mã xanh */
+                RoundPictureBox maXanh1 = new RoundPictureBox(ThongSoPheXanh.ToaDoMaXanh1);
+                maXanh1.Image = GameCoTuong.Properties.Resources.MaXanh;
+                danhSachQuanCo.Add(maXanh1);
+
+                RoundPictureBox maXanh2 = new RoundPictureBox(ThongSoPheXanh.ToaDoMaXanh2);
+                maXanh2.Image = GameCoTuong.Properties.Resources.MaXanh;
+                danhSachQuanCo.Add(maXanh2);
+
+                /* Tịnh xanh */
+                RoundPictureBox tinhXanh1 = new RoundPictureBox(ThongSoPheXanh.ToaDoTinhXanh1);
+                tinhXanh1.Image = GameCoTuong.Properties.Resources.TinhXanh;
+                danhSachQuanCo.Add(tinhXanh1);
+
+                RoundPictureBox tinhXanh2 = new RoundPictureBox(ThongSoPheXanh.ToaDoTinhXanh2);
+                tinhXanh2.Image = GameCoTuong.Properties.Resources.TinhXanh;
+                danhSachQuanCo.Add(tinhXanh2);
+
+                /* Sĩ xanh */
+                RoundPictureBox siXanh1 = new RoundPictureBox(ThongSoPheXanh.ToaDoSiXanh1);
+                siXanh1.Image = GameCoTuong.Properties.Resources.SiXanh;
+                danhSachQuanCo.Add(siXanh1);
+
+                RoundPictureBox siXanh2 = new RoundPictureBox(ThongSoPheXanh.ToaDoSiXanh2);
+                siXanh2.Image = GameCoTuong.Properties.Resources.SiXanh;
+                danhSachQuanCo.Add(siXanh2);
+
+                /* Pháo xanh */
+                RoundPictureBox phaoXanh1 = new RoundPictureBox(ThongSoPheXanh.ToaDoPhaoXanh1);
+                phaoXanh1.Image = GameCoTuong.Properties.Resources.PhaoXanh;
+                danhSachQuanCo.Add(phaoXanh1);
+
+                RoundPictureBox phaoXanh2 = new RoundPictureBox(ThongSoPheXanh.ToaDoPhaoXanh2);
+                phaoXanh2.Image = GameCoTuong.Properties.Resources.PhaoXanh;
+                danhSachQuanCo.Add(phaoXanh2);
+
+                /* Tốt xanh */
+                RoundPictureBox totXanh1 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotXanh1);
+                totXanh1.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh1);
+
+                RoundPictureBox totXanh2 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotXanh2);
+                totXanh2.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh2);
+
+                RoundPictureBox totXanh3 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotXanh3);
+                totXanh3.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh3);
+
+                RoundPictureBox totXanh4 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotXanh4);
+                totXanh4.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh4);
+
+                RoundPictureBox totXanh5 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotXanh5);
+                totXanh5.Image = GameCoTuong.Properties.Resources.TotXanh;
+                danhSachQuanCo.Add(totXanh5);
+
+                /* Tướng đỏ */
+                RoundPictureBox tuongDo = new RoundPictureBox(ThongSoPheXanh.ToaDoTuongDo);
+                tuongDo.Image = GameCoTuong.Properties.Resources.TuongDo;
+                danhSachQuanCo.Add(tuongDo);
+
+                /* Xe đỏ */
+                RoundPictureBox xeDo1 = new RoundPictureBox(ThongSoPheXanh.ToaDoXeDo1);
+                xeDo1.Image = GameCoTuong.Properties.Resources.XeDo;
+                danhSachQuanCo.Add(xeDo1);
+
+                RoundPictureBox xeDo2 = new RoundPictureBox(ThongSoPheXanh.ToaDoXeDo2);
+                xeDo2.Image = GameCoTuong.Properties.Resources.XeDo;
+                danhSachQuanCo.Add(xeDo2);
+
+                /* Mã đỏ */
+                RoundPictureBox maDo1 = new RoundPictureBox(ThongSoPheXanh.ToaDoMaDo1);
+                maDo1.Image = GameCoTuong.Properties.Resources.MaDo;
+                danhSachQuanCo.Add(maDo1);
+
+                RoundPictureBox maDo2 = new RoundPictureBox(ThongSoPheXanh.ToaDoMaDo2);
+                maDo2.Image = GameCoTuong.Properties.Resources.MaDo;
+                danhSachQuanCo.Add(maDo2);
+
+                /* Tịnh đỏ */
+                RoundPictureBox tinhDo1 = new RoundPictureBox(ThongSoPheXanh.ToaDoTinhDo1);
+                tinhDo1.Image = GameCoTuong.Properties.Resources.TinhDo;
+                danhSachQuanCo.Add(tinhDo1);
+
+                RoundPictureBox tinhDo2 = new RoundPictureBox(ThongSoPheXanh.ToaDoTinhDo2);
+                tinhDo2.Image = GameCoTuong.Properties.Resources.TinhDo;
+                danhSachQuanCo.Add(tinhDo2);
+
+                /* Sĩ đỏ */
+                RoundPictureBox siDo1 = new RoundPictureBox(ThongSoPheXanh.ToaDoSiDo1);
+                siDo1.Image = GameCoTuong.Properties.Resources.SiDo;
+                danhSachQuanCo.Add(siDo1);
+
+                RoundPictureBox siDo2 = new RoundPictureBox(ThongSoPheXanh.ToaDoSiDo2);
+                siDo2.Image = GameCoTuong.Properties.Resources.SiDo;
+                danhSachQuanCo.Add(siDo2);
+
+                /* Pháo đỏ */
+                RoundPictureBox phaoDo1 = new RoundPictureBox(ThongSoPheXanh.ToaDoPhaoDo1);
+                phaoDo1.Image = GameCoTuong.Properties.Resources.PhaoDo;
+                danhSachQuanCo.Add(phaoDo1);
+
+                RoundPictureBox phaoDo2 = new RoundPictureBox(ThongSoPheXanh.ToaDoPhaoDo2);
+                phaoDo2.Image = GameCoTuong.Properties.Resources.PhaoDo;
+                danhSachQuanCo.Add(phaoDo2);
+
+                /* Tốt đỏ */
+                RoundPictureBox totDo1 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotDo1);
+                totDo1.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo1);
+
+                RoundPictureBox totDo2 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotDo2);
+                totDo2.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo2);
+
+                RoundPictureBox totDo3 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotDo3);
+                totDo3.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo3);
+
+                RoundPictureBox totDo4 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotDo4);
+                totDo4.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo4);
+
+                RoundPictureBox totDo5 = new RoundPictureBox(ThongSoPheXanh.ToaDoTotDo5);
+                totDo5.Image = GameCoTuong.Properties.Resources.TotDo;
+                danhSachQuanCo.Add(totDo5);
+            }
+            foreach (RoundPictureBox element in danhSachQuanCo) // Gắn cho mỗi RoundPictureBox quân cờ 1 sự kiện click và xếp nó lên bàn cờ
+            {
                 element.Click += QuanCo_Click;
-        }
-        public static void XepBanCo(PictureBox ptbBanCo)
-        {
-            foreach (RoundPictureBox element in danhSachQuanCo)
                 ptbBanCo.Controls.Add(element);
+            }
         }
+
         public static void RefreshBanCo()
         {
             foreach (RoundPictureBox element in danhSachQuanCo)
@@ -254,7 +401,7 @@ namespace GameCoTuong.CoTuong
         public static void SetToDefault(Label label2,Label label3, Button button1)
         {
             quanCoBiLoai = null;
-            toaDoDuocChon = ThongSoPheDo.ToaDoNULL;
+            toaDoDuocChon = ThongSo.ToaDoNULL;
 
             pheDuocDanh = 2;
             label2.Text = "Phe Đỏ được đi đầu tiên";
@@ -286,9 +433,9 @@ namespace GameCoTuong.CoTuong
                 QuanCo target = alive.Find(element1 => element1.Mau != quanCoDuocChon.quanCo.Mau && element1.ToaDo == element);
                 if (target != null)
                     diemBanCo[element.X, element.Y].BackColor = Color.Red;
+                diemBanCo[element.X, element.Y].Click += DiemBanCo_Click;
                 diemBanCo[element.X, element.Y].Visible = true;
                 diemBanCo[element.X, element.Y].BringToFront();
-                diemBanCo[element.X, element.Y].Click += DiemBanCo_Click;
             }
         }
         /* Ẩn tất cả các điểm đích đang hiển thị trên bàn cờ */
@@ -317,7 +464,7 @@ namespace GameCoTuong.CoTuong
         public static void QuayLai(RoundPictureBox pieceToTakeBack, Point previousLocation)
         {
             pieceToTakeBack.DenViTri(previousLocation);
-            toaDoDuocChon = ThongSoPheDo.ToaDoNULL;
+            toaDoDuocChon = ThongSo.ToaDoNULL;
         }
 
         public static bool HaiTuongDoiMatNhau()
@@ -326,13 +473,26 @@ namespace GameCoTuong.CoTuong
             {
                 int X = tuongXanh.ToaDo.X;
                 Point diemGiuaHaiTuong;
-                for (int Y = tuongXanh.ToaDo.Y + 1; Y < tuongDo.ToaDo.Y; Y++) // ... thì xét xem giữa 2 tướng có quân cờ nào không
+                if (mauPheTa == 2)
                 {
-                    diemGiuaHaiTuong = new Point(X, Y);
-                    if (CoQuanCoTaiDay(diemGiuaHaiTuong))
-                        return false; // nếu có 1 quân cờ ở giữa 2 tướng thì 2 tướng không đối mặt nhau
+                    for (int Y = tuongXanh.ToaDo.Y + 1; Y < tuongDo.ToaDo.Y; Y++) // ... thì xét xem giữa 2 tướng có quân cờ nào không
+                    {
+                        diemGiuaHaiTuong = new Point(X, Y);
+                        if (CoQuanCoTaiDay(diemGiuaHaiTuong))
+                            return false; // nếu có 1 quân cờ ở giữa 2 tướng thì 2 tướng không đối mặt nhau
+                    }
+                    return true; // nếu không có quân cờ nào ở giữa 2 tướng thì 2 tướng đối mặt nhau
                 }
-                return true; // nếu không có quân cờ nào ở giữa 2 tướng thì 2 tướng đối mặt nhau
+                else if (mauPheTa == 1)
+                {
+                    for (int Y = tuongXanh.ToaDo.Y - 1; Y > tuongDo.ToaDo.Y; Y--) // ... thì xét xem giữa 2 tướng có quân cờ nào không
+                    {
+                        diemGiuaHaiTuong = new Point(X, Y);
+                        if (CoQuanCoTaiDay(diemGiuaHaiTuong))
+                            return false; // nếu có 1 quân cờ ở giữa 2 tướng thì 2 tướng không đối mặt nhau
+                    }
+                    return true;
+                }
             }
             return false; // nếu 2 tướng không cùng hoành độ thì 2 tướng không đối mặt nhau
         }
@@ -349,19 +509,19 @@ namespace GameCoTuong.CoTuong
         }
         public static void DiChuyen(RoundPictureBox pieceToMove, Point destination)
         {
-
             pieceToMove.DenViTri(destination);
         }
         public static int PheDoiPhuong()
         {
-            if (pheDuocDanh == 1) return 2;
+            if (pheDuocDanh == 1)
+                return 2;
             return 1;
         }
         /* Đổi phe sau mỗi nước đi */
         public static void DoiPhe(Label label3, Label label2, Button button1)
         {
             quanCoBiLoai = null;
-            toaDoDuocChon = ThongSoPheDo.ToaDoNULL;
+            toaDoDuocChon = ThongSo.ToaDoNULL;
             soLuotDi++;
             label3.Text = soLuotDi.ToString();
             if (pheDuocDanh == 1)
@@ -397,9 +557,7 @@ namespace GameCoTuong.CoTuong
                         if (target != null)
                         {
                             if (target == tuongXanh || target == tuongDo)
-                            {
                                 return true;
-                            }
                         }
                     }
                 }

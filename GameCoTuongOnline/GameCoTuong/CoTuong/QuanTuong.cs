@@ -15,8 +15,11 @@ namespace GameCoTuong.CoTuong
         public QuanTuong(Point toaDoBanDau)
         {
             toaDo = toaDoBanDau;
-            mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
             danhSachDiemDich = new List<Point>();
+            if (BanCo.mauPheTa == 2)
+                mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+            else if (BanCo.mauPheTa == 1)
+                mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
             BanCo.alive.Add(this);
             if (Mau == 1)
                 BanCo.tuongXanh = this;
@@ -81,17 +84,28 @@ namespace GameCoTuong.CoTuong
                         danhSachDiemDich.Add(toaDoMucTieu);
                 }
             }
-
         }
 
         private bool NamTrongCung(Point point)
         {
-            if (this.Mau == 1)
-                if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
-                    return true;
-            if (this.Mau == 2)
-                if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
-                    return true;
+            if (BanCo.mauPheTa == 2)
+            {
+                if (Mau == 1)
+                    if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
+                        return true;
+                if (Mau == 2)
+                    if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
+                        return true;
+            }
+            else if (BanCo.mauPheTa == 1)
+            {
+                if (Mau == 2)
+                    if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
+                        return true;
+                if (Mau == 1)
+                    if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
+                        return true;
+            }
             return false;
         }
     }

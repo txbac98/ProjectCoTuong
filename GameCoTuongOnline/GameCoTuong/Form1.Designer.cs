@@ -73,7 +73,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
@@ -87,11 +87,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(6, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 24);
+            this.label2.Size = new System.Drawing.Size(222, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Phe Đỏ được đi đầu tiên";
             // 
@@ -100,6 +100,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Enabled = false;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button1.Location = new System.Drawing.Point(152, 70);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 27);
@@ -111,40 +112,44 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(8, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 15);
+            this.label1.Size = new System.Drawing.Size(76, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Số lượt đã đi:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(83, 31);
+            this.label3.Location = new System.Drawing.Point(82, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 29);
+            this.label3.Size = new System.Drawing.Size(25, 30);
             this.label3.TabIndex = 2;
             this.label3.Text = "0";
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnGui);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.listView1);
-            this.panel2.Location = new System.Drawing.Point(661, 426);
+            this.panel2.Location = new System.Drawing.Point(648, 419);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(253, 268);
+            this.panel2.Size = new System.Drawing.Size(265, 275);
             this.panel2.TabIndex = 4;
             // 
             // btnGui
             // 
-            this.btnGui.BackColor = System.Drawing.SystemColors.Window;
-            this.btnGui.Location = new System.Drawing.Point(195, 239);
+            this.btnGui.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnGui.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnGui.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnGui.Location = new System.Drawing.Point(199, 243);
             this.btnGui.Name = "btnGui";
-            this.btnGui.Size = new System.Drawing.Size(55, 23);
+            this.btnGui.Size = new System.Drawing.Size(57, 23);
             this.btnGui.TabIndex = 2;
             this.btnGui.Text = "Gửi";
             this.btnGui.UseVisualStyleBackColor = false;
@@ -152,16 +157,20 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 239);
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.textBox1.Location = new System.Drawing.Point(8, 244);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.Size = new System.Drawing.Size(185, 21);
             this.textBox1.TabIndex = 1;
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listView1.Location = new System.Drawing.Point(8, 8);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(250, 230);
+            this.listView1.Size = new System.Drawing.Size(247, 230);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -177,9 +186,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.background);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Co Tuong (Online)";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             this.panel1.ResumeLayout(false);

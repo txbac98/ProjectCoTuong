@@ -16,7 +16,10 @@ namespace GameCoTuong.CoTuong
         {
             toaDo = toaDoBanDau;
             danhSachDiemDich = new List<Point>();
-            mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+            if (BanCo.mauPheTa == 2)
+                mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+            else if (BanCo.mauPheTa == 1)
+                mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
             BanCo.alive.Add(this);
         }
 
@@ -120,15 +123,31 @@ namespace GameCoTuong.CoTuong
         {
             if (diem.X < 0 || diem.X > 8)
                 return false;
-            if (this.Mau == 1)
+            if (BanCo.mauPheTa == 2)
             {
-                if (diem.Y < 0 || diem.Y > 4)
-                    return false;
+                if (this.Mau == 1)
+                {
+                    if (diem.Y < 0 || diem.Y > 4)
+                        return false;
+                }
+                else if (this.Mau == 2)
+                {
+                    if (diem.Y < 5 || diem.Y > 9)
+                        return false;
+                }
             }
-            else if (this.Mau == 2)
+            else if (BanCo.mauPheTa == 1)
             {
-                if (diem.Y < 5 || diem.Y > 9)
-                    return false;
+                if (this.Mau == 2)
+                {
+                    if (diem.Y < 0 || diem.Y > 4)
+                        return false;
+                }
+                else if (this.Mau == 1)
+                {
+                    if (diem.Y < 5 || diem.Y > 9)
+                        return false;
+                }
             }
             return true;
         }

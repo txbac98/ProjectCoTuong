@@ -14,11 +14,11 @@ namespace GameCoTuong.CoTuong
         #region
         public static int MauPheTa { get; set; } = 1; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
 
-        public static NuocDi NuocDiTruocDo { get; private set; } = new NuocDi();
+        public static NuocDi NuocDiTruocDo { get; private set; } = new NuocDi(); //*
 
         /* Thuộc tính liên quan đến đối tượng QuanCo (quân cờ trừu tượng) */
 
-        public static List<QuanCo> Alive_QuanCo { get; private set; } = new List<QuanCo>();
+        public static List<QuanCo> Alive_QuanCo { get; private set; } = new List<QuanCo>(); //*
 
         public static QuanTuong TuongXanh { get; set; } = null;
 
@@ -26,11 +26,11 @@ namespace GameCoTuong.CoTuong
 
         /* Thuộc tính liên quan đến đối tượng RoundButton (thể hiện điểm bàn cờ) */
 
-        public static RoundButton[,] DiemBanCo { get; private set; } = new RoundButton[9, 10]; // Mảng 2 chiều chứa 90 điểm bàn cờ
+        public static RoundButton[,] DiemBanCo { get; private set; } = new RoundButton[9, 10]; //* // Mảng 2 chiều chứa 90 điểm bàn cờ
 
         /* Thuộc tính liên quan đến đối tượng RoundPictureBox (thể hiện quân cờ trực quan) */
 
-        public static List<RoundPictureBox> Alive_RoundPictureBox { get; private set; } = new List<RoundPictureBox>(); // List chứa tất cả các quân cờ còn sống
+        public static List<RoundPictureBox> Alive_RoundPictureBox { get; private set; } = new List<RoundPictureBox>(); //* // List chứa tất cả các quân cờ còn sống
 
         public static RoundPictureBox QuanCoDuocChon { get; set; } = null; // quân cờ đang được chọn (được click vào)
 
@@ -40,7 +40,7 @@ namespace GameCoTuong.CoTuong
 
         public static int SoLuotDi { get; private set; } = 0; // Số lượt đã đi từ đầu ván cờ
 
-        public static PictureBox YellowSquareTarget { get; private set; } = new PictureBox()
+        public static PictureBox YellowSquareTarget { get; private set; } = new PictureBox() //*
         {
             Width = 58,
             Height = 58,
@@ -48,7 +48,7 @@ namespace GameCoTuong.CoTuong
             Image = GameCoTuong.Properties.Resources.yellow_square_target,
             Location = new Point(863, 698)
         };
-        public static PictureBox greySquareTarget_Depart { get; private set; } = new PictureBox()
+        public static PictureBox greySquareTarget_Depart { get; private set; } = new PictureBox() //*
         {
             Width = 36,
             Height = 36,
@@ -56,7 +56,7 @@ namespace GameCoTuong.CoTuong
             Image = GameCoTuong.Properties.Resources.grey_square_target_depart,
             Location = new Point(863, 698)
         };
-        public static PictureBox greySquareTarget_Dest { get; private set; } = new PictureBox()
+        public static PictureBox greySquareTarget_Dest { get; private set; } = new PictureBox() //*
         {
             Width = 58,
             Height = 58,
@@ -70,14 +70,14 @@ namespace GameCoTuong.CoTuong
         #region methods
         /* Phương thức dùng cho đối tượng QuanCo */
 
-        public static bool CoQuanCoTaiDay(Point toaDo) // kiểm tra xem có quân cờ nào tại điểm cho trước hay không
+        public static bool CoQuanCoTaiDay(Point viTri) // kiểm tra xem có quân cờ nào tại điểm cho trước hay không
         {
-            return Alive_QuanCo.Find(element => element.ToaDo == toaDo) != null;
+            return Alive_QuanCo.Find(element => element.ToaDo == viTri) != null;
         }
 
-        public static QuanCo GetQuanCo(Point toaDo) // tìm quân cờ tại điểm cho trước
+        public static QuanCo GetQuanCo(Point viTri) // tìm quân cờ tại điểm cho trước
         {
-            return Alive_QuanCo.Find(element => element.ToaDo == toaDo);
+            return Alive_QuanCo.Find(element => element.ToaDo == viTri);
         }
 
         /* Phương thức dùng cho đối tượng RoundPictureBox */
@@ -450,9 +450,9 @@ namespace GameCoTuong.CoTuong
         /* Tính toán và hiển thị tất cả điểm đích của quân cờ được chọn */
         public static void HienThiDiemDich(EventHandler DiemBanCo_Click) // Vẽ các điểm đích của quân cờ đang được chọn
         {
-            QuanCoDuocChon.quanCo.danhSachDiemDich.Clear();
+            QuanCoDuocChon.quanCo.DanhSachDiemDich.Clear();
             QuanCoDuocChon.quanCo.TinhNuocDi();
-            foreach (Point element in QuanCoDuocChon.quanCo.danhSachDiemDich)
+            foreach (Point element in QuanCoDuocChon.quanCo.DanhSachDiemDich)
             {
                 QuanCo target = Alive_QuanCo.Find(element1 => element1.Mau != QuanCoDuocChon.quanCo.Mau && element1.ToaDo == element);
                 if (target != null)
@@ -543,9 +543,9 @@ namespace GameCoTuong.CoTuong
             {
                 if (element.Mau == pheChieuTuong)
                 {
-                    element.danhSachDiemDich.Clear();
+                    element.DanhSachDiemDich.Clear();
                     element.TinhNuocDi();
-                    foreach (Point element1 in element.danhSachDiemDich)
+                    foreach (Point element1 in element.DanhSachDiemDich)
                     {
                         QuanCo target = Alive_QuanCo.Find(element2 => element2.Mau != pheChieuTuong && element2.ToaDo == element1);
                         if (target != null && (target == TuongXanh || target == TuongDo))

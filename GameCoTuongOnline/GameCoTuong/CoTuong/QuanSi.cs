@@ -14,12 +14,12 @@ namespace GameCoTuong.CoTuong
 
         public QuanSi(Point toaDoBanDau)
         {
-            toaDo = toaDoBanDau;
-            danhSachDiemDich = new List<Point>();
+            ToaDo = toaDoBanDau;
+            DanhSachDiemDich = new List<Point>();
             if (BanCo.MauPheTa == 2)
-                mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+                Mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
             else if (BanCo.MauPheTa == 1)
-                mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
+                Mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
             BanCo.Alive_QuanCo.Add(this);
         }
 
@@ -32,154 +32,154 @@ namespace GameCoTuong.CoTuong
             {
                 if (Mau == 1)
                 {
-                    if (toaDo == new Point(3, 0) || toaDo == new Point(5, 0) || toaDo == new Point(3, 2) || toaDo == new Point(5, 2))
+                    if (ToaDo == new Point(3, 0) || ToaDo == new Point(5, 0) || ToaDo == new Point(3, 2) || ToaDo == new Point(5, 2))
                     {
                         toaDoMucTieu = new Point(4, 1);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
-                    else if (toaDo == new Point(4, 1))
+                    else if (ToaDo == new Point(4, 1))
                     {
                         toaDoMucTieu = new Point(3, 0);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 0);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(3, 2);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 2);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
                 }
                 else if (Mau == 2)
                 {
-                    if (toaDo == new Point(3, 9) || toaDo == new Point(5, 9) || toaDo == new Point(3, 7) || toaDo == new Point(5, 7))
+                    if (ToaDo == new Point(3, 9) || ToaDo == new Point(5, 9) || ToaDo == new Point(3, 7) || ToaDo == new Point(5, 7))
                     {
                         toaDoMucTieu = new Point(4, 8);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
-                    else if (toaDo == new Point(4, 8))
+                    else if (ToaDo == new Point(4, 8))
                     {
                         toaDoMucTieu = new Point(3, 9);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 9);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(3, 7);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 7);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
@@ -189,154 +189,154 @@ namespace GameCoTuong.CoTuong
             {
                 if (Mau == 2)
                 {
-                    if (toaDo == new Point(3, 0) || toaDo == new Point(5, 0) || toaDo == new Point(3, 2) || toaDo == new Point(5, 2))
+                    if (ToaDo == new Point(3, 0) || ToaDo == new Point(5, 0) || ToaDo == new Point(3, 2) || ToaDo == new Point(5, 2))
                     {
                         toaDoMucTieu = new Point(4, 1);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
-                    else if (toaDo == new Point(4, 1))
+                    else if (ToaDo == new Point(4, 1))
                     {
                         toaDoMucTieu = new Point(3, 0);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 0);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(3, 2);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 2);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
                 }
                 else if (Mau == 1)
                 {
-                    if (toaDo == new Point(3, 9) || toaDo == new Point(5, 9) || toaDo == new Point(3, 7) || toaDo == new Point(5, 7))
+                    if (ToaDo == new Point(3, 9) || ToaDo == new Point(5, 9) || ToaDo == new Point(3, 7) || ToaDo == new Point(5, 7))
                     {
                         toaDoMucTieu = new Point(4, 8);
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }
-                    else if (toaDo == new Point(4, 8))
+                    else if (ToaDo == new Point(4, 8))
                     {
                         toaDoMucTieu = new Point(3, 9);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 9);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(3, 7);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
 
                         toaDoMucTieu = new Point(5, 7);//
                         if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
                         else
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
                             {
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             }
                         }
                     }

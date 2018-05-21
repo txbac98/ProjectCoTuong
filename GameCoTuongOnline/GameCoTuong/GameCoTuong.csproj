@@ -65,6 +65,7 @@
     <Compile Include="ChatLan\Client.cs" />
     <Compile Include="ChatLan\Server.cs" />
     <Compile Include="CoTuong\BanCo.cs" />
+    <Compile Include="CoTuong\NuocDi.cs" />
     <Compile Include="CoTuong\QuanMa.cs" />
     <Compile Include="CoTuong\QuanPhao.cs" />
     <Compile Include="CoTuong\QuanSi.cs" />

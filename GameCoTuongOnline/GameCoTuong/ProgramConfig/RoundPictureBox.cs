@@ -35,7 +35,7 @@ namespace GameCoTuong.ProgramConfig
                 quanCo = new QuanCo(toaDoBanDau);
                 tenQuanCo += "NULL";
             }
-            else if (BanCo.mauPheTa == 2)
+            else if (BanCo.MauPheTa == 2)
             {
                 if (toaDoBanDau == ThongSoPheDo.ToaDoTuongXanh || toaDoBanDau == ThongSoPheDo.ToaDoTuongDo)
                 {
@@ -73,7 +73,7 @@ namespace GameCoTuong.ProgramConfig
                     tenQuanCo += "Tot";
                 }
             }
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
             {
                 if (toaDoBanDau == ThongSoPheXanh.ToaDoTuongXanh || toaDoBanDau == ThongSoPheXanh.ToaDoTuongDo)
                 {

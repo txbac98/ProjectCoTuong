@@ -16,11 +16,11 @@ namespace GameCoTuong.CoTuong
         {
             toaDo = toaDoBanDau;
             danhSachDiemDich = new List<Point>();
-            if (BanCo.mauPheTa == 2)
+            if (BanCo.MauPheTa == 2)
                 mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
                 mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
-            BanCo.alive_QuanCo.Add(this);
+            BanCo.Alive_QuanCo.Add(this);
         }
 
         public override void TinhNuocDi()

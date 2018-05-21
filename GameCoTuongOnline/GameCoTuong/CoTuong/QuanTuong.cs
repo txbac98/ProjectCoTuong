@@ -16,15 +16,15 @@ namespace GameCoTuong.CoTuong
         {
             toaDo = toaDoBanDau;
             danhSachDiemDich = new List<Point>();
-            if (BanCo.mauPheTa == 2)
+            if (BanCo.MauPheTa == 2)
                 mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
                 mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
-            BanCo.alive_QuanCo.Add(this);
+            BanCo.Alive_QuanCo.Add(this);
             if (Mau == 1)
-                BanCo.tuongXanh = this;
+                BanCo.TuongXanh = this;
             else if (Mau == 2)
-                BanCo.tuongDo = this;
+                BanCo.TuongDo = this;
         }
 
         public override void TinhNuocDi()
@@ -88,7 +88,7 @@ namespace GameCoTuong.CoTuong
 
         private bool NamTrongCung(Point point)
         {
-            if (BanCo.mauPheTa == 2)
+            if (BanCo.MauPheTa == 2)
             {
                 if (Mau == 1)
                     if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
@@ -97,7 +97,7 @@ namespace GameCoTuong.CoTuong
                     if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
                         return true;
             }
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
             {
                 if (Mau == 2)
                     if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))

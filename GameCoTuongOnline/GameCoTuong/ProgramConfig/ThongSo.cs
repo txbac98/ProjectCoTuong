@@ -45,14 +45,15 @@ namespace GameCoTuong.ProgramConfig
         #endregion
 
         /* Tọa độ NULL - Tọa độ không thuộc bàn cờ */
+
         public static Point ToaDoNULL { get { return new Point(-1, -1); } }
 
         #region Hàm tính toán
         public static Point ToaDoBanCoCuaDiem(int x, int y) // hàm chuyển tọa độ đơn vị (TDDV) của điểm bàn cờ sang tọa độ bàn cờ (TDBC)
         {
-            Point result = new Point(GocDiemBanCoX + x * KhoangCach, GocDiemBanCoY + y * KhoangCach);
-            return result;
+            return new Point(GocDiemBanCoX + x * KhoangCach, GocDiemBanCoY + y * KhoangCach);
         }
+
         public static Point ToaDoBanCoCuaDiem(Point toaDoDonVi)
         {
             return ToaDoBanCoCuaDiem(toaDoDonVi.X, toaDoDonVi.Y);
@@ -60,9 +61,9 @@ namespace GameCoTuong.ProgramConfig
 
         public static Point ToaDoBanCoCuaQuanCo(int x, int y) // hàm chuyển TDDV của quân cờ sang TDBC
         {
-            Point result = new Point(GocQuanCoX + x * KhoangCach, GocQuanCoY + y * KhoangCach);
-            return result;
+            return new Point(GocQuanCoX + x * KhoangCach, GocQuanCoY + y * KhoangCach);
         }
+
         public static Point ToaDoBanCoCuaQuanCo(Point toaDoDonVi)
         {
             return ToaDoBanCoCuaQuanCo(toaDoDonVi.X, toaDoDonVi.Y);
@@ -70,9 +71,9 @@ namespace GameCoTuong.ProgramConfig
 
         public static Point ToaDoDonViCuaDiem(int X, int Y) // hàm chuyển TDBC của điểm bàn cờ sang TDDV
         {
-            Point result = new Point((X - GocDiemBanCoX) / KhoangCach, (Y - GocDiemBanCoY) / KhoangCach);
-            return result;
+            return new Point((X - GocDiemBanCoX) / KhoangCach, (Y - GocDiemBanCoY) / KhoangCach);
         }
+
         public static Point ToaDoDonViCuaDiem(Point toaDoBanCo)
         {
             return ToaDoDonViCuaDiem(toaDoBanCo.X, toaDoBanCo.Y);
@@ -80,8 +81,7 @@ namespace GameCoTuong.ProgramConfig
 
         public static Point ToaDoDonViCuaQuanCo(int X, int Y)  // hàm chuyển TDBC của quân cờ sang TDDV
         {
-            Point result = new Point((X - GocQuanCoX) / KhoangCach, (Y - GocQuanCoY) / KhoangCach);
-            return result;
+            return new Point((X - GocQuanCoX) / KhoangCach, (Y - GocQuanCoY) / KhoangCach);
         }
         public static Point ToaDoDonViCuaQuanCo(Point toaDoBanCo)
         {
@@ -90,8 +90,7 @@ namespace GameCoTuong.ProgramConfig
 
         public static Point ToaDoDiemSangQuanCo(int X_DiemBanCo, int Y_DiemBanCo) // hàm chuyển TDBC của điểm bàn cờ sang TDBC của quân cờ
         {
-            Point result = ToaDoBanCoCuaQuanCo(ToaDoDonViCuaDiem(X_DiemBanCo, Y_DiemBanCo));
-            return result;
+            return ToaDoBanCoCuaQuanCo(ToaDoDonViCuaDiem(X_DiemBanCo, Y_DiemBanCo));
         }
         public static Point ToaDoDiemSangQuanCo(Point toaDoDiem)
         {
@@ -100,8 +99,7 @@ namespace GameCoTuong.ProgramConfig
 
         public static Point ToaDoQuanCoSangDiem(int X_QuanCo, int Y_QuanCo) // hàm chuyển TDBC của quân cờ sang TDBC của điểm bàn cờ
         {
-            Point result = ToaDoBanCoCuaDiem(ToaDoDonViCuaQuanCo(X_QuanCo, Y_QuanCo));
-            return result;
+            return ToaDoBanCoCuaDiem(ToaDoDonViCuaQuanCo(X_QuanCo, Y_QuanCo));
         }
         public static Point ToaDoQuanCoSangDiem(Point toaDoQuanCo)
         {

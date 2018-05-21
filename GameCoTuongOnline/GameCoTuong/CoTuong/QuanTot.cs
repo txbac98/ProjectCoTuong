@@ -16,26 +16,26 @@ namespace GameCoTuong.CoTuong
         {
             toaDo = toaDoBanDau;
             danhSachDiemDich = new List<Point>();
-            if (BanCo.mauPheTa == 2)
+            if (BanCo.MauPheTa == 2)
                 mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
                 mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
-            BanCo.alive_QuanCo.Add(this);
+            BanCo.Alive_QuanCo.Add(this);
         }
 
         public override void TinhNuocDi()
         {
-            Point toaDoMucTieu = new Point(-1, -1);
+            Point toaDoMucTieu = ThongSo.ToaDoNULL;
             QuanCo quanCoMucTieu;
 
-            if (BanCo.mauPheTa == 2)
+            if (BanCo.MauPheTa == 2)
             {
                 if (Mau == 1)
                     toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
                 else if (Mau == 2)
                     toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
             }
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
             {
                 if (Mau == 2)
                     toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
@@ -57,7 +57,7 @@ namespace GameCoTuong.CoTuong
 
             if (QuaSong())
             {
-                if (BanCo.mauPheTa == 2)
+                if (BanCo.MauPheTa == 2)
                 {
                     if (Mau == 1)
                     {
@@ -90,7 +90,7 @@ namespace GameCoTuong.CoTuong
                         }
                     }
                 }
-                else if (BanCo.mauPheTa == 1)
+                else if (BanCo.MauPheTa == 1)
                 {
                     if (Mau == 2)
                     {
@@ -153,7 +153,7 @@ namespace GameCoTuong.CoTuong
 
         private bool QuaSong()
         {
-            if (BanCo.mauPheTa == 2)
+            if (BanCo.MauPheTa == 2)
             {
                 if (Mau == 1) //Xanh
                 {
@@ -164,7 +164,7 @@ namespace GameCoTuong.CoTuong
                     if (toaDo.Y < 5) return true;
                 }
             }
-            else if (BanCo.mauPheTa == 1)
+            else if (BanCo.MauPheTa == 1)
             {
                 if (Mau == 2) //Do
                 {

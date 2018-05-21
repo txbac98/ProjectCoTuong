@@ -52,8 +52,7 @@ namespace GameCoTuong.CoTuong
         public void MoveTo(Point location)
         {
             toaDo = location;
-            if (danhSachDiemDich.Count != 0)
-                danhSachDiemDich.Clear();
+            danhSachDiemDich.Clear();
         }
 
         public bool NamTrongBanCo(int X, int Y)

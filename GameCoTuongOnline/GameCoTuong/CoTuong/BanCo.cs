@@ -12,7 +12,7 @@ namespace GameCoTuong.CoTuong
     public static class BanCo
     {
         #region
-        public static int MauPheTa { get; set; } = 2; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
+        public static int MauPheTa { get; set; } = 1; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
 
         public static Color MauPheDo { get { return Color.DarkRed; } }
 
@@ -42,7 +42,7 @@ namespace GameCoTuong.CoTuong
 
         public static int PheDuocDanh { get; private set; } // Phe hiện tại đang được đánh (1 - Xanh, 2 - Đỏ). Phe Đỏ được đánh đầu tiên
 
-        public static int SoLuotDi { get; private set; } // Số lượt đã đi từ đầu ván cờ
+        public static int SoLuotDanh { get; private set; } // Số lượt đã đi từ đầu ván cờ
 
         public static PictureBox YellowTarget { get; } = new PictureBox() ///*
         {
@@ -417,22 +417,22 @@ namespace GameCoTuong.CoTuong
             }
         }
 
-        public static void WriteLabel2(Label label2)
+        public static void WriteLabel2(Label lblThongBaoLuotDanh)
         {
             if (PheDuocDanh == 2)
             {
-                label2.ForeColor = MauPheDo;
-                label2.Text = "Lượt đi của phe Đỏ";
+                lblThongBaoLuotDanh.ForeColor = MauPheDo;
+                lblThongBaoLuotDanh.Text = "Lượt đi của phe Đỏ";
             }
             else
             {
-                label2.ForeColor = MauPheXanh;
-                label2.Text = "Lượt đi của phe Xanh";
+                lblThongBaoLuotDanh.ForeColor = MauPheXanh;
+                lblThongBaoLuotDanh.Text = "Lượt đi của phe Xanh";
             }
         }
 
         /*Dat ban co ve trang thai ban dau*/
-        public static void SetToDefault(Label label2, Label label3, Button btnNewGame, Button btnUndo)
+        public static void SetToDefault(Label lblThongBaoLuotDanh, Label label3, Button btnNewGame, Button btnUndo)
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
@@ -440,10 +440,10 @@ namespace GameCoTuong.CoTuong
                 PheDuocDanh = 2;
             else if (MauPheTa == 1)
                 PheDuocDanh = 1;
-            SoLuotDi = 0;
+            SoLuotDanh = 0;
 
-            WriteLabel2(label2);
-            label3.Text = SoLuotDi.ToString();
+            WriteLabel2(lblThongBaoLuotDanh);
+            label3.Text = SoLuotDanh.ToString();
             btnNewGame.Enabled = false;
             btnUndo.Enabled = false;
         }
@@ -577,16 +577,16 @@ namespace GameCoTuong.CoTuong
         }
 
         /* Đổi phe sau mỗi nước đi */
-        public static void DoiPhe(Label label3, Label label2, Button btnNewGame, Button btnUndo) // BẢN OFFLINE
+        public static void DoiPhe(Label lblThongBaoLuotDanh, Label lblSoLuotDanh, Button btnNewGame, Button btnUndo) // BẢN OFFLINE
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
             PheDuocDanh = PheDoiPhuong();
-            SoLuotDi++;
+            SoLuotDanh++;
 
-            WriteLabel2(label2);
-            label3.Text = SoLuotDi.ToString();
-            if (SoLuotDi != 0)
+            WriteLabel2(lblThongBaoLuotDanh);
+            lblSoLuotDanh.Text = SoLuotDanh.ToString();
+            if (SoLuotDanh != 0)
             {
                 btnNewGame.Enabled = true;
                 btnUndo.Enabled = true;
@@ -599,16 +599,16 @@ namespace GameCoTuong.CoTuong
             RefreshBanCo(); //*Offline*
         }
 
-        public static void DoiPheUndo(Label label3, Label label2, Button btnNewGame, Button btnUndo)
+        public static void DoiPheUndo(Label lblThongBaoLuotDanh, Label lblSoLuotDanh, Button btnNewGame)
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
             PheDuocDanh = PheDoiPhuong();
-            SoLuotDi--;
+            SoLuotDanh--;
 
-            WriteLabel2(label2);
-            label3.Text = SoLuotDi.ToString();
-            if (SoLuotDi != 0)
+            WriteLabel2(lblThongBaoLuotDanh);
+            lblSoLuotDanh.Text = SoLuotDanh.ToString();
+            if (SoLuotDanh != 0)
             {
                 btnNewGame.Enabled = true;
             }
@@ -625,7 +625,7 @@ namespace GameCoTuong.CoTuong
             NuocDiTruocDo.PrevGreyTargetDestinationLocation = GreyTargetDestination.Location;
             GreyTargetDeparture.Location = new Point(ThongSo.ToaDoBanCoCuaQuanCo(departure).X + 10, ThongSo.ToaDoBanCoCuaQuanCo(departure).Y + 10);
             GreyTargetDestination.Location = new Point(ThongSo.ToaDoBanCoCuaQuanCo(destination).X - 1, ThongSo.ToaDoBanCoCuaQuanCo(destination).Y - 1);
-            if (SoLuotDi == 0)
+            if (SoLuotDanh == 0)
             {
                 GreyTargetDeparture.Parent = ptbBanCo;
                 GreyTargetDestination.Parent = ptbBanCo;
@@ -636,7 +636,7 @@ namespace GameCoTuong.CoTuong
         {
             GreyTargetDeparture.Location = NuocDiTruocDo.PrevGreyTargetDepartureLocation;
             GreyTargetDestination.Location = NuocDiTruocDo.PrevGreyTargetDestinationLocation;
-            if (SoLuotDi == 0)
+            if (SoLuotDanh == 0)
             {
                 GreyTargetDeparture.Parent = null;
                 GreyTargetDestination.Parent = null;

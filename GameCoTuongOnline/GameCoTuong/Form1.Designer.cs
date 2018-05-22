@@ -30,19 +30,19 @@
         {
             this.background = new System.Windows.Forms.PictureBox();
             this.ptbBanCo = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlThongTinVanCo = new System.Windows.Forms.Panel();
             this.btnUndo = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblThongBaoLuotDanh = new System.Windows.Forms.Label();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblSoLuotDanh = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnGui = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlThongTinVanCo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,19 +72,19 @@
             this.ptbBanCo.TabStop = false;
             this.ptbBanCo.Click += new System.EventHandler(this.ptbBanCo_Click);
             // 
-            // panel1
+            // pnlThongTinVanCo
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnUndo);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btnNewGame);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(649, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(264, 104);
-            this.panel1.TabIndex = 2;
+            this.pnlThongTinVanCo.BackColor = System.Drawing.Color.LightGray;
+            this.pnlThongTinVanCo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlThongTinVanCo.Controls.Add(this.btnUndo);
+            this.pnlThongTinVanCo.Controls.Add(this.lblThongBaoLuotDanh);
+            this.pnlThongTinVanCo.Controls.Add(this.btnNewGame);
+            this.pnlThongTinVanCo.Controls.Add(this.label1);
+            this.pnlThongTinVanCo.Controls.Add(this.lblSoLuotDanh);
+            this.pnlThongTinVanCo.Location = new System.Drawing.Point(649, 32);
+            this.pnlThongTinVanCo.Name = "pnlThongTinVanCo";
+            this.pnlThongTinVanCo.Size = new System.Drawing.Size(264, 104);
+            this.pnlThongTinVanCo.TabIndex = 2;
             // 
             // btnUndo
             // 
@@ -100,16 +100,16 @@
             this.btnUndo.UseVisualStyleBackColor = false;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
-            // label2
+            // lblThongBaoLuotDanh
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Phe nào được đi?";
+            this.lblThongBaoLuotDanh.AutoSize = true;
+            this.lblThongBaoLuotDanh.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblThongBaoLuotDanh.ForeColor = System.Drawing.Color.Black;
+            this.lblThongBaoLuotDanh.Location = new System.Drawing.Point(6, 6);
+            this.lblThongBaoLuotDanh.Name = "lblThongBaoLuotDanh";
+            this.lblThongBaoLuotDanh.Size = new System.Drawing.Size(161, 25);
+            this.lblThongBaoLuotDanh.TabIndex = 0;
+            this.lblThongBaoLuotDanh.Text = "Phe nào được đi?";
             // 
             // btnNewGame
             // 
@@ -135,16 +135,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Số lượt đã đi:";
             // 
-            // label3
+            // lblSoLuotDanh
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(81, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 30);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "0";
+            this.lblSoLuotDanh.AutoSize = true;
+            this.lblSoLuotDanh.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblSoLuotDanh.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblSoLuotDanh.Location = new System.Drawing.Point(81, 29);
+            this.lblSoLuotDanh.Name = "lblSoLuotDanh";
+            this.lblSoLuotDanh.Size = new System.Drawing.Size(25, 30);
+            this.lblSoLuotDanh.TabIndex = 2;
+            this.lblSoLuotDanh.Text = "0";
             // 
             // panel2
             // 
@@ -199,7 +199,7 @@
             this.ClientSize = new System.Drawing.Size(942, 726);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ptbBanCo);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlThongTinVanCo);
             this.Controls.Add(this.background);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -211,8 +211,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlThongTinVanCo.ResumeLayout(false);
+            this.pnlThongTinVanCo.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -222,11 +222,11 @@
         #endregion
         private System.Windows.Forms.PictureBox ptbBanCo;
         private System.Windows.Forms.PictureBox background;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlThongTinVanCo;
+        private System.Windows.Forms.Label lblThongBaoLuotDanh;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblSoLuotDanh;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnGui;
         private System.Windows.Forms.TextBox textBox1;

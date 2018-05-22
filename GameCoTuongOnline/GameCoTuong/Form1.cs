@@ -23,7 +23,7 @@ namespace GameCoTuong
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            BanCo.SetToDefault(label2, label3, btnNewGame, btnUndo);
+            BanCo.SetToDefault(lblThongBaoLuotDanh, lblSoLuotDanh, btnNewGame, btnUndo);
             BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
             BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
             BanCo.RefreshBanCo();
@@ -100,7 +100,7 @@ namespace GameCoTuong
             }
             BanCo.HienThiNuocDi(departure, destination, ptbBanCo);
             BanCo.LuuNuocDi(departure, destination);
-            BanCo.DoiPhe(label3, label2, btnNewGame, btnUndo); //*Offline*
+            BanCo.DoiPhe(lblThongBaoLuotDanh, lblSoLuotDanh, btnNewGame, btnUndo); //*Offline*
         }
 
         // Event cho button 'New game'
@@ -110,7 +110,7 @@ namespace GameCoTuong
             if (result == DialogResult.Yes)
             {
                 //Hàm xóa bàn cờ tách thành SetToDefault + XoaBanCo
-                BanCo.SetToDefault(label2, label3, btnNewGame, btnUndo);
+                BanCo.SetToDefault(lblThongBaoLuotDanh, lblSoLuotDanh, btnNewGame, btnUndo);
                 BanCo.XoaBanCo(ptbBanCo);
                 BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
                 BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
@@ -129,7 +129,7 @@ namespace GameCoTuong
                 BanCo.Dehighlight();
                 BanCo.AnDiemDich();
                 BanCo.HoanTac(ptbBanCo);
-                BanCo.DoiPheUndo(label3, label2, btnNewGame, btnUndo);
+                BanCo.DoiPheUndo(lblThongBaoLuotDanh, lblSoLuotDanh, btnNewGame);
                 BanCo.HienThiNuocDiUndo(ptbBanCo);
             }
         }

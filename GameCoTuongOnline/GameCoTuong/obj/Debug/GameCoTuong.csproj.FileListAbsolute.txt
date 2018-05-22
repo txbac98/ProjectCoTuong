@@ -135,14 +135,3 @@ E:\Visual Studio Data\C# Solutions\GameCoTuongOnline\GameCoTuong\obj\Debug\GameC
 E:\Visual Studio Data\C# Solutions\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
 E:\Visual Studio Data\C# Solutions\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.exe
 E:\Visual Studio Data\C# Solutions\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.pdb
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe.config
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.pdb
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csprojResolveAssemblyReference.cache
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.exe
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.pdb

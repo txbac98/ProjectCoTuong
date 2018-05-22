@@ -52,7 +52,7 @@
             this.background.Image = global::GameCoTuong.Properties.Resources.tranh_thuy_mac;
             this.background.Location = new System.Drawing.Point(0, 0);
             this.background.Name = "background";
-            this.background.Size = new System.Drawing.Size(927, 729);
+            this.background.Size = new System.Drawing.Size(944, 729);
             this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.background.TabIndex = 3;
             this.background.TabStop = false;
@@ -74,7 +74,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnUndo);
             this.panel1.Controls.Add(this.label2);
@@ -83,7 +83,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(649, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(244, 104);
+            this.panel1.Size = new System.Drawing.Size(264, 104);
             this.panel1.TabIndex = 2;
             // 
             // btnUndo
@@ -92,7 +92,7 @@
             this.btnUndo.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUndo.Enabled = false;
             this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUndo.Location = new System.Drawing.Point(61, 70);
+            this.btnUndo.Location = new System.Drawing.Point(81, 70);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(85, 27);
             this.btnUndo.TabIndex = 0;
@@ -104,12 +104,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(6, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 25);
+            this.label2.Size = new System.Drawing.Size(161, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Phe Đỏ được đi đầu tiên";
+            this.label2.Text = "Phe nào được đi?";
             // 
             // btnNewGame
             // 
@@ -117,7 +117,7 @@
             this.btnNewGame.BackColor = System.Drawing.Color.Gainsboro;
             this.btnNewGame.Enabled = false;
             this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNewGame.Location = new System.Drawing.Point(152, 70);
+            this.btnNewGame.Location = new System.Drawing.Point(172, 70);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(85, 27);
             this.btnNewGame.TabIndex = 1;
@@ -140,7 +140,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(82, 30);
+            this.label3.Location = new System.Drawing.Point(81, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 30);
             this.label3.TabIndex = 2;
@@ -196,7 +196,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(926, 726);
+            this.ClientSize = new System.Drawing.Size(942, 726);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.panel1);

@@ -10,7 +10,7 @@ namespace GameCoTuong.CoTuong
 {
     public class QuanCo
     {
-        #region attributes
+        #region properties
 
         public Point ToaDo { get; protected set; }
 
@@ -36,14 +36,9 @@ namespace GameCoTuong.CoTuong
             ToaDo = toaDoBanDau;
         }
 
-        public bool Equals(QuanCo quanCoSoSanh)
-        {
-            return (this.ToaDo == quanCoSoSanh.ToaDo) && (this.Mau == quanCoSoSanh.Mau);
-        }
-
         public virtual void TinhNuocDi() { }
 
-        public void MoveTo(Point location)
+        public void DiChuyen(Point location)
         {
             ToaDo = location;
             DanhSachDiemDich.Clear();

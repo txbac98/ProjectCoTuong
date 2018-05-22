@@ -10,6 +10,8 @@ namespace GameCoTuong.CoTuong
 {
     public class NuocDi
     {
+        public Point PrevGreyTargetDepartureLocation { get; set; }
+        public Point PrevGreyTargetDestinationLocation { get; set; }
         public Point ToaDoDi { get; set; }
         public Point ToaDoDen { get; set; }
         public RoundPictureBox QuanCoDiChuyen { get; set; }
@@ -17,18 +19,22 @@ namespace GameCoTuong.CoTuong
 
         public NuocDi()
         {
+            PrevGreyTargetDepartureLocation = ThongSo.ToaDoNULL;
+            PrevGreyTargetDestinationLocation = ThongSo.ToaDoNULL;
             ToaDoDi = ThongSo.ToaDoNULL;
             ToaDoDen = ThongSo.ToaDoNULL;
             QuanCoDiChuyen = null;
             QuanCoBiLoai = null;
         }
 
-        public NuocDi(Point departure, Point destination, RoundPictureBox moving, RoundPictureBox eliminated)
+        public void Clear()
         {
-            ToaDoDi = new Point(departure.X, departure.Y);
-            ToaDoDen = new Point(destination.X, destination.Y);
-            QuanCoDiChuyen = moving;
-            QuanCoBiLoai = eliminated;
+            PrevGreyTargetDepartureLocation = ThongSo.ToaDoNULL;
+            PrevGreyTargetDestinationLocation = ThongSo.ToaDoNULL;
+            ToaDoDi = ThongSo.ToaDoNULL;
+            ToaDoDen = ThongSo.ToaDoNULL;
+            QuanCoDiChuyen = null;
+            QuanCoBiLoai = null;
         }
     }
 }

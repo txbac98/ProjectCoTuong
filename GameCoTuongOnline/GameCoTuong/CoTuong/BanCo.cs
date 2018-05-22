@@ -14,11 +14,11 @@ namespace GameCoTuong.CoTuong
         #region
         public static int MauPheTa { get; set; } = 1; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
 
-        public static NuocDi NuocDiTruocDo { get; private set; } = new NuocDi(); //*
+        public static NuocDi NuocDiTruocDo { get; } = new NuocDi(); ///*
 
         /* Thuộc tính liên quan đến đối tượng QuanCo (quân cờ trừu tượng) */
 
-        public static List<QuanCo> Alive_QuanCo { get; private set; } = new List<QuanCo>(); //*
+        public static List<QuanCo> Alive_QuanCo { get; } = new List<QuanCo>(); ///*
 
         public static QuanTuong TuongXanh { get; set; } = null;
 
@@ -26,11 +26,11 @@ namespace GameCoTuong.CoTuong
 
         /* Thuộc tính liên quan đến đối tượng RoundButton (thể hiện điểm bàn cờ) */
 
-        public static RoundButton[,] DiemBanCo { get; private set; } = new RoundButton[9, 10]; //* // Mảng 2 chiều chứa 90 điểm bàn cờ
+        public static RoundButton[,] DiemBanCo { get; } = new RoundButton[9, 10]; ///* // Mảng 2 chiều chứa 90 điểm bàn cờ
 
         /* Thuộc tính liên quan đến đối tượng RoundPictureBox (thể hiện quân cờ trực quan) */
 
-        public static List<RoundPictureBox> Alive_RoundPictureBox { get; private set; } = new List<RoundPictureBox>(); //* // List chứa tất cả các quân cờ còn sống
+        public static List<RoundPictureBox> Alive_RoundPictureBox { get; } = new List<RoundPictureBox>(); ///* // List chứa tất cả các quân cờ còn sống
 
         public static RoundPictureBox QuanCoDuocChon { get; set; } = null; // quân cờ đang được chọn (được click vào)
 
@@ -40,7 +40,7 @@ namespace GameCoTuong.CoTuong
 
         public static int SoLuotDi { get; private set; } = 0; // Số lượt đã đi từ đầu ván cờ
 
-        public static PictureBox YellowSquareTarget { get; private set; } = new PictureBox() //*
+        public static PictureBox YellowTarget { get; } = new PictureBox() ///*
         {
             Width = 58,
             Height = 58,
@@ -48,7 +48,7 @@ namespace GameCoTuong.CoTuong
             Image = GameCoTuong.Properties.Resources.yellow_square_target,
             Location = new Point(863, 698)
         };
-        public static PictureBox greySquareTarget_Depart { get; private set; } = new PictureBox() //*
+        public static PictureBox GreyTargetDeparture { get; } = new PictureBox() ///*
         {
             Width = 36,
             Height = 36,
@@ -56,7 +56,7 @@ namespace GameCoTuong.CoTuong
             Image = GameCoTuong.Properties.Resources.grey_square_target_depart,
             Location = new Point(863, 698)
         };
-        public static PictureBox greySquareTarget_Dest { get; private set; } = new PictureBox() //*
+        public static PictureBox GreyTargetDestination { get; } = new PictureBox() ///*
         {
             Width = 58,
             Height = 58,
@@ -83,7 +83,7 @@ namespace GameCoTuong.CoTuong
         /* Phương thức dùng cho đối tượng RoundPictureBox */
         /* Tạo 90 RoundButton điểm bàn cờ nhưng chưa hiển thị.
          Khi click vào 1 RoundPictureBox quân cờ thì những điểm bàn cờ ở những tọa độ trong danh sách điểm đích của quân đó sẽ hiện ra */
-        public static void TaoDiemBanCo(PictureBox ptbBanCo)
+        public static void TaoDiemBanCo(PictureBox ptbBanCo, EventHandler DiemBanCo_Click)
         {
             for (int y = 0; y < 10; y++)
             {
@@ -98,6 +98,7 @@ namespace GameCoTuong.CoTuong
                         Location = ThongSo.ToaDoBanCoCuaDiem(x, y),
                         Visible = false // Ẩn điểm bàn cờ sau khi khởi tạo
                     };
+                    DiemBanCo[x, y].Click += DiemBanCo_Click;
                     ptbBanCo.Controls.Add(DiemBanCo[x, y]);
                 }
             }
@@ -405,14 +406,14 @@ namespace GameCoTuong.CoTuong
         {
             foreach (RoundPictureBox element in Alive_RoundPictureBox)
             {
-                if (element.quanCo.Mau == PheDuocDanh)
+                if (element.Quan_Co.Mau == PheDuocDanh)
                     element.Enabled = true;
                 else element.Enabled = false;
                 element.BringToFront();
             }
         }
         /*Dat ban co ve trang thai ban dau*/
-        public static void SetToDefault(Label label2, Label label3, Button button1)
+        public static void SetToDefault(Label label2, Label label3, Button btnNewGame, Button btnUndo)
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
@@ -422,7 +423,8 @@ namespace GameCoTuong.CoTuong
             label2.ForeColor = Color.DarkRed;
             SoLuotDi = 0;
             label3.Text = SoLuotDi.ToString();
-            button1.Enabled = false;
+            btnNewGame.Enabled = false;
+            btnUndo.Enabled = false;
         }
 
         /* Xóa các RoundPictureBox quân cờ khỏi bàn cờ và danh sách quân cờ */
@@ -433,31 +435,31 @@ namespace GameCoTuong.CoTuong
             TuongDo = null;
             Alive_QuanCo.Clear();
             Alive_RoundPictureBox.Clear();
+            NuocDiTruocDo.Clear();
         }
 
         public static void Highlight(PictureBox ptbBanCo)
         {
-            YellowSquareTarget.Location = new Point(QuanCoDuocChon.Location.X - 1, QuanCoDuocChon.Location.Y - 1);
-            YellowSquareTarget.Parent = ptbBanCo;
+            YellowTarget.Location = new Point(QuanCoDuocChon.Location.X - 1, QuanCoDuocChon.Location.Y - 1);
+            YellowTarget.Parent = ptbBanCo;
         }
 
         public static void Dehighlight()
         {
-            YellowSquareTarget.Parent = null;
-            YellowSquareTarget.Location = new Point(863, 698);
+            YellowTarget.Parent = null;
+            YellowTarget.Location = new Point(863, 698);
         }
 
         /* Tính toán và hiển thị tất cả điểm đích của quân cờ được chọn */
-        public static void HienThiDiemDich(EventHandler DiemBanCo_Click) // Vẽ các điểm đích của quân cờ đang được chọn
+        public static void HienThiDiemDich() // Vẽ các điểm đích của quân cờ đang được chọn
         {
-            QuanCoDuocChon.quanCo.DanhSachDiemDich.Clear();
-            QuanCoDuocChon.quanCo.TinhNuocDi();
-            foreach (Point element in QuanCoDuocChon.quanCo.DanhSachDiemDich)
+            QuanCoDuocChon.Quan_Co.DanhSachDiemDich.Clear();
+            QuanCoDuocChon.Quan_Co.TinhNuocDi();
+            foreach (Point element in QuanCoDuocChon.Quan_Co.DanhSachDiemDich)
             {
-                QuanCo target = Alive_QuanCo.Find(element1 => element1.Mau != QuanCoDuocChon.quanCo.Mau && element1.ToaDo == element);
+                QuanCo target = Alive_QuanCo.Find(element1 => element1.Mau != QuanCoDuocChon.Quan_Co.Mau && element1.ToaDo == element);
                 if (target != null)
                     DiemBanCo[element.X, element.Y].BackColor = Color.Red;
-                DiemBanCo[element.X, element.Y].Click += DiemBanCo_Click;
                 DiemBanCo[element.X, element.Y].Visible = true;
                 DiemBanCo[element.X, element.Y].BringToFront();
             }
@@ -474,31 +476,30 @@ namespace GameCoTuong.CoTuong
 
         public static void LoaiBoQuanCo(Point viTri, PictureBox ptbBanCo)
         {
-            QuanCoBiLoai = Alive_RoundPictureBox.Find(element => element.quanCo.Mau != PheDuocDanh && element.quanCo.ToaDo == viTri);
+            QuanCoBiLoai = Alive_RoundPictureBox.Find(element => element.Quan_Co.Mau != PheDuocDanh && element.Quan_Co.ToaDo == viTri);
             if (QuanCoBiLoai != null)
             {
                 ptbBanCo.Controls.Remove(QuanCoBiLoai);
                 Alive_RoundPictureBox.Remove(QuanCoBiLoai);
-                Alive_QuanCo.Remove(QuanCoBiLoai.quanCo);
+                Alive_QuanCo.Remove(QuanCoBiLoai.Quan_Co);
             }
         }
 
-        /* Trả lại quân cờ vừa bị loại khỏi bàn cờ */
-        public static void TraLaiQuanCo(PictureBox ptbBanCo)
+        /* Trả lại một quân cờ bị loại khỏi bàn cờ */
+        public static void TraLaiQuanCo(PictureBox ptbBanCo, RoundPictureBox quanCoCanTraLai)
         {
-            if (QuanCoBiLoai != null)
+            if (quanCoCanTraLai != null)
             {
-                Alive_QuanCo.Add(QuanCoBiLoai.quanCo);
-                Alive_RoundPictureBox.Add(QuanCoBiLoai);
-                ptbBanCo.Controls.Add(QuanCoBiLoai);
-                QuanCoBiLoai = null;
+                Alive_QuanCo.Add(quanCoCanTraLai.Quan_Co);
+                Alive_RoundPictureBox.Add(quanCoCanTraLai);
+                ptbBanCo.Controls.Add(quanCoCanTraLai);
+                quanCoCanTraLai = null;
             }
-            RefreshBanCo();
         }
 
         public static void DiChuyen(Point destination)
         {
-            QuanCoDuocChon.DenViTri(destination);
+            QuanCoDuocChon.DiChuyen(destination);
         }
         public static int PheDoiPhuong()
         {
@@ -512,12 +513,11 @@ namespace GameCoTuong.CoTuong
             if (TuongXanh.ToaDo.X == TuongDo.ToaDo.X) // nếu 2 tướng cùng hoành độ (thẳng hàng) ...
             {
                 int X = TuongXanh.ToaDo.X;
-                Point diemGiuaHaiTuong;
                 if (MauPheTa == 2)
                 {
                     for (int Y = TuongXanh.ToaDo.Y + 1; Y < TuongDo.ToaDo.Y; Y++) // ... thì xét xem giữa 2 tướng có quân cờ nào không
                     {
-                        diemGiuaHaiTuong = new Point(X, Y);
+                        Point diemGiuaHaiTuong = new Point(X, Y);
                         if (CoQuanCoTaiDay(diemGiuaHaiTuong))
                             return false; // nếu có 1 quân cờ ở giữa 2 tướng thì 2 tướng không đối mặt nhau
                     }
@@ -527,7 +527,7 @@ namespace GameCoTuong.CoTuong
                 {
                     for (int Y = TuongXanh.ToaDo.Y - 1; Y > TuongDo.ToaDo.Y; Y--) // ... thì xét xem giữa 2 tướng có quân cờ nào không
                     {
-                        diemGiuaHaiTuong = new Point(X, Y);
+                        Point diemGiuaHaiTuong = new Point(X, Y);
                         if (CoQuanCoTaiDay(diemGiuaHaiTuong))
                             return false; // nếu có 1 quân cờ ở giữa 2 tướng thì 2 tướng không đối mặt nhau
                     }
@@ -537,7 +537,7 @@ namespace GameCoTuong.CoTuong
             return false; // nếu 2 tướng không cùng hoành độ thì 2 tướng không đối mặt nhau
         }
 
-        public static bool ChieuTuong(int pheChieuTuong)
+        public static bool CoChieuTuong(int pheChieuTuong)
         {
             foreach (QuanCo element in Alive_QuanCo)
             {
@@ -557,7 +557,7 @@ namespace GameCoTuong.CoTuong
         }
 
         /* Đổi phe sau mỗi nước đi */
-        public static void DoiPhe(Label label3, Label label2, Button button1) // BẢN OFFLINE
+        public static void DoiPhe(Label label3, Label label2, Button btnNewGame, Button btnUndo) // BẢN OFFLINE
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
@@ -574,19 +574,58 @@ namespace GameCoTuong.CoTuong
             }
             SoLuotDi++;
             label3.Text = SoLuotDi.ToString();
-            if (SoLuotDi != 0 && !button1.Enabled)
-                button1.Enabled = true;
+            if (SoLuotDi != 0)
+            {
+                btnNewGame.Enabled = true;
+                btnUndo.Enabled = true;
+            }
             RefreshBanCo(); //*Offline*
+        }
+
+        public static void DoiPheUndo(Label label3, Label label2, Button btnNewGame, Button btnUndo)
+        {
+            QuanCoBiLoai = null;
+            QuanCoDuocChon = null;
+            PheDuocDanh = PheDoiPhuong();
+            if (PheDuocDanh == 2)
+            {
+                label2.ForeColor = Color.DarkRed;
+                label2.Text = "Lượt đi của phe Đỏ";
+            }
+            else
+            {
+                label2.ForeColor = Color.DarkBlue;
+                label2.Text = "Lượt đi của phe Xanh";
+            }
+            SoLuotDi--;
+            label3.Text = SoLuotDi.ToString();
+            if (SoLuotDi != 0)
+                btnNewGame.Enabled = true;
+            else btnNewGame.Enabled = false;
+            RefreshBanCo();
         }
 
         public static void HienThiNuocDi(Point departure, Point destination, PictureBox ptbBanCo)
         {
-            greySquareTarget_Depart.Location = new Point(ThongSo.ToaDoBanCoCuaQuanCo(departure).X + 10, ThongSo.ToaDoBanCoCuaQuanCo(departure).Y + 10);
-            greySquareTarget_Dest.Location = new Point(ThongSo.ToaDoBanCoCuaQuanCo(destination).X - 1, ThongSo.ToaDoBanCoCuaQuanCo(destination).Y - 1);
+            NuocDiTruocDo.PrevGreyTargetDepartureLocation = GreyTargetDeparture.Location;
+            NuocDiTruocDo.PrevGreyTargetDestinationLocation = GreyTargetDestination.Location;
+            GreyTargetDeparture.Location = new Point(ThongSo.ToaDoBanCoCuaQuanCo(departure).X + 10, ThongSo.ToaDoBanCoCuaQuanCo(departure).Y + 10);
+            GreyTargetDestination.Location = new Point(ThongSo.ToaDoBanCoCuaQuanCo(destination).X - 1, ThongSo.ToaDoBanCoCuaQuanCo(destination).Y - 1);
             if (SoLuotDi == 0)
             {
-                greySquareTarget_Depart.Parent = ptbBanCo;
-                greySquareTarget_Dest.Parent = ptbBanCo;
+                GreyTargetDeparture.Parent = ptbBanCo;
+                GreyTargetDestination.Parent = ptbBanCo;
+            }
+        }
+
+        public static void HienThiNuocDiUndo(PictureBox ptbBanCo)
+        {
+            GreyTargetDeparture.Location = NuocDiTruocDo.PrevGreyTargetDepartureLocation;
+            GreyTargetDestination.Location = NuocDiTruocDo.PrevGreyTargetDestinationLocation;
+            if (SoLuotDi == 0)
+            {
+                GreyTargetDeparture.Parent = null;
+                GreyTargetDestination.Parent = null;
             }
         }
 
@@ -596,6 +635,12 @@ namespace GameCoTuong.CoTuong
             NuocDiTruocDo.ToaDoDen = new Point(destination.X, destination.Y);
             NuocDiTruocDo.QuanCoDiChuyen = QuanCoDuocChon;
             NuocDiTruocDo.QuanCoBiLoai = QuanCoBiLoai;
+        }
+
+        public static void HoanTac(PictureBox ptbBanCo)
+        {
+            NuocDiTruocDo.QuanCoDiChuyen.DiChuyen(NuocDiTruocDo.ToaDoDi);
+            TraLaiQuanCo(ptbBanCo, NuocDiTruocDo.QuanCoBiLoai);
         }
         #endregion
     }

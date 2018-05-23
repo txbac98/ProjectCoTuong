@@ -12,7 +12,7 @@ namespace GameCoTuong.CoTuong
     public static class BanCo
     {
         #region properties
-        public static int MauPheTa { get; set; } = 1; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
+        public static int MauPheTa { get; set; } = 2; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
 
         public static Color MauPheDo { get { return Color.DarkRed; } }
 

@@ -10,11 +10,6 @@ namespace GameCoTuong.ProgramConfig
 {
     public class RoundButton : Button
     {
-        #region attributes
-
-        #endregion
-
-        #region methods
         public RoundButton() { }
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -23,6 +18,5 @@ namespace GameCoTuong.ProgramConfig
             this.Region = new System.Drawing.Region(grPath);
             base.OnPaint(e);
         }
-        #endregion
     }
 }

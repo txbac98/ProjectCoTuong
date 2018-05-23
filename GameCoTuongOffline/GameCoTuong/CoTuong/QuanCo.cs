@@ -10,19 +10,13 @@ namespace GameCoTuong.CoTuong
 {
     public class QuanCo
     {
-        #region attributes
+        #region properties
 
-        protected Point toaDo;
-        public Point ToaDo
-        {
-            get { return toaDo; }
-            set { toaDo = value; }
-        }
+        public Point ToaDo { get; protected set; }
 
-        protected int mau; //xanh 1, do 2;
-        public int Mau { get { return mau; } }
+        public int Mau { get; protected set; } // xanh 1, đỏ 2;
 
-        public List<Point> danhSachDiemDich;
+        public List<Point> DanhSachDiemDich { get; protected set; }
 
         #endregion
 
@@ -32,28 +26,22 @@ namespace GameCoTuong.CoTuong
 
         public QuanCo(int X, int Y)
         {
-            toaDo = new Point(X, Y);
+            ToaDo = new Point(X, Y);
         }
 
         public QuanCo(Point toaDoBanDau)
         {
             if (toaDoBanDau == ThongSo.ToaDoNULL)
-                mau = 0;
-            toaDo = toaDoBanDau;
-        }
-
-        public bool Equals(QuanCo quanCoSoSanh)
-        {
-            return (this.ToaDo == quanCoSoSanh.ToaDo) && (this.Mau == quanCoSoSanh.Mau);
+                Mau = 0;
+            ToaDo = toaDoBanDau;
         }
 
         public virtual void TinhNuocDi() { }
 
-        public void MoveTo(Point location)
+        public void DiChuyen(Point location)
         {
-            toaDo = location;
-            if (danhSachDiemDich.Count != 0)
-                danhSachDiemDich.Clear();
+            ToaDo = location;
+            DanhSachDiemDich.Clear();
         }
 
         public bool NamTrongBanCo(int X, int Y)

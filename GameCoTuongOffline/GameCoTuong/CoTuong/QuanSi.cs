@@ -14,10 +14,13 @@ namespace GameCoTuong.CoTuong
 
         public QuanSi(Point toaDoBanDau)
         {
-            toaDo = toaDoBanDau;
-            danhSachDiemDich = new List<Point>();
-            mau = ThongSo.MauQuanCo(toaDoBanDau);
-            BanCo.alive.Add(this);
+            ToaDo = toaDoBanDau;
+            DanhSachDiemDich = new List<Point>();
+            if (BanCo.MauPheTa == 2)
+                Mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+            else if (BanCo.MauPheTa == 1)
+                Mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
+            BanCo.Alive_QuanCo.Add(this);
         }
 
         public override void TinhNuocDi()
@@ -25,156 +28,316 @@ namespace GameCoTuong.CoTuong
             Point toaDoMucTieu;
             QuanCo quanCoMucTieu;
 
-            if (Mau == 1)
+            if (BanCo.MauPheTa == 2)
             {
-                if (toaDo == new Point(3, 0) || toaDo == new Point(5, 0) || toaDo == new Point(3, 2) || toaDo == new Point(5, 2))
+                if (Mau == 1)
                 {
-                    toaDoMucTieu = new Point(4, 1);
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    if (ToaDo == new Point(3, 0) || ToaDo == new Point(5, 0) || ToaDo == new Point(3, 2) || ToaDo == new Point(5, 2))
                     {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(4, 1);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+                    }
+                    else if (ToaDo == new Point(4, 1))
+                    {
+                        toaDoMucTieu = new Point(3, 0);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(5, 0);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(3, 2);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(5, 2);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
                     }
                 }
-                else if (toaDo == new Point(4, 1))
+                else if (Mau == 2)
                 {
-                    toaDoMucTieu = new Point(3, 0);
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    if (ToaDo == new Point(3, 9) || ToaDo == new Point(5, 9) || ToaDo == new Point(3, 7) || ToaDo == new Point(5, 7))
                     {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(4, 8);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
                     }
-
-                    toaDoMucTieu = new Point(5, 0);
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    else if (ToaDo == new Point(4, 8))
                     {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(3, 9);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
-                    }
-
-                    toaDoMucTieu = new Point(3, 2);
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        else
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
-                    }
 
-                    toaDoMucTieu = new Point(5, 2);
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(5, 9);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(3, 7);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(5, 7);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
                     }
                 }
             }
-            else if (Mau == 2)
+            else if (BanCo.MauPheTa == 1)
             {
-                if (toaDo == new Point(3, 9) || toaDo == new Point(5, 9) || toaDo == new Point(3, 7) || toaDo == new Point(5, 7))
+                if (Mau == 2)
                 {
-                    toaDoMucTieu = new Point(4, 8);
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    if (ToaDo == new Point(3, 0) || ToaDo == new Point(5, 0) || ToaDo == new Point(3, 2) || ToaDo == new Point(5, 2))
                     {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(4, 1);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+                    }
+                    else if (ToaDo == new Point(4, 1))
+                    {
+                        toaDoMucTieu = new Point(3, 0);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(5, 0);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(3, 2);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(5, 2);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
                     }
                 }
-                else if (toaDo == new Point(4, 8))
+                else if (Mau == 1)
                 {
-                    toaDoMucTieu = new Point(3, 9);//
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    if (ToaDo == new Point(3, 9) || ToaDo == new Point(5, 9) || ToaDo == new Point(3, 7) || ToaDo == new Point(5, 7))
                     {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(4, 8);
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
                     }
-
-                    toaDoMucTieu = new Point(5, 9);//
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    else if (ToaDo == new Point(4, 8))
                     {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(3, 9);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
                         }
-                    }
-
-                    toaDoMucTieu = new Point(3, 7);//
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        else
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
-                    }
 
-                    toaDoMucTieu = new Point(5, 7);//
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        danhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
+                        toaDoMucTieu = new Point(5, 9);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
-                            danhSachDiemDich.Add(toaDoMucTieu);
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(3, 7);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
+                        }
+
+                        toaDoMucTieu = new Point(5, 7);//
+                        if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                        {
+                            DanhSachDiemDich.Add(toaDoMucTieu);
+                        }
+                        else
+                        {
+                            quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                            if (quanCoMucTieu.Mau != this.Mau)
+                            {
+                                DanhSachDiemDich.Add(toaDoMucTieu);
+                            }
                         }
                     }
                 }

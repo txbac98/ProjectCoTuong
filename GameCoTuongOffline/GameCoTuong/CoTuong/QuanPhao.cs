@@ -14,10 +14,13 @@ namespace GameCoTuong.CoTuong
 
         public QuanPhao(Point toaDoBanDau)
         {
-            toaDo = toaDoBanDau;
-            danhSachDiemDich = new List<Point>();
-            mau = ThongSo.MauQuanCo(toaDoBanDau);
-            BanCo.alive.Add(this);
+            ToaDo = toaDoBanDau;
+            DanhSachDiemDich = new List<Point>();
+            if (BanCo.MauPheTa == 2)
+                Mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+            else if (BanCo.MauPheTa == 1)
+                Mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
+            BanCo.Alive_QuanCo.Add(this);
         }
 
         public override void TinhNuocDi()
@@ -26,21 +29,21 @@ namespace GameCoTuong.CoTuong
             QuanCo quanCoMucTieu;
 
             /* Xét nhánh các điểm đích BÊN TRÁI quân pháo */
-            for (int x = toaDo.X - 1; x >= 0; x--)
+            for (int x = ToaDo.X - 1; x >= 0; x--)
             {
-                toaDoMucTieu = new Point(x, toaDo.Y);
+                toaDoMucTieu = new Point(x, ToaDo.Y);
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     for (x -= 1; x >= 0; x--)
                     {
-                        toaDoMucTieu = new Point(x, toaDo.Y);
+                        toaDoMucTieu = new Point(x, ToaDo.Y);
                         if (BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             break;
                         }
                     }
@@ -49,21 +52,21 @@ namespace GameCoTuong.CoTuong
             }
 
             /* Xét nhánh các điểm đích BÊN PHẢI quân pháo */
-            for (int x = toaDo.X + 1; x < 9; x++)
+            for (int x = ToaDo.X + 1; x < 9; x++)
             {
-                toaDoMucTieu = new Point(x, toaDo.Y);
+                toaDoMucTieu = new Point(x, ToaDo.Y);
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     for (x += 1; x < 9; x++)
                     {
-                        toaDoMucTieu = new Point(x, toaDo.Y);
+                        toaDoMucTieu = new Point(x, ToaDo.Y);
                         if (BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             break;
                         }
                     }
@@ -72,21 +75,21 @@ namespace GameCoTuong.CoTuong
             }
 
             /* Xét nhánh các điểm đích BÊN TRÊN quân pháo */
-            for (int y = toaDo.Y - 1; y >= 0; y--)
+            for (int y = ToaDo.Y - 1; y >= 0; y--)
             {
-                toaDoMucTieu = new Point(toaDo.X, y);
+                toaDoMucTieu = new Point(ToaDo.X, y);
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     for (y -= 1; y >= 0; y--)
                     {
-                        toaDoMucTieu = new Point(toaDo.X, y);
+                        toaDoMucTieu = new Point(ToaDo.X, y);
                         if (BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             break;
                         }
                     }
@@ -95,21 +98,21 @@ namespace GameCoTuong.CoTuong
             }
 
             /* Xét nhánh các điểm đích BÊN DƯỚI quân pháo */
-            for (int y = toaDo.Y + 1; y < 10; y++)
+            for (int y = ToaDo.Y + 1; y < 10; y++)
             {
-                toaDoMucTieu = new Point(toaDo.X, y);
+                toaDoMucTieu = new Point(ToaDo.X, y);
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     for (y += 1; y < 10; y++)
                     {
-                        toaDoMucTieu = new Point(toaDo.X, y);
+                        toaDoMucTieu = new Point(ToaDo.X, y);
                         if (BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                         {
                             quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                             if (quanCoMucTieu.Mau != this.Mau)
-                                danhSachDiemDich.Add(toaDoMucTieu);
+                                DanhSachDiemDich.Add(toaDoMucTieu);
                             break;
                         }
                     }

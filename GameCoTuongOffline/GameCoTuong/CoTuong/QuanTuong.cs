@@ -14,14 +14,17 @@ namespace GameCoTuong.CoTuong
 
         public QuanTuong(Point toaDoBanDau)
         {
-            toaDo = toaDoBanDau;
-            mau = ThongSo.MauQuanCo(toaDoBanDau);
-            danhSachDiemDich = new List<Point>();
-            BanCo.alive.Add(this);
+            ToaDo = toaDoBanDau;
+            DanhSachDiemDich = new List<Point>();
+            if (BanCo.MauPheTa == 2)
+                Mau = ThongSoPheDo.MauQuanCo(toaDoBanDau);
+            else if (BanCo.MauPheTa == 1)
+                Mau = ThongSoPheXanh.MauQuanCo(toaDoBanDau);
+            BanCo.Alive_QuanCo.Add(this);
             if (Mau == 1)
-                BanCo.tuongXanh = this;
+                BanCo.TuongXanh = this;
             else if (Mau == 2)
-                BanCo.tuongDo = this;
+                BanCo.TuongDo = this;
         }
 
         public override void TinhNuocDi()
@@ -29,69 +32,80 @@ namespace GameCoTuong.CoTuong
             Point toaDoMucTieu;
             QuanCo quanCoMucTieu;
 
-            toaDoMucTieu = new Point(toaDo.X + 1, toaDo.Y);
+            toaDoMucTieu = new Point(ToaDo.X + 1, ToaDo.Y);
             if (NamTrongCung(toaDoMucTieu))
             {
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                     if (quanCoMucTieu.Mau != this.Mau)
-                        danhSachDiemDich.Add(toaDoMucTieu);
+                        DanhSachDiemDich.Add(toaDoMucTieu);
                 }
             }
 
-            toaDoMucTieu = new Point(toaDo.X - 1, toaDo.Y);
+            toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y);
             if (NamTrongCung(toaDoMucTieu))
             {
 
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                     if (quanCoMucTieu.Mau != this.Mau)
-                        danhSachDiemDich.Add(toaDoMucTieu);
+                        DanhSachDiemDich.Add(toaDoMucTieu);
                 }
             }
 
-            toaDoMucTieu = new Point(toaDo.X, toaDo.Y + 1);
+            toaDoMucTieu = new Point(ToaDo.X, ToaDo.Y + 1);
             if (NamTrongCung(toaDoMucTieu))
             {
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                     if (quanCoMucTieu.Mau != this.Mau)
-                        danhSachDiemDich.Add(toaDoMucTieu);
+                        DanhSachDiemDich.Add(toaDoMucTieu);
                 }
             }
 
-            toaDoMucTieu = new Point(toaDo.X, toaDo.Y - 1);
+            toaDoMucTieu = new Point(ToaDo.X, ToaDo.Y - 1);
             if (NamTrongCung(toaDoMucTieu))
             {
                 if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    danhSachDiemDich.Add(toaDoMucTieu);
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 else
                 {
                     quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
                     if (quanCoMucTieu.Mau != this.Mau)
-                        danhSachDiemDich.Add(toaDoMucTieu);
+                        DanhSachDiemDich.Add(toaDoMucTieu);
                 }
             }
-
         }
 
         private bool NamTrongCung(Point point)
         {
-            if (this.Mau == 1)
-                if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
-                    return true;
-            if (this.Mau == 2)
-                if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
-                    return true;
+            if (BanCo.MauPheTa == 2)
+            {
+                if (Mau == 1)
+                    if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
+                        return true;
+                if (Mau == 2)
+                    if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
+                        return true;
+            }
+            else if (BanCo.MauPheTa == 1)
+            {
+                if (Mau == 2)
+                    if ((point.X >= 3 && point.X <= 5 && point.Y >= 0 && point.Y <= 2))
+                        return true;
+                if (Mau == 1)
+                    if (point.X >= 3 && point.X <= 5 && point.Y >= 7 && point.Y <= 9)
+                        return true;
+            }
             return false;
         }
     }

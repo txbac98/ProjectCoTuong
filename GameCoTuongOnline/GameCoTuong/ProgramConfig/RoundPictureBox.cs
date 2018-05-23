@@ -112,12 +112,12 @@ namespace GameCoTuong.ProgramConfig
             }
             if (Quan_Co.Mau == 1)
             {
-                BackColor = Color.DarkBlue;
+                BackColor = BanCo.MauPheXanh;
                 TenQuanCo += " Xanh";
             }
             else if (Quan_Co.Mau == 2)
             {
-                BackColor = Color.DarkRed;
+                BackColor = BanCo.MauPheDo;
                 TenQuanCo += " Do";
             }
             Height = ThongSo.DuongKinhQuanCo;

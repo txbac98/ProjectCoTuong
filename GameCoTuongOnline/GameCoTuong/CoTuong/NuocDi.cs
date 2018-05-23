@@ -36,5 +36,12 @@ namespace GameCoTuong.CoTuong
             QuanCoDiChuyen = null;
             QuanCoBiLoai = null;
         }
+
+        public string SerializeNuocDi()
+        {
+            string result = "1";
+            result += ToaDoDi.X.ToString() + ToaDoDi.Y.ToString() + ToaDoDen.X.ToString() + ToaDoDen.Y.ToString();
+            return result;
+        }
     }
 }

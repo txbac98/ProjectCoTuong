@@ -23,6 +23,7 @@ namespace GameCoTuong
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            BanCo.SetToDefault(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo);
             BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
             BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
             BanCo.RefreshBanCo();
@@ -63,8 +64,8 @@ namespace GameCoTuong
         private void DiemBanCo_Click(object sender, EventArgs e) // BẢN OFFLINE
         {
             if (BanCo.QuanCoDuocChon == null) return; // Dòng code chống lỗi lặp lại event ngoài ý muốn (chưa rõ nguyên nhân của lỗi này). Không được xóa!
-            BanCo.Dehighlight(); // chọn nước đi
-            BanCo.AnDiemDich(); // thì đồng thời sẽ bỏ chọn quân cờ luôn
+            BanCo.Dehighlight(); // chọn nước đi...
+            BanCo.AnDiemDich(); // ...thì đồng thời sẽ bỏ chọn quân cờ luôn
 
             Point departure = new Point(BanCo.QuanCoDuocChon.Quan_Co.ToaDo.X, BanCo.QuanCoDuocChon.Quan_Co.ToaDo.Y);
             Point destination = ThongSo.ToaDoDonViCuaDiem(((RoundButton)sender).Location); // Lấy tọa độ của RoundButton điểm bàn cờ (điểm đích)
@@ -99,17 +100,17 @@ namespace GameCoTuong
             }
             BanCo.HienThiNuocDi(departure, destination, ptbBanCo);
             BanCo.LuuNuocDi(departure, destination);
-            BanCo.DoiPhe(label3, label2, btnNewGame, btnUndo); //*Offline*
+            BanCo.DoiPhe(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo); //*Offline*
         }
 
-        // Event cho button New game
+        // Event cho button 'New game'
         private void btnNewGame_Click(object sender, EventArgs e) // BẢN OFFLINE
         {
             DialogResult result = MessageBox.Show("Bạn muốn bỏ ván đấu này và bắt đầu một ván mới?", "Ván mới", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //Hàm xóa bàn cờ tách thành SetToDefault + XoaBanCo
-                BanCo.SetToDefault(label2, label3, btnNewGame, btnUndo);
+                BanCo.SetToDefault(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo);
                 BanCo.XoaBanCo(ptbBanCo);
                 BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
                 BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
@@ -117,6 +118,7 @@ namespace GameCoTuong
             }
         }
 
+        // Event cho button 'Undo'
         private void btnUndo_Click(object sender, EventArgs e)
         {
 
@@ -124,8 +126,10 @@ namespace GameCoTuong
             if (result == DialogResult.Yes)
             {
                 btnUndo.Enabled = false;
+                BanCo.Dehighlight();
+                BanCo.AnDiemDich();
                 BanCo.HoanTac(ptbBanCo);
-                BanCo.DoiPheUndo(label3, label2, btnNewGame, btnUndo);
+                BanCo.DoiPhe(lblPheDuocDanh, lblSoLuotDi, btnNewGame);
                 BanCo.HienThiNuocDiUndo(ptbBanCo);
             }
         }

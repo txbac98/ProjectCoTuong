@@ -11,8 +11,12 @@ namespace GameCoTuong.CoTuong
 {
     public static class BanCo
     {
-        #region
+        #region properties
         public static int MauPheTa { get; set; } = 1; // màu của phe ta (phe xuất phát ở nửa dưới bàn cờ)
+
+        public static Color MauPheDo { get { return Color.DarkRed; } }
+
+        public static Color MauPheXanh { get { return Color.DarkBlue; } }
 
         public static NuocDi NuocDiTruocDo { get; } = new NuocDi(); ///*
 
@@ -32,13 +36,13 @@ namespace GameCoTuong.CoTuong
 
         public static List<RoundPictureBox> Alive_RoundPictureBox { get; } = new List<RoundPictureBox>(); ///* // List chứa tất cả các quân cờ còn sống
 
-        public static RoundPictureBox QuanCoDuocChon { get; set; } = null; // quân cờ đang được chọn (được click vào)
+        public static RoundPictureBox QuanCoDuocChon { get; set; } // quân cờ đang được chọn (được click vào)
 
-        public static RoundPictureBox QuanCoBiLoai { get; set; } = null; // quân cờ vừa bị loại ở nước đi trước đó, nếu di chuyển thành công thì quanCoBiLoai không cần dùng đến => gán lại về null
+        public static RoundPictureBox QuanCoBiLoai { get; set; } // quân cờ vừa bị loại ở nước đi trước đó, nếu di chuyển thành công thì quanCoBiLoai không cần dùng đến => gán lại về null
 
-        public static int PheDuocDanh { get; private set; } = 2; // Phe hiện tại đang được đánh (1 - Xanh, 2 - Đỏ). Phe Đỏ được đánh đầu tiên
+        public static int PheDuocDanh { get; private set; } // Phe hiện tại đang được đánh (1 - Xanh, 2 - Đỏ). Phe Đỏ được đánh đầu tiên
 
-        public static int SoLuotDi { get; private set; } = 0; // Số lượt đã đi từ đầu ván cờ
+        public static int SoLuotDi { get; private set; } // Số lượt đã đi từ đầu ván cờ
 
         public static PictureBox YellowTarget { get; } = new PictureBox() ///*
         {
@@ -46,7 +50,7 @@ namespace GameCoTuong.CoTuong
             Height = 58,
             BackColor = Color.Transparent,
             Image = GameCoTuong.Properties.Resources.yellow_square_target,
-            Location = new Point(863, 698)
+            Location = ThongSo.ToaDoNULL
         };
         public static PictureBox GreyTargetDeparture { get; } = new PictureBox() ///*
         {
@@ -54,7 +58,7 @@ namespace GameCoTuong.CoTuong
             Height = 36,
             BackColor = Color.Transparent,
             Image = GameCoTuong.Properties.Resources.grey_square_target_depart,
-            Location = new Point(863, 698)
+            Location = ThongSo.ToaDoNULL
         };
         public static PictureBox GreyTargetDestination { get; } = new PictureBox() ///*
         {
@@ -62,7 +66,7 @@ namespace GameCoTuong.CoTuong
             Height = 58,
             BackColor = Color.Transparent,
             Image = GameCoTuong.Properties.Resources.grey_square_target_dest,
-            Location = new Point(863, 698)
+            Location = ThongSo.ToaDoNULL
         };
 
         #endregion
@@ -412,17 +416,31 @@ namespace GameCoTuong.CoTuong
                 element.BringToFront();
             }
         }
+
+        public static void WritePheDuocDanh(Label lblPheDuocDanh)
+        {
+            if (PheDuocDanh == 2)
+            {
+                lblPheDuocDanh.ForeColor = MauPheDo;
+                lblPheDuocDanh.Text = "Lượt đi của phe Đỏ";
+            }
+            else
+            {
+                lblPheDuocDanh.ForeColor = MauPheXanh;
+                lblPheDuocDanh.Text = "Lượt đi của phe Xanh";
+            }
+        }
+
         /*Dat ban co ve trang thai ban dau*/
-        public static void SetToDefault(Label label2, Label label3, Button btnNewGame, Button btnUndo)
+        public static void SetToDefault(Label lblPheDuocDanh, Label lblSoLuotDi, Button btnNewGame, Button btnUndo)
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
-
-            PheDuocDanh = 2;
-            label2.Text = "Phe Đỏ được đi đầu tiên";
-            label2.ForeColor = Color.DarkRed;
+            PheDuocDanh = MauPheTa;
             SoLuotDi = 0;
-            label3.Text = SoLuotDi.ToString();
+
+            WritePheDuocDanh(lblPheDuocDanh);
+            lblSoLuotDi.Text = SoLuotDi.ToString();
             btnNewGame.Enabled = false;
             btnUndo.Enabled = false;
         }
@@ -447,7 +465,6 @@ namespace GameCoTuong.CoTuong
         public static void Dehighlight()
         {
             YellowTarget.Parent = null;
-            YellowTarget.Location = new Point(863, 698);
         }
 
         /* Tính toán và hiển thị tất cả điểm đích của quân cờ được chọn */
@@ -493,14 +510,9 @@ namespace GameCoTuong.CoTuong
                 Alive_QuanCo.Add(quanCoCanTraLai.Quan_Co);
                 Alive_RoundPictureBox.Add(quanCoCanTraLai);
                 ptbBanCo.Controls.Add(quanCoCanTraLai);
-                quanCoCanTraLai = null;
             }
         }
 
-        public static void DiChuyen(Point destination)
-        {
-            QuanCoDuocChon.DiChuyen(destination);
-        }
         public static int PheDoiPhuong()
         {
             if (PheDuocDanh == 1)
@@ -557,51 +569,45 @@ namespace GameCoTuong.CoTuong
         }
 
         /* Đổi phe sau mỗi nước đi */
-        public static void DoiPhe(Label label3, Label label2, Button btnNewGame, Button btnUndo) // BẢN OFFLINE
+        public static void DoiPhe(Label lblPheDuocDanh, Label lblSoLuotDi, Button btnNewGame, Button btnUndo)
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
             PheDuocDanh = PheDoiPhuong();
-            if (PheDuocDanh == 2)
-            {
-                label2.ForeColor = Color.DarkRed;
-                label2.Text = "Lượt đi của phe Đỏ";
-            }
-            else
-            {
-                label2.ForeColor = Color.DarkBlue;
-                label2.Text = "Lượt đi của phe Xanh";
-            }
             SoLuotDi++;
-            label3.Text = SoLuotDi.ToString();
+
+            WritePheDuocDanh(lblPheDuocDanh);
+            lblSoLuotDi.Text = SoLuotDi.ToString();
             if (SoLuotDi != 0)
             {
                 btnNewGame.Enabled = true;
                 btnUndo.Enabled = true;
             }
-            RefreshBanCo(); //*Offline*
+            else
+            {
+                btnNewGame.Enabled = false;
+                btnUndo.Enabled = false;
+            }
+            RefreshBanCo();
         }
 
-        public static void DoiPheUndo(Label label3, Label label2, Button btnNewGame, Button btnUndo)
+        public static void DoiPhe(Label lblPheDuocDanh, Label lblSoLuotDi, Button btnNewGame)
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
             PheDuocDanh = PheDoiPhuong();
-            if (PheDuocDanh == 2)
+            SoLuotDi--;
+
+            WritePheDuocDanh(lblPheDuocDanh);
+            lblSoLuotDi.Text = SoLuotDi.ToString();
+            if (SoLuotDi != 0)
             {
-                label2.ForeColor = Color.DarkRed;
-                label2.Text = "Lượt đi của phe Đỏ";
+                btnNewGame.Enabled = true;
             }
             else
             {
-                label2.ForeColor = Color.DarkBlue;
-                label2.Text = "Lượt đi của phe Xanh";
+                btnNewGame.Enabled = false;
             }
-            SoLuotDi--;
-            label3.Text = SoLuotDi.ToString();
-            if (SoLuotDi != 0)
-                btnNewGame.Enabled = true;
-            else btnNewGame.Enabled = false;
             RefreshBanCo();
         }
 

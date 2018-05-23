@@ -27,15 +27,21 @@ namespace GameCoTuong
             BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
             BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
             BanCo.RefreshBanCo();
+            BanCo.PtbBanCo = ptbBanCo;
 
-            CheckForIllegalCrossThreadCalls = false;
-            ChatLan.Server.ListView = listView1;
-            ChatLan.Server.TextBox = textBox1;
-            ChatLan.Server.Connect();
-
-            //ChatLan.Client.ListView = listView1;
-            //ChatLan.Client.TextBox = textBox1;
-            //ChatLan.Client.Connect();
+            if (BanCo.MauPheTa == 2)
+            {
+                ChatLan.Server.ListView = listView1;
+                ChatLan.Server.TextBox = textBox1;
+                ChatLan.Server.Connect();
+            }
+            else
+            {
+                ChatLan.Client.ListView = listView1;
+                ChatLan.Client.TextBox = textBox1;
+                ChatLan.Client.Connect();
+                BanCo.Disable();
+            }
         }
 
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
@@ -44,8 +50,8 @@ namespace GameCoTuong
             BanCo.QuanCoDuocChon = sender as RoundPictureBox;
             BanCo.Highlight(ptbBanCo);
             BanCo.HienThiDiemDich();
-            foreach (RoundPictureBox element in BanCo.Alive_RoundPictureBox) // Khi 1 quân cờ được chọn thì không thể click chọn 1 quân cờ khác ngay lập tức mà phải bỏ chọn nó trước
-                element.Enabled = false;
+            BanCo.ToaDoTruoc = BanCo.QuanCoDuocChon.Quan_Co.ToaDo;
+            BanCo.Disable(); // Vô hiệu hóa những quân cờ khác
         }
 
         /* Khi đang chọn 1 quân cờ (tức là đã click vào 1 quân cờ trước đó), click vào một điểm bất kì trên bàn cờ sẽ bỏ chọn quân cờ đó */
@@ -73,6 +79,10 @@ namespace GameCoTuong
             BanCo.LoaiBoQuanCo(destination, ptbBanCo); // Loại bỏ quân cờ ở điểm đích
             BanCo.QuanCoDuocChon.DiChuyen(destination); // Di chuyển quân cờ đến điểm đích
 
+            BanCo.ToaDoSau = destination;
+            BanCo.DaDanh = true;
+            BanCo.Disable();
+
             if (BanCo.HaiTuongDoiMatNhau()) // nước đi không hợp lệ nếu sau nước đi 2 tướng đối mặt nhau => hoàn tác nước đi
             {
                 MessageBox.Show("Tướng phe bạn sẽ đối mặt với tướng đối phương sau nước đi này. Hãy chọn một nước đi khác.", "Nước đi không hợp lệ");
@@ -91,6 +101,8 @@ namespace GameCoTuong
                 BanCo.RefreshBanCo();
                 return;
             }
+
+            /*
             if (BanCo.CoChieuTuong(BanCo.PheDuocDanh)) // nếu sau nước đi phe di chuyển chiếu tướng phe đối phương => thông báo cho người chơi
             {
                 if (BanCo.PheDoiPhuong() == 1)
@@ -98,8 +110,25 @@ namespace GameCoTuong
                 else
                     MessageBox.Show("Phe Đỏ hãy đối phó với nước đi này từ phe Xanh.", "Chiếu tướng!");
             }
+            */
+
+            if (BanCo.MauPheTa == 2)
+            {
+                foreach (Socket item in ChatLan.Server.ClientList)
+                {
+                    ChatLan.Server.Send(item);
+                }
+            }
+            else
+            {
+                ChatLan.Client.Send();
+            }
+            //Lỗi socket khi có 2 hàm này, chưa tìm ra giải pháp
+
+            /*
             BanCo.HienThiNuocDi(departure, destination, ptbBanCo);
             BanCo.LuuNuocDi(departure, destination);
+             */
             BanCo.DoiPhe(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo); //*Offline*
         }
 
@@ -136,15 +165,20 @@ namespace GameCoTuong
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-            foreach (Socket item in ChatLan.Server.ClientList)
+
+            if (BanCo.MauPheTa == 2)
             {
-                ChatLan.Server.Send(item);
+                foreach (Socket item in ChatLan.Server.ClientList)
+                {
+                    ChatLan.Server.Send(item);
+                }
+                ChatLan.Server.AddMessage(ChatLan.Server.TextBox.Text);
             }
-            ChatLan.Server.AddMessage(ChatLan.Server.TextBox.Text);
-
-
-            //ChatLan.Client.Send();
-            //ChatLan.Client.AddMessage(ChatLan.Client.TextBox.Text);
+            else
+            {
+                ChatLan.Client.Send();
+                ChatLan.Client.AddMessage(ChatLan.Client.TextBox.Text);
+            }
 
         }
 

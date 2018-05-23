@@ -44,6 +44,12 @@ namespace GameCoTuong.CoTuong
 
         public static int SoLuotDi { get; private set; } // Số lượt đã đi từ đầu ván cờ
 
+        public static Point ToaDoTruoc { get; set; } = ThongSo.ToaDoNULL; //Tọa độ trước khi di chuyển
+        public static Point ToaDoSau { get; set; } = ThongSo.ToaDoNULL;
+        public static PictureBox PtbBanCo { get; set; } = null;
+        public static string Data { get; set; } = null;
+        public static bool DaDanh { get; set; } = false;  //Kiểm tra xem đã đánh hay chưa
+
         public static PictureBox YellowTarget { get; } = new PictureBox() ///*
         {
             Width = 58,
@@ -83,6 +89,7 @@ namespace GameCoTuong.CoTuong
         {
             return Alive_QuanCo.Find(element => element.ToaDo == viTri);
         }
+
 
         /* Phương thức dùng cho đối tượng RoundPictureBox */
         /* Tạo 90 RoundButton điểm bàn cờ nhưng chưa hiển thị.
@@ -650,6 +657,60 @@ namespace GameCoTuong.CoTuong
         {
             NuocDiTruocDo.QuanCoDiChuyen.DiChuyen(NuocDiTruocDo.ToaDoDi);
             TraLaiQuanCo(ptbBanCo, NuocDiTruocDo.QuanCoBiLoai);
+        }
+        public static string ConvertToString()
+        {
+            Data = "0" + (8 - ToaDoTruoc.X).ToString() + (9 - ToaDoTruoc.Y).ToString()
+              + (8 - ToaDoSau.X).ToString() + (9 - ToaDoSau.Y).ToString();
+            return Data;
+        }
+        public static void ConvertToPoint(string s)
+        {
+            ToaDoTruoc = new Point(Int32.Parse((s[1]).ToString()), Int32.Parse((s[2]).ToString()));
+            ToaDoSau = new Point(Int32.Parse((s[3]).ToString()), Int32.Parse((s[4]).ToString()));
+        }
+        public static void BiChieuTuong(RoundPictureBox quanCoDich)
+        {
+            quanCoDich.Quan_Co.TinhNuocDi();
+            QuanCo target;
+            foreach (Point element in quanCoDich.Quan_Co.DanhSachDiemDich)
+            {
+                target = Alive_QuanCo.Find(element2 => element2.Mau == MauPheTa && element2.ToaDo == element);
+                if (target != null)
+                {
+                    if (target == TuongXanh || target == TuongDo)
+                        System.Windows.Forms.MessageBox.Show("Chiếu tướng!", "Thông báo", MessageBoxButtons.OK);
+
+                }
+            }
+        }
+        public static void ThayDoiViTri(string s)
+        {
+            ConvertToPoint(s);
+            LoaiBoQuanCo(ToaDoSau, PtbBanCo);
+            QuanCoDuocChon = Alive_RoundPictureBox.Find(element => element.Quan_Co.ToaDo == ToaDoTruoc);
+            QuanCoDuocChon.DiChuyen(ToaDoSau);
+            BiChieuTuong(QuanCoDuocChon);
+            DaDanh = false;
+
+            //Đổi panel, vẫn chưa làm được
+            if (MauPheTa == 1)
+            {
+                if (PheDuocDanh != 1)
+                    PheDuocDanh = 1;
+            }
+            else
+            {
+                if (PheDuocDanh != 2)
+                    PheDuocDanh = 2;
+            }
+        }
+        public static void Disable()
+        {
+            foreach (RoundPictureBox element in Alive_RoundPictureBox)
+            {
+                element.Enabled = false;
+            }
         }
         #endregion
     }

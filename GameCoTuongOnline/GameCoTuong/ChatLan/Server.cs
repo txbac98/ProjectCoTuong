@@ -18,15 +18,12 @@ namespace GameCoTuong.ChatLan
     public class Server
     {
         public static string name = "Server";
-        private static string IP = "127.0.0.1";
         private static Socket server;
-        private static List<Socket> clientList;
-        private static ListView listView;
-        private static TextBox textBox;
 
-        public static List<Socket> ClientList { get => clientList; set => clientList = value; }
-        public static ListView ListView { get => listView; set => listView = value; }
-        public static TextBox TextBox { get => textBox; set => textBox = value; }
+        public static List<Socket> ClientList { get; set; }
+        public static ListView ListView { get; set; }
+        public static TextBox TextBox { get; set; }
+        public static string IP { get; set; } = "127.0.0.1";
 
         public static void AddMessage(string s)  //Thêm tin vừa gửi vào listView
         {
@@ -35,19 +32,24 @@ namespace GameCoTuong.ChatLan
         }
         public static void Send(Socket client)  //Gửi gói tin
         {
-            string temp = name + ": " + TextBox.Text;
+            string temp = "1" + name + ": " + TextBox.Text;
             if (TextBox.Text != string.Empty) //khac rong
                 client.Send(Serialize(temp));
+            else
+            {
+                CoTuong.BanCo.ConvertToString();
+                client.Send(Serialize(CoTuong.BanCo.Data));
+            }
         }
 
         public static void Connect()
         {
             ClientList = new List<Socket>();
             //Dia chi IP
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), 9999);//IP = "127.0.0.1"; PORT = 100;
+            IPEndPoint IPEnd = new IPEndPoint(IPAddress.Parse(IP), 9999);//IP = "127.0.0.1"; PORT = 100;
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);  //Luon dung
 
-            server.Bind(iep);
+            server.Bind(IPEnd);
             //Lang nghe
             Thread listen = new Thread(() =>
             {
@@ -56,7 +58,7 @@ namespace GameCoTuong.ChatLan
                     bool count = true;
                     while (count)    //Lắng nghe client
                     {
-                        server.Listen(1);  //Lắng nghe
+                        server.Listen(1000);  //Lắng nghe
                         Socket client = server.Accept(); //Lấy client
                         ClientList.Add(client);
                         Thread receive = new Thread(Receive);
@@ -68,7 +70,7 @@ namespace GameCoTuong.ChatLan
                 catch
                 {
                     //khoi tao
-                    iep = new IPEndPoint(IPAddress.Any, 9999);
+                    IPEnd = new IPEndPoint(IPAddress.Any, 9999);
                     server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
                 }
             });
@@ -85,8 +87,14 @@ namespace GameCoTuong.ChatLan
                     byte[] data = new byte[1024 * 5000];
                     client.Receive(data);
 
-                    string message = (string)Deserialize(data);
-                    AddMessage(message);
+                    CoTuong.BanCo.Data = (string)Deserialize(data);
+                    if (CoTuong.BanCo.Data[0] == '1')
+                    {
+                        CoTuong.BanCo.Data = CoTuong.BanCo.Data.Remove(0, 1);
+                        AddMessage(CoTuong.BanCo.Data);
+                    }
+                    else if (CoTuong.BanCo.Data[0] == '0')
+                        CoTuong.BanCo.ThayDoiViTri(CoTuong.BanCo.Data);
                 }
             }
             catch
@@ -99,8 +107,8 @@ namespace GameCoTuong.ChatLan
         {
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
-
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
+            stream.Close();
             return stream.ToArray();  //chuyen thanh mang 01..
         }
         private static object Deserialize(byte[] data) //Phân mảnh

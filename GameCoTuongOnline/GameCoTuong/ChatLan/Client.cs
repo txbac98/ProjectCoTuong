@@ -18,14 +18,12 @@ namespace GameCoTuong.ChatLan
     public class Client
     {
         public static string name = "Client";
-
-        private static IPEndPoint IP;
         private static Socket client;
-        private static ListView listView;
-        private static TextBox textBox;
 
-        public static ListView ListView { get => listView; set => listView = value; }
-        public static TextBox TextBox { get => textBox; set => textBox = value; }
+        public static string IP { get; set; } = "127.0.0.1";
+        public static ListView ListView { get; set; }
+        public static TextBox TextBox { get; set; }
+
 
         public static void AddMessage(string s)  //Them tin nhan vao listView
         {
@@ -34,26 +32,30 @@ namespace GameCoTuong.ChatLan
         }
         public static void Send()  //Gui Tin
         {
-            string temp = name + ": " + TextBox.Text;
+            string temp = "1" + name + ": " + TextBox.Text;
             if (TextBox.Text != string.Empty) //khac rong
                 client.Send(Serialize(temp));
+            else
+            {
+                CoTuong.BanCo.ConvertToString();
+                client.Send(Serialize(CoTuong.BanCo.Data));
+            }
         }
         public static void Connect()
         {
             //Dia chi IP
-            IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
-            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  //Luon dung
+            IPEndPoint IPEnd = new IPEndPoint(IPAddress.Parse(IP), 9999);
+            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
 
             try
             {
-                client.Connect(IP); //Ket noi
+                client.Connect(IPEnd); //Ket noi
             }
             catch
             {
                 MessageBox.Show("Khong the ket noi sever", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 client.Close();
             }
-
             //Lang nghe
             Thread listen = new Thread(Receive);
             listen.IsBackground = true;
@@ -65,10 +67,16 @@ namespace GameCoTuong.ChatLan
             {
                 while (true)
                 {
-                    byte[] data = new byte[1024 * 5000];
+                    byte[] data = new byte[1024 * 10000];
                     client.Receive(data);
-                    string message = (string)Deserialize(data);
-                    AddMessage(message);
+                    CoTuong.BanCo.Data = (string)Deserialize(data);
+                    if (CoTuong.BanCo.Data[0] == '1')
+                    {
+                        CoTuong.BanCo.Data = CoTuong.BanCo.Data.Remove(0, 1);
+                        AddMessage(CoTuong.BanCo.Data);
+                    }
+                    else if (CoTuong.BanCo.Data[0] == '0')
+                        CoTuong.BanCo.ThayDoiViTri(CoTuong.BanCo.Data);
                 }
             }
             catch
@@ -81,7 +89,8 @@ namespace GameCoTuong.ChatLan
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, obj);  //chuyen obj thanh day byte
-            return stream.ToArray();  //chuyen thanh mang 01..
+            stream.Close();
+            return stream.ToArray();
         }
         public static object Deserialize(byte[] data) //Phân mảnh
         {

@@ -49,6 +49,7 @@ namespace GameCoTuong.ProgramConfig
         public static Point ToaDoNULL { get { return new Point(-1, -1); } }
 
         #region Hàm tính toán
+
         public static Point ToaDoBanCoCuaDiem(int x, int y) // hàm chuyển tọa độ đơn vị (TDDV) của điểm bàn cờ sang tọa độ bàn cờ (TDBC)
         {
             return new Point(GocDiemBanCoX + x * KhoangCach, GocDiemBanCoY + y * KhoangCach);

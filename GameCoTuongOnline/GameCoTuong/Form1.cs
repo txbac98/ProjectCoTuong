@@ -130,7 +130,7 @@ namespace GameCoTuong
                 BanCo.AnDiemDich();
                 BanCo.HoanTac(ptbBanCo);
                 BanCo.DoiPhe(lblPheDuocDanh, lblSoLuotDi, btnNewGame);
-                BanCo.HienThiNuocDiUndo(ptbBanCo);
+                BanCo.HienThiNuocDiTruoc(ptbBanCo);
             }
         }
 

@@ -568,7 +568,7 @@ namespace GameCoTuong.CoTuong
             return false;
         }
 
-        /* Đổi phe sau mỗi nước đi */
+        /* Đổi phe sau mỗi nước đi thành công */
         public static void DoiPhe(Label lblPheDuocDanh, Label lblSoLuotDi, Button btnNewGame, Button btnUndo)
         {
             QuanCoBiLoai = null;
@@ -591,6 +591,7 @@ namespace GameCoTuong.CoTuong
             RefreshBanCo();
         }
 
+        /* Đổi phe cho sự kiện undo */
         public static void DoiPhe(Label lblPheDuocDanh, Label lblSoLuotDi, Button btnNewGame)
         {
             QuanCoBiLoai = null;
@@ -611,6 +612,7 @@ namespace GameCoTuong.CoTuong
             RefreshBanCo();
         }
 
+        /* Hiển thị nước đi sau mỗi nước đi thành công */
         public static void HienThiNuocDi(Point departure, Point destination, PictureBox ptbBanCo)
         {
             NuocDiTruocDo.PrevGreyTargetDepartureLocation = GreyTargetDeparture.Location;
@@ -624,7 +626,8 @@ namespace GameCoTuong.CoTuong
             }
         }
 
-        public static void HienThiNuocDiUndo(PictureBox ptbBanCo)
+        /* Hiển thị nước đi cho sự kiện undo */
+        public static void HienThiNuocDiTruoc(PictureBox ptbBanCo)
         {
             GreyTargetDeparture.Location = NuocDiTruocDo.PrevGreyTargetDepartureLocation;
             GreyTargetDestination.Location = NuocDiTruocDo.PrevGreyTargetDestinationLocation;

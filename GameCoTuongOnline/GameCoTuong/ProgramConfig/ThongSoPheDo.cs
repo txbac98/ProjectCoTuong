@@ -10,7 +10,6 @@ namespace GameCoTuong.ProgramConfig
     public static class ThongSoPheDo
     {
         #region Tọa độ đơn vị ban đầu của tất cả quân cờ
-
         /* PHE XANH */
 
         /* Tướng Xanh */
@@ -111,7 +110,6 @@ namespace GameCoTuong.ProgramConfig
                 return 1;
             return 2;
         }
-
         #endregion
     }
 }

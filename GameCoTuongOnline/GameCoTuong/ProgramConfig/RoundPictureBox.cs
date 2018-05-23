@@ -12,7 +12,7 @@ namespace GameCoTuong.ProgramConfig
 {
     public class RoundPictureBox : PictureBox
     {
-        #region attributes
+        #region properties
         public QuanCo Quan_Co { get; private set; }
 
         public string TenQuanCo { get; private set; }

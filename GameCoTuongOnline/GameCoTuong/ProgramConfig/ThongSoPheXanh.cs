@@ -96,7 +96,7 @@ namespace GameCoTuong.ProgramConfig
         public static Point ToaDoTotXanh5 { get { return new Point(0, 6); } }
         #endregion
 
-        #region   Màu quân cờ
+        #region Hàm tính toán
         public static int MauQuanCo(Point toaDoBanDau) // xác định màu quân cờ dựa vào TDDV ban đầu của nó
         {
             if (toaDoBanDau == ToaDoTuongXanh ||

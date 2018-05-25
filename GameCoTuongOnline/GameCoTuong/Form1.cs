@@ -79,9 +79,9 @@ namespace GameCoTuong
             BanCo.LoaiBoQuanCo(destination, ptbBanCo); // Loại bỏ quân cờ ở điểm đích
             BanCo.QuanCoDuocChon.DiChuyen(destination); // Di chuyển quân cờ đến điểm đích
 
-            BanCo.ToaDoSau = destination;
+            //BanCo.ToaDoSau = destination;
             BanCo.DaDanh = true;
-            BanCo.Disable();
+            //BanCo.Disable();
 
             if (BanCo.HaiTuongDoiMatNhau()) // nước đi không hợp lệ nếu sau nước đi 2 tướng đối mặt nhau => hoàn tác nước đi
             {
@@ -112,6 +112,9 @@ namespace GameCoTuong
             }
             */
 
+            BanCo.HienThiNuocDi(departure, destination, ptbBanCo);
+            BanCo.LuuNuocDi(departure, destination);
+
             if (BanCo.MauPheTa == 2)
             {
                 foreach (Socket item in ChatLan.Server.ClientList)
@@ -125,10 +128,6 @@ namespace GameCoTuong
             }
             //Lỗi socket khi có 2 hàm này, chưa tìm ra giải pháp
 
-            /*
-            BanCo.HienThiNuocDi(departure, destination, ptbBanCo);
-            BanCo.LuuNuocDi(departure, destination);
-             */
             BanCo.DoiPhe(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo); //*Offline*
         }
 

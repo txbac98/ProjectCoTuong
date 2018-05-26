@@ -201,14 +201,14 @@ E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server\GameC
 E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
 E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.exe
 E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.pdb
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\bin\Debug\GameCoTuong.exe.config
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\bin\Debug\GameCoTuong.exe
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\bin\Debug\GameCoTuong.pdb
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.csprojAssemblyReference.cache
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.exe
-E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Server - Copy\GameCoTuong\obj\Debug\GameCoTuong.pdb
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\bin\Debug\GameCoTuong.exe
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\bin\Debug\GameCoTuong.pdb
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.csprojAssemblyReference.cache
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.exe
+E:\Visual Studio Data\C# Solutions\[workspace3]\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.pdb

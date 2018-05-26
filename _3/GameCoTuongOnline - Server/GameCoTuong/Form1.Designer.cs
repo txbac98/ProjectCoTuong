@@ -31,7 +31,7 @@
             this.background = new System.Windows.Forms.PictureBox();
             this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnSurrender = new System.Windows.Forms.Button();
             this.btnLAN = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
@@ -39,7 +39,6 @@
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -73,10 +72,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnSurrender);
             this.panel1.Controls.Add(this.btnLAN);
             this.panel1.Controls.Add(this.btnUndo);
             this.panel1.Controls.Add(this.txbIP);
@@ -86,26 +84,30 @@
             this.panel1.Controls.Add(this.lblSoLuotDi);
             this.panel1.Location = new System.Drawing.Point(649, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(264, 161);
+            this.panel1.Size = new System.Drawing.Size(264, 141);
             this.panel1.TabIndex = 2;
             // 
-            // label2
+            // btnSurrender
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "IP máy bạn:";
+            this.btnSurrender.BackColor = System.Drawing.Color.LightGray;
+            this.btnSurrender.Enabled = false;
+            this.btnSurrender.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSurrender.Location = new System.Drawing.Point(175, 62);
+            this.btnSurrender.Name = "btnSurrender";
+            this.btnSurrender.Size = new System.Drawing.Size(80, 27);
+            this.btnSurrender.TabIndex = 8;
+            this.btnSurrender.Text = "Xin hàng";
+            this.btnSurrender.UseVisualStyleBackColor = true;
+            this.btnSurrender.Click += new System.EventHandler(this.btnSurrender_Click);
             // 
             // btnLAN
             // 
             this.btnLAN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLAN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnLAN.Location = new System.Drawing.Point(173, 128);
+            this.btnLAN.BackColor = System.Drawing.Color.LightGray;
+            this.btnLAN.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLAN.Location = new System.Drawing.Point(183, 102);
             this.btnLAN.Name = "btnLAN";
-            this.btnLAN.Size = new System.Drawing.Size(85, 27);
+            this.btnLAN.Size = new System.Drawing.Size(72, 25);
             this.btnLAN.TabIndex = 6;
             this.btnLAN.Text = "Kết nối";
             this.btnLAN.UseVisualStyleBackColor = true;
@@ -113,24 +115,24 @@
             // 
             // btnUndo
             // 
-            this.btnUndo.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnUndo.BackColor = System.Drawing.Color.LightGray;
             this.btnUndo.Enabled = false;
             this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUndo.Location = new System.Drawing.Point(7, 61);
+            this.btnUndo.Location = new System.Drawing.Point(7, 62);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(80, 27);
             this.btnUndo.TabIndex = 0;
             this.btnUndo.Text = "Xin đi lại";
-            this.btnUndo.UseVisualStyleBackColor = false;
+            this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // txbIP
             // 
             this.txbIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txbIP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txbIP.Location = new System.Drawing.Point(78, 99);
+            this.txbIP.Location = new System.Drawing.Point(8, 103);
             this.txbIP.Name = "txbIP";
-            this.txbIP.Size = new System.Drawing.Size(179, 23);
+            this.txbIP.Size = new System.Drawing.Size(170, 23);
             this.txbIP.TabIndex = 5;
             // 
             // lblPheDuocDanh
@@ -146,15 +148,15 @@
             // 
             // btnNewGame
             // 
-            this.btnNewGame.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewGame.BackColor = System.Drawing.Color.LightGray;
             this.btnNewGame.Enabled = false;
             this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNewGame.Location = new System.Drawing.Point(91, 61);
+            this.btnNewGame.Location = new System.Drawing.Point(91, 62);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(80, 27);
             this.btnNewGame.TabIndex = 1;
             this.btnNewGame.Text = "Cầu hòa";
-            this.btnNewGame.UseVisualStyleBackColor = false;
+            this.btnNewGame.UseVisualStyleBackColor = true;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // label1
@@ -177,16 +179,6 @@
             this.lblSoLuotDi.Size = new System.Drawing.Size(31, 30);
             this.lblSoLuotDi.TabIndex = 2;
             this.lblSoLuotDi.Text = "??";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.Location = new System.Drawing.Point(175, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Xin hàng";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -224,8 +216,7 @@
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.TextBox txbIP;
         private System.Windows.Forms.Button btnLAN;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSurrender;
     }
 }
 

@@ -59,6 +59,7 @@ namespace GameCoTuong.CoTuong
         public static Label LblSoLuotDi { get; set; }
         public static Button BtnNewGame { get; set; }
         public static Button BtnUndo { get; set; }
+        public static Button BtnSurrender { get; set; }
         #endregion
 
         #region Ký hiệu bàn cờ
@@ -479,6 +480,7 @@ namespace GameCoTuong.CoTuong
             LblSoLuotDi.Text = SoLuotDi.ToString();
             BtnNewGame.Enabled = false;
             BtnUndo.Enabled = false;
+            BtnSurrender.Enabled = false;
         }
 
         /* Xóa các RoundPictureBox quân cờ khỏi bàn cờ và danh sách quân cờ */
@@ -632,10 +634,12 @@ namespace GameCoTuong.CoTuong
             if (SoLuotDi != 0)
             {
                 BtnNewGame.Enabled = true;
+                BtnSurrender.Enabled = true;
             }
             else
             {
                 BtnNewGame.Enabled = false;
+                BtnSurrender.Enabled = false;
             }
             if (SoLuotDi != 0 && PheDuocDanh != PheTa)
             {
@@ -661,10 +665,12 @@ namespace GameCoTuong.CoTuong
             if (SoLuotDi == 0)
             {
                 BtnNewGame.Enabled = false;
+                BtnSurrender.Enabled = false;
             }
             else
             {
                 BtnNewGame.Enabled = true;
+                BtnSurrender.Enabled = true;
             }
             RefreshBanCo();
         }

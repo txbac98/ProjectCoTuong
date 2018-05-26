@@ -82,9 +82,9 @@
     <Compile Include="KhoiDong.Designer.cs">
       <DependentUpon>KhoiDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="LAN\SocketData.cs" />
+    <Compile Include="LAN\SocketManager.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramConfig\SocketData.cs" />
-    <Compile Include="ProgramConfig\SocketManager.cs" />
     <Compile Include="ProgramConfig\ThongSoPheDo.cs" />
     <Compile Include="ProgramConfig\ThongSoPheXanh.cs" />
     <Compile Include="ProgramConfig\ThongSo.cs" />

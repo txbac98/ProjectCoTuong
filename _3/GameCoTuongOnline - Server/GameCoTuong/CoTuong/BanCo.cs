@@ -1,4 +1,5 @@
-﻿using GameCoTuong.ProgramConfig;
+﻿using GameCoTuong.LAN;
+using GameCoTuong.ProgramConfig;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -106,7 +107,7 @@ namespace GameCoTuong.CoTuong
         /* Phương thức dùng cho đối tượng RoundPictureBox */
         /* Tạo 90 RoundButton điểm bàn cờ nhưng chưa hiển thị.
          Khi click vào 1 RoundPictureBox quân cờ thì những điểm bàn cờ ở những tọa độ trong danh sách điểm đích của quân đó sẽ hiện ra */
-        public static void TaoDiemBanCo(PictureBox ptbBanCo, EventHandler DiemBanCo_Click)
+        public static void TaoDiemBanCo(EventHandler DiemBanCo_Click)
         {
             for (int y = 0; y < 10; y++)
             {
@@ -122,13 +123,13 @@ namespace GameCoTuong.CoTuong
                         Visible = false // Ẩn điểm bàn cờ sau khi khởi tạo
                     };
                     DiemBanCo[x, y].Click += DiemBanCo_Click;
-                    ptbBanCo.Controls.Add(DiemBanCo[x, y]);
+                    PtbBanCo.Controls.Add(DiemBanCo[x, y]);
                 }
             }
         }
 
         /* Tạo 32 RoundPictureBox quân cờ và đưa chúng vào danh sách các quân cờ để quản lý */
-        public static void TaoQuanCo(EventHandler QuanCo_Click, PictureBox ptbBanCo)
+        public static void TaoQuanCo(EventHandler QuanCo_Click)
         {
             if (PheTa == 2)
             {
@@ -421,7 +422,7 @@ namespace GameCoTuong.CoTuong
             foreach (RoundPictureBox element in Alive_RoundPictureBox) // Gắn cho mỗi RoundPictureBox quân cờ 1 sự kiện click và xếp nó lên bàn cờ
             {
                 element.Click += QuanCo_Click;
-                ptbBanCo.Controls.Add(element);
+                PtbBanCo.Controls.Add(element);
             }
         }
 
@@ -467,23 +468,23 @@ namespace GameCoTuong.CoTuong
         }
 
         /*Dat ban co ve trang thai ban dau*/
-        public static void SetToDefault(Label lblPheDuocDanh, Label lblSoLuotDi, Button btnNewGame, Button btnUndo)
+        public static void SetToDefault()
         {
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
             PheDuocDanh = 2;
             SoLuotDi = 0;
 
-            WritePheDuocDanh(lblPheDuocDanh);
-            lblSoLuotDi.Text = SoLuotDi.ToString();
-            btnNewGame.Enabled = false;
-            btnUndo.Enabled = false;
+            WritePheDuocDanh(LblPheDuocDanh);
+            LblSoLuotDi.Text = SoLuotDi.ToString();
+            BtnNewGame.Enabled = false;
+            BtnUndo.Enabled = false;
         }
 
         /* Xóa các RoundPictureBox quân cờ khỏi bàn cờ và danh sách quân cờ */
-        public static void XoaBanCo(PictureBox ptbBanCo)
+        public static void XoaBanCo()
         {
-            ptbBanCo.Controls.Clear();
+            PtbBanCo.Controls.Clear();
             TuongXanh = null;
             TuongDo = null;
             Alive_QuanCo.Clear();

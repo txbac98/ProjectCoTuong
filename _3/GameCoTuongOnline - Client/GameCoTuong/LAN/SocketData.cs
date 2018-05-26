@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameCoTuong.ProgramConfig
+namespace GameCoTuong.LAN
 {
     [Serializable]
     public class SocketData
@@ -39,7 +39,8 @@ namespace GameCoTuong.ProgramConfig
             ASK_UNDO,
             ACCEPT_UNDO,
             SURRENDER,
-            EXIT
+            EXIT,
+            CHAT_MESSAGE
         }
     }
 }

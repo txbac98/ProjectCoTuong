@@ -1,4 +1,5 @@
 ﻿using GameCoTuong.CoTuong;
+using GameCoTuong.LAN;
 using GameCoTuong.ProgramConfig;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static GameCoTuong.ProgramConfig.SocketData;
+using static GameCoTuong.LAN.SocketData;
 
 namespace GameCoTuong
 {
@@ -28,16 +29,17 @@ namespace GameCoTuong
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            BanCo.SetToDefault(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo);
-            BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
-            BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
-            BanCo.RefreshBanCo();
             BanCo.PtbBanCo = ptbBanCo;
             BanCo.LblPheDuocDanh = lblPheDuocDanh;
             BanCo.LblSoLuotDi = lblSoLuotDi;
             BanCo.BtnNewGame = btnNewGame;
             BanCo.BtnUndo = btnUndo;
             socketManager = new SocketManager();
+
+            BanCo.SetToDefault();
+            BanCo.TaoDiemBanCo(DiemBanCo_Click);
+            BanCo.TaoQuanCo(QuanCo_Click);
+            BanCo.RefreshBanCo();
         }
 
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
@@ -79,27 +81,29 @@ namespace GameCoTuong
         // Event cho button 'New game'
         private void btnNewGame_Click(object sender, EventArgs e) // BẢN OFFLINE
         {
-            DialogResult result = MessageBox.Show("Bạn muốn bỏ ván đấu này và bắt đầu một ván mới?", "Ván mới", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn muốn xin hòa với đối thủ và bắt đầu một ván mới?", "Cầu hòa", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                //Hàm xóa bàn cờ tách thành SetToDefault + XoaBanCo
-                BanCo.SetToDefault(lblPheDuocDanh, lblSoLuotDi, btnNewGame, btnUndo);
-                BanCo.XoaBanCo(ptbBanCo);
-                BanCo.TaoDiemBanCo(ptbBanCo, DiemBanCo_Click);
-                BanCo.TaoQuanCo(QuanCo_Click, ptbBanCo);
-                BanCo.RefreshBanCo();
+                btnNewGame.Enabled = false;
+                socketManager.Send(new SocketData((int)SocketCommand.ASK_NEW_GAME, string.Empty));
             }
         }
 
         // Event cho button 'Undo'
         private void btnUndo_Click(object sender, EventArgs e)
         {
-
             DialogResult result = MessageBox.Show("Bạn muốn xin đi lại nước đi vừa rồi?", "Xin đi lại", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                btnUndo.Enabled = false;
-                socketManager.Send(new SocketData((int)SocketCommand.ASK_UNDO, string.Empty));
+                if (btnUndo.Enabled == true)
+                {
+                    btnUndo.Enabled = false;
+                    socketManager.Send(new SocketData((int)SocketCommand.ASK_UNDO, string.Empty));
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không còn quyền xin đi lại. Đối phương đã đánh trước khi bạn gửi yêu cầu.", "Thông báo", MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -147,46 +151,88 @@ namespace GameCoTuong
                     }));
                     break;
                 case (int)SocketCommand.NOTIFY:
-                    MessageBox.Show(data.Message);
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        this.Enabled = false;
+                        MessageBox.Show(data.Message, "Thông báo", MessageBoxButtons.OK);
+                        this.Enabled = true;
+                    }));
                     break;
                 case (int)SocketCommand.ASK_NEW_GAME:
-
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        this.Enabled = false;
+                        DialogResult resultNewGame = MessageBox.Show("Đối phương xin hòa và bắt đầu một ván mới. Bạn có có đồng ý không?", "Cầu hòa", MessageBoxButtons.YesNo);
+                        if (resultNewGame == DialogResult.Yes)
+                        {
+                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_NEW_GAME, string.Empty));
+                            BanCo.SetToDefault();
+                            BanCo.XoaBanCo();
+                            BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                            BanCo.TaoQuanCo(QuanCo_Click);
+                            BanCo.RefreshBanCo();
+                        }
+                        else if (resultNewGame == DialogResult.No)
+                        {
+                            socketManager.Send(new SocketData((int)SocketCommand.NOTIFY, "Đối phương không đồng ý hòa ván này. Ván đấu sẽ tiếp tục."));
+                        }
+                        this.Enabled = true;
+                    }));
                     break;
                 case (int)SocketCommand.ACCEPT_NEW_GAME:
-
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        this.Enabled = false;
+                        BanCo.SetToDefault();
+                        BanCo.XoaBanCo();
+                        BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        BanCo.TaoQuanCo(QuanCo_Click);
+                        BanCo.RefreshBanCo();
+                        MessageBox.Show("Đối phương đã đồng ý hòa ván này. Bắt đầu ván mới.", "Thông báo", MessageBoxButtons.OK);
+                        this.Enabled = true;
+                    }));
                     break;
                 case (int)SocketCommand.ASK_UNDO:
-                    DialogResult result = MessageBox.Show("Đối phương xin đi lại nước vừa rồi. Bạn có có đồng ý không?", "Hoàn tác nước đi", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
+                    this.Invoke((MethodInvoker)(() =>
                     {
-                        socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_UNDO, string.Empty));
-                        this.Invoke((MethodInvoker)(() =>
+                        this.Enabled = false;
+                        DialogResult resultUndo = MessageBox.Show("Đối phương xin đi lại nước vừa rồi. Bạn có có đồng ý không?", "Xin đi lại", MessageBoxButtons.YesNo);
+                        if (resultUndo == DialogResult.Yes)
                         {
+                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_UNDO, string.Empty));
                             BanCo.Dehighlight();
                             BanCo.AnDiemDich();
                             BanCo.HoanTac();
-                        }));
-                    }
-                    else if (result == DialogResult.No)
-                    {
-                        socketManager.Send(new SocketData((int)SocketCommand.NOTIFY, "Đối phương không đồng ý cho bạn đi lại."));
-                    }
+
+                        }
+                        else if (resultUndo == DialogResult.No)
+                        {
+                            socketManager.Send(new SocketData((int)SocketCommand.NOTIFY, "Đối phương không đồng ý cho bạn đi lại."));
+                        }
+                        this.Enabled = true;
+                    }));
                     break;
                 case (int)SocketCommand.ACCEPT_UNDO:
-                    MessageBox.Show("Đối phương đã đồng ý cho bạn đi lại.");
                     this.Invoke((MethodInvoker)(() =>
                     {
+                        this.Enabled = false;
                         BanCo.Dehighlight();
                         BanCo.AnDiemDich();
                         BanCo.HoanTac();
+                        MessageBox.Show("Đối phương đã đồng ý cho bạn đi lại.", "Thông báo", MessageBoxButtons.OK);
+                        this.Enabled = true;
                     }));
                     break;
                 case (int)SocketCommand.SURRENDER:
-                    MessageBox.Show("Đối phương đã xin hàng. Bạn đã thắng ván cờ này.", "Kết thúc ván cờ");
+                    MessageBox.Show("Đối phương đã xin hàng. Bạn đã thắng ván cờ này!", "Kết thúc ván cờ", MessageBoxButtons.OK);
 
                     break;
                 case (int)SocketCommand.EXIT:
+                    MessageBox.Show("Đối phương đã tự thoát game.", "Kết thúc ván cờ", MessageBoxButtons.OK);
 
+                    break;
+                case (int)SocketCommand.CHAT_MESSAGE:
+                    
                     break;
             }
             Listen();

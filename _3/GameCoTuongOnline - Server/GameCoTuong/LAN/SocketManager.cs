@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GameCoTuong.ProgramConfig
+namespace GameCoTuong.LAN
 {
     public class SocketManager
     {

@@ -70,6 +70,17 @@ namespace GameCoTuong
             if (BanCo.QuanCoDuocChon == null) return; // Dòng code chống lỗi lặp lại event ngoài ý muốn (chưa rõ nguyên nhân của lỗi này). Không được xóa!
             BanCo.Dehighlight(); // chọn nước đi...
             BanCo.AnDiemDich(); // ...thì đồng thời sẽ bỏ chọn quân cờ luôn
+            try
+            {
+                socketManager.Send(new SocketData((int)SocketCommand.TEST_CONNECTION));
+            }
+            catch
+            {
+                MessageBox.Show("Chưa kết nối hoặc đã mất kết nối với đối thủ.");
+                BanCo.RefreshBanCo();
+                BanCo.QuanCoDuocChon = null;
+                return;
+            }
 
             if (BanCo.TaDanh(BanCo.QuanCoDuocChon.Quan_Co.ToaDo, ThongSo.ToaDoDonViCuaDiem(((RoundButton)sender).Location)))
             {
@@ -254,11 +265,26 @@ namespace GameCoTuong
                     }));
                     break;
                 case (int)SocketCommand.EXIT:
-                    MessageBox.Show("Đối phương đã tự thoát game.", "Kết thúc ván cờ", MessageBoxButtons.OK);
-
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        this.Enabled = false;
+                        BanCo.SetToDefault();
+                        BanCo.XoaBanCo();
+                        BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        BanCo.TaoQuanCo(QuanCo_Click);
+                        BanCo.RefreshBanCo();
+                        MessageBox.Show("Đối phương đã tự thoát game.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+                        this.Enabled = true;
+                    }));
                     break;
                 case (int)SocketCommand.CHAT_MESSAGE:
-
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        listView1.Items.Add(new ListViewItem() { Text = data.Message });
+                    }));
+                    break;
+                case (int)SocketCommand.TEST_CONNECTION:
+                    //do nothing
                     break;
             }
             Listen();
@@ -270,6 +296,48 @@ namespace GameCoTuong
             if (string.IsNullOrEmpty(txbIP.Text))
             {
                 txbIP.Text = socketManager.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn thoát game?", "Thoát game", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    socketManager.Send(new SocketData((int)SocketCommand.EXIT));
+                }
+                catch { }
+            }
+        }
+
+        private void btnGui_Click(object sender, EventArgs e)
+        {
+            if (chatTextBox.Text != string.Empty)
+            {
+                listView1.Items.Add(new ListViewItem() { Text = "Me: " + chatTextBox.Text });
+                try
+                {
+                    socketManager.Send(new SocketData((int)SocketCommand.CHAT_MESSAGE, "Opponent: " + chatTextBox.Text));
+                }
+                catch
+                {
+                    listView1.Items.Add(new ListViewItem() { Text = "Lỗi kết nối. Không thể gửi tin nhắn.", ForeColor = Color.Red });
+                }
+                chatTextBox.Clear();
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (chatTextBox.Focused && e.KeyCode == Keys.Enter)
+            {
+                btnGui_Click(sender, e);
             }
         }
     }

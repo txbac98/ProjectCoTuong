@@ -17,6 +17,11 @@ namespace GameCoTuong.LAN
 
         public SocketData() { }
 
+        public SocketData(int command)
+        {
+            this.Command = command;
+        }
+
         public SocketData(int command, string message)
         {
             this.Command = command;
@@ -40,7 +45,8 @@ namespace GameCoTuong.LAN
             ACCEPT_UNDO,
             SURRENDER,
             EXIT,
-            CHAT_MESSAGE
+            CHAT_MESSAGE,
+            TEST_CONNECTION
         }
     }
 }

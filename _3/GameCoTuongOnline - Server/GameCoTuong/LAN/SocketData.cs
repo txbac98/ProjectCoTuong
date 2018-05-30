@@ -46,7 +46,10 @@ namespace GameCoTuong.LAN
             SURRENDER,
             EXIT,
             CHAT_MESSAGE,
-            TEST_CONNECTION
+            TEST_CONNECTION,
+            OUT_OF_TIME,
+            READY,
+            OPPONENT_TICK
         }
     }
 }

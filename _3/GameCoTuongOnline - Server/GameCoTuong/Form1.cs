@@ -35,13 +35,16 @@ namespace GameCoTuong
             BanCo.BtnNewGame = btnNewGame;
             BanCo.BtnUndo = btnUndo;
             BanCo.BtnSurrender = btnSurrender;
+            BanCo.TimerRemainingTime = timerRemainingTime;
+            BanCo.LblRemainingTime = lblRemainingTime;
+            BanCo.LblOpponentRemainingTime = lblOpponentRemainingTime;
+            BanCo.BtnReady = btnReady;
             socketManager = new SocketManager();
 
             BanCo.SetToDefault();
             BanCo.TaoDiemBanCo(DiemBanCo_Click);
             BanCo.TaoQuanCo(QuanCo_Click);
             BanCo.RefreshBanCo();
-
         }
 
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
@@ -85,9 +88,9 @@ namespace GameCoTuong
 
             if (BanCo.TaDanh(BanCo.QuanCoDuocChon.Quan_Co.ToaDo, ThongSo.ToaDoDonViCuaDiem(((RoundButton)sender).Location)))
             {
+                timerRemainingTime.Stop();
                 socketManager.Send(new SocketData((int)SocketCommand.SEND_MOVE, string.Empty,
                     new Point(8 - BanCo.ToaDoDiTruoc.X, 9 - BanCo.ToaDoDiTruoc.Y), new Point(8 - BanCo.ToaDoDenTruoc.X, 9 - BanCo.ToaDoDenTruoc.Y)));
-
             }
             Listen();
         }
@@ -99,7 +102,7 @@ namespace GameCoTuong
             if (result == DialogResult.Yes)
             {
                 btnNewGame.Enabled = false;
-                socketManager.Send(new SocketData((int)SocketCommand.ASK_NEW_GAME, string.Empty));
+                socketManager.Send(new SocketData((int)SocketCommand.ASK_NEW_GAME));
             }
         }
 
@@ -112,7 +115,7 @@ namespace GameCoTuong
                 if (btnUndo.Enabled == true)
                 {
                     btnUndo.Enabled = false;
-                    socketManager.Send(new SocketData((int)SocketCommand.ASK_UNDO, string.Empty));
+                    socketManager.Send(new SocketData((int)SocketCommand.ASK_UNDO));
                 }
                 else
                 {
@@ -127,7 +130,7 @@ namespace GameCoTuong
             if (result == DialogResult.Yes)
             {
                 btnSurrender.Enabled = false;
-                socketManager.Send(new SocketData((int)SocketCommand.SURRENDER, string.Empty));
+                socketManager.Send(new SocketData((int)SocketCommand.SURRENDER));
                 BanCo.SetToDefault();
                 BanCo.XoaBanCo();
                 BanCo.TaoDiemBanCo(DiemBanCo_Click);
@@ -151,7 +154,6 @@ namespace GameCoTuong
                 socketManager.isServer = false;
                 Listen();
             }
-
         }
 
         private void Listen()
@@ -178,6 +180,7 @@ namespace GameCoTuong
                 case (int)SocketCommand.SEND_MOVE:
                     this.Invoke((MethodInvoker)(() =>
                     {
+                        timerRemainingTime.Start();
                         BanCo.DoiPhuongDanh(data.DepartureLocation, data.DestinationLocation);
                     }));
                     break;
@@ -193,10 +196,11 @@ namespace GameCoTuong
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
+                        timerRemainingTime.Stop();
                         DialogResult resultNewGame = MessageBox.Show("Đối phương xin hòa và bắt đầu một ván mới. Bạn có có đồng ý không?", "Cầu hòa", MessageBoxButtons.YesNo);
                         if (resultNewGame == DialogResult.Yes)
                         {
-                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_NEW_GAME, string.Empty));
+                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_NEW_GAME));
                             BanCo.SetToDefault();
                             BanCo.XoaBanCo();
                             BanCo.TaoDiemBanCo(DiemBanCo_Click);
@@ -206,6 +210,8 @@ namespace GameCoTuong
                         else if (resultNewGame == DialogResult.No)
                         {
                             socketManager.Send(new SocketData((int)SocketCommand.NOTIFY, "Đối phương không đồng ý hòa ván này. Ván đấu sẽ tiếp tục."));
+                            if (BanCo.PheDuocDanh == BanCo.PheTa)
+                                timerRemainingTime.Start();
                         }
                         this.Enabled = true;
                     }));
@@ -227,18 +233,19 @@ namespace GameCoTuong
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
+                        timerRemainingTime.Stop();
                         DialogResult resultUndo = MessageBox.Show("Đối phương xin đi lại nước vừa rồi. Bạn có có đồng ý không?", "Xin đi lại", MessageBoxButtons.YesNo);
                         if (resultUndo == DialogResult.Yes)
                         {
-                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_UNDO, string.Empty));
+                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_UNDO));
                             BanCo.Dehighlight();
                             BanCo.AnDiemDich();
                             BanCo.HoanTac();
-
                         }
                         else if (resultUndo == DialogResult.No)
                         {
                             socketManager.Send(new SocketData((int)SocketCommand.NOTIFY, "Đối phương không đồng ý cho bạn đi lại."));
+                            timerRemainingTime.Start();
                         }
                         this.Enabled = true;
                     }));
@@ -251,6 +258,7 @@ namespace GameCoTuong
                         BanCo.AnDiemDich();
                         BanCo.HoanTac();
                         MessageBox.Show("Đối phương đã đồng ý cho bạn đi lại.", "Thông báo", MessageBoxButtons.OK);
+                        timerRemainingTime.Start();
                         this.Enabled = true;
                     }));
                     break;
@@ -290,6 +298,28 @@ namespace GameCoTuong
                     break;
                 case (int)SocketCommand.TEST_CONNECTION:
                     //do nothing
+                    break;
+                case (int)SocketCommand.OUT_OF_TIME:
+                    this.Enabled = false;
+                    BanCo.SetToDefault();
+                    BanCo.XoaBanCo();
+                    BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                    BanCo.TaoQuanCo(QuanCo_Click);
+                    BanCo.RefreshBanCo();
+                    MessageBox.Show("Đối phương đã hết thời gian. Bạn đã thắng ván cờ này! Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+                    this.Enabled = true;
+                    break;
+                case (int)SocketCommand.READY:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        ptbBanCo.Enabled = true;
+                    }));
+                    break;
+                case (int)SocketCommand.OPPONENT_TICK:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        lblOpponentRemainingTime.Text = data.Message;
+                    }));
                     break;
             }
             Listen();
@@ -434,6 +464,45 @@ namespace GameCoTuong
             {
                 btnGui_Click(sender, e);
             }
+        }
+
+        private void timerRemainingTime_Tick(object sender, EventArgs e)
+        {
+            BanCo.RemainingTime--;
+            lblRemainingTime.Text = BanCo.SecondsToTime(BanCo.RemainingTime);
+            socketManager.Send(new SocketData((int)SocketCommand.OPPONENT_TICK, lblRemainingTime.Text));
+            if (BanCo.RemainingTime < 60)
+                lblRemainingTime.ForeColor = Color.Red;
+            else
+                lblRemainingTime.ForeColor = Color.DarkGreen;
+            if (BanCo.RemainingTime == 0)
+            {
+                timerRemainingTime.Stop();
+                socketManager.Send(new SocketData((int)SocketCommand.OUT_OF_TIME));
+                BanCo.SetToDefault();
+                BanCo.XoaBanCo();
+                BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                BanCo.TaoQuanCo(QuanCo_Click);
+                BanCo.RefreshBanCo();
+                MessageBox.Show("Hết thời gian! Bạn đã thua ván cờ này. Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnReady_Click(object sender, EventArgs e)
+        {
+            btnReady.Enabled = false;
+            try
+            {
+                socketManager.Send(new SocketData((int)SocketCommand.READY));
+            }
+            catch
+            {
+                MessageBox.Show("Chưa kết nối hoặc đã mất kết nối với đối thủ.");
+                btnReady.Enabled = true;
+                return;
+            }
+            ptbBanCo.Enabled = true;
+            timerRemainingTime.Start();
         }
     }
 }

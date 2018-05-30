@@ -223,14 +223,25 @@ C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Serv
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.exe
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.pdb
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\bin\Debug\GameCoTuong.exe.config
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\bin\Debug\GameCoTuong.exe
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\bin\Debug\GameCoTuong.pdb
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.csprojResolveAssemblyReference.cache
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.exe
-C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\_3\GameCoTuongOnline - Cli\GameCoTuong\obj\Debug\GameCoTuong.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\bin\Debug\GameCoTuong.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\bin\Debug\GameCoTuong.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.csprojAssemblyReference.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Server\GameCoTuong\obj\Debug\GameCoTuong.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\bin\Debug\GameCoTuong.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\bin\Debug\GameCoTuong.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.csprojAssemblyReference.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.Form1.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.KhoiDong.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.Properties.Resources.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.csproj.GenerateResource.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\_3\GameCoTuongOnline - Client\GameCoTuong\obj\Debug\GameCoTuong.pdb

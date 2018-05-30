@@ -19,7 +19,7 @@ namespace GameCoTuong.CoTuong
         public static Color MauPheDo { get { return Color.DarkRed; } }
 
         public static Color MauPheXanh { get { return Color.DarkBlue; } }
-        
+
         #region Nước đi trước
         public static Point ViTriGreyTargetDepartureTruoc { get; set; } = ThongSo.ToaDoNULL;
         public static Point ViTriGreyTargetDestinationTruoc { get; set; } = ThongSo.ToaDoNULL;
@@ -60,6 +60,10 @@ namespace GameCoTuong.CoTuong
         public static Button BtnNewGame { get; set; }
         public static Button BtnUndo { get; set; }
         public static Button BtnSurrender { get; set; }
+        public static Timer TimerRemainingTime { get; set; }
+        public static Label LblRemainingTime { get; set; }
+        public static Label LblOpponentRemainingTime { get; set; }
+        public static Button BtnReady { get; set; }
         #endregion
 
         #region Ký hiệu bàn cờ
@@ -88,6 +92,8 @@ namespace GameCoTuong.CoTuong
             Location = ThongSo.ToaDoNULL
         };
         #endregion
+
+        public static int RemainingTime { get; set; } = 900; // 15 minutes
 
         #endregion
 
@@ -457,20 +463,19 @@ namespace GameCoTuong.CoTuong
         public static void WritePheDuocDanh(Label lblPheDuocDanh)
         {
             if (PheDuocDanh == 2)
-            {
                 lblPheDuocDanh.ForeColor = MauPheDo;
-                lblPheDuocDanh.Text = "Lượt đi của phe Đỏ";
-            }
-            else
-            {
-                lblPheDuocDanh.ForeColor = MauPheXanh;
-                lblPheDuocDanh.Text = "Lượt đi của phe Xanh";
-            }
+            else lblPheDuocDanh.ForeColor = MauPheXanh;
+            if (PheDuocDanh == PheTa)
+                lblPheDuocDanh.Text = "Lượt đánh của bạn!";
+            else lblPheDuocDanh.Text = "Lượt đánh của đối thủ";
         }
 
         /*Dat ban co ve trang thai ban dau*/
         public static void SetToDefault()
         {
+            TimerRemainingTime.Stop();
+            PtbBanCo.Enabled = false;
+
             QuanCoBiLoai = null;
             QuanCoDuocChon = null;
             PheDuocDanh = 2;
@@ -481,6 +486,14 @@ namespace GameCoTuong.CoTuong
             BtnNewGame.Enabled = false;
             BtnUndo.Enabled = false;
             BtnSurrender.Enabled = false;
+
+            RemainingTime = 900;
+            LblRemainingTime.Text = SecondsToTime(RemainingTime);
+            LblOpponentRemainingTime.Text = LblRemainingTime.Text;
+            if (PheTa == 2)
+                BtnReady.Enabled = true;
+            else
+                BtnReady.Enabled = false;
         }
 
         /* Xóa các RoundPictureBox quân cờ khỏi bàn cờ và danh sách quân cờ */
@@ -757,6 +770,23 @@ namespace GameCoTuong.CoTuong
             {
                 element.Enabled = false;
             }
+        }
+
+        public static string SecondsToTime(int seconds)
+        {
+            string result = "";
+            int mm, ss;
+            mm = seconds / 60;
+            ss = seconds % 60;
+            if (mm < 10)
+                result += "0" + mm + ":";
+            else
+                result += mm + ":";
+            if (ss < 10)
+                result += "0" + ss;
+            else
+                result += ss;
+            return result;
         }
         #endregion
     }

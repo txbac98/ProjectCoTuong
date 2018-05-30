@@ -41,6 +41,7 @@ namespace GameCoTuong
             BanCo.TaoDiemBanCo(DiemBanCo_Click);
             BanCo.TaoQuanCo(QuanCo_Click);
             BanCo.RefreshBanCo();
+
         }
 
         /* Khi click vào 1 RoundPictureBox quân cờ thì nó sẽ được chọn... */
@@ -86,8 +87,9 @@ namespace GameCoTuong
             {
                 socketManager.Send(new SocketData((int)SocketCommand.SEND_MOVE, string.Empty,
                     new Point(8 - BanCo.ToaDoDiTruoc.X, 9 - BanCo.ToaDoDiTruoc.Y), new Point(8 - BanCo.ToaDoDenTruoc.X, 9 - BanCo.ToaDoDenTruoc.Y)));
-                Listen();
+
             }
+            Listen();
         }
 
         // Event cho button 'New game'
@@ -149,6 +151,7 @@ namespace GameCoTuong
                 socketManager.isServer = false;
                 Listen();
             }
+
         }
 
         private void Listen()
@@ -280,7 +283,9 @@ namespace GameCoTuong
                 case (int)SocketCommand.CHAT_MESSAGE:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        listView1.Items.Add(new ListViewItem() { Text = data.Message });
+                        //listView1.Items.Add(new ListViewItem() { Text = data.Message });
+                        //txtMessage.Text += data.Message + "\r\n";
+                        ReceiveMessage(data.Message);
                     }));
                     break;
                 case (int)SocketCommand.TEST_CONNECTION:
@@ -316,18 +321,108 @@ namespace GameCoTuong
             }
         }
 
+        private int NextWordLength(string str, int start)
+        {
+            for (int i = start; i < str.Length; i++)
+                if (str[i] == ' ')
+                    return i - start;
+            return -1;
+        }
+        private int NextWord(string str, int start, ref string message)
+        {
+            for (int i = start ; i < str.Length; i++)
+            {
+                if (str[i] == ' ') 
+                {
+                    message += str.Substring(start, i - start) + " ";
+                    return i+1;
+                }
+                if( i == str.Length - 1)
+                {
+                    message += str.Substring(start, str.Length - start);
+                    return i;
+                }
+            }
+            return -1;
+        }
+        private int CountOfWord(string str)
+        {
+            int count = 1;
+            for (int i = 0; i < str.Length; i++)
+                if (str[i] == ' ')
+                    count++;
+            return count;
+        }
+
+        private void InsertBlank(ref string str)
+        {
+            while(str.Length <45)
+                str = str.Insert(0, " ");
+        }
+        private void ReceiveMessage(string text)
+        {
+
+            int i = 0;
+            int start = 0;
+            string message = "";
+            while (i != CountOfWord(text))
+            {
+                start = NextWord(text, start, ref message);
+                if (message.Length + NextWordLength(text, start) > 30)
+                {
+                    txtMessage.Text += message + "\r\n";
+                    message = "";
+                }
+                i++;
+            }
+            if (i == CountOfWord(text) && message.Length < 30)
+            {
+                txtMessage.Text += message + "\r\n";
+            }
+
+        }
+        private void SendMessage(string text)
+        {
+
+            int i = 0;
+            int start = 0;
+            string message = "";
+            string blank = "                ";
+            while (i != CountOfWord(text))
+            {
+                start = NextWord(text, start, ref message);
+                if (message.Length + NextWordLength(text, start) > 30)
+                {
+                    txtMessage.Text += blank + message + "\r\n";
+                    message = "";
+                }
+                i++;
+            }
+            if (i == CountOfWord(text) && message.Length < 30)
+            {
+                if (text.Length < 30)
+                {
+                    InsertBlank(ref message);
+                    txtMessage.Text += message + "\r\n";
+                }
+                else txtMessage.Text += blank + message + "\r\n";
+            }
+        }
+   
         private void btnGui_Click(object sender, EventArgs e)
         {
             if (chatTextBox.Text != string.Empty)
             {
-                listView1.Items.Add(new ListViewItem() { Text = "Me: " + chatTextBox.Text });
+                txtMessage.ReadOnly = true;
+                SendMessage(chatTextBox.Text);
+
                 try
                 {
                     socketManager.Send(new SocketData((int)SocketCommand.CHAT_MESSAGE, "Opponent: " + chatTextBox.Text));
                 }
                 catch
                 {
-                    listView1.Items.Add(new ListViewItem() { Text = "Lỗi kết nối. Không thể gửi tin nhắn.", ForeColor = Color.Red });
+                    //listView1.Items.Add(new ListViewItem() { Text = "Lỗi kết nối. Không thể gửi tin nhắn.", ForeColor = Color.Red });
                 }
                 chatTextBox.Clear();
             }

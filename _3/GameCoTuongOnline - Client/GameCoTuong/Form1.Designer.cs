@@ -42,7 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnGui = new System.Windows.Forms.Button();
             this.chatTextBox = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -189,9 +189,9 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtMessage);
             this.panel2.Controls.Add(this.btnGui);
             this.panel2.Controls.Add(this.chatTextBox);
-            this.panel2.Controls.Add(this.listView1);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel2.Location = new System.Drawing.Point(649, 403);
             this.panel2.Name = "panel2";
@@ -221,18 +221,17 @@
             this.chatTextBox.Size = new System.Drawing.Size(184, 23);
             this.chatTextBox.TabIndex = 1;
             // 
-            // listView1
+            // txtMessage
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listView1.Location = new System.Drawing.Point(8, 8);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(246, 246);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.txtMessage.BackColor = System.Drawing.Color.White;
+            this.txtMessage.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtMessage.Location = new System.Drawing.Point(3, 3);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ReadOnly = true;
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessage.Size = new System.Drawing.Size(256, 248);
+            this.txtMessage.TabIndex = 6;
             // 
             // Form1
             // 
@@ -279,7 +278,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnGui;
         private System.Windows.Forms.TextBox chatTextBox;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox txtMessage;
     }
 }
 

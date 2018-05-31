@@ -82,7 +82,7 @@
             // 
             // lsvMessage
             // 
-            this.lsvMessage.Location = new System.Drawing.Point(7, 5);
+            this.lsvMessage.Location = new System.Drawing.Point(6, 5);
             this.lsvMessage.Name = "lsvMessage";
             this.lsvMessage.Size = new System.Drawing.Size(250, 250);
             this.lsvMessage.TabIndex = 7;
@@ -95,7 +95,7 @@
             this.btnGui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGui.BackColor = System.Drawing.Color.Gainsboro;
             this.btnGui.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnGui.Location = new System.Drawing.Point(197, 259);
+            this.btnGui.Location = new System.Drawing.Point(196, 259);
             this.btnGui.Name = "btnGui";
             this.btnGui.Size = new System.Drawing.Size(61, 25);
             this.btnGui.TabIndex = 2;
@@ -108,9 +108,9 @@
             this.txtChat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtChat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtChat.Location = new System.Drawing.Point(8, 260);
+            this.txtChat.Location = new System.Drawing.Point(6, 260);
             this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(184, 23);
+            this.txtChat.Size = new System.Drawing.Size(185, 23);
             this.txtChat.TabIndex = 1;
             // 
             // timerRemainingTime

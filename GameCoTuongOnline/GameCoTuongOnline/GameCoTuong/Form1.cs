@@ -302,8 +302,8 @@ namespace GameCoTuong
                 case (int)SocketCommand.SURRENDER:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        TakeAPicture();
                         this.Enabled = false;
+                        TakeAPicture();
                         lblScore.Text = (int.Parse(lblScore.Text) + 1).ToString();
                         BanCo.SetToDefault();
                         BanCo.XoaBanCo();
@@ -322,12 +322,17 @@ namespace GameCoTuong
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
+                        TakeAPicture();
                         BanCo.SetToDefault();
                         BanCo.XoaBanCo();
                         BanCo.TaoDiemBanCo(DiemBanCo_Click);
                         BanCo.TaoQuanCo(QuanCo_Click);
                         BanCo.RefreshBanCo();
                         MessageBox.Show("Đối phương đã tự thoát game.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+                        if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            SavePicture();
+                        }
                         this.Enabled = true;
                     }));
                     break;
@@ -604,6 +609,7 @@ namespace GameCoTuong
         private void ptrCamera_Click(object sender, EventArgs e)
         {
             TakeAPicture();
+            SavePicture();
         }
     }
 }

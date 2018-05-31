@@ -150,6 +150,7 @@ namespace GameCoTuong
             if (result == DialogResult.Yes)
             {
                 btnSurrender.Enabled = false;
+                TakeAPicture();
                 socketManager.Send(new SocketData((int)SocketCommand.SURRENDER));
                 lblOpponentScore.Text = (int.Parse(lblOpponentScore.Text) + 1).ToString();
                 BanCo.SetToDefault();
@@ -158,6 +159,10 @@ namespace GameCoTuong
                 BanCo.TaoQuanCo(QuanCo_Click);
                 BanCo.RefreshBanCo();
                 MessageBox.Show("Bạn đã thua ván cờ này. Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+                if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    SavePicture();
+                }
             }
         }
 
@@ -222,12 +227,17 @@ namespace GameCoTuong
                         DialogResult resultNewGame = MessageBox.Show("Đối phương xin hòa và bắt đầu một ván mới. Bạn có có đồng ý không?", "Cầu hòa", MessageBoxButtons.YesNo);
                         if (resultNewGame == DialogResult.Yes)
                         {
+                            TakeAPicture();
                             socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_NEW_GAME));
                             BanCo.SetToDefault();
                             BanCo.XoaBanCo();
                             BanCo.TaoDiemBanCo(DiemBanCo_Click);
                             BanCo.TaoQuanCo(QuanCo_Click);
                             BanCo.RefreshBanCo();
+                            if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                SavePicture();
+                            }
                         }
                         else if (resultNewGame == DialogResult.No)
                         {
@@ -242,12 +252,17 @@ namespace GameCoTuong
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
+                        TakeAPicture();
                         BanCo.SetToDefault();
                         BanCo.XoaBanCo();
                         BanCo.TaoDiemBanCo(DiemBanCo_Click);
                         BanCo.TaoQuanCo(QuanCo_Click);
                         BanCo.RefreshBanCo();
                         MessageBox.Show("Đối phương đã đồng ý hòa ván này. Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+                        if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            SavePicture();
+                        }
                         this.Enabled = true;
                     }));
                     break;
@@ -287,6 +302,7 @@ namespace GameCoTuong
                 case (int)SocketCommand.SURRENDER:
                     this.Invoke((MethodInvoker)(() =>
                     {
+                        TakeAPicture();
                         this.Enabled = false;
                         lblScore.Text = (int.Parse(lblScore.Text) + 1).ToString();
                         BanCo.SetToDefault();
@@ -295,6 +311,10 @@ namespace GameCoTuong
                         BanCo.TaoQuanCo(QuanCo_Click);
                         BanCo.RefreshBanCo();
                         MessageBox.Show("Đối phương đã xin hàng. Bạn đã thắng ván cờ này! Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
+                        if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            SavePicture();
+                        }
                         this.Enabled = true;
                     }));
                     break;
@@ -557,25 +577,33 @@ namespace GameCoTuong
             sound = !sound;
         }
 
-        private void ptrCamera_Click(object sender, EventArgs e)
+        private void TakeAPicture()
         {
-
-            SaveFileDialog saveDialog = new SaveFileDialog();
-            // Set filter options and filter index.
-            saveDialog.Filter = "PNG Files (.png)|*.png|All Files (*.*)|*.*";
-            saveDialog.FilterIndex = 1;
-
-            if (saveDialog.ShowDialog() == DialogResult.OK)
-            {
-                screenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+            // Chụp ảnh
+            screenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
                                             Screen.PrimaryScreen.Bounds.Height,
                                             PixelFormat.Format32bppArgb);
-                screenGraphics = Graphics.FromImage(screenBitmap);
-                screenGraphics.CopyFromScreen(this.Location.X, this.Location.Y,
-                                        0, 0, this.Size, CopyPixelOperation.SourceCopy);
+            screenGraphics = Graphics.FromImage(screenBitmap);
+            screenGraphics.CopyFromScreen(this.Location.X, this.Location.Y,
+                                    0, 0, this.Size, CopyPixelOperation.SourceCopy);
+        }
+
+        private void SavePicture()
+        {
+            // Lưu ảnh đã chụp
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PNG Files (.png)|*.png|All Files (*.*)|*.*";
+            saveDialog.FilterIndex = 1;
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
                 screenBitmap.Save(saveDialog.FileName, ImageFormat.Png);
                 MessageBox.Show("Đã lưu ảnh '" + saveDialog.FileName + "' !!", "Thành công");
             }
+        }
+
+        private void ptrCamera_Click(object sender, EventArgs e)
+        {
+            TakeAPicture();
         }
     }
 }

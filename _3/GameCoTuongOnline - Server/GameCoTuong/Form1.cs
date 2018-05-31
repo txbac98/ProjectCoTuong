@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -17,14 +18,29 @@ using static GameCoTuong.LAN.SocketData;
 
 namespace GameCoTuong
 {
-
+    
     public partial class Form1 : Form
     {
         private SocketManager socketManager;
+        bool sound;
+        System.Media.SoundPlayer player ;
+
+        //Camera
+        private static Bitmap screenBitmap;
+        private static Graphics screenGraphics;
+
+        //Chat
+        public static int soKT = 30, doDai = 50;
 
         public Form1()
         {
             InitializeComponent();
+            PlayMusic();
+        }
+        public void PlayMusic()
+        {
+            player = new System.Media.SoundPlayer(Properties.Resources.Nhac3);
+            player.Play();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -293,7 +309,7 @@ namespace GameCoTuong
                     {
                         //listView1.Items.Add(new ListViewItem() { Text = data.Message });
                         //txtMessage.Text += data.Message + "\r\n";
-                        ReceiveMessage(data.Message);
+                        ThemTinNhanNhan(data.Message);
                     }));
                     break;
                 case (int)SocketCommand.TEST_CONNECTION:
@@ -351,116 +367,123 @@ namespace GameCoTuong
             }
         }
 
-        private int NextWordLength(string str, int start)
+        #region Chat
+        public static int TimDauCach(string s, int soKyTu)
         {
-            for (int i = start; i < str.Length; i++)
-                if (str[i] == ' ')
-                    return i - start;
-            return -1;
-        }
-        private int NextWord(string str, int start, ref string message)
-        {
-            for (int i = start ; i < str.Length; i++)
+            for (int i = soKyTu; i > 0; i--)
             {
-                if (str[i] == ' ') 
-                {
-                    message += str.Substring(start, i - start) + " ";
-                    return i+1;
-                }
-                if( i == str.Length - 1)
-                {
-                    message += str.Substring(start, str.Length - start);
-                    return i;
-                }
+                if (s[i] == ' ') return i;
             }
-            return -1;
+            return soKyTu;
         }
-        private int CountOfWord(string str)
+        public static string LayDoanSau(string s, int soKyTu)
         {
-            int count = 1;
-            for (int i = 0; i < str.Length; i++)
-                if (str[i] == ' ')
-                    count++;
-            return count;
+            string s1 = "";
+            for (int i = soKyTu; i < s.Length; i++)
+            {
+                s1 += s[i];
+            }
+            return s1;
+        }
+        public static string ThemCachTruoc(string s, int doDai)
+        {
+            while (s.Length < doDai)
+            {
+                s = s.Insert(0, " ");
+            }
+            return s;
+        }
+        public static string ThemCachSau(string s, int so)
+        {
+            while (s.Length < so)
+            {
+                s = s.Insert(s.Length, " ");
+            }
+            return s;
         }
 
-        private void InsertBlank(ref string str)
+        public void ThemTinNhanNhan(string s)
         {
-            while(str.Length <45)
-                str = str.Insert(0, " ");
-        }
-        private void ReceiveMessage(string text)
-        {
-
-            int i = 0;
-            int start = 0;
-            string message = "";
-            while (i != CountOfWord(text))
+            while (s.Length > soKT)
             {
-                start = NextWord(text, start, ref message);
-                if (message.Length + NextWordLength(text, start) > 30)
+                string s1 = "";
+                int viTriDauCach = TimDauCach(s, soKT);
+                for (int i = 0; i < viTriDauCach; i++)
                 {
-                    txtMessage.Text += message + "\r\n";
-                    message = "";
+                    s1 += s[i];
                 }
-                i++;
-            }
-            if (i == CountOfWord(text) && message.Length < 30)
-            {
-                txtMessage.Text += message + "\r\n";
-            }
+                s1 = s1.Trim();
+                lsvMessage.Items.Add(new ListViewItem() { Text = s1 });
+                lsvMessage.Items[lsvMessage.Items.Count - 1].ForeColor = Color.Blue;
 
-        }
-        private void SendMessage(string text)
-        {
-
-            int i = 0;
-            int start = 0;
-            string message = "";
-            string blank = "                ";
-            while (i != CountOfWord(text))
-            {
-                start = NextWord(text, start, ref message);
-                if (message.Length + NextWordLength(text, start) > 30)
-                {
-                    txtMessage.Text += blank + message + "\r\n";
-                    message = "";
-                }
-                i++;
+                s = LayDoanSau(s, soKT);
             }
-            if (i == CountOfWord(text) && message.Length < 30)
+            if (s.Length < soKT)
             {
-                if (text.Length < 30)
-                {
-                    InsertBlank(ref message);
-                    txtMessage.Text += message + "\r\n";
-                }
-                else txtMessage.Text += blank + message + "\r\n";
+                s = s.Trim();
+                lsvMessage.Items.Add(new ListViewItem() { Text = s });
+                lsvMessage.Items[lsvMessage.Items.Count - 1].ForeColor = Color.Blue;
+
             }
         }
-   
+        public void ThemTinNhanGui(string s)
+        {
+            if (s.Length < soKT)
+            {
+                s = s.Trim();
+                s = ThemCachTruoc(s, doDai);
+                lsvMessage.Items.Add(new ListViewItem() { Text = s });
+            }
+            else
+            {
+                while (s.Length > soKT)
+                {
+                    string s1 = "";
+                    int viTriDauCach = TimDauCach(s, soKT);
+                    for (int i = 0; i < viTriDauCach; i++)
+                    {
+                        s1 += s[i];
+                    }
+                    s1 = s1.Trim();
+                    s1 = ThemCachSau(s1, soKT);
+                    s1 = ThemCachTruoc(s1, doDai);
+                    lsvMessage.Items.Add(new ListViewItem() { Text = s1 });
+
+                    s = LayDoanSau(s, soKT);
+                }
+                if (s.Length < soKT)
+                {
+                    s = s.Trim();
+                    s = ThemCachSau(s, soKT);
+                    s = ThemCachTruoc(s, doDai);
+                    lsvMessage.Items.Add(new ListViewItem() { Text = s });
+                }
+            }
+           
+            txtChat.Clear();
+        }
+        #endregion
+
+     
         private void btnGui_Click(object sender, EventArgs e)
         {
-            if (chatTextBox.Text != string.Empty)
+            if (txtChat.Text != string.Empty)
             {
-                txtMessage.ReadOnly = true;
-                SendMessage(chatTextBox.Text);
-
+                ThemTinNhanGui(txtChat.Text);
                 try
-                {
-                    socketManager.Send(new SocketData((int)SocketCommand.CHAT_MESSAGE, "Opponent: " + chatTextBox.Text));
+                {              
+                    socketManager.Send(new SocketData((int)SocketCommand.CHAT_MESSAGE,  txtChat.Text));             
                 }
                 catch
                 {
-                    //listView1.Items.Add(new ListViewItem() { Text = "Lỗi kết nối. Không thể gửi tin nhắn.", ForeColor = Color.Red });
+                    lsvMessage.Items.Add(new ListViewItem() { Text = "Lỗi kết nối. Không thể gửi tin nhắn.", ForeColor = Color.Red });
                 }
-                chatTextBox.Clear();
             }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (chatTextBox.Focused && e.KeyCode == Keys.Enter)
+            if (txtChat.Focused && e.KeyCode == Keys.Enter)
             {
                 btnGui_Click(sender, e);
             }
@@ -494,6 +517,7 @@ namespace GameCoTuong
             try
             {
                 socketManager.Send(new SocketData((int)SocketCommand.READY));
+                Listen();
             }
             catch
             {
@@ -503,6 +527,47 @@ namespace GameCoTuong
             }
             ptbBanCo.Enabled = true;
             timerRemainingTime.Start();
+        }
+
+        private void ptrSound_Click(object sender, EventArgs e)
+        {
+            if (sound)
+            {
+                ptrSound.Image = Properties.Resources.SoundOff;
+                player.Stop();
+            }
+            else
+            {
+                ptrSound.Image = Properties.Resources.SoundOn;
+                PlayMusic();
+            }
+            sound = !sound;
+        }
+
+        private void ptrCamera_Click(object sender, EventArgs e)
+        {
+           
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            // Set filter options and filter index.
+            saveDialog.Filter = "PNG Files (.png)|*.png|All Files (*.*)|*.*";
+            saveDialog.FilterIndex = 1;
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                screenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+                                            Screen.PrimaryScreen.Bounds.Height,
+                                            PixelFormat.Format32bppArgb);
+                screenGraphics = Graphics.FromImage(screenBitmap);
+                screenGraphics.CopyFromScreen(this.Location.X, this.Location.Y,
+                                        0, 0, this.Size, CopyPixelOperation.SourceCopy);
+                screenBitmap.Save(saveDialog.FileName, ImageFormat.Png);
+                MessageBox.Show("Đã lưu ảnh '" + saveDialog.FileName + "' !!","Thành công");
+            }     
+    }
+
+        private void txbIP_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

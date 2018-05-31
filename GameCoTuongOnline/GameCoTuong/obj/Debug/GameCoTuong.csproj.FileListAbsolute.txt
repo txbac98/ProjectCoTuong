@@ -146,3 +146,6 @@ C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuo
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.csproj.CoreCompileInputs.cache
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.exe
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.pdb
+D:\Github\GameCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\GameCoTuong.exe.config
+D:\Github\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.exe
+D:\Github\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\GameCoTuong.pdb

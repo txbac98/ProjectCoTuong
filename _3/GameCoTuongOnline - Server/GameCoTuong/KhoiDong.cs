@@ -18,8 +18,8 @@ namespace GameCoTuong
             InitializeComponent();
         }
 
-        public static string PlayerName
-        { get => playerName; set => playerName = value; }
+        public static string PlayerName;
+        //{ get => playerName; set => playerName = value; }
 
         private void button1_Click(object sender, EventArgs e)
         {

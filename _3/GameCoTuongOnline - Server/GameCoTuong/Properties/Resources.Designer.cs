@@ -73,6 +73,16 @@ namespace GameCoTuong.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Camera {
+            get {
+                object obj = ResourceManager.GetObject("Camera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap grey_square_target_depart {
             get {
                 object obj = ResourceManager.GetObject("grey_square_target_depart", resourceCulture);
@@ -107,6 +117,15 @@ namespace GameCoTuong.Properties {
             get {
                 object obj = ResourceManager.GetObject("MaXanh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Nhac3 {
+            get {
+                return ResourceManager.GetStream("Nhac3", resourceCulture);
             }
         }
         
@@ -146,6 +165,26 @@ namespace GameCoTuong.Properties {
         internal static System.Drawing.Bitmap SiXanh {
             get {
                 object obj = ResourceManager.GetObject("SiXanh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SoundOff {
+            get {
+                object obj = ResourceManager.GetObject("SoundOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SoundOn {
+            get {
+                object obj = ResourceManager.GetObject("SoundOn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

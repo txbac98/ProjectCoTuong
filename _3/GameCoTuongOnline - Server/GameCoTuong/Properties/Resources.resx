@@ -136,8 +136,14 @@
   <data name="TotXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TotXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BanCoTuong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BanCoTuong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="grey_square_target_depart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\grey_square_target_depart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SoundOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SoundOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="XeDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\XeDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,6 +163,9 @@
   <data name="XeXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\XeXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SoundOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SoundOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TinhXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TinhXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,7 +181,10 @@
   <data name="TuongXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TuongXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BanCoTuong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BanCoTuong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Camera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nhac3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nhac3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

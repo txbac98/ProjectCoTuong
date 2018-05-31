@@ -105,6 +105,8 @@
     <None Include="Resources\grey_square_target_dest.gif" />
     <None Include="Resources\BanCoTuong.jpg" />
     <None Include="Resources\grey_square_target_depart.png" />
+    <None Include="Resources\Camera.png" />
+    <None Include="Resources\Nhac3.wav" />
     <Content Include="Resources\README.txt" />
     <None Include="Resources\XeXanh.png" />
     <None Include="Resources\SiXanh.png" />
@@ -113,6 +115,8 @@
     <None Include="Resources\TinhXanh.png" />
     <None Include="Resources\TotDo.png" />
     <None Include="Resources\TotXanh.png" />
+    <None Include="Resources\SoundOff.png" />
+    <None Include="Resources\SoundOn.png" />
     <Content Include="Resources\TuongDo.png" />
     <Content Include="Resources\TuongXanh.png" />
     <EmbeddedResource Include="Form1.resx">

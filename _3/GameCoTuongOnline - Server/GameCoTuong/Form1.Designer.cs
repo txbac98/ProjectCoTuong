@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.background = new System.Windows.Forms.PictureBox();
-            this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnGui = new System.Windows.Forms.Button();
-            this.chatTextBox = new System.Windows.Forms.TextBox();
+            this.txtChat = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLAN = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
@@ -52,63 +49,34 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
             this.timerRemainingTime = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
+            this.ptrCamera = new System.Windows.Forms.PictureBox();
+            this.ptrSound = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbBanCo = new System.Windows.Forms.PictureBox();
+            this.background = new System.Windows.Forms.PictureBox();
+            this.lsvMessage = new System.Windows.Forms.ListView();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
-            // 
-            // background
-            // 
-            this.background.Enabled = false;
-            this.background.Image = global::GameCoTuong.Properties.Resources.tranh_thuy_mac;
-            this.background.Location = new System.Drawing.Point(0, 0);
-            this.background.Name = "background";
-            this.background.Size = new System.Drawing.Size(944, 729);
-            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.background.TabIndex = 3;
-            this.background.TabStop = false;
-            // 
-            // ptbBanCo
-            // 
-            this.ptbBanCo.BackColor = System.Drawing.Color.Transparent;
-            this.ptbBanCo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ptbBanCo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbBanCo.Image = global::GameCoTuong.Properties.Resources.BanCoTuong;
-            this.ptbBanCo.InitialImage = null;
-            this.ptbBanCo.Location = new System.Drawing.Point(34, 32);
-            this.ptbBanCo.Name = "ptbBanCo";
-            this.ptbBanCo.Size = new System.Drawing.Size(607, 662);
-            this.ptbBanCo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbBanCo.TabIndex = 0;
-            this.ptbBanCo.TabStop = false;
-            this.ptbBanCo.Click += new System.EventHandler(this.ptbBanCo_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.txtMessage);
+            this.panel2.Controls.Add(this.lsvMessage);
             this.panel2.Controls.Add(this.btnGui);
-            this.panel2.Controls.Add(this.chatTextBox);
+            this.panel2.Controls.Add(this.txtChat);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel2.Location = new System.Drawing.Point(649, 403);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(264, 291);
             this.panel2.TabIndex = 5;
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.BackColor = System.Drawing.Color.White;
-            this.txtMessage.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtMessage.Location = new System.Drawing.Point(3, 3);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ReadOnly = true;
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(256, 248);
-            this.txtMessage.TabIndex = 6;
             // 
             // btnGui
             // 
@@ -123,15 +91,15 @@
             this.btnGui.UseVisualStyleBackColor = false;
             this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
-            // chatTextBox
+            // txtChat
             // 
-            this.chatTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtChat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chatTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.chatTextBox.Location = new System.Drawing.Point(8, 258);
-            this.chatTextBox.Name = "chatTextBox";
-            this.chatTextBox.Size = new System.Drawing.Size(184, 23);
-            this.chatTextBox.TabIndex = 1;
+            this.txtChat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtChat.Location = new System.Drawing.Point(8, 258);
+            this.txtChat.Name = "txtChat";
+            this.txtChat.Size = new System.Drawing.Size(184, 23);
+            this.txtChat.TabIndex = 1;
             // 
             // panel3
             // 
@@ -166,6 +134,7 @@
             this.txbIP.Size = new System.Drawing.Size(120, 23);
             this.txbIP.TabIndex = 5;
             this.txbIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txbIP.TextChanged += new System.EventHandler(this.txbIP_TextChanged);
             // 
             // panel1
             // 
@@ -328,12 +297,81 @@
             this.timerRemainingTime.Interval = 1000;
             this.timerRemainingTime.Tick += new System.EventHandler(this.timerRemainingTime_Tick);
             // 
+            // ptrCamera
+            // 
+            this.ptrCamera.Image = global::GameCoTuong.Properties.Resources.Camera;
+            this.ptrCamera.Location = new System.Drawing.Point(865, 288);
+            this.ptrCamera.Name = "ptrCamera";
+            this.ptrCamera.Size = new System.Drawing.Size(26, 33);
+            this.ptrCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptrCamera.TabIndex = 11;
+            this.ptrCamera.TabStop = false;
+            this.ptrCamera.Click += new System.EventHandler(this.ptrCamera_Click);
+            // 
+            // ptrSound
+            // 
+            this.ptrSound.Image = global::GameCoTuong.Properties.Resources.SoundOn;
+            this.ptrSound.Location = new System.Drawing.Point(816, 288);
+            this.ptrSound.Name = "ptrSound";
+            this.ptrSound.Size = new System.Drawing.Size(26, 33);
+            this.ptrSound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptrSound.TabIndex = 10;
+            this.ptrSound.TabStop = false;
+            this.ptrSound.Click += new System.EventHandler(this.ptrSound_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(-23, -46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ptbBanCo
+            // 
+            this.ptbBanCo.BackColor = System.Drawing.Color.Transparent;
+            this.ptbBanCo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbBanCo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbBanCo.Image = global::GameCoTuong.Properties.Resources.BanCoTuong;
+            this.ptbBanCo.InitialImage = null;
+            this.ptbBanCo.Location = new System.Drawing.Point(34, 32);
+            this.ptbBanCo.Name = "ptbBanCo";
+            this.ptbBanCo.Size = new System.Drawing.Size(607, 662);
+            this.ptbBanCo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbBanCo.TabIndex = 0;
+            this.ptbBanCo.TabStop = false;
+            this.ptbBanCo.Click += new System.EventHandler(this.ptbBanCo_Click);
+            // 
+            // background
+            // 
+            this.background.Enabled = false;
+            this.background.Image = global::GameCoTuong.Properties.Resources.tranh_thuy_mac;
+            this.background.Location = new System.Drawing.Point(0, 0);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(944, 729);
+            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background.TabIndex = 3;
+            this.background.TabStop = false;
+            // 
+            // lsvMessage
+            // 
+            this.lsvMessage.Location = new System.Drawing.Point(7, 3);
+            this.lsvMessage.Name = "lsvMessage";
+            this.lsvMessage.Size = new System.Drawing.Size(250, 250);
+            this.lsvMessage.TabIndex = 7;
+            this.lsvMessage.TileSize = new System.Drawing.Size(250, 15);
+            this.lsvMessage.UseCompatibleStateImageBehavior = false;
+            this.lsvMessage.View = System.Windows.Forms.View.Tile;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(942, 726);
+            this.Controls.Add(this.ptrCamera);
+            this.Controls.Add(this.ptrSound);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -349,14 +387,17 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,8 +407,7 @@
         private System.Windows.Forms.PictureBox background;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnGui;
-        private System.Windows.Forms.TextBox chatTextBox;
-        private System.Windows.Forms.TextBox txtMessage;
+        private System.Windows.Forms.TextBox txtChat;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnLAN;
         private System.Windows.Forms.TextBox txbIP;
@@ -385,6 +425,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
         private System.Windows.Forms.Timer timerRemainingTime;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptrSound;
+        private System.Windows.Forms.PictureBox ptrCamera;
+        private System.Windows.Forms.ListView lsvMessage;
     }
 }
 

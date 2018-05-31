@@ -75,6 +75,7 @@ namespace GameCoTuong.LAN
             byte[] receiveData = new byte[BUFFER];
             bool isOk = ReceiveData(client, receiveData);
             return DeserializeData(receiveData);
+
         }
 
         private bool SendData(Socket target, byte[] data)

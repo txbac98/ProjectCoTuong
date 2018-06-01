@@ -1,0 +1,9 @@
+
+
+netsh wlan set hostednetwork mode=allow ssid=ten_wifi key= mat_khau
+
+//Sau khi khoi tao thi start
+netsh wlan start hostednetwork
+
+//Ket thuc
+netsh wlan stop hostednetwork

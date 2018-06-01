@@ -1,0 +1,17 @@
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.exe.config
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongOffline.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongOffline.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongOffline.exe.config
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csprojResolveAssemblyReference.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.KhoiDong.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.Properties.Resources.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csproj.GenerateResource.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csproj.CoreCompileInputs.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csproj.CopyComplete
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongLAN.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongLAN.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongLAN.exe.config

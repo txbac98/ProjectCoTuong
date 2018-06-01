@@ -1,0 +1,10 @@
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.csprojResolveAssemblyReference.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.csproj.GenerateResource.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.csproj.CoreCompileInputs.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.CuongTuongLAN.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.Properties.Resources.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\bin\Debug\CoTuongLAN.exe.config
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\bin\Debug\CoTuongLAN.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\bin\Debug\CoTuongLAN.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.pdb

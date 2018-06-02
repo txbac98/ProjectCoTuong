@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace CoTuongOffline
 {
     public partial class CoTuongOffline : Form
@@ -115,6 +114,12 @@ namespace CoTuongOffline
                 BanCo.DoiPhe(lblPheDuocDanh, lblSoLuotDi, btnNewGame);
                 BanCo.HienThiNuocDiTruoc(ptbBanCo);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
+            luatChoi.Show();
         }
     }
 }

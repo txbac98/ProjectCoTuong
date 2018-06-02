@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoTuongOffline", "CoTuongOf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhoiDong", "KhoiDong\KhoiDong.csproj", "{D713CC0C-B7F8-40D3-9D4F-D226CE3C52C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuatChoi", "LuatChoi\LuatChoi.csproj", "{0B440482-CBDC-413F-B807-1F4283FFA23C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D713CC0C-B7F8-40D3-9D4F-D226CE3C52C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D713CC0C-B7F8-40D3-9D4F-D226CE3C52C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D713CC0C-B7F8-40D3-9D4F-D226CE3C52C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B440482-CBDC-413F-B807-1F4283FFA23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B440482-CBDC-413F-B807-1F4283FFA23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B440482-CBDC-413F-B807-1F4283FFA23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B440482-CBDC-413F-B807-1F4283FFA23C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

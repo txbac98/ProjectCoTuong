@@ -8,3 +8,17 @@ C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuo
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.exe
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.pdb
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuongOnline\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.CoTuongOffline.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.exe.config
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.pdb
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.exe.config
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csprojResolveAssemblyReference.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.CoTuongOffline.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.Properties.Resources.resources
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.GenerateResource.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.CoreCompileInputs.cache
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.CopyComplete
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.exe
+C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.pdb

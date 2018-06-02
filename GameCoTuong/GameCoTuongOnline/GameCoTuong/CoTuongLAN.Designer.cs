@@ -56,6 +56,7 @@
             this.ptrCamera = new System.Windows.Forms.PictureBox();
             this.ptrSound = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -378,12 +380,23 @@
             this.background.TabIndex = 3;
             this.background.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkRed;
+            this.pictureBox1.Location = new System.Drawing.Point(906, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 28);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // CuongTuongLAN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(942, 726);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -412,6 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,6 +458,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
         private System.Windows.Forms.PictureBox ptbBanCo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

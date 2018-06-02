@@ -36,9 +36,11 @@
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // background
@@ -141,12 +143,23 @@
             this.lblSoLuotDi.TabIndex = 2;
             this.lblSoLuotDi.Text = "??";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkRed;
+            this.pictureBox1.Location = new System.Drawing.Point(904, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 28);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // CoTuongOffline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(942, 726);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.background);
@@ -162,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,6 +190,7 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

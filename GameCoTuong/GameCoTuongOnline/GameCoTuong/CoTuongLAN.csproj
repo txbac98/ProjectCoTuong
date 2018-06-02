@@ -191,6 +191,12 @@
   <ItemGroup>
     <None Include="Resources\yellow_square_target.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LuatChoi\LuatChoi.csproj">
+      <Project>{0b440482-cbdc-413f-b807-1f4283ffa23c}</Project>
+      <Name>LuatChoi</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

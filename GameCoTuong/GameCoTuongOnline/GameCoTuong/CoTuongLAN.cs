@@ -608,6 +608,12 @@ namespace CoTuongLAN
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
+            luatChoi.Show();
+        }
+
         private void ptrCamera_Click(object sender, EventArgs e)
         {
             TakeAPicture();

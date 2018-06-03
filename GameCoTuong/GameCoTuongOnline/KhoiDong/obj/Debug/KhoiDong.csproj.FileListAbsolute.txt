@@ -55,3 +55,18 @@ D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\P
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csproj.CopyComplete
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.exe
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.exe.config
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongLAN.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongOffline.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\LuatChoi.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongOffline.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\CoTuongLAN.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\LuatChoi.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csprojResolveAssemblyReference.cache
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.KhoiDong.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.Properties.Resources.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csproj.GenerateResource.Cache

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhoiDong));
             this.radioOffline = new System.Windows.Forms.RadioButton();
             this.radioLAN = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -116,11 +117,14 @@
             // 
             // btnGo
             // 
+            this.btnGo.Image = global::KhoiDong.Properties.Resources.red_play_512;
+            this.btnGo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGo.Location = new System.Drawing.Point(151, 223);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(86, 27);
             this.btnGo.TabIndex = 10;
             this.btnGo.Text = "Bắt đầu";
+            this.btnGo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
@@ -134,9 +138,10 @@
             this.Controls.Add(this.radioLAN);
             this.Controls.Add(this.radioOffline);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KhoiDong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KD";
+            this.Text = "Game Cờ Tướng";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

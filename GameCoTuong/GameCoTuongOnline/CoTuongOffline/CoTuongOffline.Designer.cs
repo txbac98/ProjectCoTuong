@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoTuongOffline));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPheDuocDanh = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -172,6 +173,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "CoTuongOffline";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

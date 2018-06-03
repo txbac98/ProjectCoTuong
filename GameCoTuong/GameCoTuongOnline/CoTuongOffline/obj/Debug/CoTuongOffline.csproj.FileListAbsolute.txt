@@ -36,3 +36,14 @@ D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\P
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.CopyComplete
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.exe
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.exe.config
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csprojResolveAssemblyReference.cache
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.CoTuongOffline.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.Properties.Resources.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.GenerateResource.Cache
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.pdb

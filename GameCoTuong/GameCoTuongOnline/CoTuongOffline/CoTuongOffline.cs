@@ -4,17 +4,33 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace CoTuongOffline
 {
     public partial class CoTuongOffline : Form
     {
+        bool sound;
+        System.Media.SoundPlayer player;
+
+        //Camera
+        private static Bitmap screenBitmap;
+        private static Graphics screenGraphics;
+
         public CoTuongOffline()
         {
             InitializeComponent();
+            PlayMusic();
+        }
+
+        public void PlayMusic()
+        {
+            player = new System.Media.SoundPlayer(Properties.Resources.Nhac3);
+            player.PlayLooping();
         }
 
         private void CoTuongOffline_Load(object sender, EventArgs e)
@@ -120,6 +136,57 @@ namespace CoTuongOffline
         {
             LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
             luatChoi.Show();
+        }
+
+        private void ptrHelp_Click(object sender, EventArgs e)
+        {
+            LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
+            luatChoi.Show();
+        }
+
+        private void ptrSound_Click(object sender, EventArgs e)
+        {
+            if (sound)
+            {
+
+                ptrSound.Image = Properties.Resources.SoundOff;
+                player.Stop();
+            }
+            else
+            {
+                ptrSound.Image = Properties.Resources.SoundOn;
+                PlayMusic();
+            }
+            sound = !sound;
+        }
+        private void TakeAPicture()
+        {
+            // Chụp ảnh
+            screenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+                                            Screen.PrimaryScreen.Bounds.Height,
+                                            PixelFormat.Format32bppArgb);
+            Thread.Sleep(500);
+            screenGraphics = Graphics.FromImage(screenBitmap);
+            screenGraphics.CopyFromScreen(this.Location.X, this.Location.Y,
+                                    0, 0, this.Size, CopyPixelOperation.SourceCopy);
+        }
+
+        private void SavePicture()
+        {
+            // Lưu ảnh đã chụp
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PNG Files (.png)|*.png|All Files (*.*)|*.*";
+            saveDialog.FilterIndex = 1;
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                screenBitmap.Save(saveDialog.FileName, ImageFormat.Png);
+                MessageBox.Show("Đã lưu ảnh '" + saveDialog.FileName + "' !!", "Thành công");
+            }
+        }
+        private void ptrCamera_Click(object sender, EventArgs e)
+        {
+            TakeAPicture();
+            SavePicture();
         }
     }
 }

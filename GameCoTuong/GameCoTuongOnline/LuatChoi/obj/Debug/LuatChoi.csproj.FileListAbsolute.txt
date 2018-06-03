@@ -27,3 +27,12 @@ D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\L
 D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.GenerateResource.Cache
 D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.exe
 D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.pdb
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.exe.config
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.exe
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.pdb
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csprojResolveAssemblyReference.cache
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.Form1.resources
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.Properties.Resources.resources
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.GenerateResource.Cache
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.exe
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.pdb

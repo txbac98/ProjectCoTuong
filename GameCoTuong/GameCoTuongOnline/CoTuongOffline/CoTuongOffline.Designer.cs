@@ -33,12 +33,18 @@
             this.lblPheDuocDanh = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
+            this.ptrHelp = new System.Windows.Forms.PictureBox();
+            this.ptrCamera = new System.Windows.Forms.PictureBox();
+            this.ptrSound = new System.Windows.Forms.PictureBox();
             this.ptbLuatChoi = new System.Windows.Forms.PictureBox();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrHelp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLuatChoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
@@ -89,6 +95,40 @@
             this.lblSoLuotDi.Size = new System.Drawing.Size(31, 30);
             this.lblSoLuotDi.TabIndex = 2;
             this.lblSoLuotDi.Text = "??";
+            // 
+            // ptrHelp
+            // 
+            this.ptrHelp.BackColor = System.Drawing.Color.Transparent;
+            this.ptrHelp.Image = global::CoTuongOffline.Properties.Resources.help_icon;
+            this.ptrHelp.Location = new System.Drawing.Point(807, 142);
+            this.ptrHelp.Name = "ptrHelp";
+            this.ptrHelp.Size = new System.Drawing.Size(26, 33);
+            this.ptrHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptrHelp.TabIndex = 18;
+            this.ptrHelp.TabStop = false;
+            this.ptrHelp.Click += new System.EventHandler(this.ptrHelp_Click);
+            // 
+            // ptrCamera
+            // 
+            this.ptrCamera.Image = global::CoTuongOffline.Properties.Resources.Camera;
+            this.ptrCamera.Location = new System.Drawing.Point(885, 142);
+            this.ptrCamera.Name = "ptrCamera";
+            this.ptrCamera.Size = new System.Drawing.Size(26, 33);
+            this.ptrCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptrCamera.TabIndex = 17;
+            this.ptrCamera.TabStop = false;
+            this.ptrCamera.Click += new System.EventHandler(this.ptrCamera_Click);
+            // 
+            // ptrSound
+            // 
+            this.ptrSound.Image = global::CoTuongOffline.Properties.Resources.SoundOn;
+            this.ptrSound.Location = new System.Drawing.Point(846, 142);
+            this.ptrSound.Name = "ptrSound";
+            this.ptrSound.Size = new System.Drawing.Size(26, 33);
+            this.ptrSound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptrSound.TabIndex = 16;
+            this.ptrSound.TabStop = false;
+            this.ptrSound.Click += new System.EventHandler(this.ptrSound_Click);
             // 
             // ptbLuatChoi
             // 
@@ -168,6 +208,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(942, 726);
+            this.Controls.Add(this.ptrHelp);
+            this.Controls.Add(this.ptrCamera);
+            this.Controls.Add(this.ptrSound);
             this.Controls.Add(this.ptbLuatChoi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ptbBanCo);
@@ -183,6 +226,9 @@
             this.Load += new System.EventHandler(this.CoTuongOffline_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrHelp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLuatChoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
@@ -201,6 +247,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
         private System.Windows.Forms.PictureBox ptbLuatChoi;
+        private System.Windows.Forms.PictureBox ptrHelp;
+        private System.Windows.Forms.PictureBox ptrCamera;
+        private System.Windows.Forms.PictureBox ptrSound;
     }
 }
 

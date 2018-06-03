@@ -70,3 +70,6 @@ D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\K
 D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.KhoiDong.resources
 D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.Properties.Resources.resources
 D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.csproj.GenerateResource.Cache
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\KhoiDong\bin\Debug\KhoiDong.exe.config
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.exe
+D:\Github\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\KhoiDong\obj\Debug\KhoiDong.pdb

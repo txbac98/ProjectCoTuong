@@ -182,5 +182,11 @@
   <ItemGroup>
     <None Include="Resources\help_icon_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nhac3.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

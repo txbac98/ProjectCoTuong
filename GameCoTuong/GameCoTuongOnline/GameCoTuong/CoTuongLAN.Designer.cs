@@ -52,19 +52,19 @@
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
+            this.ptrHelp = new System.Windows.Forms.PictureBox();
             this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.ptrCamera = new System.Windows.Forms.PictureBox();
             this.ptrSound = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -333,6 +333,18 @@
             this.lblSoLuotDi.TabIndex = 2;
             this.lblSoLuotDi.Text = "??";
             // 
+            // ptrHelp
+            // 
+            this.ptrHelp.BackColor = System.Drawing.Color.Transparent;
+            this.ptrHelp.Image = global::CoTuongLAN.Properties.Resources.help_icon_2;
+            this.ptrHelp.Location = new System.Drawing.Point(809, 287);
+            this.ptrHelp.Name = "ptrHelp";
+            this.ptrHelp.Size = new System.Drawing.Size(26, 33);
+            this.ptrHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptrHelp.TabIndex = 15;
+            this.ptrHelp.TabStop = false;
+            this.ptrHelp.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // ptbBanCo
             // 
             this.ptbBanCo.BackColor = System.Drawing.Color.Transparent;
@@ -380,23 +392,13 @@
             this.background.TabIndex = 3;
             this.background.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox1.Location = new System.Drawing.Point(906, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 28);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // CuongTuongLAN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(942, 726);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ptrHelp);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -421,11 +423,11 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrHelp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,7 +460,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
         private System.Windows.Forms.PictureBox ptbBanCo;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptrHelp;
     }
 }
 

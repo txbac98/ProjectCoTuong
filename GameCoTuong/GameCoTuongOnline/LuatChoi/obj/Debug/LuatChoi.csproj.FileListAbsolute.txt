@@ -8,3 +8,13 @@ C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnli
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.CoreCompileInputs.cache
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.exe
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.exe.config
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csprojAssemblyReference.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.Form1.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.Properties.Resources.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.GenerateResource.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.CoreCompileInputs.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.pdb

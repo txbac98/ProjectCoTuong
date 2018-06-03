@@ -22,3 +22,17 @@ C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnli
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.CopyComplete
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.exe
 C:\Users\Hoang An\Documents\Đồ án\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.exe.config
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\CoTuongOffline.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.pdb
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\bin\Debug\LuatChoi.exe.config
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csprojAssemblyReference.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.CoTuongOffline.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.Properties.Resources.resources
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.GenerateResource.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.CoreCompileInputs.cache
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.csproj.CopyComplete
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.exe
+D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\CoTuongOffline\obj\Debug\CoTuongOffline.pdb

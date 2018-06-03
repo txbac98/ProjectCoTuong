@@ -42,9 +42,9 @@
             // radioOffline
             // 
             this.radioOffline.AutoSize = true;
-            this.radioOffline.Location = new System.Drawing.Point(60, 35);
+            this.radioOffline.Location = new System.Drawing.Point(27, 20);
             this.radioOffline.Name = "radioOffline";
-            this.radioOffline.Size = new System.Drawing.Size(55, 17);
+            this.radioOffline.Size = new System.Drawing.Size(61, 17);
             this.radioOffline.TabIndex = 0;
             this.radioOffline.TabStop = true;
             this.radioOffline.Text = "Offline";
@@ -53,9 +53,9 @@
             // radioLAN
             // 
             this.radioLAN.AutoSize = true;
-            this.radioLAN.Location = new System.Drawing.Point(60, 70);
+            this.radioLAN.Location = new System.Drawing.Point(27, 48);
             this.radioLAN.Name = "radioLAN";
-            this.radioLAN.Size = new System.Drawing.Size(46, 17);
+            this.radioLAN.Size = new System.Drawing.Size(45, 17);
             this.radioLAN.TabIndex = 1;
             this.radioLAN.TabStop = true;
             this.radioLAN.Text = "LAN";
@@ -64,17 +64,15 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tbPlayerName);
             this.panel2.Controls.Add(this.radioConnectPvp);
             this.panel2.Controls.Add(this.radioNewGamePvp);
             this.panel2.Enabled = false;
-            this.panel2.Location = new System.Drawing.Point(60, 110);
+            this.panel2.Location = new System.Drawing.Point(27, 83);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(311, 122);
+            this.panel2.Size = new System.Drawing.Size(321, 122);
             this.panel2.TabIndex = 9;
             // 
             // label1
@@ -82,7 +80,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tên người chơi:";
             // 
@@ -91,7 +89,7 @@
             this.tbPlayerName.Location = new System.Drawing.Point(111, 17);
             this.tbPlayerName.MaxLength = 12;
             this.tbPlayerName.Name = "tbPlayerName";
-            this.tbPlayerName.Size = new System.Drawing.Size(142, 20);
+            this.tbPlayerName.Size = new System.Drawing.Size(142, 22);
             this.tbPlayerName.TabIndex = 2;
             // 
             // radioConnectPvp
@@ -99,7 +97,7 @@
             this.radioConnectPvp.AutoSize = true;
             this.radioConnectPvp.Location = new System.Drawing.Point(29, 80);
             this.radioConnectPvp.Name = "radioConnectPvp";
-            this.radioConnectPvp.Size = new System.Drawing.Size(249, 17);
+            this.radioConnectPvp.Size = new System.Drawing.Size(267, 17);
             this.radioConnectPvp.TabIndex = 1;
             this.radioConnectPvp.Text = "Kết nối vào một ván cờ tạo bởi người chơi khác";
             this.radioConnectPvp.UseVisualStyleBackColor = true;
@@ -110,7 +108,7 @@
             this.radioNewGamePvp.Checked = true;
             this.radioNewGamePvp.Location = new System.Drawing.Point(29, 50);
             this.radioNewGamePvp.Name = "radioNewGamePvp";
-            this.radioNewGamePvp.Size = new System.Drawing.Size(84, 17);
+            this.radioNewGamePvp.Size = new System.Drawing.Size(86, 17);
             this.radioNewGamePvp.TabIndex = 0;
             this.radioNewGamePvp.TabStop = true;
             this.radioNewGamePvp.Text = "Tạo ván mới";
@@ -118,8 +116,7 @@
             // 
             // btnGo
             // 
-            this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGo.Location = new System.Drawing.Point(171, 256);
+            this.btnGo.Location = new System.Drawing.Point(151, 223);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(86, 27);
             this.btnGo.TabIndex = 10;
@@ -131,13 +128,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 340);
+            this.ClientSize = new System.Drawing.Size(376, 269);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.radioLAN);
             this.Controls.Add(this.radioOffline);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "KhoiDong";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "KD";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

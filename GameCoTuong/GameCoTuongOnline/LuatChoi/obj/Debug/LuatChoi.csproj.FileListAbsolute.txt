@@ -18,3 +18,12 @@ D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\P
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.CoreCompileInputs.cache
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.exe
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.exe.config
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\bin\Debug\LuatChoi.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csprojResolveAssemblyReference.cache
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.Form1.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.Properties.Resources.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.csproj.GenerateResource.Cache
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\LuatChoi\obj\Debug\LuatChoi.pdb

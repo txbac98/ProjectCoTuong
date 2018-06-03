@@ -19,7 +19,7 @@ namespace CoTuongLAN.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,6 +63,16 @@ namespace CoTuongLAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back {
+            get {
+                object obj = ResourceManager.GetObject("Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BanCoTuong {
             get {
                 object obj = ResourceManager.GetObject("BanCoTuong", resourceCulture);
@@ -83,6 +93,56 @@ namespace CoTuongLAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CauHoa1 {
+            get {
+                object obj = ResourceManager.GetObject("CauHoa1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Connect2 {
+            get {
+                object obj = ResourceManager.GetObject("Connect2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap connect3 {
+            get {
+                object obj = ResourceManager.GetObject("connect3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DauHang {
+            get {
+                object obj = ResourceManager.GetObject("DauHang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Go_back_icon {
+            get {
+                object obj = ResourceManager.GetObject("Go-back-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap grey_square_target_depart {
             get {
                 object obj = ResourceManager.GetObject("grey_square_target_depart", resourceCulture);
@@ -96,6 +156,16 @@ namespace CoTuongLAN.Properties {
         internal static System.Drawing.Bitmap grey_square_target_dest {
             get {
                 object obj = ResourceManager.GetObject("grey_square_target_dest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Handshake {
+            get {
+                object obj = ResourceManager.GetObject("Handshake", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -172,6 +242,26 @@ namespace CoTuongLAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap red_play_512 {
+            get {
+                object obj = ResourceManager.GetObject("red-play-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Send {
+            get {
+                object obj = ResourceManager.GetObject("Send", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SiDo {
             get {
                 object obj = ResourceManager.GetObject("SiDo", resourceCulture);
@@ -205,6 +295,16 @@ namespace CoTuongLAN.Properties {
         internal static System.Drawing.Bitmap SoundOn {
             get {
                 object obj = ResourceManager.GetObject("SoundOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Start_icon {
+            get {
+                object obj = ResourceManager.GetObject("Start-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

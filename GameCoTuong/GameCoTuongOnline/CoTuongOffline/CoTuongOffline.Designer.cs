@@ -28,46 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.background = new System.Windows.Forms.PictureBox();
-            this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUndo = new System.Windows.Forms.Button();
             this.lblPheDuocDanh = new System.Windows.Forms.Label();
-            this.btnNewGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
+            this.btnUndo = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.ptbBanCo = new System.Windows.Forms.PictureBox();
+            this.background = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
-            // 
-            // background
-            // 
-            this.background.Enabled = false;
-            this.background.Image = global::CoTuongOffline.Properties.Resources.tranh_thuy_mac;
-            this.background.Location = new System.Drawing.Point(-1, -1);
-            this.background.Name = "background";
-            this.background.Size = new System.Drawing.Size(944, 729);
-            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.background.TabIndex = 4;
-            this.background.TabStop = false;
-            // 
-            // ptbBanCo
-            // 
-            this.ptbBanCo.BackColor = System.Drawing.Color.Transparent;
-            this.ptbBanCo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ptbBanCo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbBanCo.Image = global::CoTuongOffline.Properties.Resources.BanCoTuong;
-            this.ptbBanCo.InitialImage = null;
-            this.ptbBanCo.Location = new System.Drawing.Point(34, 32);
-            this.ptbBanCo.Name = "ptbBanCo";
-            this.ptbBanCo.Size = new System.Drawing.Size(607, 662);
-            this.ptbBanCo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbBanCo.TabIndex = 5;
-            this.ptbBanCo.TabStop = false;
-            this.ptbBanCo.Click += new System.EventHandler(this.ptbBanCo_Click);
             // 
             // panel1
             // 
@@ -83,20 +57,6 @@
             this.panel1.Size = new System.Drawing.Size(264, 104);
             this.panel1.TabIndex = 6;
             // 
-            // btnUndo
-            // 
-            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnUndo.Enabled = false;
-            this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUndo.Location = new System.Drawing.Point(81, 70);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(85, 27);
-            this.btnUndo.TabIndex = 0;
-            this.btnUndo.Text = "Hoàn tác";
-            this.btnUndo.UseVisualStyleBackColor = false;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
             // lblPheDuocDanh
             // 
             this.lblPheDuocDanh.AutoSize = true;
@@ -107,20 +67,6 @@
             this.lblPheDuocDanh.Size = new System.Drawing.Size(161, 25);
             this.lblPheDuocDanh.TabIndex = 0;
             this.lblPheDuocDanh.Text = "Phe nào được đi?";
-            // 
-            // btnNewGame
-            // 
-            this.btnNewGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewGame.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnNewGame.Enabled = false;
-            this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNewGame.Location = new System.Drawing.Point(172, 70);
-            this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(85, 27);
-            this.btnNewGame.TabIndex = 1;
-            this.btnNewGame.Text = "Ván mới";
-            this.btnNewGame.UseVisualStyleBackColor = false;
-            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // label1
             // 
@@ -153,6 +99,66 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUndo.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnUndo.Enabled = false;
+            this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnUndo.Image = global::CoTuongOffline.Properties.Resources.Go_back_icon;
+            this.btnUndo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUndo.Location = new System.Drawing.Point(76, 70);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(90, 27);
+            this.btnUndo.TabIndex = 0;
+            this.btnUndo.Text = "Hoàn tác";
+            this.btnUndo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUndo.UseVisualStyleBackColor = false;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewGame.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewGame.Enabled = false;
+            this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNewGame.Image = global::CoTuongOffline.Properties.Resources.red_play_5121;
+            this.btnNewGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewGame.Location = new System.Drawing.Point(172, 70);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(90, 27);
+            this.btnNewGame.TabIndex = 1;
+            this.btnNewGame.Text = "Ván mới";
+            this.btnNewGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNewGame.UseVisualStyleBackColor = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
+            // 
+            // ptbBanCo
+            // 
+            this.ptbBanCo.BackColor = System.Drawing.Color.Transparent;
+            this.ptbBanCo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbBanCo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbBanCo.Image = global::CoTuongOffline.Properties.Resources.BanCoTuong;
+            this.ptbBanCo.InitialImage = null;
+            this.ptbBanCo.Location = new System.Drawing.Point(34, 32);
+            this.ptbBanCo.Name = "ptbBanCo";
+            this.ptbBanCo.Size = new System.Drawing.Size(607, 662);
+            this.ptbBanCo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbBanCo.TabIndex = 5;
+            this.ptbBanCo.TabStop = false;
+            this.ptbBanCo.Click += new System.EventHandler(this.ptbBanCo_Click);
+            // 
+            // background
+            // 
+            this.background.Enabled = false;
+            this.background.Image = global::CoTuongOffline.Properties.Resources.tranh_thuy_mac;
+            this.background.Location = new System.Drawing.Point(-1, -1);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(944, 729);
+            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background.TabIndex = 4;
+            this.background.TabStop = false;
+            // 
             // CoTuongOffline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,11 +177,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cờ tướng (Offline)";
             this.Load += new System.EventHandler(this.CoTuongOffline_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
 
         }

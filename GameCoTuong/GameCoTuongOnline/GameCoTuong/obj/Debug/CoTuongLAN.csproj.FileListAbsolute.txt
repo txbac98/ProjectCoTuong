@@ -36,3 +36,14 @@ D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\P
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.csproj.CopyComplete
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.exe
 D:\Documents\Học tập\Bài giảng\term4\Lap trinh truc quan\SubjectProject\ProjectCoTuong\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\CoTuongLAN.exe.config
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\CoTuongLAN.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\CoTuongLAN.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\LuatChoi.exe
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\bin\Debug\LuatChoi.pdb
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.csprojResolveAssemblyReference.cache
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.CuongTuongLAN.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.Properties.Resources.resources
+D:\Github\GameCoTuong_Project\GameCoTuong\GameCoTuongOnline\GameCoTuong\obj\Debug\CoTuongLAN.csproj.GenerateResource.Cache

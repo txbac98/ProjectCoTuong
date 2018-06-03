@@ -118,70 +118,79 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BanCoTuong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BanCoTuong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Camera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grey_square_target_depart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grey_square_target_depart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grey_square_target_dest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grey_square_target_dest.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MaDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MaDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MaXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MaXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PhaoDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PhaoDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PhaoXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PhaoXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SiDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SiDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SiXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SiXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SoundOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SoundOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PhaoXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PhaoXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SoundOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SoundOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MaXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TinhDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TinhDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TinhXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TinhXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TotDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TotDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SiDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SiDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TotXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TotXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tranh_thuy_mac" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tranh_thuy_mac.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BanCoTuong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BanCoTuong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TuongDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TuongDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TuongXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TuongXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="grey_square_target_depart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grey_square_target_depart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="XeDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\XeDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="yellow_square_target" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yellow_square_target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TuongDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TuongDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SoundOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SoundOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MaDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SoundOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SoundOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Camera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="XeXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\XeXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="yellow_square_target" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\yellow_square_target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="red-play-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red-play-512.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TotDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TotDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TinhXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TinhXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TinhDo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TinhDo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tranh_thuy_mac" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tranh_thuy_mac.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grey_square_target_dest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grey_square_target_dest.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TuongXanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TuongXanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Go-back-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Go-back-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red-play-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red-play-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

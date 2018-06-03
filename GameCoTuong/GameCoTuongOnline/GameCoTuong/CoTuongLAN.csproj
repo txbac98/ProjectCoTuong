@@ -203,6 +203,36 @@
   <ItemGroup>
     <None Include="Resources\help_icon_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CauHoa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DauHang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Handshake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go-back-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-play-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Connect2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Send.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

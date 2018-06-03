@@ -170,5 +170,14 @@
       <Name>LuatChoi</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go-back-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-play-512.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-play-512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

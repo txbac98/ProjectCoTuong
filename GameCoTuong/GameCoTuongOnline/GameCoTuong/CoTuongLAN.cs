@@ -77,7 +77,7 @@ namespace CoTuongLAN
         }
 
         /* Khi đang chọn 1 quân cờ (tức là đã click vào 1 quân cờ trước đó), click vào một điểm bất kì trên bàn cờ sẽ bỏ chọn quân cờ đó */
-        private void ptbBanCo_Click(object sender, EventArgs e) // BẢN OFFLINE
+        private void ptbBanCo_Click(object sender, EventArgs e)
         {
             if (BanCo.QuanCoDuocChon != null)
             {
@@ -409,95 +409,95 @@ namespace CoTuongLAN
         }
 
         #region Chat
-        public static int TimDauCach(string s, int soKyTu)
+        private int TimDauCach(string str, int soKyTu)
         {
             for (int i = soKyTu; i > 0; i--)
             {
-                if (s[i] == ' ') return i;
+                if (str[i] == ' ') return i;
             }
             return soKyTu;
         }
-        public static string LayDoanSau(string s, int soKyTu)
+        private string LayDoanSau(string str, int soKyTu)
         {
-            string s1 = "";
-            for (int i = soKyTu; i < s.Length; i++)
+            string str1 = "";
+            for (int i = soKyTu; i < str.Length; i++)
             {
-                s1 += s[i];
+                str1 += str[i];
             }
-            return s1;
+            return str1;
         }
-        public static string ThemCachTruoc(string s, int doDai)
+        private string ThemCachTruoc(string str, int doDai)
         {
-            while (s.Length < doDai)
+            while (str.Length < doDai)
             {
-                s = s.Insert(0, " ");
+                str = str.Insert(0, " ");
             }
-            return s;
+            return str;
         }
-        public static string ThemCachSau(string s, int so)
+        private string ThemCachSau(string str, int so)
         {
-            while (s.Length < so)
+            while (str.Length < so)
             {
-                s = s.Insert(s.Length, " ");
+                str = str.Insert(str.Length, " ");
             }
-            return s;
+            return str;
         }
 
-        public void ThemTinNhanNhan(string s)
+        private void ThemTinNhanNhan(string str)
         {
-            while (s.Length > soKT)
+            while (str.Length > soKT)
             {
-                string s1 = "";
-                int viTriDauCach = TimDauCach(s, soKT);
+                string str1 = "";
+                int viTriDauCach = TimDauCach(str, soKT);
                 for (int i = 0; i < viTriDauCach; i++)
                 {
-                    s1 += s[i];
+                    str1 += str[i];
                 }
-                s1 = s1.Trim();
-                lsvMessage.Items.Add(new ListViewItem() { Text = s1 });
+                str1 = str1.Trim();
+                lsvMessage.Items.Add(new ListViewItem() { Text = str1 });
                 lsvMessage.Items[lsvMessage.Items.Count - 1].ForeColor = Color.Blue;
 
-                s = LayDoanSau(s, soKT);
+                str = LayDoanSau(str, soKT);
             }
-            if (s.Length < soKT)
+            if (str.Length < soKT)
             {
-                s = s.Trim();
-                lsvMessage.Items.Add(new ListViewItem() { Text = s });
+                str = str.Trim();
+                lsvMessage.Items.Add(new ListViewItem() { Text = str });
                 lsvMessage.Items[lsvMessage.Items.Count - 1].ForeColor = Color.Blue;
 
             }
         }
-        public void ThemTinNhanGui(string s)
+        private void ThemTinNhanGui(string str)
         {
-            if (s.Length < soKT)
+            if (str.Length < soKT)
             {
-                s = s.Trim();
-                s = ThemCachTruoc(s, doDai);
-                lsvMessage.Items.Add(new ListViewItem() { Text = s });
+                str = str.Trim();
+                str = ThemCachTruoc(str, doDai);
+                lsvMessage.Items.Add(new ListViewItem() { Text = str });
             }
             else
             {
-                while (s.Length > soKT)
+                while (str.Length > soKT)
                 {
-                    string s1 = "";
-                    int viTriDauCach = TimDauCach(s, soKT);
+                    string str1 = "";
+                    int viTriDauCach = TimDauCach(str, soKT);
                     for (int i = 0; i < viTriDauCach; i++)
                     {
-                        s1 += s[i];
+                        str1 += str[i];
                     }
-                    s1 = s1.Trim();
-                    s1 = ThemCachSau(s1, soKT);
-                    s1 = ThemCachTruoc(s1, doDai);
-                    lsvMessage.Items.Add(new ListViewItem() { Text = s1 });
+                    str1 = str1.Trim();
+                    str1 = ThemCachSau(str1, soKT);
+                    str1 = ThemCachTruoc(str1, doDai);
+                    lsvMessage.Items.Add(new ListViewItem() { Text = str1 });
 
-                    s = LayDoanSau(s, soKT);
+                    str = LayDoanSau(str, soKT);
                 }
-                if (s.Length < soKT)
+                if (str.Length < soKT)
                 {
-                    s = s.Trim();
-                    s = ThemCachSau(s, soKT);
-                    s = ThemCachTruoc(s, doDai);
-                    lsvMessage.Items.Add(new ListViewItem() { Text = s });
+                    str = str.Trim();
+                    str = ThemCachSau(str, soKT);
+                    str = ThemCachTruoc(str, doDai);
+                    lsvMessage.Items.Add(new ListViewItem() { Text = str });
                 }
             }
         }
@@ -609,6 +609,12 @@ namespace CoTuongLAN
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
+            luatChoi.Show();
+        }
+
+        private void ptrHelp_Click(object sender, EventArgs e)
         {
             LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
             luatChoi.Show();

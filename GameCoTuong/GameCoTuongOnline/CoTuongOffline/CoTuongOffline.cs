@@ -116,7 +116,7 @@ namespace CoTuongOffline
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void ptbLuatChoi_Click(object sender, EventArgs e)
         {
             LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
             luatChoi.Show();

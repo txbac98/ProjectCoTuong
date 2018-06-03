@@ -33,13 +33,13 @@
             this.lblPheDuocDanh = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbLuatChoi = new System.Windows.Forms.PictureBox();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLuatChoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
@@ -90,15 +90,17 @@
             this.lblSoLuotDi.TabIndex = 2;
             this.lblSoLuotDi.Text = "??";
             // 
-            // pictureBox1
+            // ptbLuatChoi
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DarkRed;
-            this.pictureBox1.Location = new System.Drawing.Point(904, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 28);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.ptbLuatChoi.BackColor = System.Drawing.Color.Transparent;
+            this.ptbLuatChoi.Image = global::CoTuongOffline.Properties.Resources.help_icon_2;
+            this.ptbLuatChoi.Location = new System.Drawing.Point(904, 0);
+            this.ptbLuatChoi.Name = "ptbLuatChoi";
+            this.ptbLuatChoi.Size = new System.Drawing.Size(31, 28);
+            this.ptbLuatChoi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLuatChoi.TabIndex = 7;
+            this.ptbLuatChoi.TabStop = false;
+            this.ptbLuatChoi.Click += new System.EventHandler(this.ptbLuatChoi_Click);
             // 
             // btnUndo
             // 
@@ -166,7 +168,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(942, 726);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ptbLuatChoi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.background);
@@ -181,7 +183,7 @@
             this.Load += new System.EventHandler(this.CoTuongOffline_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLuatChoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
@@ -198,7 +200,7 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbLuatChoi;
     }
 }
 

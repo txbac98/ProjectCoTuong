@@ -9,13 +9,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CoTuongLAN.LAN
 {
     public class SocketManager
     {
         #region Client
-
         Socket client;
         public bool ConnectToServer()
         {
@@ -24,18 +24,18 @@ namespace CoTuongLAN.LAN
             try
             {
                 client.Connect(iep);
+                MessageBox.Show("Kết nối thành công!", "Thông báo", MessageBoxButtons.OK);
                 return true;
             }
             catch
             {
+                MessageBox.Show("Kết nối thất bại!", "Thông báo", MessageBoxButtons.OK);
                 return false;
             }
         }
-
         #endregion
 
         #region Server
-
         Socket server;
         public void CreateServer()
         {
@@ -48,20 +48,20 @@ namespace CoTuongLAN.LAN
             Thread acceptClient = new Thread(() =>
             {
                 client = server.Accept();
+                MessageBox.Show("Người chơi đã kết nối", "Thông báo", MessageBoxButtons.OK);
             })
             {
                 IsBackground = true
             };
             acceptClient.Start();
-        }
-
+        } 
         #endregion
 
         #region Both
 
-        public string IP = "127.0.0.1";
-        public int Port = 9999;
-        public const int BUFFER = 1024;
+        public string IP = "";
+        private int Port = 9999;
+        private const int buffer = 1024;
         public bool isServer = true;
 
         public bool Send(object data)
@@ -72,7 +72,7 @@ namespace CoTuongLAN.LAN
 
         public object Receive()
         {
-            byte[] receiveData = new byte[BUFFER];
+            byte[] receiveData = new byte[buffer];
             bool isOk = ReceiveData(client, receiveData);
             return DeserializeData(receiveData);
 

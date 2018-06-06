@@ -132,12 +132,6 @@ namespace CoTuongOffline
             }
         }
 
-        private void ptbLuatChoi_Click(object sender, EventArgs e)
-        {
-            LuatChoi.Form1 luatChoi = new LuatChoi.Form1();
-            luatChoi.Show();
-        }
-
         private void ptrHelp_Click(object sender, EventArgs e)
         {
             LuatChoi.Form1 luatChoi = new LuatChoi.Form1();

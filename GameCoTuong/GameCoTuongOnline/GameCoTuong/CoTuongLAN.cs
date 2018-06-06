@@ -30,16 +30,16 @@ namespace CoTuongLAN
         private static Graphics screenGraphics;
 
         //Chat
-        public static int soKT = 30, doDai = 50;
+        private static int soKT = 30, doDai = 50;
 
         public CuongTuongLAN()
         {
             InitializeComponent();
             PlayMusic();
         }
-        public void PlayMusic()
+        private void PlayMusic()
         {
-           player = new System.Media.SoundPlayer(Properties.Resources.Nhac3);
+            player = new System.Media.SoundPlayer(Properties.Resources.Nhac3);
             player.PlayLooping();
         }
 
@@ -150,19 +150,20 @@ namespace CoTuongLAN
             if (result == DialogResult.Yes)
             {
                 btnSurrender.Enabled = false;
-                TakeAPicture();
+                //TakeAPicture();
                 socketManager.Send(new SocketData((int)SocketCommand.SURRENDER));
                 lblOpponentScore.Text = (int.Parse(lblOpponentScore.Text) + 1).ToString();
-                BanCo.SetToDefault();
-                BanCo.XoaBanCo();
-                BanCo.TaoDiemBanCo(DiemBanCo_Click);
-                BanCo.TaoQuanCo(QuanCo_Click);
-                BanCo.RefreshBanCo();
+                //BanCo.SetToDefault();
+                //BanCo.XoaBanCo();
+                //BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                //BanCo.TaoQuanCo(QuanCo_Click);
+                //BanCo.RefreshBanCo();
                 MessageBox.Show("Bạn đã thua ván cờ này. Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
-                if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    SavePicture();
-                }
+                //if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //{
+                //    SavePicture();
+                //}
+                timerRemainingTime.Stop();
             }
         }
 
@@ -170,16 +171,30 @@ namespace CoTuongLAN
         {
             btnLAN.Enabled = false;
             socketManager.IP = txbIP.Text;
-
-            if (!socketManager.ConnectToServer())
+            //if (!socketManager.ConnectToServer())
+            //{              
+            //    socketManager.isServer = true;
+            //    socketManager.CreateServer();
+            //}
+            //else
+            //{
+            //    socketManager.isServer = false;
+            //    socketManager.Send(new SocketData((int)SocketCommand.TEST_CONNECTION));
+            //    Listen();
+            //}
+            if (BanCo.PheTa == 2)
             {
                 socketManager.isServer = true;
                 socketManager.CreateServer();
             }
             else
             {
-                socketManager.isServer = false;
-                Listen();
+                if (socketManager.ConnectToServer())
+                {
+                    socketManager.isServer = false;
+                    socketManager.Send(new SocketData((int)SocketCommand.TEST_CONNECTION));
+                    Listen();
+                }
             }
         }
 
@@ -227,17 +242,18 @@ namespace CoTuongLAN
                         DialogResult resultNewGame = MessageBox.Show("Đối phương xin hòa và bắt đầu một ván mới. Bạn có có đồng ý không?", "Cầu hòa", MessageBoxButtons.YesNo);
                         if (resultNewGame == DialogResult.Yes)
                         {
-                            TakeAPicture();
+                            //TakeAPicture();
                             socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_NEW_GAME));
-                            BanCo.SetToDefault();
-                            BanCo.XoaBanCo();
-                            BanCo.TaoDiemBanCo(DiemBanCo_Click);
-                            BanCo.TaoQuanCo(QuanCo_Click);
-                            BanCo.RefreshBanCo();
-                            if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                            {
-                                SavePicture();
-                            }
+                            BanCo.DisableBanCo();
+                            //BanCo.SetToDefault();
+                            //BanCo.XoaBanCo();
+                            //BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                            //BanCo.TaoQuanCo(QuanCo_Click);
+                            //BanCo.RefreshBanCo();
+                            //if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            //{
+                            //    SavePicture();
+                            //}
                         }
                         else if (resultNewGame == DialogResult.No)
                         {
@@ -252,17 +268,20 @@ namespace CoTuongLAN
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
-                        TakeAPicture();
-                        BanCo.SetToDefault();
-                        BanCo.XoaBanCo();
-                        BanCo.TaoDiemBanCo(DiemBanCo_Click);
-                        BanCo.TaoQuanCo(QuanCo_Click);
-                        BanCo.RefreshBanCo();
+                        if (BanCo.PheTa == 1)
+                            btnReady.Enabled = true;
+                        //TakeAPicture();
+                        //BanCo.SetToDefault();
+                        //BanCo.XoaBanCo();
+                        //BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        //BanCo.TaoQuanCo(QuanCo_Click);
+                        //BanCo.RefreshBanCo();
                         MessageBox.Show("Đối phương đã đồng ý hòa ván này. Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
-                        if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            SavePicture();
-                        }
+                        //if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        //{
+                        //    SavePicture();
+                        //}
+                        BanCo.DisableBanCo();
                         this.Enabled = true;
                     }));
                     break;
@@ -303,18 +322,19 @@ namespace CoTuongLAN
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
-                        TakeAPicture();
+                        //TakeAPicture();
                         lblScore.Text = (int.Parse(lblScore.Text) + 1).ToString();
-                        BanCo.SetToDefault();
-                        BanCo.XoaBanCo();
-                        BanCo.TaoDiemBanCo(DiemBanCo_Click);
-                        BanCo.TaoQuanCo(QuanCo_Click);
-                        BanCo.RefreshBanCo();
+                        //BanCo.SetToDefault();
+                        //BanCo.XoaBanCo();
+                        //BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        //BanCo.TaoQuanCo(QuanCo_Click);
+                        //BanCo.RefreshBanCo();
                         MessageBox.Show("Đối phương đã xin hàng. Bạn đã thắng ván cờ này! Bắt đầu ván mới.", "Kết thúc ván cờ", MessageBoxButtons.OK);
-                        if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            SavePicture();
-                        }
+                        //if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        //{
+                        //    SavePicture();
+                        //}
+                        BanCo.DisableBanCo();
                         this.Enabled = true;
                     }));
                     break;
@@ -322,25 +342,24 @@ namespace CoTuongLAN
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.Enabled = false;
-                        TakeAPicture();
-                        BanCo.SetToDefault();
-                        BanCo.XoaBanCo();
-                        BanCo.TaoDiemBanCo(DiemBanCo_Click);
-                        BanCo.TaoQuanCo(QuanCo_Click);
-                        BanCo.RefreshBanCo();
+                        //TakeAPicture();
+                        //BanCo.SetToDefault();
+                        //BanCo.XoaBanCo();
+                        //BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        //BanCo.TaoQuanCo(QuanCo_Click);
+                        //BanCo.RefreshBanCo();
                         MessageBox.Show("Đối phương đã tự thoát game.", "Kết thúc ván cờ", MessageBoxButtons.OK);
-                        if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            SavePicture();
-                        }
+                        //if (MessageBox.Show("Bạn có muốn lưu hình ảnh gần nhất ván cờ vừa rồi?", "Lưu hình ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        //{
+                        //    SavePicture();
+                        //}
+                        panel1.Enabled = false;
                         this.Enabled = true;
                     }));
                     break;
                 case (int)SocketCommand.CHAT_MESSAGE:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        //listView1.Items.Add(new ListViewItem() { Text = data.Message });
-                        //txtMessage.Text += data.Message + "\r\n";
                         ThemTinNhanNhan(data.Message);
                     }));
                     break;
@@ -361,21 +380,61 @@ namespace CoTuongLAN
                 case (int)SocketCommand.READY:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        BanCo.OpponentName = data.Message;
-                        lblOpponentName.Text = BanCo.OpponentName;
-                        BanCo.WritePheDuocDanh(lblPheDuocDanh);
-                        lblPheDuocDanh.Visible = true;
-                        ptbBanCo.Enabled = true;
-                        if (BanCo.PheTa == 1)
-                            socketManager.Send(new SocketData((int)SocketCommand.READY, BanCo.Name));
-                        else if (BanCo.PheTa == 2)
-                            timerRemainingTime.Start();
+                        //BanCo.SetToDefault();
+                        //BanCo.XoaBanCo();
+                        //BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        //BanCo.TaoQuanCo(QuanCo_Click);
+                        //BanCo.RefreshBanCo();
+
+                        //BanCo.OpponentName = data.Message;
+                        //lblOpponentName.Text = BanCo.OpponentName;
+                        //BanCo.WritePheDuocDanh(lblPheDuocDanh);
+                        //lblPheDuocDanh.Visible = true;
+                        //ptbBanCo.Enabled = true;
+                        //if (BanCo.PheTa == 1)
+                        //{
+                        DialogResult result = MessageBox.Show("Bạn đã sẵn sàng?", "Thông báo", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            socketManager.Send(new SocketData((int)SocketCommand.ACCEPT_READY, BanCo.Name));
+                            BanCo.SetToDefault();
+                            BanCo.XoaBanCo();
+                            BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                            BanCo.TaoQuanCo(QuanCo_Click);
+                            BanCo.RefreshBanCo();
+
+                            BanCo.OpponentName = data.Message;
+                            lblOpponentName.Text = BanCo.OpponentName;
+                            BanCo.WritePheDuocDanh(lblPheDuocDanh);
+                            lblPheDuocDanh.Visible = true;
+                            ptbBanCo.Enabled = true;
+                        }
+                        //}
+                        //else if (BanCo.PheTa == 2)
+                        //    timerRemainingTime.Start();
                     }));
                     break;
                 case (int)SocketCommand.OPPONENT_TICK:
                     this.Invoke((MethodInvoker)(() =>
                     {
                         lblOpponentRemainingTime.Text = data.Message;
+                    }));
+                    break;
+                case (int)SocketCommand.ACCEPT_READY:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        BanCo.SetToDefault();
+                        BanCo.XoaBanCo();
+                        BanCo.TaoDiemBanCo(DiemBanCo_Click);
+                        BanCo.TaoQuanCo(QuanCo_Click);
+                        BanCo.RefreshBanCo();
+
+                        BanCo.OpponentName = data.Message;
+                        lblOpponentName.Text = BanCo.OpponentName;
+                        BanCo.WritePheDuocDanh(lblPheDuocDanh);
+                        lblPheDuocDanh.Visible = true;
+                        ptbBanCo.Enabled = true;
+                        timerRemainingTime.Start();
                     }));
                     break;
             }
@@ -454,7 +513,7 @@ namespace CoTuongLAN
                     str1 += str[i];
                 }
                 str1 = str1.Trim();
-                lsvMessage.Items.Add(new ListViewItem() { Text = str1 });
+                lsvMessage.Items.Add(new ListViewItem() { Text = BanCo.OpponentName + ":  " + str1 });
                 lsvMessage.Items[lsvMessage.Items.Count - 1].ForeColor = Color.Blue;
 
                 str = LayDoanSau(str, soKT);
@@ -462,7 +521,7 @@ namespace CoTuongLAN
             if (str.Length < soKT)
             {
                 str = str.Trim();
-                lsvMessage.Items.Add(new ListViewItem() { Text = str });
+                lsvMessage.Items.Add(new ListViewItem() { Text = BanCo.OpponentName + ": " + str });
                 lsvMessage.Items[lsvMessage.Items.Count - 1].ForeColor = Color.Blue;
 
             }
@@ -503,6 +562,48 @@ namespace CoTuongLAN
         }
         #endregion
 
+        #region Sound & Capture
+        private void ptrSound_Click(object sender, EventArgs e)
+        {
+            if (sound)
+            {
+
+                ptrSound.Image = CoTuongLAN.Properties.Resources.SoundOff;
+                player.Stop();
+            }
+            else
+            {
+                ptrSound.Image = Properties.Resources.SoundOn;
+                PlayMusic();
+            }
+            sound = !sound;
+        }
+
+        private void TakeAPicture()
+        {
+            // Chụp ảnh
+            screenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+                                            Screen.PrimaryScreen.Bounds.Height,
+                                            PixelFormat.Format32bppArgb);
+            Thread.Sleep(500);
+            screenGraphics = Graphics.FromImage(screenBitmap);
+            screenGraphics.CopyFromScreen(this.Location.X, this.Location.Y,
+                                    0, 0, this.Size, CopyPixelOperation.SourceCopy);
+        }
+
+        private void SavePicture()
+        {
+            // Lưu ảnh đã chụp
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PNG Files (.png)|*.png|All Files (*.*)|*.*";
+            saveDialog.FilterIndex = 1;
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                screenBitmap.Save(saveDialog.FileName, ImageFormat.Png);
+                MessageBox.Show("Đã lưu ảnh '" + saveDialog.FileName + "' !!", "Thành công");
+            }
+        }
+        #endregion
 
         private void btnGui_Click(object sender, EventArgs e)
         {
@@ -564,47 +665,6 @@ namespace CoTuongLAN
             {
                 MessageBox.Show("Chưa kết nối hoặc đã mất kết nối với đối thủ.");
                 btnReady.Enabled = true;
-            }
-        }
-
-        private void ptrSound_Click(object sender, EventArgs e)
-        {
-            if (sound)
-            {
-                             
-                ptrSound.Image = CoTuongLAN.Properties.Resources.SoundOff;
-                player.Stop();
-            }
-            else
-            {
-                ptrSound.Image = Properties.Resources.SoundOn;
-                PlayMusic();
-            }
-            sound = !sound;
-        }
-
-        private void TakeAPicture()
-        {
-            // Chụp ảnh
-            screenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
-                                            Screen.PrimaryScreen.Bounds.Height,
-                                            PixelFormat.Format32bppArgb);
-            Thread.Sleep(500);
-            screenGraphics = Graphics.FromImage(screenBitmap);
-            screenGraphics.CopyFromScreen(this.Location.X, this.Location.Y,
-                                    0, 0, this.Size, CopyPixelOperation.SourceCopy);
-        }
-
-        private void SavePicture()
-        {
-            // Lưu ảnh đã chụp
-            SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "PNG Files (.png)|*.png|All Files (*.*)|*.*";
-            saveDialog.FilterIndex = 1;
-            if (saveDialog.ShowDialog() == DialogResult.OK)
-            {
-                screenBitmap.Save(saveDialog.FileName, ImageFormat.Png);
-                MessageBox.Show("Đã lưu ảnh '" + saveDialog.FileName + "' !!", "Thành công");
             }
         }
 

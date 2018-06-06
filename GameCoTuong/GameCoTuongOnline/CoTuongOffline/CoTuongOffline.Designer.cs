@@ -30,22 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoTuongOffline));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUndo = new System.Windows.Forms.Button();
             this.lblPheDuocDanh = new System.Windows.Forms.Label();
+            this.btnNewGame = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoLuotDi = new System.Windows.Forms.Label();
             this.ptrHelp = new System.Windows.Forms.PictureBox();
             this.ptrCamera = new System.Windows.Forms.PictureBox();
             this.ptrSound = new System.Windows.Forms.PictureBox();
-            this.ptbLuatChoi = new System.Windows.Forms.PictureBox();
-            this.btnUndo = new System.Windows.Forms.Button();
-            this.btnNewGame = new System.Windows.Forms.Button();
             this.ptbBanCo = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptrHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLuatChoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +62,23 @@
             this.panel1.Size = new System.Drawing.Size(264, 104);
             this.panel1.TabIndex = 6;
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUndo.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnUndo.Enabled = false;
+            this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnUndo.Image = global::CoTuongOffline.Properties.Resources.Go_back_icon;
+            this.btnUndo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUndo.Location = new System.Drawing.Point(76, 70);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(90, 27);
+            this.btnUndo.TabIndex = 0;
+            this.btnUndo.Text = "Hoàn tác";
+            this.btnUndo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUndo.UseVisualStyleBackColor = false;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
             // lblPheDuocDanh
             // 
             this.lblPheDuocDanh.AutoSize = true;
@@ -74,6 +89,23 @@
             this.lblPheDuocDanh.Size = new System.Drawing.Size(161, 25);
             this.lblPheDuocDanh.TabIndex = 0;
             this.lblPheDuocDanh.Text = "Phe nào được đi?";
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewGame.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewGame.Enabled = false;
+            this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNewGame.Image = global::CoTuongOffline.Properties.Resources.red_play_5121;
+            this.btnNewGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewGame.Location = new System.Drawing.Point(172, 70);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(90, 27);
+            this.btnNewGame.TabIndex = 1;
+            this.btnNewGame.Text = "Ván mới";
+            this.btnNewGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNewGame.UseVisualStyleBackColor = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // label1
             // 
@@ -130,52 +162,6 @@
             this.ptrSound.TabStop = false;
             this.ptrSound.Click += new System.EventHandler(this.ptrSound_Click);
             // 
-            // ptbLuatChoi
-            // 
-            this.ptbLuatChoi.BackColor = System.Drawing.Color.Transparent;
-            this.ptbLuatChoi.Image = global::CoTuongOffline.Properties.Resources.help_icon_2;
-            this.ptbLuatChoi.Location = new System.Drawing.Point(904, 0);
-            this.ptbLuatChoi.Name = "ptbLuatChoi";
-            this.ptbLuatChoi.Size = new System.Drawing.Size(31, 28);
-            this.ptbLuatChoi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbLuatChoi.TabIndex = 7;
-            this.ptbLuatChoi.TabStop = false;
-            this.ptbLuatChoi.Click += new System.EventHandler(this.ptbLuatChoi_Click);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnUndo.Enabled = false;
-            this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnUndo.Image = global::CoTuongOffline.Properties.Resources.Go_back_icon;
-            this.btnUndo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUndo.Location = new System.Drawing.Point(76, 70);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(90, 27);
-            this.btnUndo.TabIndex = 0;
-            this.btnUndo.Text = "Hoàn tác";
-            this.btnUndo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUndo.UseVisualStyleBackColor = false;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
-            // btnNewGame
-            // 
-            this.btnNewGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewGame.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnNewGame.Enabled = false;
-            this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNewGame.Image = global::CoTuongOffline.Properties.Resources.red_play_5121;
-            this.btnNewGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewGame.Location = new System.Drawing.Point(172, 70);
-            this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(90, 27);
-            this.btnNewGame.TabIndex = 1;
-            this.btnNewGame.Text = "Ván mới";
-            this.btnNewGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNewGame.UseVisualStyleBackColor = false;
-            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
-            // 
             // ptbBanCo
             // 
             this.ptbBanCo.BackColor = System.Drawing.Color.Transparent;
@@ -211,7 +197,6 @@
             this.Controls.Add(this.ptrHelp);
             this.Controls.Add(this.ptrCamera);
             this.Controls.Add(this.ptrSound);
-            this.Controls.Add(this.ptbLuatChoi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ptbBanCo);
             this.Controls.Add(this.background);
@@ -229,7 +214,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptrHelp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrSound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLuatChoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBanCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
@@ -246,7 +230,6 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoLuotDi;
-        private System.Windows.Forms.PictureBox ptbLuatChoi;
         private System.Windows.Forms.PictureBox ptrHelp;
         private System.Windows.Forms.PictureBox ptrCamera;
         private System.Windows.Forms.PictureBox ptrSound;

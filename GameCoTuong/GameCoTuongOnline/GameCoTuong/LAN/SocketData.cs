@@ -50,7 +50,8 @@ namespace CoTuongLAN.LAN
             OUT_OF_TIME,
             READY,
             OPPONENT_TICK,
-            GET_OPPONENT_NAME
+            GET_OPPONENT_NAME,
+            ACCEPT_READY
         }
     }
 }

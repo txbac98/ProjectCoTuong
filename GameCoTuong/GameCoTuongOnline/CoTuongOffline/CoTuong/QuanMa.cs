@@ -30,156 +30,157 @@ namespace CoTuongOffline.CoTuong
             QuanCo quanCoMucTieu;
 
             // Xét điểm cản (ToaDo.X - 1, ToaDo.Y)
+            //Xét điểm cản(ToaDo.X - 1, ToaDo.Y)
             diemCan = new Point(ToaDo.X - 1, ToaDo.Y);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
+            toaDoMucTieu = new Point(ToaDo.X - 2, ToaDo.Y - 1);
+            if (NamTrongBanCo(toaDoMucTieu))
             {
-                toaDoMucTieu = new Point(ToaDo.X - 2, ToaDo.Y - 1);
-                if (NamTrongBanCo(toaDoMucTieu))
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
-                    }
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 }
-                toaDoMucTieu = new Point(ToaDo.X - 2, ToaDo.Y + 1);
-                if (NamTrongBanCo(toaDoMucTieu))
+                else
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
                     {
                         DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
                     }
                 }
             }
+            toaDoMucTieu = new Point(ToaDo.X - 2, ToaDo.Y + 1);
+            if (NamTrongBanCo(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                {
+                    DanhSachDiemDich.Add(toaDoMucTieu);
+                }
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                    {
+                        DanhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                }
+            }
+            //}
 
             // Xét điểm cản (ToaDo.X + 1, ToaDo.Y)
             diemCan = new Point(ToaDo.X + 1, ToaDo.Y);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
+            toaDoMucTieu = new Point(ToaDo.X + 2, ToaDo.Y - 1);
+            if (NamTrongBanCo(toaDoMucTieu))
             {
-                toaDoMucTieu = new Point(ToaDo.X + 2, ToaDo.Y - 1);
-                if (NamTrongBanCo(toaDoMucTieu))
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
-                    }
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 }
-                toaDoMucTieu = new Point(ToaDo.X + 2, ToaDo.Y + 1);
-                if (NamTrongBanCo(toaDoMucTieu))
+                else
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
                     {
                         DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
                     }
                 }
             }
+            toaDoMucTieu = new Point(ToaDo.X + 2, ToaDo.Y + 1);
+            if (NamTrongBanCo(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                {
+                    DanhSachDiemDich.Add(toaDoMucTieu);
+                }
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                    {
+                        DanhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                }
+            }
+            //}
 
             // Xét điểm cản (ToaDo.X, ToaDo.Y - 1)
             diemCan = new Point(ToaDo.X, ToaDo.Y - 1);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
+            toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y - 2);
+            if (NamTrongBanCo(toaDoMucTieu))
             {
-                toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y - 2);
-                if (NamTrongBanCo(toaDoMucTieu))
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
-                    }
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 }
-                toaDoMucTieu = new Point(ToaDo.X + 1, ToaDo.Y - 2);
-                if (NamTrongBanCo(toaDoMucTieu))
+                else
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
                     {
                         DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
                     }
                 }
             }
+            toaDoMucTieu = new Point(ToaDo.X + 1, ToaDo.Y - 2);
+            if (NamTrongBanCo(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                {
+                    DanhSachDiemDich.Add(toaDoMucTieu);
+                }
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                    {
+                        DanhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                }
+            }
+            //}
 
             // Xét điểm cản (ToaDo.X, ToaDo.Y + 1)
             diemCan = new Point(ToaDo.X, ToaDo.Y + 1);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
+            toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y + 2);
+            if (NamTrongBanCo(toaDoMucTieu))
             {
-                toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y + 2);
-                if (NamTrongBanCo(toaDoMucTieu))
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
-                    {
-                        DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
-                    }
+                    DanhSachDiemDich.Add(toaDoMucTieu);
                 }
-                toaDoMucTieu = new Point(ToaDo.X + 1, ToaDo.Y + 2);
-                if (NamTrongBanCo(toaDoMucTieu))
+                else
                 {
-                    if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
                     {
                         DanhSachDiemDich.Add(toaDoMucTieu);
-                    }
-                    else
-                    {
-                        quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
-                        if (quanCoMucTieu.Mau != this.Mau)
-                        {
-                            DanhSachDiemDich.Add(toaDoMucTieu);
-                        }
                     }
                 }
             }
+            toaDoMucTieu = new Point(ToaDo.X + 1, ToaDo.Y + 2);
+            if (NamTrongBanCo(toaDoMucTieu))
+            {
+                if (!BanCo.CoQuanCoTaiDay(toaDoMucTieu))
+                {
+                    DanhSachDiemDich.Add(toaDoMucTieu);
+                }
+                else
+                {
+                    quanCoMucTieu = BanCo.GetQuanCo(toaDoMucTieu);
+                    if (quanCoMucTieu.Mau != this.Mau)
+                    {
+                        DanhSachDiemDich.Add(toaDoMucTieu);
+                    }
+                }
+            }
+            //}
         }
     }
 }

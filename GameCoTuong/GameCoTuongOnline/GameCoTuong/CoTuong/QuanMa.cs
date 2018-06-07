@@ -29,10 +29,10 @@ namespace CoTuongLAN.CoTuong
             Point toaDoMucTieu;
             QuanCo quanCoMucTieu;
 
-            // Xét điểm cản (ToaDo.X - 1, ToaDo.Y)
+            //Xét điểm cản(ToaDo.X - 1, ToaDo.Y)
             diemCan = new Point(ToaDo.X - 1, ToaDo.Y);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
-            {
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
                 toaDoMucTieu = new Point(ToaDo.X - 2, ToaDo.Y - 1);
                 if (NamTrongBanCo(toaDoMucTieu))
                 {
@@ -65,12 +65,12 @@ namespace CoTuongLAN.CoTuong
                         }
                     }
                 }
-            }
+            //}
 
             // Xét điểm cản (ToaDo.X + 1, ToaDo.Y)
             diemCan = new Point(ToaDo.X + 1, ToaDo.Y);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
-            {
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
                 toaDoMucTieu = new Point(ToaDo.X + 2, ToaDo.Y - 1);
                 if (NamTrongBanCo(toaDoMucTieu))
                 {
@@ -103,12 +103,12 @@ namespace CoTuongLAN.CoTuong
                         }
                     }
                 }
-            }
+            //}
 
             // Xét điểm cản (ToaDo.X, ToaDo.Y - 1)
             diemCan = new Point(ToaDo.X, ToaDo.Y - 1);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
-            {
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
                 toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y - 2);
                 if (NamTrongBanCo(toaDoMucTieu))
                 {
@@ -141,12 +141,12 @@ namespace CoTuongLAN.CoTuong
                         }
                     }
                 }
-            }
+            //}
 
             // Xét điểm cản (ToaDo.X, ToaDo.Y + 1)
             diemCan = new Point(ToaDo.X, ToaDo.Y + 1);
-            if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
-            {
+            //if (NamTrongBanCo(diemCan) && !BanCo.CoQuanCoTaiDay(diemCan))
+            //{
                 toaDoMucTieu = new Point(ToaDo.X - 1, ToaDo.Y + 2);
                 if (NamTrongBanCo(toaDoMucTieu))
                 {
@@ -179,7 +179,7 @@ namespace CoTuongLAN.CoTuong
                         }
                     }
                 }
-            }
+            //}
         }
     }
 }

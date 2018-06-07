@@ -51,7 +51,8 @@ namespace CoTuongLAN.LAN
             READY,
             OPPONENT_TICK,
             GET_OPPONENT_NAME,
-            ACCEPT_READY
+            ACCEPT_READY, 
+            DENY_READY
         }
     }
 }
